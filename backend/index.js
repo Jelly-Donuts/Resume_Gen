@@ -11,7 +11,8 @@ let phone_num = '(310) 424 8136';
 
 let coll_name   = 'University of California, Berkeley';
 let coll_GPA    = '2.823';
-let coll_degree = 'Bachelor of Science: Electrical Engineering & Computer Science';
+let coll_degree = 'Bachelor of Science: Electrical Engineering\
+                        & Computer Science';
 let coll_date   = '2016 - 2020';
 let coll_loc    = 'Berkeley, CA'; 
 
@@ -44,7 +45,7 @@ doc.pipe(fs.createWriteStream('./pdfs/' + docname));
 //Name
 doc.fontSize(40);
 
-doc.text(name, {
+doc.font('fonts/Didot.ttf').text(name, {
     align: 'center',
     lineGap: -20
 });
