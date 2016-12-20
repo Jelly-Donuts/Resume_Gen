@@ -2,7 +2,14 @@
 
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
-const doc = new PDFDocument;
+const doc = new PDFDocument({
+	margins : {
+		top:72, 
+		bottom:36, 
+		right:36, 
+		left:36
+	}
+});
 
 let name      = 'John Doe'
 let address   = '1234 Main Street, Anytown, STATE 56789'
