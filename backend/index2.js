@@ -67,8 +67,8 @@ doc.font('Section Title')
 
 //Education:Bar
 doc.lineWidth(1)
-   .moveTo(72, 114)
-   .lineTo(540, 114)
+   .moveTo(36, 114)
+   .lineTo(576, 114)
    .stroke();
 
 //Education:University
@@ -185,8 +185,8 @@ doc.font('Section Title')
 
 //Professional Experience:Bar
 doc.lineWidth(1)
-   .moveTo(72, 275)
-   .lineTo(540, 275)
+   .moveTo(36, 275)
+   .lineTo(576, 275)
    .stroke();
 
 //Professional Experience:Employer 1
@@ -270,8 +270,8 @@ doc.font('Section Title')
 
 //Leadership and Service:Bar
 doc.lineWidth(1)
-   .moveTo(72, 450)
-   .lineTo(540, 450)
+   .moveTo(36, 450)
+   .lineTo(576, 450)
    .stroke();
 
 //Leadership and Service:Organization 1
@@ -356,8 +356,8 @@ doc.font('Section Title')
 
 //Skills:Bar
 doc.lineWidth(1)
-   .moveTo(72, 625)
-   .lineTo(540, 625)
+   .moveTo(36, 625)
+   .lineTo(576, 625)
    .stroke();
 
 //Skills:Domain 1
@@ -407,8 +407,8 @@ doc.font('Section Title')
 
 //Activities:Bar
 doc.lineWidth(1)
-   .moveTo(72, 696)
-   .lineTo(540, 696)
+   .moveTo(36, 696)
+   .lineTo(576, 696)
    .stroke();
 
 //Activities:Activity 1
