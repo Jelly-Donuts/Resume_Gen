@@ -1,0 +1,203 @@
+{
+  "settings": {
+    "name": "Resume Generator",
+    "currentPage": "index.html",
+    "theme": {
+      "name": "directm",
+      "title": "DirectM",
+      "styling": {
+        "primaryColor": "#5aac98",
+        "secondaryColor": "#A25DAE",
+        "successColor": "#1E7C3A",
+        "infoColor": "#74a3c7",
+        "warningColor": "#FFD785",
+        "dangerColor": "#FF9685",
+        "titleFont": "Oxygen",
+        "subtitleFont": "Libre Franklin",
+        "textFont": "Libre Franklin",
+        "isRoundedButtons": false,
+        "isAnimatedOnScroll": false,
+        "isScrollToTopButton": false
+      }
+    },
+    "versionFirst": "3.10.4",
+    "uniqCompNum": 8,
+    "versionPublish": "3.10.4",
+    "favicon": "@PROJECT_PATH@/assets/images/kindle-350x350-47-128x128-84-128x128-77.png",
+    "noImageResize": ""
+  },
+  "pages": {
+    "index.html": {
+      "settings": {
+        "main": true,
+        "title": "",
+        "meta_descr": "",
+        "header_custom": "",
+        "footer_custom": "",
+        "html_before": ""
+      },
+      "components": [
+        {
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "header4",
+          "_params": {
+            "showTitle": true,
+            "showText": true,
+            "showButtons": false,
+            "contentAlign": "center",
+            "showArrow": true,
+            "bgImageRadio": true,
+            "bgImage": "@PROJECT_PATH@/assets/images/full-unsplash-photo-1437326584642-6019c5210de1-2000x1333-75.jpg",
+            "parallax": false,
+            "bgColorRadio": false,
+            "bgColor": "#bdb39a",
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "https://www.youtube.com/watch?v=fwkKc6M60-0"
+            },
+            "overlay": true,
+            "overlayColor": "#264a54",
+            "overlayOpacity": 0.2
+          },
+          "title": "Resume Generator",
+          "text": "Hi, welcome to our Resume Generator.<br>Put in your info and out&nbsp;comes a resume.",
+          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-md btn-primary\" href=\"https://mobirise.com\">Download for Windows</a><a data-app-btn=\"true\" class=\"btn btn-md btn-white\" href=\"https://mobirise.com\" data-toolbar=\"-mbrBtnMove\">Download for Mac</a>",
+          "_customHTML": "<section class=\"mbr-section mbr-section-hero mbr-section-full header4 mbr-section-with-arrow mbr-after-navbar\" style=\"background-image: url(@PROJECT_PATH@/assets/images/full-unsplash-photo-1437326584642-6019c5210de1-2000x1333-75.jpg);\">\n\n    <div class=\"mbr-overlay\" style=\"opacity: 0.2; background-color: rgb(38, 74, 84);\"></div>\n\n    <div class=\"mbr-table-cell\">\n\n        <div class=\"container\">\n            <div class=\"row heading\">\n                <div class=\"col-md-10 col-md-offset-1 text-xs-center\">\n\n                    <h1 class=\"mbr-section-title display-1 heading-title mbr-editable-content\" code-editable-id=\"3\">Resume Generator</h1>\n                    <p class=\"mbr-section-subtitle sub-2 heading-text mbr-editable-content\" code-editable-id=\"4\">Hi, welcome to our Resume Generator.<br>Put in your info and out&nbsp;comes a resume.</p>\n                    \n                </div>\n            </div>\n        </div>\n\n        <div class=\"container-fluid\">\n            <div class=\"col-xs-12 col-lg-10 col-lg-offset-1\">\n                \n            </div>\n        </div>\n\n    </div>\n</section>",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_customCSS": ".mbr-iconfont {\n\tcolor: undefined;\n\tborder-color: undefined;\n}\n.mbr-table-cell {\n\tvertical-align: middle;\n}\n",
+          "_customTemplate": true,
+          "_anchor": "header4-2",
+          "_styles": {
+            ".mbr-iconfont": {},
+            ".mbr-table-cell": {
+              "vertical-align": "middle"
+            }
+          }
+        },
+        {
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "form1",
+          "_params": {
+            "paddingTop": "1",
+            "paddingBottom": 1,
+            "showHeading": true,
+            "showTitle": true,
+            "showText": false,
+            "showButtons": false,
+            "formBg": "#fafbfc",
+            "formHeader": true,
+            "bgImageRadio": false,
+            "bgImage": "@THEME_PATH@/components/_images/header/01.jpg",
+            "parallax": false,
+            "bgColorRadio": true,
+            "bgColor": "#fffffd",
+            "bgVideoRadio": false,
+            "bgVideo": {
+              "url": "http://www.youtube.com/watch?v=fwkKc6M60-0"
+            },
+            "overlay": true,
+            "overlayColor": "#fffffd",
+            "overlayOpacity": 0.95
+          },
+          "title": "Send your suggestions",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates, sed iusto corrupti explicabo. Dignissimos, harum. Adipisci dolorem odit minima assumenda nostrum quam nihil, iusto, ad eligendi laudantium doloribus eius reiciendis.",
+          "buttons": "<a data-app-btn=\"true\" class=\"btn btn-lg btn-primary\" href=\"https://mobirise.com\">Get started</a>",
+          "header": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, veniam?",
+          "form": {
+            "action": "jeremyephron@gmail.com",
+            "alerts": {
+              "success": "Thanks for filling out form!"
+            },
+            "fields": {
+              "name": {
+                "title": "Name",
+                "visible": true,
+                "customTitle": "Name*"
+              },
+              "email": {
+                "title": "Email",
+                "visible": true,
+                "customTitle": "Email*"
+              },
+              "phone": {
+                "title": "Phone",
+                "visible": true,
+                "customTitle": "Phone"
+              },
+              "message": {
+                "title": "Message",
+                "customTitle": "Message"
+              }
+            }
+          },
+          "buttons1": "<a data-app-btn=\"true\" type=\"submit\" class=\"btn btn-lg btn-primary\">Send message</a>",
+          "_customCSS": ".form {\n\tbackground: #fafbfc;\n}\n\n.no-left-pad {\n    padding-left: 0;\n}\n\n.no-right-pad {\n    padding-right: 0;\n}\n\n.no-bot-pad {\n    padding-bottom:0;\n}\n\nselect {\n    background-color: rgba(255,255,255,0.9);\n    width: 100%;\n    padding: 5px;\n    border: 1px solid #c7c9cc;;\n    border-radius: 2px;\n    height: 3.4rem;\n}",
+          "_customHTML": "<section class=\"mbr-section mbr-section-hero form1\" style=\"background-color: rgb(255, 255, 253); padding-top: 40px; padding-bottom: 40px;\">\n    \n\n        <div class=\"container\">\n            <div class=\"row heading\">\n                <div class=\"col-md-12 text-xs-center\">\n\n                    <h1 class=\"mbr-section-title display-3 heading-title mbr-editable-content\" code-editable-id=\"1659\">Resume Generator</h1>\n                    \n                    \n                </div>\n            </div>\n        </div>\n\n        <div class=\"container\">\n            <div class=\"col-xs-12 form\">\n\n                <div class=\"row\">\n                    <div class=\"col-xs-12 col-md-8 col-md-offset-2\">\n                        <h5 class=\"form-title mbr-section-subtitle text-1 mbr-editable-content\" style=\"text-align:center;\" code-editable-id=\"1660\">Contact Information</h5>\n                    </div>                    \n                </div>\n\n                <div class=\"row\" data-form-type=\"formoid\">\n                    <div data-form-alert=\"true\">\n                        <div hidden=\"\" data-form-alert-success=\"true\" class=\"alert alert-form alert-success text-xs-center\">Thanks for filling out form!</div>\n                    </div>\n\n\n                    <form action=\"#\" method=\"post\" data-form-title=\"Resume Submission\">\n                        <div class=\"col-xs-12 col-md-8 col-md-offset-2 form-wrap\">\n                            <div class=\"row\">\n                                <div class=\"col-xs-6 no-left-pad\">\n                                    <div class=\"form-group\">\n                                        <label class=\"form-control-label\">First Name*</label>\n                                        <input type=\"text\" class=\"form-control\" name=\"name\" required=\"\" data-form-field=\"Name\" placeholder=\"First Name*\">\n                                    </div>\n                                </div>\n\n                                <div class=\"col-xs-6 no-right-pad\">\n                                    <div class=\"form-group\">\n                                        <label class=\"form-control-label\">Last Name*</label>\n                                        <input type=\"text\" class=\"form-control\" name=\"name\" required=\"\" data-form-field=\"Name\" placeholder=\" Last Name*\">\n                                    </div>\n                                </div>\n                            </div>\n                            <div class=\"row\">\n                                <div class=\"col-xs-8 no-left-pad\">\n                                    <div class=\"form-group\">\n                                        <label class=\"form-control-label\">Email*</label>\n                                        <input type=\"email\" class=\"form-control\" name=\"email\" required=\"\" data-form-field=\"Email\" placeholder=\"Email*\">\n                                    </div>\n                                </div>\n\n                                <div class=\"col-xs-4 no-right-pad\">\n                                    <div class=\"form-group\">\n                                        <label class=\"form-control-label\">Phone</label>\n                                        <input type=\"tel\" class=\"form-control\" name=\"phone\" data-form-field=\"Phone\" placeholder=\"Phone\">\n                                    </div>\n                                </div>\n                            </div>\n                            \n                            <div class=\"col-xs-12\">\n                                <div class=\"form-group\">\n                                    <label class=\"form-control-label\">Address</label>\n                                    <input class=\"form-control\" name=\"address\" data-form-field=\"Address\" placeholder=\"Address\">\n                                </div>\n                            </div>\n                            \n                            <div class=\"row\">\n                                <div class=\"col-xs-6 no-left-pad\" style=\"padding-right: 5%;\">\n                                    <div class=\"form-group\">\n                                        <label class=\"form-control-label\">City</label>\n                                        <input class=\"form-control\" name=\"city\" data-form-field=\"City\" placeholder=\"City\">\n                                    </div>\n                                </div>\n                                <div class=\"col-xs-2 no-left-pad\">\n                                    <div class=\"form-group\">\n                                        <label class=\"form-control-label\">State</label>\n                                        <input class=\"form-control\" name=\"state\" data-form-field=\"State\" placeholder=\"State\">\n                                    </div>\n                                </div>    \n\n                            \n                                <div class=\"col-xs-4 no-right-pad\">\n                                        <div class=\"form-group\">\n                                            <label class=\"form-control-label\">Zipcode</label>\n                                            <input class=\"form-control\" name=\"zipcode\" data-form-field=\"Zipcode\" placeholder=\"Zipcode\">\n                                        </div>\n                                </div>    \n                            </div>\n                        </div>\n\n                        <div class=\"clear\"></div>\n\n                        <div class=\"form-separator\"></div>\n                        \n                        <div class=\"row\">\n                            <div class=\"col-xs-12 col-md-8 col-md-offset-2\">\n                                <h5 class=\"form-title mbr-section-subtitle text-1 mbr-editable-content\" style=\"text-align:center;\" code-editable-id=\"1661\">Education</h5>\n                            </div>                    \n                        </div>\n                        \n                        <div class=\"col-xs-12 col-md-8 col-md-offset-2 form-wrap\">\n                            <div class=\"row\">\n                                <div class=\"col-xs-6 no-left-pad\">\n                                    <div class=\"form-group\">\n                                        <label class=\"form-control-label\">University</label>\n                                        <input type=\"text\" class=\"form-control\" name=\"university\" required=\"\" data-form-field=\"University\" placeholder=\"University\">\n                                    </div>\n                                </div>\n\n                                <div class=\"col-xs-4\">\n                                    <div class=\"form-group\">\n                                        <label class=\"form-control-label\">City</label>\n                                        <input type=\"text\" class=\"form-control\" name=\"City\" required=\"\" data-form-field=\"City\" placeholder=\"City\">\n                                    </div>\n                                </div>\n                                \n                                <div class=\"col-xs-2 no-right-pad\">\n                                    <div class=\"form-group\">\n                                      <select class=\"browser-default\">\n                                        <option value=\"\" disabled=\"\" selected=\"\">State</option>\n                                        <option value=\"1\">CA</option>\n                                        <option value=\"2\">TX</option>\n                                        <option value=\"3\">OR</option>\n                                      </select>\n                                    </div>\n                                </div>\n                            </div>\n                            \n                            <div class=\"row\">\n                                <div class=\"col-xs-3 no-left-pad\" style=\"padding-right: 2rem\">\n                                    <div class=\"form-group\">\n                                      <select class=\"browser-default\">\n                                        <option value=\"\" disabled=\"\" selected=\"\">Degree</option>\n                                        <option value=\"1\">BA</option>\n                                        <option value=\"2\">BS</option>\n                                        <option value=\"3\">AB</option>\n                                        <option value=\"4\">BSE</option>\n                                      </select>\n                                    </div>\n                                </div>\n                                \n                                <div class=\"col-xs-4 no-right-pad no-left-pad\">\n                                    <div class=\"form-group\">\n                                    <label class=\"form-control-label\">Major</label>\n                                    <input class=\"form-control\" name=\"major\" data-form-field=\"Major\" placeholder=\"Major\">\n                                    </div>\n                                </div>\n                                \n                                <div class=\"col-xs-2\" style=\"padding-right: 0; padding-left: 2rem;\">\n                                    <div class=\"form-group\">\n                                      <select class=\"browser-default\">\n                                        <option value=\"\" disabled=\"\" selected=\"\">Mon</option>\n                                        <option value=\"1\">Jan</option>\n                                        <option value=\"2\">Feb</option>\n                                        <option value=\"3\">Mar</option>\n                                        <option value=\"4\">Apr</option>\n                                        <option value=\"5\">May</option>\n                                        <option value=\"6\">Jun</option>\n                                        <option value=\"7\">Jul</option>\n                                        <option value=\"8\">Aug</option>\n                                        <option value=\"9\">Sep</option>\n                                        <option value=\"10\">Oct</option>\n                                        <option value=\"11\">Nov</option>\n                                        <option value=\"12\">Dec</option>\n                                      </select>\n                                    </div>\n                                </div>\n                                \n                                <div class=\"col-xs-3 no-right-pad\" style=\"padding-left: 2rem;\">\n                                    <div class=\"form-group\">\n                                      <select class=\"browser-default\">\n                                        <option value=\"\" disabled=\"\" selected=\"\">Year</option>\n                                        <option value=\"1\">2016</option>\n                                        <option value=\"2\">2017</option>\n                                        <option value=\"3\">2018</option>\n                                        <option value=\"4\">2019</option>\n                                        <option value=\"5\">2020</option>\n                                        <option value=\"6\">2021</option>\n                                      </select>\n                                    </div>\n                                </div>\n                                \n                            </div>\n                            \n                            <div class=\"col-xs-12\">\n                                <div class=\"form-group\">\n                                    <label class=\"form-control-label\">GPA</label>\n                                    <input class=\"form-control\" name=\"gpa\" data-form-field=\"GPA\" placeholder=\"GPA (if greater than 3.0)\">\n                                </div>\n                            </div>\n                        </div>\n\n                        <div class=\"clear\"></div>\n\n                        <div class=\"form-separator\"></div>\n\n                        <div class=\"col-xs-12 col-md-8 col-md-offset-2 form-button-wrap\">\n\n                            <div class=\"text-xs-center text-md-right\"><button type=\"\" class=\"btn btn-lg btn-primary mbr-editable-button\" code-editable-id=\"1662\">Generate PDF</button></div>\n\n                        </div>\n\n                    </form>\n\n                </div>\n    \n            </div>\n        </div>\n\n\n</section>",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_customTemplate": true,
+          "_anchor": "form1-3",
+          "_styles": {
+            ".form": {
+              "background": "#fafbfc"
+            }
+          }
+        },
+        {
+          "buttons": "<a class=\"btn btn-info\" data-app-btn=\"true\" href=\"https://mobirise.com\" data-app-placeholder=\"Type text\">Download now</a>",
+          "_tags": [
+            "Theme"
+          ],
+          "_name": "menu2",
+          "_params": {
+            "logo": true,
+            "showBrand": true,
+            "hideButtons": true,
+            "sticky": true,
+            "collapsed": true,
+            "transparent": false,
+            "bgColor": "#fff",
+            "fontSize": 0.8125,
+            "imageSize": 4,
+            "fontName": {
+              "name": "Libre Franklin",
+              "css": "'Libre Franklin', serif",
+              "link": "https://fonts.googleapis.com/css?family=Libre+Franklin:400,400i,600,600i"
+            },
+            "fontColor": "#74a3c7",
+            "fontHoverColor": "@primaryColor"
+          },
+          "logo": {
+            "image": {
+              "active": true,
+              "src": "@PROJECT_PATH@/assets/images/kindle-350x350-47-128x128-84.png",
+              "height": 128,
+              "alt": "Home",
+              "link": "index.html",
+              "title": "",
+              "linkInNewWindow": false
+            },
+            "iconFont": {
+              "class": "mbr-iconfont mbr-iconfont-menu",
+              "link": "https://mobirise.com",
+              "size": 0
+            }
+          },
+          "brand": "<a class=\"navbar-caption\" data-app-btn=\"true\" data-app-selector=\".navbar-caption\" href=\"https://mobirise.com\" data-app-placeholder=\"Type Brand Name\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,mbrColor\">RESUME GENERATOR</a>",
+          "items": "<li class=\"nav-item\"><a data-app-btn=\"true\" class=\"nav-link link\" href=\"https://mobirise.com/\">OVERVIEW</a></li><li class=\"nav-item dropdown\"><a data-app-btn=\"true\" class=\"nav-link link dropdown-toggle\" data-toggle=\"dropdown-submenu\" href=\"https://mobirise.com/\">FEATURES</a><div class=\"dropdown-menu\"><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Mobile friendly</a><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Based on Bootstrap</a><div class=\"dropdown\"><a data-app-btn=\"true\" class=\"dropdown-item dropdown-toggle\" data-toggle=\"dropdown-submenu\" href=\"https://mobirise.com/\">Trendy blocks</a><div class=\"dropdown-menu dropdown-submenu\"><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Image/content slider</a><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Contact forms</a><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Image gallery</a><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Mobile menu</a><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Google maps</a><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Social buttons</a><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Google fonts</a><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Video background</a></div></div><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Host anywhere</a></div></li><li class=\"nav-item dropdown\"><a data-app-btn=\"true\" class=\"nav-link link dropdown-toggle\" data-toggle=\"dropdown-submenu\" href=\"https://mobirise.com/\">HELP</a><div class=\"dropdown-menu\"><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"http://forums.mobirise.com/\">Forum</a><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Tutorials</a><a data-app-btn=\"true\" class=\"dropdown-item\" href=\"https://mobirise.com/\">Contact us</a></div></li><li class=\"nav-item nav-btn\"><a data-app-btn=\"true\" data-button=\"\" data-app-selector=\".btn\" class=\"nav-link btn btn-primary btn-lg btn\" href=\"https://mobirise.com/\">Download</a></li>",
+          "_customHTML": "<section class=\"menu1\">\n\n    <nav class=\"navbar navbar-dropdown navbar-fixed-top\">\n        <div class=\"container-fluid\">\n\n            <div class=\"mbr-table\">\n                <div class=\"mbr-table-cell logo\">\n\n                    <div class=\"navbar-brand\">\n                        <a href=\"index.html\" class=\"navbar-logo\"><img src=\"./assets/images/kindle-350x350-47-128x128-84.png\" alt=\"Home\" style=\"height: 4rem;\"></a>\n                        <a class=\"navbar-caption\" href=\"index.html\">RESUME GENERATOR</a>\n                    </div>\n\n                </div>\n                <div class=\"mbr-table-cell text\">\n\n                    <button class=\"navbar-toggler pull-xs-right hidden-md-up\" type=\"button\" data-toggle=\"collapse\" data-target=\"#exCollapsingNavbar\">\n                        <div class=\"hamburger-icon\"></div>\n                    </button>\n\n                    <ul class=\"nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm\" id=\"exCollapsingNavbar\">\n                        <li class=\"nav-item\"><a class=\"nav-link link mbr-editable-menu-item\" href=\"#\" code-editable-id=\"1664\">OVERVIEW</a></li>\n                    </ul>\n\n                    <button hidden=\"\" class=\"navbar-toggler navbar-close\" type=\"button\" data-toggle=\"collapse\" data-target=\"#exCollapsingNavbar\">\n                        <div class=\"close-icon\"></div>\n                    </button>\n\n                </div>\n\n            </div>\n\n        </div>\n    </nav>\n\n</section>",
+          "_PHPplaceholders": [],
+          "_JSplaceholders": [],
+          "_customCSS": ".hide-buttons .nav-btn {\n\tdisplay: none !important;\n}\n.navbar-toggler {\n\tcolor: #74a3c7;\n}\n.close-icon::before, .close-icon::after {\n\tbackground-color: #74a3c7;\n}\n.link, .dropdown-item {\n\tcolor: #74a3c7;\n\tfont-family: 'Libre Franklin', serif;\n}\n.link {\n\tfont-size: 0.8125rem;\n}\n.dropdown-item, .nav-dropdown-sm .link {\n\tfont-size: 0.880rem;\n}\n.link:hover, .link:focus {\n\tcolor: #5aac98;\n}\n.dropdown-item:hover::before, .dropdown-item:focus::before {\n\tbackground: #5aac98;\n}\n.dropdown-item:hover, .dropdown-item:focus {\n\tcolor: #74a3c7;\n}\n.link[aria-expanded=\"true\"], .dropdown-menu {\n\tbackground: #ffffff;\n}\n.nav-dropdown-sm .link:focus, .nav-dropdown-sm .link:hover, .nav-dropdown-sm .dropdown-item:focus, .nav-dropdown-sm .dropdown-item:hover {\n\tbackground: #f7f7f7!important;\n}\n.navbar, .nav-dropdown-sm, .nav-dropdown-sm .link[aria-expanded=\"true\"], .nav-dropdown-sm .dropdown-menu {\n\tbackground: #fff;\n}\n.bg-color.transparent .link {\n\tcolor: #74a3c7;\n\ttransition: none;\n}\n.bg-color.transparent.opened .link {\n\ttransition: color .2s ease-in-out;\n}\n.bg-color.transparent.opened .link:hover, .bg-color.transparent.opened .link:focus {\n\tcolor: #5aac98;\n}\n.link[aria-expanded=\"true\"], .dropdown-item[aria-expanded=\"true\"] {\n\tcolor: #5aac98!important;\n}\n",
+          "_customTemplate": true,
+          "_anchor": "menu2-7"
+        }
+      ]
+    }
+  }
+}
