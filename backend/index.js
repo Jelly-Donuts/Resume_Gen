@@ -2,58 +2,90 @@
 
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
-const doc = new PDFDocument({
-	margins : {
-		top:72, 
-		bottom:36, 
-		right:36, 
-		left:36
+
+let schema = {
+	contact: {
+		name: 'John Doe',
+		address: '1234 Main Street, Anytown, STATE 56789',
+		reach: [
+			'email@address.com',
+			'(999) 999-9999',
+			''
+		]
 	}
-});
+}
 
-let name      = 'John Doe'
-let address   = '1234 Main Street, Anytown, STATE 56789'
-let phoneNum  = '(999) 999-9999'
-let email     = 'email@address.com'
-let dot = ' • '
-
-let docname = (new Date()).getTime() + '.pdf';
-doc.pipe(fs.createWriteStream('./pdfs/' + docname));
-
-//Template 1
-//Template 1:Fonts
-doc.registerFont('Heading Name', './fonts/Didot.ttf');
-doc.registerFont('Contact Info', './fonts/AvenirNext-UltraLight.ttf');
-doc.registerFont('Section Title', './fonts/Georgia Bold.ttf');
-doc.registerFont('Content Regular', './fonts/AvenirNext-Regular.ttf');
-doc.registerFont('Content Italics', './fonts/AvenirNext-Italic.ttf');
-doc.registerFont('Content Bold1', './fonts/AvenirNext-Medium.ttf');
-doc.registerFont('Content Bold2', './fonts/AvenirNext-DemiBold.ttf');
-
-//Template 1:Font Sizes
-let headingFontSize = 24;
-let titleFontSize = 12;
-let contentFontSize = 10.2;
-doc.lineGap(-0.2);
-
-//Header
-//Header:Name
-doc.moveUp(3.5)
-	.font('Heading Name')
-	.fontSize(headingFontSize)
-	.text(name, {
-    	align: 'center'
+//Creates the doc with all the sizes and fonts
+let set_up_doc = function() {
+	const doc = new PDFDocument({
+		margins : {
+			top:72, 
+			bottom:36, 
+			right:36, 
+			left:36
+		}
 	});
 
-//Header:Contact Info
-doc.font('Contact Info')
-	.fontSize(titleFontSize)
-	.text(address, {
-    	align: 'center'
-	})
-	.text(email + dot + phoneNum, {
-		align: 'center'
-	});
+
+	let docname = (new Date()).getTime() + '.pdf';
+	doc.pipe(fs.createWriteStream('./pdfs/' + docname));
+
+	//Template 1
+	//Template 1:Fonts
+	doc.registerFont('Heading Name', './fonts/Didot.ttf');
+	doc.registerFont('Contact Info', './fonts/AvenirNext-UltraLight.ttf');
+	doc.registerFont('Section Title', './fonts/Georgia Bold.ttf');
+	doc.registerFont('Content Regular', './fonts/AvenirNext-Regular.ttf');
+	doc.registerFont('Content Italics', './fonts/AvenirNext-Italic.ttf');
+	doc.registerFont('Content Bold1', './fonts/AvenirNext-Medium.ttf');
+	doc.registerFont('Content Bold2', './fonts/AvenirNext-DemiBold.ttf');
+
+	//Template 1:Font Sizes
+	let headingFontSize = 24;
+	let titleFontSize = 12;
+	let contentFontSize = 10.2;
+	doc.lineGap(-0.2);
+
+	return doc
+}
+
+//Creates the header portion of the PDF that uses schema.contact
+let make_header = function(doc, schema) {
+	let dot = ' • ';
+	//Header
+	//Header:Name
+	doc.moveUp(3.5)
+		.font('Heading Name')
+		.fontSize(headingFontSize)
+		.text(schema.contact.name, {
+	    	align: 'center'
+		});
+
+	//Header:Contact Info
+	let reach_text = schema.contact.reach[0];
+	if (schema.contact.reach[1]) {
+		reach_text += dot + schema.contact.reach[1];
+	}
+	if (schema.contact.reach[2]){
+		reach_text += dot + schema.contact.reach[2];
+	}
+
+
+	doc.font('Contact Info')
+		.fontSize(titleFontSize)
+		.text(schema.contact.address, {
+	    	align: 'center'
+		})
+		.text(reach_text, {
+			align: 'center'
+		});
+}
+
+
+let schema_to_pdf = function(schema) {
+	let doc = set_up_doc();
+	make_header(doc, schema)
+}
 
 
 //Education
