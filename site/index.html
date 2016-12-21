@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/tether/tether.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/animate.css/animate.min.css">
   <link rel="stylesheet" href="assets/dropdown/css/style.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
@@ -206,12 +207,14 @@
                                 
                                 <div class="col-xs-2 no-right-pad">
                                     <div class="form-group">
-                                      <select class="browser-default">
-                                        <option value="" disabled="" selected="">State</option>
-                                        <option value="1">CA</option>
-                                        <option value="2">TX</option>
-                                        <option value="3">OR</option>
-                                      </select>
+                                        <p class="resetspace">
+                                          <select class="form-control">
+                                            <option value="" disabled="" selected="">State</option>
+                                            <option value="1">CA</option>
+                                            <option value="2">TX</option>
+                                            <option value="3">OR</option>
+                                          </select>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -219,13 +222,15 @@
                             <div class="row">
                                 <div class="col-xs-3 no-left-pad" style="padding-right: 2rem">
                                     <div class="form-group">
-                                      <select class="browser-default">
-                                        <option value="" disabled="" selected="">Degree</option>
-                                        <option value="1">BA</option>
-                                        <option value="2">BS</option>
-                                        <option value="3">AB</option>
-                                        <option value="4">BSE</option>
-                                      </select>
+                                        <p class="resetspace">
+                                          <select class="form-control">
+                                            <option value="" disabled="" selected="">Degree</option>
+                                            <option value="1">BA</option>
+                                            <option value="2">BS</option>
+                                            <option value="3">AB</option>
+                                            <option value="4">BSE</option>
+                                          </select>
+                                        </p>
                                     </div>
                                 </div>
                                 
@@ -238,35 +243,39 @@
                                 
                                 <div class="col-xs-2" style="padding-right: 0; padding-left: 2rem;">
                                     <div class="form-group">
-                                      <select class="browser-default">
-                                        <option value="" disabled="" selected="">Mon</option>
-                                        <option value="1">Jan</option>
-                                        <option value="2">Feb</option>
-                                        <option value="3">Mar</option>
-                                        <option value="4">Apr</option>
-                                        <option value="5">May</option>
-                                        <option value="6">Jun</option>
-                                        <option value="7">Jul</option>
-                                        <option value="8">Aug</option>
-                                        <option value="9">Sep</option>
-                                        <option value="10">Oct</option>
-                                        <option value="11">Nov</option>
-                                        <option value="12">Dec</option>
-                                      </select>
+                                        <p class="resetspace">
+                                          <select class="form-control">
+                                            <option value="" disabled="" selected="">Mon</option>
+                                            <option value="1">Jan</option>
+                                            <option value="2">Feb</option>
+                                            <option value="3">Mar</option>
+                                            <option value="4">Apr</option>
+                                            <option value="5">May</option>
+                                            <option value="6">Jun</option>
+                                            <option value="7">Jul</option>
+                                            <option value="8">Aug</option>
+                                            <option value="9">Sep</option>
+                                            <option value="10">Oct</option>
+                                            <option value="11">Nov</option>
+                                            <option value="12">Dec</option>
+                                          </select>
+                                        </p>
                                     </div>
                                 </div>
                                 
                                 <div class="col-xs-3 no-right-pad" style="padding-left: 2rem;">
                                     <div class="form-group">
-                                      <select class="browser-default">
-                                        <option value="" disabled="" selected="">Year</option>
-                                        <option value="1">2016</option>
-                                        <option value="2">2017</option>
-                                        <option value="3">2018</option>
-                                        <option value="4">2019</option>
-                                        <option value="5">2020</option>
-                                        <option value="6">2021</option>
-                                      </select>
+                                        <p class="resetspace">
+                                          <select class="form-control">
+                                            <option value="" disabled="" selected="">Year</option>
+                                            <option value="1">2016</option>
+                                            <option value="2">2017</option>
+                                            <option value="3">2018</option>
+                                            <option value="4">2019</option>
+                                            <option value="5">2020</option>
+                                            <option value="6">2021</option>
+                                          </select>
+                                        </p>
                                     </div>
                                 </div>
                                 
@@ -278,8 +287,36 @@
                                     <input class="form-control" name="gpa" data-form-field="GPA" placeholder="GPA (if greater than 3.0)">
                                 </div>
                             </div>
+                            
+                            <div class="row clonedInput_1" id="award1">
+                              <div class="col-xs-12 no-right-pad no-left-pad">
+                                <div class="form-group">
+                                  <input type="text" class="form-control" name="honoraward" data-form-field="Honor/Award" placeholder="Honor or Award">
+                                </div><!-- /input-group -->
+                              </div><!-- /.col-lg-6 -->
+                            </div><!-- /.row -->
+                            <div class="row no-right-pad no-left-pad">
+                                <button type="button" id="btnAdd_1" name="btnAdd" class="btn btn-primary" value="Add email">Add Award</button>
+                                 <button type="button" id="btnDel_1" name="btnDel" class="btn btn-danger" disabled="disabled">
+                                     <span class="ui-button-text">Remove Award</span>
+                                </button>
+                            </div>
+                            
+                            <div class="row clonedInput_2" id="course1">
+                              <div class="col-xs-12 no-right-pad no-left-pad">
+                                <div class="form-group">
+                                  <input type="text" class="form-control" name="coursework" data-form-field="Coursework" placeholder="Relevant Coursework">
+                                </div><!-- /input-group -->
+                              </div><!-- /.col-lg-6 -->
+                            </div><!-- /.row -->
+                            <div class="row no-right-pad no-left-pad">
+                                <button type="button" id="btnAdd_2" name="btnAdd" class="btn btn-primary" value="Add email">Add Course</button>
+                                  <button type="button" id="btnDel_2" name="btnDel" class="btn btn-danger" disabled="disabled">
+                                      <span class="ui-button-text">Remove Course</span>
+                                </button>
+                            </div>
                         </div>
-
+                        
                         <div class="clear"></div>
 
                         <div class="form-separator"></div>
@@ -290,9 +327,9 @@
 
                         </div>
 
-                    </form>
+                    
 
-                </div>
+                </form></div>
     
             </div>
         </div>
@@ -305,10 +342,125 @@
   <script src="assets/tether/tether.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
   <script src="assets/smooth-scroll/SmoothScroll.js"></script>
+  <script src="assets/viewportChecker/jquery.viewportchecker.js"></script>
   <script src="assets/dropdown/js/script.min.js"></script>
   <script src="assets/touchSwipe/jquery.touchSwipe.min.js"></script>
   <script src="assets/theme/js/script.js"></script>
   
-  
-</body>
+  <script>$(function () {
+    $('#btnAdd_1').click(function () {
+        var num     = $('.clonedInput_1').length, // Checks to see how many "duplicatable" input fields we currently have
+            newNum  = new Number(num + 1),      // The numeric ID of the new input field being added, increasing by 1 each time
+            newElem = $('#award' + num).clone().attr('id', 'award' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
+    
+    /*  This is where we manipulate the name/id values of the input inside the new, cloned element
+        Below are examples of what forms elements you can clone, but not the only ones.
+        There are 2 basic structures below: one for an H2, and one for form elements.
+        To make more, you can copy the one for form elements and simply update the classes for its label and input.
+        Keep in mind that the .val() method is what clears the element when it gets cloned. Radio and checkboxes need .val([]) instead of .val('').
+    */
+        // Label for email field
+        newElem.find('.label_email').attr('id', 'ID' + newNum + '_reference').attr('name', 'ID' + newNum + '_reference').html('Email #' + newNum);
+
+        // Email input - text
+        newElem.find('.label_email').attr('for', 'ID' + newNum + '_email_address');
+        newElem.find('.input_email').attr('id', 'ID' + newNum + '_email_address').attr('name', 'ID' + newNum + '_email_address').val('');
+
+    // Insert the new element after the last "duplicatable" input field
+        $('#award' + num).after(newElem);
+        $('#ID' + newNum + '_title').focus();
+
+    // Enable the "remove" button. This only shows once you have a duplicated section.
+        $('#btnDel_1').attr('disabled', false);
+
+    // Right now you can only add 4 sections, for a total of 5. Change '5' below to the max number of sections you want to allow.
+        // This first if statement is for forms using input type="button" (see older demo). Delete if using button element.
+        if (newNum == 5)
+        $('#btnAdd_1').attr('disabled', true).prop('value', "You've reached the limit"); // value here updates the text in the 'add' button when the limit is reached
+        // This second if statement is for forms using the new button tag (see Bootstrap demo). Delete if using input type="button" element.
+        if (newNum == 5)
+        $('#btnAdd_1').attr('disabled', true).text("You've reached the limit"); // value here updates the text in the 'add' button when the limit is reached 
+    });
+
+    $('#btnDel_1').click(function () {
+    // Confirmation dialog box. Works on all desktop browsers and iPhone.
+        if (confirm("Are you sure you wish to remove this field? This cannot be undone."))
+            {
+                var num = $('.clonedInput_1').length;
+                // how many "duplicatable" input fields we currently have
+                $('#award' + num).slideUp('slow', function () {$(this).remove();
+                // if only one element remains, disable the "remove" button
+                    if (num -1 === 1)
+                $('#btnDel_1').attr('disabled', true);
+                // enable the "add" button. IMPORTANT: only for forms using input type="button" (see older demo). DELETE if using button element.
+                $('#btnAdd_1').attr('disabled', false).prop('value', "Add Award");
+                // enable the "add" button. IMPORTANT: only for forms using the new button tag (see Bootstrap demo). DELETE if using input type="button" element.
+                $('#btnAdd_1').attr('disabled', false).text("Add Award");});
+            }
+        return false; // Removes the last section you added
+    });
+    // Enable the "add" button
+    $('#btnAdd_1').attr('disabled', false);
+    // Disable the "remove" button
+    $('#btnDel_1').attr('disabled', true);
+
+
+
+
+
+    $('#btnAdd_2').click(function () {
+        var num     = $('.clonedInput_2').length, // Checks to see how many "duplicatable" input fields we currently have
+            newNum  = new Number(num + 1),      // The numeric ID of the new input field being added, increasing by 1 each time
+            newElem = $('#course' + num).clone().attr('id', 'course' + newNum).fadeIn('slow'); // create the new element via clone(), and manipulate it's ID using newNum value
+    
+    /*  This is where we manipulate the name/id values of the input inside the new, cloned element
+        Below are examples of what forms elements you can clone, but not the only ones.
+        There are 2 basic structures below: one for an H2, and one for form elements.
+        To make more, you can copy the one for form elements and simply update the classes for its label and input.
+        Keep in mind that the .val() method is what clears the element when it gets cloned. Radio and checkboxes need .val([]) instead of .val('').
+    */
+        // Course - text
+        newElem.find('.label_phone').attr('for', 'ID' + newNum + '_phone_number');
+        newElem.find('.input_phone').attr('id', 'ID' + newNum + '_phone_number').attr('name', 'ID' + newNum + '_phone_number').val('');
+
+    // Insert the new element after the last "duplicatable" input field
+        $('#course' + num).after(newElem);
+        $('#ID' + newNum + '_title').focus();
+
+    // Enable the "remove" button. This only shows once you have a duplicated section.
+        $('#btnDel_2').attr('disabled', false);
+
+    // Right now you can only add 4 sections, for a total of 5. Change '5' below to the max number of sections you want to allow.
+        // This first if statement is for forms using input type="button" (see older demo). DELETE if using button element.
+        if (newNum == 5)
+        $('#btnAdd_2').attr('disabled', true).prop('value', "You've reached the limit"); // value here updates the text in the 'add' button when the limit is reached
+        // This second if statement is for forms using the new button tag (see Bootstrap demo). DELETE if using input type="button" element.
+        if (newNum == 5)
+        $('#btnAdd_2').attr('disabled', true).text("You've reached the limit"); // value here updates the text in the 'add' button when the limit is reached 
+    });
+
+    $('#btnDel_2').click(function () {
+    // Confirmation dialog box. Works on all desktop browsers and iPhone.
+        if (confirm("Are you sure you wish to remove this field? This cannot be undone."))
+            {
+                var num = $('.clonedInput_2').length;
+                // how many "duplicatable" input fields we currently have
+                $('#course' + num).slideUp('slow', function () {$(this).remove();
+                // if only one element remains, disable the "remove" button
+                    if (num -1 === 1)
+                $('#btnDel_2').attr('disabled', true);
+                // enable the "add" button. IMPORTANT: only for forms using input type="button" (see older demo). DELETE if using button element.
+                $('#btnAdd_2').attr('disabled', false).prop('value', "Add Course");
+                // enable the "add" button. IMPORTANT: only for forms using the new button tag (see Bootstrap demo). DELETE if using input type="button" element.
+                $('#btnAdd_2').attr('disabled', false).text("Add Course");});
+            }
+        return false; // Removes the last section you added
+    });
+    // Enable the "add" button
+    $('#btnAdd_2').attr('disabled', false);
+    // Disable the "remove" button
+    $('#btnDel_2').attr('disabled', true);
+});</script>
+  <input name="animation" type="hidden">
+  </body>
 </html>
