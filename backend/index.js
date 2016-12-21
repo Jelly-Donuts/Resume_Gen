@@ -3,6 +3,7 @@
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
 
+//This will be the autofill for the website
 let schema = {
 	contact: {
 		name: 'John Doe',
@@ -12,7 +13,256 @@ let schema = {
 			'(999) 999-9999',
 			''
 		]
-	}
+	},
+	segments: [
+		{
+			title: 'EDUCATION',
+			items: [
+				{
+					title: 'University', 
+					city: 'City', 
+					state: 'ST',
+					start_month: 'month',
+					start_year: 'year',
+					end_month: 'month',
+					end_year: 'year',
+					lines: [
+						{
+							bullet: false,
+							content: 'Degree (Candidate) in Major'
+						},
+						{
+							bullet: false,
+							content: 'Certificate (if you have one)'
+						},
+						{
+							bullet: false,
+							content: 'GPA X.XX (include if >3)'
+						},
+						{
+							bullet: false,
+							title: 'Honors/Awards',
+							content: 'Honor, Award, Honor, Award'
+						},
+						{
+							bullet: false,
+							title: 'Relevant Coursework',
+							content: 'Course, Work, Course, Work'
+						}
+					]
+				},
+				{
+					title: 'High School',
+					city: 'City',
+					state: 'ST',
+					start_month: 'month',
+					start_year: 'year',
+					end_month: 'month',
+					end_year: 'year',
+					lines: [
+						{
+							bullet: false,
+							content: 'High School Diploma/GED'
+						},
+						{
+							bullet: false,
+							content: 'GPA: XX.X (unweighted/weighted)'
+						},
+						{
+							bullet: false,
+							title: 'Honors/Awards',
+							content: 'Honor, Award, Honor, Award'
+						}
+					]
+				}
+			]
+		},
+
+		{
+			title: 'PROFESSIONAL EXPERIENCE',
+			items: [
+				{
+					title: 'Employer',
+					city: 'City',
+					state: 'ST',
+					start_month: 'month',
+					start_year: 'year',
+					end_month: 'month',
+					end_year: 'year',
+					lines: [
+						{
+							bullet: false,
+							italics: true,
+							content: 'Title/Position'
+						},
+						{
+							bullet: true,
+							content: 'Action verb + Project + Result'
+						},
+						{
+							bullet: true,
+							content: 'Accomplishments Achieved'
+						},
+						{
+							bullet: true,
+							content: 'Quantify number of people/items/data you worked with'
+						}
+					]
+				},
+				{
+					title: 'Employer',
+					city: 'City',
+					state: 'ST',
+					start_month: 'month',
+					start_year: 'year',
+					end_month: 'month',
+					end_year: 'year',
+					lines: [
+						{
+							bullet: false,
+							italics: true,
+							content: 'Title/Position'
+						},
+						{
+							bullet: true,
+							content: 'Action verb + Project + Result'
+						},
+						{
+							bullet: true,
+							content: 'Accomplishments Achieved'
+						},
+						{
+							bullet: true,
+							content: 'Quantify number of people/items/data you worked with'
+						}
+					]
+				}
+			]
+		},
+
+		{
+			title: 'LEADERSHIP AND SERVICE',
+			items: [
+				{
+					title: 'Organization',
+					city: 'City',
+					state: 'ST',
+					start_month: 'month',
+					start_year: 'year',
+					end_month: 'month',
+					end_year: 'year',
+					lines: [
+						{
+							bullet: false,
+							italics: true,
+							content: 'Title/Position'
+						},
+						{
+							bullet: true,
+							content: 'Action verb + Project + Result'
+						},
+						{
+							bullet: true,
+							content: 'Accomplishments Achieved'
+						},
+						{
+							bullet: true,
+							content: 'Quantify number of people/items/data you worked with'
+						}
+					]
+				},
+				{
+					title: 'Organization',
+					city: 'City',
+					state: 'ST',
+					start_month: 'month',
+					start_year: 'year',
+					end_month: 'month',
+					end_year: 'year',
+					lines: [
+						{
+							bullet: false,
+							italics: true,
+							content: 'Title/Position'
+						},
+						{
+							bullet: true,
+							content: 'Action verb + Project + Result'
+						},
+						{
+							bullet: true,
+							content: 'Accomplishments Achieved'
+						},
+						{
+							bullet: true,
+							content: 'Quantify number of people/items/data you worked with'
+						}
+					]
+				},
+			]
+		},
+
+		{
+			title: 'SKILLS',
+			items: [
+				{
+					title: '',
+					city: '',
+					state: '',
+					start_month: '',
+					start_year: '',
+					end_month: '',
+					end_year: '',
+					lines: [
+						{
+							bullet: false,
+							title: 'Skill',
+							content: 'Skill, skill, skill, skill'
+						},
+						{
+							bullet: false,
+							title: 'Skill',
+							content: 'Skill, skill, skill, skill'
+						},	
+						{
+							bullet: false,
+							title: 'Skill',
+							content: 'Skill, skill, skill, skill'
+						}
+					]
+				}
+			]
+		},
+
+		{
+			title: 'ACTIVITIES',
+			items: [
+				{
+					title: '',
+					city: '',
+					state: '',
+					start_month: '',
+					start_year: '',
+					end_month: '',
+					end_year: '',
+					lines: [
+						{
+							bullet: false,
+							content: 'title/role'
+						},
+						{
+							bullet: false,
+							content: 'title/role'
+						},
+						{
+							bullet: false,
+							content: 'title/role'
+						}
+					]
+				}
+			]
+		}
+	]
 }
 
 //Creates the doc with all the sizes and fonts
@@ -81,12 +331,40 @@ let make_header = function(doc, schema) {
 		});
 }
 
+let draw_line = function(doc, x1, x2, y) {
+	doc.lineWidth(1)
+   		.moveTo(x1, y)
+   		.lineTo(x2, y)
+   		.stroke();
+}
+
+//Goes through each of the segments and creates another section
+let make_segments = function(doc, schema) {
+	//loop through each section
+	for(let i = 0; i < schema.segments.length; i++) {
+
+		doc.font('Section Title')
+			.fontSize(titleFontSize)
+			.moveDown()
+			.text(schema.segments.title, {
+				align: 'left'
+			});
+
+		if (i == 0) { draw_line(doc, 36, 576, 114) }
+
+		//loop though each subsection
+		for(let j = 0; j < schema.segments[i].items[j].length; j++){
+
+			for (let k = 0; k < schema.segments[i].items[j].lines[k].length; k++)
+
+		}
+	}
+}
 
 let schema_to_pdf = function(schema) {
 	let doc = set_up_doc();
-	make_header(doc, schema)
+	make_header(doc, schema);
 }
-
 
 //Education
 //Education:Title
@@ -96,7 +374,6 @@ doc.font('Section Title')
 	.text('EDUCATION', {
     	align: 'left'
 	});
-
 //Education:Bar
 doc.lineWidth(1)
    .moveTo(36, 114)
