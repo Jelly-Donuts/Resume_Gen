@@ -587,22 +587,19 @@ a:hover {
 #menu1-0 .dropdown-item[aria-expanded="true"] {
   color: #5aac98!important;
 }
-#form1-f .form {
+#custom-html-i .form {
   background: #fafbfc;
 }
-#form1-f .form {
-  background: #fafbfc;
-}
-#form1-f .no-left-pad {
+#custom-html-i .no-left-pad {
   padding-left: 0;
 }
-#form1-f .no-right-pad {
+#custom-html-i .no-right-pad {
   padding-right: 0;
 }
-#form1-f .no-bot-pad {
+#custom-html-i .no-bot-pad {
   padding-bottom: 0;
 }
-#form1-f select {
+#custom-html-i select {
   background-color: rgba(255, 255, 255, 0.9);
   width: 100%;
   padding: 5px;
@@ -610,7 +607,7 @@ a:hover {
   border-radius: 2px;
   height: 3.4rem;
 }
-#form1-f .dropdown-menu > li > a {
+#custom-html-i .dropdown-menu > li > a {
   display: block;
   padding: 3px 20px;
   padding-top: 3px;
@@ -624,10 +621,10 @@ a:hover {
   white-space: nowrap;
   text-decoration: none;
 }
-#form1-f .dropdown-menu > li > a:hover {
+#custom-html-i .dropdown-menu > li > a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-#form1-f .resetspace {
+#custom-html-i .resetspace {
   margin: 0px;
   padding: 0px;
 }
