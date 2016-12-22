@@ -587,25 +587,22 @@ a:hover {
 #menu1-0 .dropdown-item[aria-expanded="true"] {
   color: #5aac98!important;
 }
-#form1-2 .form {
+#form1-f .form {
   background: #fafbfc;
 }
-#form1-2 .form {
+#form1-f .form {
   background: #fafbfc;
 }
-#form1-2 .form {
-  background: #fafbfc;
-}
-#form1-2 .no-left-pad {
+#form1-f .no-left-pad {
   padding-left: 0;
 }
-#form1-2 .no-right-pad {
+#form1-f .no-right-pad {
   padding-right: 0;
 }
-#form1-2 .no-bot-pad {
+#form1-f .no-bot-pad {
   padding-bottom: 0;
 }
-#form1-2 select {
+#form1-f select {
   background-color: rgba(255, 255, 255, 0.9);
   width: 100%;
   padding: 5px;
@@ -613,7 +610,7 @@ a:hover {
   border-radius: 2px;
   height: 3.4rem;
 }
-#form1-2 .dropdown-menu > li > a {
+#form1-f .dropdown-menu > li > a {
   display: block;
   padding: 3px 20px;
   padding-top: 3px;
@@ -627,10 +624,10 @@ a:hover {
   white-space: nowrap;
   text-decoration: none;
 }
-#form1-2 .dropdown-menu > li > a:hover {
+#form1-f .dropdown-menu > li > a:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-#form1-2 .resetspace {
+#form1-f .resetspace {
   margin: 0px;
   padding: 0px;
 }

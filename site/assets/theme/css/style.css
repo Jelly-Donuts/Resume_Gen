@@ -9,6 +9,10 @@
 .container-fluid {
   position: relative; }
 
+.container a,
+.container-fluid a {
+  outline: none; }
+
 .btn {
   margin-bottom: 0.5rem; }
   .btn + .btn {
