@@ -628,3 +628,14 @@ a:hover {
   margin: 0px;
   padding: 0px;
 }
+#custom-html-i .sectiontitle:hover {
+  color: #57af8b;
+  transition: color 0.2s ease-in-out;
+  transition-property: color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: initial;
+}
+#custom-html-i .hidden {
+  display: none;
+}
