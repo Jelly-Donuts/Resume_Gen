@@ -2,6 +2,7 @@
 
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
+const uuid = require('uuid/v4');
 
 const headingFontSize = 24;
 const contactFontSize = 12;
@@ -295,7 +296,7 @@ const set_up_doc = function(schema) {
 	});
 
 	if (!schema.docname) {
-		schema.docname = (new Date()).getTime() + '.pdf';
+		schema.docname = uuid() + '.pdf';
 	}
 	doc.pipe(fs.createWriteStream('./pdfs/' + schema.docname));
 
@@ -532,7 +533,9 @@ const add_one_to_count = function() {
 } 
 
 module.exports = {
-	handler: function schema_to_pdf(schema) {
+	handler: function schema_to_pdf(JSONobj) {
+
+		let schema = JSON.parse(JSONobj)
 
 		const size = make_size(schema);
 		console.log(size);
@@ -545,5 +548,7 @@ module.exports = {
 		doc.end();
 
 		add_one_to_count();
+
+		return schema.docname;
 	}
 };
