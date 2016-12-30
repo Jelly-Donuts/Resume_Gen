@@ -229,11 +229,11 @@ $(function (){
 	    	};
 	    	schema.segments.push(skillObj);
 	    }
-	    console.log(JSON.stringify(schema));
+	    console.log('schema:', schema);
 	    $.ajax({
 			url: '/pdfgen',
-			type: 'POST',
-			data: JSON.stringify(schema),
+			method: 'POST'
+			data: schema,
 			dataType: 'text',
 			success: function(data) {alert(data)}
 		});
