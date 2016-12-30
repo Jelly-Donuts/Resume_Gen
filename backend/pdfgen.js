@@ -539,7 +539,7 @@ module.exports = {
 
 		console.log(JSONobj);
 
-		let schema = JSON.parse(JSONobj);
+		let schema = JSONobj;
 
 		console.log(1);
 
