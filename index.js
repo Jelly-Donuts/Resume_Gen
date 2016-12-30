@@ -5,13 +5,15 @@ var app = express();
 
 app.set('port', (process.env.PORT || 5000));
 
+app.use('/static', express.static(path.join(__dirname + '/public')));
+
 // views is directory for all template files
 app.set('views', __dirname + 'site/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.get('/', function(request, response) {
-  response.render('index')
+  response.render('pages/index')
 });
 
 app.get('/pdfcount', function(request, response){
