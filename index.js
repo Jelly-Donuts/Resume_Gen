@@ -8,7 +8,7 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use('/static', express.static(path.join(__dirname + '/public')));
 router.get('/', function(req, res, next){
-	res.render('index', { title: 'Resume Builder'})
+	res.render('pages/index', { title: 'Resume Builder'})
 })
 
 app.use('/', router);
