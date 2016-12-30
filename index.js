@@ -5,9 +5,9 @@ var express = require('express');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
-
+console.log('dirname', __dirname);
 // views is directory for all template files
-app.set('views', __dirname + 'site/views');
+app.set('views', __dirname + '/site/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
