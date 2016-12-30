@@ -232,12 +232,12 @@ $(function (){
 	    console.log(schema);
 
 	    $.ajax({
-                url: '/pdfgen',
-                type: 'POST',
-                contentType: 'application/json; charset=utf-8',
-                data: {'jeremyhasnopenis': JSON.stringify(schema)},
-                dataType: 'text',
-                success: function(data) {console.log(this)}
+            url: '/pdfgen',
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            data: {'jeremyhasnopenis': JSON.stringify(schema)},
+            dataType: 'text',
+            success: function(data) {console.log(this)}
         });
     });
 });
