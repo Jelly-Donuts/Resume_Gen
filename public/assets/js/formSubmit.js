@@ -232,7 +232,7 @@ $(function (){
 	    console.log('schema:', schema);
 	    $.ajax({
 			url: '/pdfgen',
-			method: 'POST'
+			method: 'POST',
 			data: JSON.stringify(schema),
 			dataType: 'text',
 			success: function(data) {alert(data)}
