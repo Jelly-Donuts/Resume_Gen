@@ -234,7 +234,7 @@ $(function (){
 			url: '/pdfgen',
 			type: 'POST',
 			contentType: 'json; charset=utf-8',
-			data: {'resume': JSON.stringify(schema)},
+			data: {'resume': 'hellooo'},
 			dataType: 'text',
 			success: function(result) {console.log('HERERR')}
 		});
