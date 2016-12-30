@@ -23,9 +23,6 @@ router.post('/pdfgen', function(req, res) {
 // 	res.send(content);
 // });
 
-router.get('/pdfgen', function(req, res) {
-	res.render('pages/please');
-})
 
 app.use('/', router);
 
