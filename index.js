@@ -3,18 +3,25 @@ var path = require('path');
 var express = require('express');
 var app = express();
 var router = express.Router();
+var handler = require('./backend/pdfgen');
 
 app.set('port', (process.env.PORT || 5000));
 
 app.use('/static', express.static(path.join(__dirname + '/public')));
 router.get('/', function(req, res, next){
 	res.render('pages/index', { title: 'Resume Builder'})
-})
+});
 
 router.post('/pdfgen', function(req, res){
 	var content = JSON.stringify(req.body);
 	res.send(content);
-})
+});
+
+router.post('/hook', function(req, res) {
+  var content = JSON.stringify(req.body, null, 2);
+
+  console.log(handler(req.body));
+}); 
 
 app.use('/', router);
 app.use('/pdfgen', router);
