@@ -3,7 +3,9 @@ var path = require('path');
 var express = require('express');
 var app = express();
 var router = express.Router();
+console.log(1);
 var handler = require('./backend/pdfgen');
+console.log(2);
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -14,6 +16,7 @@ router.get('/', function(req, res, next){
 
 router.post('/pdfgen', function(req, res) {
   var content = JSON.stringify(req.body, null, 2);
+  console.log(handler);
   console.log(content);
   console.log(handler(req.body));
 }); 
