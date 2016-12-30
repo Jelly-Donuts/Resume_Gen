@@ -12,16 +12,17 @@ router.get('/', function(req, res, next){
 	res.render('pages/index', { title: 'Resume Builder'})
 });
 
-router.post('/pdfgen', function(req, res){
-	var content = JSON.stringify(req.body);
-	res.send(content);
-});
-
-router.post('/hook', function(req, res) {
+router.post('/pdfgen', function(req, res) {
   var content = JSON.stringify(req.body, null, 2);
-
+  console.log(content);
   console.log(handler(req.body));
 }); 
+
+// router.post('/pdfgen', function(req, res){
+// 	var content = JSON.stringify(req.body);
+// 	res.send(content);
+// });
+
 
 app.use('/', router);
 app.use('/pdfgen', router);
