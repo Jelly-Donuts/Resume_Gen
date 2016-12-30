@@ -17,7 +17,7 @@ router.post('/pdfgen', function(req, res){
 })
 
 app.use('/', router);
-
+app.use('/pdfgen', router);
 
 // views is directory for all template files
 app.set('views', __dirname + '/site/views');
