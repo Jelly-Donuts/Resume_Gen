@@ -2,7 +2,7 @@ $(document).ready(function () {
     $.get('/pdfcount', function(data){
         $("#pdfcount").text(data);
     });
-
+    console.log($("#pdfcount").text);
     $('.count').each(function () {
         $(this).prop('Counter',0).animate({
             Counter: $(this).text()
