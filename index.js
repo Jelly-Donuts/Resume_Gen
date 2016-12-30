@@ -26,7 +26,7 @@ app.set('views', __dirname + '/site/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-router.get('/pdfgen', function(req, res) {
+router.post('/pdfgen', function(req, res) {
     console.log('here');
     console.log(req.body);
     console.log(pdfGen.handler());
