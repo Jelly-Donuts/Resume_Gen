@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $.get('/pdfcount', function(data){
         console.log(data);
-        console.log(document.getElementById('pdfcount').innerHtml());
+        console.log(document.getElementById('pdfcount').innerHTML);
         $("#pdfcount").text(data);
     });
     $('.count').each(function () {
