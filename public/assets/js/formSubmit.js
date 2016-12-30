@@ -231,9 +231,9 @@ $(function (){
 	    }
 	    console.log(JSON.stringify(schema));
 	    $.ajax({
-			url: '/pdfgen/',
+			url: '/pdfgen',
 			type: 'POST',
-			contentType: 'application/json; charset=utf-8',
+			contentType: 'json; charset=utf-8',
 			data: {'resume': JSON.stringify(schema)},
 			dataType: 'text',
 			// success: function(result) {window.open('data:application/pdf;' + result);}
