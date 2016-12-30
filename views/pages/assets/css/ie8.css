@@ -1,0 +1,138 @@
+/* Basic */
+
+	hr {
+		border-bottom: solid 1px #ddd;
+	}
+
+	blockquote {
+		border-left: solid 4px #ddd;
+	}
+
+	code {
+		border: solid 1px #ddd;
+	}
+
+/* Section/Article */
+
+	header.major h2, header.major h3, header.major h4, header.major h5, header.major h6 {
+		border-bottom: solid 1px #ddd;
+	}
+
+/* Form */
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	select,
+	textarea {
+		border: solid 1px #ddd;
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"] {
+		line-height: 2.75em;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		font-size: 3em;
+	}
+
+		input[type="checkbox"] + label:before,
+		input[type="radio"] + label:before {
+			display: none;
+		}
+
+	.select-wrapper:before {
+		color: #ddd;
+	}
+
+/* List */
+
+	ul.alt li {
+		border-top: solid 1px #ddd;
+	}
+
+	ul.icons-grid li {
+		border-top: solid 1px #ddd;
+	}
+
+/* Table */
+
+	table tbody tr {
+		border: solid 1px #ddd;
+		border-left: 0;
+		border-right: 0;
+	}
+
+	table thead {
+		border-bottom: solid 2px #ddd;
+	}
+
+	table tfoot {
+		border-top: solid 2px #ddd;
+	}
+
+	table.alt tbody tr td {
+		border: solid 1px #ddd;
+	}
+
+/* Button */
+
+	input[type="submit"].alt,
+	input[type="reset"].alt,
+	input[type="button"].alt,
+	.button.alt {
+		border: solid 1px #ddd;
+	}
+
+/* Wrapper */
+
+	.wrapper.style1:before {
+		background-color: #ddd;
+	}
+
+	.wrapper.style2 {
+		background-image: url("../../images/banner.jpg");
+		background-size: cover;
+		-ms-behavior: url("assets/js/ie/backgroundsize.min.htc");
+	}
+
+/* Header */
+
+	#header {
+		border-bottom: solid 1px #ddd;
+	}
+
+		#header nav > ul > li .button {
+			border-color: #ddd;
+		}
+
+		#header.alt nav a {
+			color: #ffffff;
+		}
+
+	.dropotron {
+		border: solid 1px #ddd;
+	}
+
+		.dropotron > li {
+			border-top: solid 1px #ddd;
+		}
+
+		.dropotron.level-0 {
+			margin-top: 0;
+		}
+
+			.dropotron.level-0:before {
+				display: none;
+			}
+
+/* Banner */
+
+	#banner {
+		background-image: url("../../images/banner.jpg");
+		background-size: cover;
+		-ms-behavior: url("assets/js/ie/backgroundsize.min.htc");
+	}
