@@ -17,6 +17,7 @@ app.get('/', function(request, response) {
   response.render('pages/index')
 });
 
+console.log(__dirname, './backend/count.txt');
 app.get('/pdfcount', function(request, response){
   response.sendFile(path.join(__dirname, './backend/count.txt'))
 });
