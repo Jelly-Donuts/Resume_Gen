@@ -236,7 +236,6 @@ $(function (){
 			method: 'POST',
 			contentType: "application/x-www-form-urlencoded",
 			data: JSON.stringify(schema),
-			dataType: 'json',
 			success: function(data) {alert(data)}
 		});
 	});
