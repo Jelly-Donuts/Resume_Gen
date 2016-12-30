@@ -27,7 +27,7 @@ app.get('/pdfcount', function(request, response){
 	// res.sendFile(path.join(__dirname, '/backend/pdfs', docName));
 // });
 
-router.get('/pdfgen', function(req, res){
+app.get('/pdfgen', function(req, res){
 	res.send('hello world')
 });
 
