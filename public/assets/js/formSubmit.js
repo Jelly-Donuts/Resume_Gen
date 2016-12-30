@@ -233,10 +233,9 @@ $(function (){
 	    $.ajax({
 			url: '/pdfgen',
 			type: 'POST',
-			contentType: 'json; charset=utf-8',
-			data: {'resume': 'hellooo'},
+			data: "hello",
 			dataType: 'text',
-			success: function(result) {console.log('HERERR')}
+			success: function(result) {console.log(result)}
 		});
 	});
 
