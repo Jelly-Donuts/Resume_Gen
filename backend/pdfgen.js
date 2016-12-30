@@ -58,6 +58,10 @@ const set_up_doc = function(schema) {
 		schema.docname = uuid() + '.pdf';
 	};
 
+	if (!fs.existsSync(path.join(__dirname, './pdfs/'))){
+    	fs.mkdirSync(path.join(__dirname, './pdfs/'));
+	}
+
 	doc.pipe(fs.createWriteStream(path.join(__dirname,'./pdfs/' + schema.docname)));
 
 	//Template 1
@@ -81,7 +85,6 @@ const make_header = function(doc, schema) {
 	//Header
 	//Header:Name
 	console.log('01');
-	console.log(doc);
 	doc.moveUp(3.5)
 		.font('Heading Name')
 		.fontSize(headingFontSize)
