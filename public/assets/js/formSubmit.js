@@ -232,8 +232,8 @@ $(function (){
 	    console.log(JSON.stringify(schema));
 	    $.ajax({
 			url: '/pdfgen',
-			type: 'GET',
-			data: "hello",
+			type: 'POST',
+			data: JSON.stringify(schema),
 			dataType: 'text',
 			success: function(result) {console.log(result)}
 		});
