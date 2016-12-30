@@ -559,7 +559,7 @@ module.exports = {
 
 		console.log(3);
 
-		make_header(doc, schema, size);
+		make_header(doc, schema);
 
 		console.log(4);
 
