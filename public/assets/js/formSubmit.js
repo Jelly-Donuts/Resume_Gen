@@ -231,7 +231,7 @@ $(function (){
 	    }
 
 	    $.ajax({
-			url: 'https://buildaresume.herokuapp.com/pdfgen',
+			url: '/pdfgen',
 			type: 'POST',
 			contentType: 'application/json; charset=utf-8',
 			data: {'resume': JSON.stringify(schema)},
