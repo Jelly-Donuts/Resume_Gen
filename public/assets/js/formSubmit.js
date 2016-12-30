@@ -236,7 +236,7 @@ $(function (){
 			contentType: 'json; charset=utf-8',
 			data: {'resume': JSON.stringify(schema)},
 			dataType: 'text',
-			success: function(result) {window.open('data:application/pdf;' + result);}
+			success: function(result) {console.log('HERERR')}
 		});
 	});
 
