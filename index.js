@@ -21,7 +21,7 @@ app.get('/pdfcount', function(request, response){
   response.sendFile(path.join(__dirname, '/backend/count.txt'))
 });
 
-app.get('/pdfgen', function(request, response){
+app.get('/pdfgen/', function(request, response){
 	response.render('pages/index')
 	// res.sendFile(path.join(__dirname, '/backend/pdfs', docName));
 });
