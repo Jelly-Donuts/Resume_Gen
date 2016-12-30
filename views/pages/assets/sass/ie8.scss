@@ -1,0 +1,185 @@
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+
+$color-border:		#ddd;
+$color-border2:		#bbb;
+
+/* Basic */
+
+	hr {
+		border-bottom: solid 1px $color-border;
+	}
+
+	blockquote {
+		border-left: solid 4px $color-border;
+	}
+
+	code {
+		border: solid 1px $color-border;
+	}
+
+/* Section/Article */
+
+	header {
+		&.major {
+			h2, h3, h4, h5, h6 {
+				border-bottom: solid 1px $color-border;
+			}
+		}
+	}
+
+/* Form */
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	select,
+	textarea {
+		border: solid 1px $color-border;
+	}
+
+	input[type="text"],
+	input[type="password"],
+	input[type="email"] {
+		line-height: _size(element-height);
+	}
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		font-size: 3em;
+
+		& + label {
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+	.select-wrapper {
+		&:before {
+			color: $color-border;
+		}
+	}
+
+/* List */
+
+	ul {
+		&.alt {
+			li {
+				border-top: solid 1px $color-border;
+			}
+		}
+
+		&.icons-grid {
+			li {
+				border-top: solid 1px $color-border;
+			}
+		}
+	}
+
+/* Table */
+
+	table {
+		tbody {
+			tr {
+				border: solid 1px $color-border;
+				border-left: 0;
+				border-right: 0;
+			}
+		}
+
+		thead {
+			border-bottom: solid 2px $color-border;
+		}
+
+		tfoot {
+			border-top: solid 2px $color-border;
+		}
+
+		&.alt {
+			tbody {
+				tr {
+					td {
+						border: solid 1px $color-border;
+					}
+				}
+			}
+		}
+	}
+
+/* Button */
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	.button {
+		&.alt {
+			border: solid 1px $color-border;
+		}
+	}
+
+/* Wrapper */
+
+	.wrapper {
+		&.style1 {
+			&:before {
+				background-color: $color-border;
+			}
+		}
+
+		&.style2 {
+			background-image: url('../../images/banner.jpg');
+			background-size: cover;
+			-ms-behavior: url('assets/js/ie/backgroundsize.min.htc');
+		}
+	}
+
+/* Header */
+
+	#header {
+		border-bottom: solid 1px $color-border;
+
+		nav {
+			> ul {
+				> li {
+					.button {
+						border-color: $color-border;
+					}
+				}
+			}
+		}
+
+		&.alt {
+			nav {
+				a {
+					color: _palette(accent5, fg-bold);
+				}
+			}
+		}
+	}
+
+	.dropotron {
+		border: solid 1px $color-border;
+
+		> li {
+			border-top: solid 1px $color-border;
+		}
+
+		&.level-0 {
+			margin-top: 0;
+
+			&:before {
+				display: none;
+			}
+		}
+	}
+
+/* Banner */
+
+	#banner {
+		background-image: url('../../images/banner.jpg');
+		background-size: cover;
+		-ms-behavior: url('assets/js/ie/backgroundsize.min.htc');
+	}
