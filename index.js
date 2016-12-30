@@ -11,11 +11,13 @@ router.get('/', function(req, res, next){
 	res.render('pages/index', { title: 'Resume Builder'})
 })
 
+router.get('/please', function(req, res, next){
+	res.render('pages/please', { title: 'Resume Builder'})
+})
+
 
 app.use('/', router);
-app.get('/please', function(req, res){
-	res.render('pages/please')
-});
+app.use('/please', router);
 
 // views is directory for all template files
 app.set('views', __dirname + '/site/views');
