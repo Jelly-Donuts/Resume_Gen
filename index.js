@@ -4,6 +4,14 @@ var express = require('express');
 var app = express();
 var router = express.Router();
 
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+
+app.use(express.json());       // to support JSON-encoded bodies
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use('/static', express.static(path.join(__dirname + '/public')));
@@ -18,9 +26,9 @@ app.set('views', __dirname + '/site/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-app.post('/pdfgen', function(req, res) {
+router.post('/pdfgen', function(req, res) {
     console.log('here');
-    console.dir(req);
+    console.log(req.body);
     console.log(pdfGen.handler());
 });
 
