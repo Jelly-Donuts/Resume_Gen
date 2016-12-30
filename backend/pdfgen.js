@@ -537,15 +537,24 @@ module.exports = {
 
 		console.log('Generating a PDF');
 
-		let schema = JSON.parse(JSONobj)
+		let schema = JSON.parse(JSONobj);
+
+		console.log(1);
 
 		const size = make_size(schema);
 		console.log(size);
 
+		console.log(2);
+
 		let doc = set_up_doc(schema);
 
 		make_header(doc, schema, size);
+
+		console.log(3);
+
 		make_segments(doc, schema, size);	
+
+		console.log(4);
 
 		doc.end();
 
