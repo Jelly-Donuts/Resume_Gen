@@ -7,17 +7,20 @@ var router = express.Router();
 app.set('port', (process.env.PORT || 5000));
 
 app.use('/static', express.static(path.join(__dirname + '/public')));
-console.log(require('./backend/pdfgen'));
+router.get('/', function(req, res, next){
+	res.render('index', { title: 'Resume Builder'})
+})
+
+app.use('/', router);
 
 // views is directory for all template files
 app.set('views', __dirname + '/site/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-// HELLO
 
-router.get('/', function(request, response) {
-  response.render('pages/index')
-});
+// app.get('/', function(request, response) {
+//   response.render('pages/index')
+// });
 
 app.get('/pdfcount', function(request, response){
   response.sendFile(path.join(__dirname, '/backend/count.txt'))
