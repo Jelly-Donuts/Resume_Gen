@@ -239,6 +239,6 @@ $(function (){
                 dataType: 'text',
                 success: function(data) {console.log(this)}
         });
-    }
+    });
 });
 
