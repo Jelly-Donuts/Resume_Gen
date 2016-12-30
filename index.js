@@ -9,11 +9,11 @@ app.set('port', (process.env.PORT || 5000));
 app.use('/static', express.static(path.join(__dirname + '/public')));
 router.get('/', function(req, res, next){
 	res.render('pages/index', { title: 'Resume Builder'})
-})
+});
 
 router.get('/please', function(req, res, next){
 	res.render('pages/please', { title: 'Resume Builder'})
-})
+});
 
 
 app.use('/', router);
@@ -38,6 +38,8 @@ app.get('/pdfcount', function(request, response){
 // });
 
 app.get('/pdfgen', function(req, res){
+	console.log(req);
+	console.log(res);
 	res.send('hello world')
 });
 
