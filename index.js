@@ -3,9 +3,6 @@ var path = require('path');
 var express = require('express');
 var app = express();
 var router = express.Router();
-console.log(1);
-var handler = require('./backend/pdfgen');
-console.log(2);
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -15,10 +12,11 @@ router.get('/', function(req, res, next){
 });
 
 router.post('/pdfgen', function(req, res) {
-  var content = JSON.stringify(req.body, null, 2);
-  console.log(handler);
-  console.log(content);
-  console.log(handler(req.body));
+    console.log('here');
+    var content = JSON.stringify(req.body, null, 2);
+    console.log(pdfGen);
+    console.log(content);
+    console.log(handler(req.body));
 }); 
 
 // router.post('/pdfgen', function(req, res){
@@ -47,10 +45,6 @@ app.get('/pdfcount', function(request, response){
 // 	response.render('pages/index')
 	// res.sendFile(path.join(__dirname, '/backend/pdfs', docName));
 // });
-
-app.get('/pdfgen', function(req, res){
-	res.send('hello world')
-});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
