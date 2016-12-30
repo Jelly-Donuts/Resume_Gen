@@ -12,7 +12,8 @@
   "dependencies": {
     "ejs": "2.4.1",
     "express": "4.13.3",
-    "pdfkit": "^0.8.0"
+    "pdfkit": "^0.8.0",
+    "uuid": "^3.0.1"
   },
   "repository": {
     "type": "git",
