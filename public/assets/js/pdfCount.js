@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
     $.get('/pdfcount', function(data){;
         document.getElementById('pdfcount').innerHTML = 1;
         console.log(document.getElementById('pdfcount').innerHTML);
