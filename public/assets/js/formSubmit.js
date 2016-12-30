@@ -230,13 +230,19 @@ $(function (){
 	    	schema.segments.push(skillObj);
 	    }
 	    console.log('schema:', schema);
-	    $.ajax({
-			url: '/pdfgen',
-			method: 'POST',
-			data: schema,
-			dataType: 'json',
-			success: function(data) {alert(data)}
-		});
+
+	    $.post('/pdfgen', schema, function(data) {
+	    	console.log('success');
+	    })
+
+	 //    $.ajax({
+		// 	url: '/pdfgen',
+		// 	method: 'POST',
+		// 	contentType: 'application/json',
+		// 	data: schema,
+		// 	dataType: 'json',
+		// 	success: function(data) {alert(data)}
+		// });
 	});
 
 });
