@@ -320,6 +320,7 @@ const set_up_doc = function(schema) {
 const make_header = function(doc, schema) {
 	//Header
 	//Header:Name
+	console.log('01');
 	doc.moveUp(3.5)
 		.font('Heading Name')
 		.fontSize(headingFontSize)
@@ -327,14 +328,20 @@ const make_header = function(doc, schema) {
 	    	align: 'center'
 		});
 
+	console.log('02');
 	//Header:Contact Info
 	let reach_text = schema.contact.reach[0];
+	console.log('03');
 	if (schema.contact.reach[1]) {
+		console.log('04');
 		reach_text += dot + schema.contact.reach[1];
-	}
+	};
+	console.log('05');
 	if (schema.contact.reach[2]){
+		console.log('06');
 		reach_text += dot + schema.contact.reach[2];
 	}
+	console.log('07');
 
 
 	doc.font('Contact Info')
