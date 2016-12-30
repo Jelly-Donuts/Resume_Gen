@@ -1,3 +1,5 @@
+var pdfgen = require('./backend/pdfgen.js');
+
 $(function (){
 	$( "form" ).submit(function( ) {
 
@@ -229,112 +231,16 @@ $(function (){
 	    	};
 	    	schema.segments.push(skillObj);
 	    }
-	    
+
 	    $.ajax({
 			url: '/pdfgen',
 			type: 'POST',
 			contentType: 'application/json; charset=utf-8',
 			data: {'resume': JSON.stringify(schema)},
 			dataType: 'text',
-			success: function(result) {window.open('data:application/pdf;base64,' + Base64.encode(result));}
+			success: pdfgen.handler(result) {window.open('data:application/pdf;' + result);}
 		});
 	});
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

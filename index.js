@@ -2,8 +2,6 @@ var pdfGen = require('./backend/pdfgen.js');
 var path = require('path');
 var express = require('express');
 var app = express();
-// var PDFcount = pdfGen.getNumber();
-docName = pdfGen.PDFGenerator()
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -22,10 +20,6 @@ app.get('/pdfcount', function(request, response){
 
 app.get('/pdfgen', function(request, response){
 	res.sendFile(path.join(__dirname, './Resume_Gen/pdfs', docName));
-});
-
-app.get('/pdfgen', function(request, response){
-  response.send(pdfGen.docNameGen());
 });
 
 // app.listen(app.get('port'), function() {
