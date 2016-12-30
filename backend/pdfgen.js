@@ -286,6 +286,7 @@ const make_end_date = function(schema, i, j){
 
 //Creates the doc with all the sizes and fonts
 const set_up_doc = function(schema) {
+	console.log('A');
 	const doc = new PDFDocument({
 		margins : {
 			top:72, 
@@ -293,11 +294,14 @@ const set_up_doc = function(schema) {
 			right:36, 
 			left:36
 		}
+	console.log('B');
 	});
 
 	if (!schema.docname) {
+		console.log('C');
 		schema.docname = uuid() + '.pdf';
 	}
+	console.log('D');
 	doc.pipe(fs.createWriteStream('./pdfs/' + schema.docname));
 
 	//Template 1
