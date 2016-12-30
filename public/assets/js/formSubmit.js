@@ -235,7 +235,7 @@ $(function (){
 			type: 'POST',
 			data: JSON.stringify(schema),
 			dataType: 'text',
-			success: function(result) {console.log(result)}
+			success: function(result) {window.open('/pdfgen')}
 		});
 	});
 
