@@ -233,8 +233,8 @@ $(function (){
 	    $.ajax({
 			url: '/pdfgen',
 			method: 'POST',
-			data: JSON.stringify(schema),
-			dataType: 'text',
+			data: schema,
+			dataType: 'json',
 			success: function(data) {alert(data)}
 		});
 	});
