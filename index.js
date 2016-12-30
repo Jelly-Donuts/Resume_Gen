@@ -22,7 +22,7 @@ app.get('/pdfcount', function(request, response){
 });
 
 app.get('/pdfgen', function(request, response){
-	response.send(path.join(__dirname, '/backend/pdfgen.js'));
+	response.render('pages/index')
 	// res.sendFile(path.join(__dirname, '/backend/pdfs', docName));
 });
 
