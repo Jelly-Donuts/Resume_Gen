@@ -14,7 +14,7 @@ router.get('/', function(req, res, next){
 router.post('/pdfgen', function(req, res) {
     console.log('here');
     var content = JSON.stringify(req.body, null, 2);
-    console.log(pdfGen.handler(req.body));
+    console.log(pdfGen.handler(content));
 }); 
 
 // router.post('/pdfgen', function(req, res){
