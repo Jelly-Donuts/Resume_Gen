@@ -286,7 +286,6 @@ const make_end_date = function(schema, i, j){
 
 //Creates the doc with all the sizes and fonts
 const set_up_doc = function(schema) {
-	console.log('A');
 	const doc = new PDFDocument({
 		margins : {
 			top:72, 
@@ -299,7 +298,7 @@ const set_up_doc = function(schema) {
 	if (!schema.docname) {
 		schema.docname = uuid() + '.pdf';
 	};
-	doc.pipe(fs.createWriteStream('/pdfs/' + schema.docname));
+	doc.pipe(fs.createWriteStream('pdfs/' + schema.docname));
 
 	//Template 1
 	//Template 1:Fonts
@@ -315,7 +314,6 @@ const set_up_doc = function(schema) {
 
 
 	return doc;
-	console.log('B');
 }
 
 //Creates the header portion of the PDF that uses schema.contact
