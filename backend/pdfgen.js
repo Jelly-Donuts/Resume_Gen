@@ -293,10 +293,10 @@ const set_up_doc = function(schema) {
 			bottom:36, 
 			right:36, 
 			left:36
-		};
-	console.log('B');
+		}
 	});
 
+	console.log('B');
 	if (!schema.docname) {
 		console.log('C');
 		schema.docname = uuid() + '.pdf';
