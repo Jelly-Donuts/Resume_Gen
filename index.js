@@ -9,10 +9,15 @@ app.set('port', (process.env.PORT || 5000));
 app.use('/static', express.static(path.join(__dirname + '/public')));
 router.get('/', function(req, res, next){
 	res.render('pages/index', { title: 'Resume Builder'})
-});
+})
 
+router.post('/pdfgen', function(req, res){
+	var content = JSON.stringify(req.body);
+	res.send(content);
+})
 
 app.use('/', router);
+app.use('/pdfgen', router);
 
 // views is directory for all template files
 app.set('views', __dirname + '/site/views');
@@ -33,8 +38,7 @@ app.get('/pdfcount', function(request, response){
 // });
 
 app.get('/pdfgen', function(req, res){
-	console.log(req);
-	console.log(res);
+	console.log(req, res);
 	res.send('hello world')
 });
 
