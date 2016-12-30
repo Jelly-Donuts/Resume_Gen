@@ -1,5 +1,3 @@
-var pdfgen = require('./backend/pdfgen.js');
-
 $(function (){
 	$( "form" ).submit(function( ) {
 
