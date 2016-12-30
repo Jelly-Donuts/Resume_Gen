@@ -231,18 +231,14 @@ $(function (){
 	    }
 	    console.log('schema:', schema);
 
-	    $.post('/pdfgen', schema, function(data) {
-	    	console.log('success');
-	    })
-
-	 //    $.ajax({
-		// 	url: '/pdfgen',
-		// 	method: 'POST',
-		// 	contentType: 'application/json',
-		// 	data: schema,
-		// 	dataType: 'json',
-		// 	success: function(data) {alert(data)}
-		// });
+	    $.ajax({
+			url: '/pdfgen',
+			method: 'POST',
+			contentType: 'application/json',
+			data: JSON.stringify(schema),
+			dataType: 'json',
+			success: function(data) {alert(data)}
+		});
 	});
 
 });
