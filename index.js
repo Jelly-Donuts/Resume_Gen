@@ -20,7 +20,7 @@ app.set('view engine', 'html');
 
 router.post('/pdfgen', function(req, res) {
     console.log('here');
-    var content = JSON.stringify(req.body, null, 2);
+    var content = JSON.stringify(req.resume, null, 2);
     console.log(content);
     console.log(pdfGen.handler(content));
 });
