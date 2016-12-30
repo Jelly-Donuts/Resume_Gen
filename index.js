@@ -17,13 +17,12 @@ app.get('/', function(request, response) {
   response.render('pages/index')
 });
 
-console.log(__dirname, './backend/count.txt');
 app.get('/pdfcount', function(request, response){
-  response.sendFile(path.join(__dirname, './backend/count.txt'))
+  response.sendFile(path.join(__dirname, '/backend/count.txt'))
 });
 
 app.get('/pdfgen', function(request, response){
-	res.sendFile(path.join(__dirname, './Resume_Gen/pdfs', docName));
+	res.sendFile(path.join(__dirname, '/backend/pdfs', docName));
 });
 
 app.listen(app.get('port'), function() {
