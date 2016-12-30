@@ -538,14 +538,20 @@ module.exports = {
 		console.log(5);
 
 		let schema = JSON.parse(JSONobj)
+		console.log(6);
 
 		const size = make_size(schema);
 		console.log(size);
 
+		console.log(7);
+
 		let doc = set_up_doc(schema);
+		console.log(8);
 
 		make_header(doc, schema, size);
+		console.log(9);
 		make_segments(doc, schema, size);	
+		console.log(10);
 
 		doc.end();
 
