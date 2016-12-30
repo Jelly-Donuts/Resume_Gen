@@ -2,7 +2,7 @@ var pdfGen = require('./backend/pdfgen.js');
 var path = require('path');
 var express = require('express');
 var app = express();
-var router = express().Router();
+var router = express.Router();
 
 app.set('port', (process.env.PORT || 5000));
 
