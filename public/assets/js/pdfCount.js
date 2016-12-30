@@ -1,8 +1,6 @@
 $(document).ready(function () {
-    $.get('/pdfcount', function(data){
-        console.log(data);
-        console.log(document.getElementById('pdfcount').innerHTML);
-        $("#pdfcount").text(data);
+    $.get('/pdfcount', function(data){;
+        document.getElementById('pdfcount').innerHTML = 1;
     });
     $('.count').each(function () {
         $(this).prop('Counter',0).animate({
