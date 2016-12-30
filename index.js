@@ -14,7 +14,6 @@ router.get('/', function(req, res, next){
 router.post('/pdfgen', function(req, res) {
     console.log('here');
     var content = JSON.stringify(req.body, null, 2);
-    console.log(req.body);
     console.log(content);
     console.log(pdfGen.handler(content));
 }); 
@@ -24,9 +23,11 @@ router.post('/pdfgen', function(req, res) {
 // 	res.send(content);
 // });
 
+router.get('/pdfgen', function(req, res) {
+	res.render('pages/please');
+})
 
 app.use('/', router);
-app.use('/pdfgen', router);
 
 // views is directory for all template files
 app.set('views', __dirname + '/site/views');
