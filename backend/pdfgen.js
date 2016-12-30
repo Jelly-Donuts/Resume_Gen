@@ -321,6 +321,7 @@ const make_header = function(doc, schema) {
 	//Header
 	//Header:Name
 	console.log('01');
+	console.log(doc);
 	doc.moveUp(3.5)
 		.font('Heading Name')
 		.fontSize(headingFontSize)
