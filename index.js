@@ -11,7 +11,13 @@ router.get('/', function(req, res, next){
 	res.render('pages/index', { title: 'Resume Builder'})
 })
 
+router.post('/pdfgen', function(req, res){
+	var content = JSON.stringify(req.body);
+	res.send(content);
+})
+
 app.use('/', router);
+
 
 // views is directory for all template files
 app.set('views', __dirname + '/site/views');
