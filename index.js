@@ -1,18 +1,19 @@
-
 var pdfGen = require('./backend/pdfgen.js');
 var path = require('path');
 var express = require('express');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
-console.log('dirname', __dirname);
+
+app.use('/static', express.static(path.join(__dirname + '/public')));
+
 // views is directory for all template files
 app.set('views', __dirname + '/site/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 app.get('/', function(request, response) {
-  response.render('index')
+  response.render('pages/index')
 });
 
 app.get('/pdfcount', function(request, response){
@@ -20,9 +21,9 @@ app.get('/pdfcount', function(request, response){
 });
 
 app.get('/pdfgen', function(request, response){
-    res.sendFile(path.join(__dirname, './Resume_Gen/pdfs', docName));
+	res.sendFile(path.join(__dirname, './Resume_Gen/pdfs', docName));
 });
 
-app.listen(app.get('port'), function() {
-    console.log('Node app is running on port', app.get('port'));
-});
+// app.listen(app.get('port'), function() {
+//   console.log('Node app is running on port', app.get('port'));
+// });
