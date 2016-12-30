@@ -232,13 +232,11 @@ $(function (){
 	    console.log('schema:', schema);
 
 	    $.ajax({
-			url: 'http://www.w3schools.com/jquery/demo_test_post.asp',
+			url: '/pdfgen',
 			method: 'POST',
 			contentType: "application/x-www-form-urlencoded",
 			data: JSON.stringify(schema),
-			success: function(data,status){
-            	alert("Data: " + data + "\nStatus: " + status);
-        	}
+			success: function(data) {alert(data)}
 		});
 	});
 
