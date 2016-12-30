@@ -26,7 +26,7 @@ app.set('view engine', 'html');
 // });
 
 router.get("/pdfgen", function(req, res){
-	res.send('pages/demo');
+	res.render('pages/demo');
 })
 
 // app.get('/', function(request, response) {
