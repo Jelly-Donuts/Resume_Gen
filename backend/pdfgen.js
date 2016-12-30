@@ -302,7 +302,7 @@ const set_up_doc = function(schema) {
 		schema.docname = uuid() + '.pdf';
 	};
 	console.log('D');
-	doc.pipe(fs.createWriteStream('./pdfs/' + schema.docname));
+	doc.pipe(fs.createWriteStream('/pdfs/' + schema.docname));
 	console.log('E');
 
 	//Template 1
