@@ -25,6 +25,3 @@ app.get('/pdfgen', function(request, response){
 	res.sendFile(path.join(__dirname, './Resume_Gen/pdfs', docName));
 });
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
