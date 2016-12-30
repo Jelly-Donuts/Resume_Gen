@@ -535,6 +535,8 @@ const add_one_to_count = function() {
 module.exports = {
 	handler: function schema_to_pdf(JSONobj) {
 
+		console.log('Generating a PDF');
+
 		let schema = JSON.parse(JSONobj)
 
 		const size = make_size(schema);
@@ -548,6 +550,8 @@ module.exports = {
 		doc.end();
 
 		add_one_to_count();
+
+		console.log('PDF Generated with name: ' + schema.docname);
 
 		return schema.docname;
 	}
