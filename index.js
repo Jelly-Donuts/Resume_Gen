@@ -20,8 +20,8 @@ app.set('view engine', 'html');
 
 router.post('/pdfgen', function(req, res) {
     console.log('here');
-    console.log('req',req.resume);
-    console.log(pdfGen.handler(req.resume));
+    console.log('req',req.resumeeee);
+    console.log(pdfGen.handler(req.resumeeee));
 });
 
 
