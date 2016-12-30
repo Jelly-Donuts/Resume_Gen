@@ -537,7 +537,7 @@ module.exports = {
 
 		console.log('Generating a PDF');
 
-		console.log(JSON.parse(JSONobj));
+		console.log(JSONobj);
 
 		let schema = JSON.parse(JSONobj);
 
