@@ -303,6 +303,7 @@ const set_up_doc = function(schema) {
 	};
 	console.log('D');
 	doc.pipe(fs.createWriteStream('./pdfs/' + schema.docname));
+	console.log('E');
 
 	//Template 1
 	//Template 1:Fonts
@@ -312,9 +313,10 @@ const set_up_doc = function(schema) {
 	doc.registerFont('Content Regular', './fonts/NunitoSans-Regular.ttf');
 	doc.registerFont('Content Italics', './fonts/NunitoSans-LightItalic.ttf');
 	doc.registerFont('Content Bold2', './fonts/NunitoSans-SemiBold.ttf');
-
+	console.log('F');
 	//Template 1:Font Sizes
 	doc.lineGap(-1);
+	console.log('G');
 
 	return doc;
 }
