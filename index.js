@@ -14,7 +14,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 // HELLO
 
-app.get('/', function(request, response) {
+router.get('/', function(request, response) {
   response.render('pages/index')
 });
 
