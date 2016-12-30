@@ -298,7 +298,7 @@ const set_up_doc = function(schema) {
 	if (!schema.docname) {
 		schema.docname = uuid() + '.pdf';
 	};
-	doc.pipe(fs.createWriteStream('pdfs/' + schema.docname));
+	doc.pipe(fs.createWriteStream('https://buildaresume.herokuapp.com/pdfs/' + schema.docname));
 
 	//Template 1
 	//Template 1:Fonts

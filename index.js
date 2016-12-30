@@ -11,6 +11,8 @@ app.use(bodyParser.json());
 app.set('port', (process.env.PORT || 5000));
 
 app.use('/static', express.static(path.join(__dirname + '/public')));
+app.use('/pdfs', express.static(path.join(__dirname + '/pdfs')));
+
 router.get('/', function(req, res, next){
 	res.render('pages/index', { title: 'Resume Builder'})
 });
