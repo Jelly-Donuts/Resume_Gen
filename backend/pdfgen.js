@@ -1,9 +1,9 @@
 'use strict';
-console.log(1);
+
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
 const uuid = require('uuid/v4');
-console.log(2);
+
 const headingFontSize = 24;
 const contactFontSize = 12;
 const contentFontSize = 10.5;
@@ -535,23 +535,15 @@ const add_one_to_count = function() {
 module.exports = {
 	handler: function schema_to_pdf(JSONobj) {
 
-		console.log(5);
-
 		let schema = JSON.parse(JSONobj)
-		console.log(6);
 
 		const size = make_size(schema);
 		console.log(size);
 
-		console.log(7);
-
 		let doc = set_up_doc(schema);
-		console.log(8);
 
 		make_header(doc, schema, size);
-		console.log(9);
 		make_segments(doc, schema, size);	
-		console.log(10);
 
 		doc.end();
 
