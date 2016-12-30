@@ -296,14 +296,10 @@ const set_up_doc = function(schema) {
 		}
 	});
 
-	console.log('B');
 	if (!schema.docname) {
-		console.log('C');
 		schema.docname = uuid() + '.pdf';
 	};
-	console.log('D');
 	doc.pipe(fs.createWriteStream('/pdfs/' + schema.docname));
-	console.log('E');
 
 	//Template 1
 	//Template 1:Fonts
@@ -313,12 +309,13 @@ const set_up_doc = function(schema) {
 	doc.registerFont('Content Regular', './fonts/NunitoSans-Regular.ttf');
 	doc.registerFont('Content Italics', './fonts/NunitoSans-LightItalic.ttf');
 	doc.registerFont('Content Bold2', './fonts/NunitoSans-SemiBold.ttf');
-	console.log('F');
+
 	//Template 1:Font Sizes
 	doc.lineGap(-1);
-	console.log('G');
+
 
 	return doc;
+	console.log('B');
 }
 
 //Creates the header portion of the PDF that uses schema.contact
@@ -550,19 +547,20 @@ module.exports = {
 		console.log(1);
 
 		const size = make_size(schema);
-		console.log(size);
 
 		console.log(2);
 
 		let doc = set_up_doc(schema);
 
+		console.log(3);
+
 		make_header(doc, schema, size);
 
-		console.log(3);
+		console.log(4);
 
 		make_segments(doc, schema, size);	
 
-		console.log(4);
+		console.log(5);
 
 		doc.end();
 
