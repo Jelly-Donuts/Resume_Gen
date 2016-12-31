@@ -468,10 +468,10 @@ $(document).ready(function () {
 
 
     // Professional Experience - Employer add button (**NEEDS UPDATE**)
-    $('.btnAdd_Segment').click(function(this) {addClone(this)});
+    $('.btnAdd_Segment').click(function() {addClone(this)});
 
     // Professional Experience - Employer delete button (**NEEDS UPDATE**)
-    $('.btnDel_Segment').click(function(this) {delClone(this)});
+    $('.btnDel_Segment').click(function() {delClone(this)});
 
     // Enable the "add" button
     $('.btnAdd_Segment').attr('disabled', false);
