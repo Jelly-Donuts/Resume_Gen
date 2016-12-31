@@ -208,8 +208,7 @@ const make_line = function(doc, line, right_align, size) {
 	}
 
 	//print the text
-	doc.font('Content Regular')
-		.fontSize(size)
+	doc.fontSize(size)
 		.text(line.content, {
 			align: 'left',
 			continued: cont
