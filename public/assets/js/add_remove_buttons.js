@@ -1,4 +1,4 @@
-const addClone = function(){
+const addClone = function(this){
 
     let targetID   = '#' + $(this).attr('for');
     console.log(this);
@@ -468,10 +468,10 @@ $(document).ready(function () {
 
 
     // Professional Experience - Employer add button (**NEEDS UPDATE**)
-    $('.btnAdd_Segment').click(function() {addClone()});
+    $('.btnAdd_Segment').click(function(this) {addClone(this)});
 
     // Professional Experience - Employer delete button (**NEEDS UPDATE**)
-    $('.btnDel_Segment').click(function() {delClone()});
+    $('.btnDel_Segment').click(function(this) {delClone(this)});
 
     // Enable the "add" button
     $('.btnAdd_Segment').attr('disabled', false);
