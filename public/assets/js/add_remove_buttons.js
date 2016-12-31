@@ -366,7 +366,7 @@ $(document).ready(function () {
 
 
 
-    function addClone(){
+    const addClone = function(){
 
         let targetID   = '#' + $(this).attr('for'),
             targetAttr = $(targetID).attr('data-clone'),
@@ -430,7 +430,7 @@ $(document).ready(function () {
         }
     }
 
-    function delClone() {
+    const delClone = function() {
 
         // Confirmation dialog box
         if (confirm("Are you sure you wish to remove this field? This cannot be undone." + this)){
