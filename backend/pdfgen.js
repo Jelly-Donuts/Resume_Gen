@@ -66,12 +66,12 @@ const set_up_doc = function(schema) {
 
 	//Template 1
 	//Template 1:Fonts
-	doc.registerFont('Heading Name', '/fonts/Didot.ttf');
-	doc.registerFont('Contact Info', '/fonts/OpenSans-Light.ttf');
-	doc.registerFont('Title', '/fonts/NunitoSans-Bold.ttf');
-	doc.registerFont('Content Regular', '/fonts/NunitoSans-Regular.ttf');
-	doc.registerFont('Content Italics', '/fonts/NunitoSans-LightItalic.ttf');
-	doc.registerFont('Content Bold2', '/fonts/NunitoSans-SemiBold.ttf');
+	doc.registerFont('Heading Name', path.join(__dirname, '/fonts/Didot.ttf'));
+	doc.registerFont('Contact Info', path.join(__dirname, '/fonts/OpenSans-Light.ttf'));
+	doc.registerFont('Title', path.join(__dirname, '/fonts/NunitoSans-Bold.ttf'));
+	doc.registerFont('Content Regular', path.join(__dirname, '/fonts/NunitoSans-Regular.ttf'));
+	doc.registerFont('Content Italics', path.join(__dirname,'/fonts/NunitoSans-LightItalic.ttf'));
+	doc.registerFont('Content Bold2', path.join(__dirname,'/fonts/NunitoSans-SemiBold.ttf'));
 
 	//Template 1:Font Sizes
 	doc.lineGap(-1);
