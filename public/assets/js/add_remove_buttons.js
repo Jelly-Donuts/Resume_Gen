@@ -18,7 +18,7 @@ function addClone(item){
     newElem.removeClass("hidden");
 
     // Heading
-    newElem.find('.' + targetAttr + '_heading').text(targetAttr + '#' + newNum);
+    newElem.find('.' + targetAttr + '_heading').text(targetAttr + ' #' + newNum);
 
     // Insert the new element after the last cloned input field
     $('#' + targetAttr + num).after(newElem);
