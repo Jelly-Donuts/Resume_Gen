@@ -1,7 +1,7 @@
 const addClone = function(){
 
     let targetID   = '#' + $(this).attr('for');
-    console.log(targetID);
+    console.log(this);
     let targetAttr = $(targetID).attr('data-clone');
     console.log(targetAttr);
     let btnDelPair = '#' + $(this).attr('data-btn-del');
