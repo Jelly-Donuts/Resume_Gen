@@ -83,8 +83,8 @@ function delClone(item) {
         }
 
     // Enable the "add" button.
-    let text = $(btnAddPair).attr('data-field');
-    $(btnAddPair).attr('disabled', false).val("Add " + text + " [+]");
+    let text = $(btnAddPair).attr('value');
+    $(btnAddPair).attr('disabled', false).val(text);
     }
     return false;
 }
