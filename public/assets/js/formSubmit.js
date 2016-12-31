@@ -238,7 +238,7 @@ $(function (){
             data: JSON.stringify(schema),
             dataType: 'text',
             success: function(data) {console.log('POST SUCCESS')},
-            error: function (xhr, ajaxOptions, thrownError) {console.log(xhr)}
+            error: function (xhr, ajaxOptions, thrownError) {console.log("Error")}
         });
     });
 });
