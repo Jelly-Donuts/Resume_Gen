@@ -48,22 +48,23 @@ $(function (){
 		};
 
 		const dateChanger = function(date){
-			const dateYear = date.substring(0, 4);
-			let dateMon    = date.substring(5,7);
-			dateMon        = monthDict[dateMon];
+			console.log('date', date);
+			const dateYear = date.substring(0, 4) || '';
+			let dateMon    = date.substring(5,7) || '';
+			dateMon        = monthDict[dateMon] || '';
 			return (dateMon + ' ' + dateYear);
 		};
 
-		const degreeDate = dateChanger($('#degreeMonth').val());
-		const hsDate = dateChanger($('#highschoolMonth').val());
+		const degreeDate = dateChanger($('#degreeMonth').val()) || '';
+		const hsDate = dateChanger($('#highschoolMonth').val()) || '';
 
 		// Form Info
 		let segmentContact = {
 	        name   : $('#firstName').val() + " "  + $('#lastName').val(),
-	        address: $('#address').val()   + ", " + $('#addressCity').val() + ", " + $('#addressState').val() + " " + $('#zipcode').val(),
+	        address: ($('#address').val() || '') + ", " + ($('#addressCity').val() || '') + ", " + ($('#addressState').val() || '') + " " + ($('#zipcode').val() || ''),
 	        reach  : [
-	            $('#email').val(),
-	            $('#phone').val(),
+	            $('#email').val() || '',
+	            $('#phone').val() || '',
 	            ''
 	        ]
 		};
