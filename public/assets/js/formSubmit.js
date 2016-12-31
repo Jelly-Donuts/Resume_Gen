@@ -31,6 +31,7 @@ $(function (){
                 schema.segments.push(segmentEducation);
 	    	}
 	    	let university = '#univerisity' + i;
+            console.log($(university).find('.city').val(), $(university).find('.state').val(), $(university).find('.month').val() + " " + $(university).find('.year').val());
 	    	let universityObj = {
                 city      : $(university).find('.city').val(),
                 state     : $(university).find('.state').val(),
@@ -454,6 +455,14 @@ $(function (){
         });
     });
 });
+
+
+
+
+
+
+
+
 
 
 
