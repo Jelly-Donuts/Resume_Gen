@@ -1,19 +1,13 @@
 function addClone(item){
 
     let targetID   = '#' + $(item).attr('for');
-    console.log(item);
     let targetAttr = $(targetID).attr('data-clone');
-    console.log(targetAttr);
     let btnDelPair = '#' + $(item).attr('data-btn-del');
-    console.log(btnDelPair);
 
         // How many cloned input fields we currently have
     let num        = $("[data-clone='" + targetAttr + "']").length - 1;
-    console.log(num);
     let newNum     = num + 1;
-    console.log(newNum);
     let newID = targetAttr + newNum;
-    console.log(newID);
 
         // Create the new element via clone(), and change it's id
     let newElem = $(targetID).clone().attr('id', newID).fadeIn();
@@ -71,7 +65,7 @@ function addClone(item){
 function delClone(item) {
 
     // Confirmation dialog box
-    if (confirm("Are you sure you wish to remove this field? This cannot be undone." + item)){
+    if (confirm("Are you sure you wish to remove this field? This cannot be undone.")){
 
     let targetID   = '#' + $(item).attr('for'),
         targetAttr = $(targetID).attr('data-clone'),
@@ -89,7 +83,7 @@ function delClone(item) {
         }
 
     // Enable the "add" button. IMPORTANT: only for forms using input type="button" (see older demo). DELETE if using button element.
-    $(btnAddPair).attr('disabled', false).val("Add Employer [+]");
+    $(btnAddPair).attr('disabled', false).val("Add " + targetAttr + " [+]");
     }
     return false;
 }
