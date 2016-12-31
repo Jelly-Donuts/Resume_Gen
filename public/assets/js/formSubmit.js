@@ -1,5 +1,5 @@
 $(function (){
-	$("#btnSubmit").click(function( ) {
+	$("form").submit(function( ) {
 
 		// Cloned variables
 		var uniAwardStr = '';
