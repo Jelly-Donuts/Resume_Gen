@@ -110,13 +110,13 @@ $(function (){
 
 	   		// Honors and Awards
 	    	for (let j = 1; j < $(highschool).find('.award').length ; j++) {
-	    		highschoolObj.lines[3].title = "Honors/Awards: ";
+	    		highschoolObj.lines[2].title = "Honors/Awards: ";
 	    		let awardID = highschool + 'award' + j;
 	    		if ($(highschool).find(awardID).val()) {
 	    			if (j !== 1) {
-	    				highschoolObj.lines[3].content += ', ';
+	    				highschoolObj.lines[2].content += ', ';
 	    			}
-	    			highschoolObj.lines[3].content += $(awardID).val();
+	    			highschoolObj.lines[2].content += $(awardID).val();
 		    	}
 	    	}
 	    	segmentEducation.items.push(highschoolObj);
@@ -454,6 +454,8 @@ $(function (){
         });
     });
 });
+
+
 
 
 
