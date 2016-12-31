@@ -49,9 +49,10 @@ function addClone(item){
 
         // Bind addClone function to add button
         newElem.find(newBtnAddID).click(function(){addClone()});
-
+        console.log(newElem.find(newBtnAddID));
         // Bind delClone function to delete button
         newElem.find(newBtnDelID).click(function(){delClone()});
+        console.log(newElem.find(newBtnDelID));
 
     };
 
@@ -80,7 +81,7 @@ function delClone(item) {
         // How many cloned input fields we currently have
         num        = $("[data-clone='" + targetAttr + "']").length - 1,
         $('#' + targetAttr + num).slideUp(function () {
-            $(item).remove();
+            $(this).remove();
         });
 
         // If only one element remains, disable the "remove" button
