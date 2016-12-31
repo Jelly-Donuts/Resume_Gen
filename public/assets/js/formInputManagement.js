@@ -1,7 +1,7 @@
 $(document).ready(function () {    
-    $("#phone").blur(function (){
+    $(".phone").blur(function (){
 
-        x = $(this).val().replace(/[{()}]/g, "");
+        let x = $(this).val().replace(/[{()}]/g, "");
         x = x.replace(/[\[\]']+/g, '');
         x = x.replace(/-| /g, '');
 
@@ -10,3 +10,6 @@ $(document).ready(function () {
         }
     });
 });
+
+
+
