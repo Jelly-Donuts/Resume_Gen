@@ -1,6 +1,6 @@
 node_modules/
 
-count.txt
+backend/count.txt
 
 .DS_STORE
 
