@@ -23,11 +23,7 @@ $(function (){
 	    };
 	    let segmentSkills = {
 	        title: '',
-	        items: [
-                {
-                    lines: []
-                }
-            ]
+	        items: []
 	    };
 
 		// Create the University part of schema
@@ -204,7 +200,7 @@ $(function (){
                 title  : $(skill).find('.category').val(),
                 content: $(skill).find('.content').val(),
             };
-            segmentSkills.items.lines.push(skillObj);
+            segmentSkills.items[0].lines.push(skillObj);
         }
 
         const schema = {
@@ -458,6 +454,8 @@ $(function (){
         });
     });
 });
+
+
 
 
 
