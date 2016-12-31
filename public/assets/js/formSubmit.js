@@ -151,10 +151,8 @@ $(function (){
                     {
                         title  : $(employer).find('.employerInput').val(),
                         content: '',
-                        bullet : false
                     },
                     {
-                        bullet : false,
                         italics: true,
                         content: $(employer).find('.employerTitle').val()
                     }
