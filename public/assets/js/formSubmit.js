@@ -127,12 +127,6 @@ $(function (){
 	        ]
 	    };
 	    
-	    const schema = {
-			contact : segmentContact,
-			segments: [
-				segmentEducation,
-			]
-		};
 		let segmentProfExp = {
 			title:"",
 			items: [],
@@ -175,6 +169,13 @@ $(function (){
 	    	segmentProfExp.items.push(employee);
 	    }
 
+	    const schema = {
+			contact : segmentContact,
+			segments: [
+				segmentEducation,
+				segmentProfExp,
+			]
+		};
 
 		//create the Leadership and Extracurricular part of schema
 	    for(let i = 1; i < $('.leadAndExtra').length; i++){
