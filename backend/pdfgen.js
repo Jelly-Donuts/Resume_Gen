@@ -300,8 +300,8 @@ const make_size = function(schema) {
 }
 
 const add_one_to_count = function() {
-  let file = fs.readFileSync('filelist.txt', 'utf-8');
-  fs.writeFileSync('filelist.txt', file + 1, 'utf-8');
+  let file = fs.readFileSync(path.join(__dirname, 'count.txt'), 'utf-8');
+  fs.writeFileSync(path.join(__dirname, 'count.txt'), file + 1, 'utf-8');
 } 
 
 module.exports = {
