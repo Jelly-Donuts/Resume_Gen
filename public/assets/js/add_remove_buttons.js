@@ -1,16 +1,22 @@
 const addClone = function(){
 
-    let targetID   = '#' + $(this).attr('for'),
-        targetAttr = $(targetID).attr('data-clone'),
-        btnDelPair = '#' + $(this).attr('data-btn-del'),
+    let targetID   = '#' + $(this).attr('for');
+    console.log(targetID);
+    let targetAttr = $(targetID).attr('data-clone');
+    console.log(targetAttr);
+    let btnDelPair = '#' + $(this).attr('data-btn-del');
+    console.log(btnDelPair);
 
         // How many cloned input fields we currently have
-        num        = $("[data-clone='" + targetAttr + "']").length - 1,
-        newNum     = num + 1,
-        newID = targetAttr + newNum,
+    let num        = $("[data-clone='" + targetAttr + "']").length - 1;
+    console.log(num);
+    let newNum     = num + 1;
+    console.log(newNum);
+    let newID = targetAttr + newNum;
+    console.log(newID);
 
         // Create the new element via clone(), and change it's id
-        newElem = $(targetID).clone().attr('id', newID).fadeIn();
+    let newElem = $(targetID).clone().attr('id', newID).fadeIn();
 
     newElem.removeClass("hidden");
 
