@@ -60,7 +60,7 @@ $(function (){
 
 	   		// Honors and Awards
 	    	for (let j = 1; j < $(university).find('.award').length ; j++) {
-	    		universityObj.lines[3].title = "Honors/Awards: ";
+	    		universityObj.lines[3].title = "Honors/Awards:";
 	    		let awardID = university + 'award' + j;
 	    		if ($(university).find(awardID).val()) {
 	    			if (j !== 1) {
@@ -70,7 +70,7 @@ $(function (){
 		    	}
 	    	}
 	    	for (let k = 1; k < $(university).find('.course').length; k++) {
-	    		universityObj.lines[4].title = "Relevant Coursework: ";
+	    		universityObj.lines[4].title = "Relevant Coursework:";
 	    		let courseID = university + 'course' + k;
 	    		if ($(university).find(courseID).val()) {
 	    			if (k !== 1) {
@@ -110,7 +110,7 @@ $(function (){
 
 	   		// Honors and Awards
 	    	for (let j = 1; j < $(highschool).find('.award').length ; j++) {
-	    		highschoolObj.lines[2].title = "Honors/Awards: ";
+	    		highschoolObj.lines[2].title = "Honors/Awards:";
 	    		let awardID = highschool + 'award' + j;
 	    		if ($(highschool).find(awardID).val()) {
 	    			if (j !== 1) {
@@ -197,7 +197,7 @@ $(function (){
             }
             let skill = '#skill' + i;
             let skillObj = {
-                title  : $(skill).find('.category').val(),
+                title  : $(skill).find('.category').val() + ':',
                 content: $(skill).find('.content').val(),
             };
             segmentSkills.items[0].lines.push(skillObj);
@@ -454,6 +454,10 @@ $(function (){
         });
     });
 });
+
+
+
+
 
 
 
