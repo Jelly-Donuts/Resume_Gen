@@ -1,4 +1,4 @@
-const addClone = function(this){
+function addClone(this){
 
     let targetID   = '#' + $(this).attr('for');
     console.log(this);
@@ -68,7 +68,7 @@ const addClone = function(this){
     }
 }
 
-const delClone = function() {
+function delClone(this) {
 
     // Confirmation dialog box
     if (confirm("Are you sure you wish to remove this field? This cannot be undone." + this)){
