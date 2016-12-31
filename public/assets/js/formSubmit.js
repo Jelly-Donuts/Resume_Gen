@@ -141,6 +141,7 @@ $(function (){
 	    	let end      = dateChanger($(employer).find('.employerMonthEnd').val());
 
 	    	let employee = {
+	    		title: 'PROFESSIONAL EXPERIENCE',
 				items: [
 	                {
 	                    city      : $(employer).find('.employerCity').val(),
@@ -180,6 +181,7 @@ $(function (){
 	    	let end      = dateChanger($(activity).find("[name='activityDateEnd']").val());
 
 	    	let activityObj = {
+	    		title: 'LEADERSHIP AND EXTRACURRICULAR',
 				items: [
 	                {
 	                    city      : $(activity).find("[name='City']").val(),
@@ -215,6 +217,7 @@ $(function (){
 	    	let skill = '#skill' + String(i);
 
 	    	let skillObj = {
+	    		title: 'SKILLS',
 				items: [
 	                {
 	                    lines: [
