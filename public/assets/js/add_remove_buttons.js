@@ -249,9 +249,9 @@ $(document).ready(function () {
         newElem.find('.employer_heading').attr('id', 'ID' + newNum + '_heading').attr('name', 'ID' + newNum + '_heading').text('Employer #' + newNum);
 
         // Add/Remove Content buttons
-        newElem.find('.clonedInput_4' ).attr('id'        , 'cloneId'    + newNum + chr);
-        newElem.find('.clonedInput_4' ).attr('data-clone', 'cloneClass' + chr);
-        newElem.find('.btnClass'      ).attr('for'       , 'cloneId'    + newNum + chr);
+        newElem.find('.clonedInput_4' ).attr('id'        , 'cloneId'    + chr + newNum);
+        newElem.find('.clonedInput_4' ).attr('data-clone', 'cloneId'    + chr);
+        newElem.find('.btnClass'      ).attr('for'       , 'cloneId'    + chr + newNum);
         newElem.find("[name='btnAdd']").attr('id'        , 'btnAId'     + chr);
         newElem.find("[name='btnDel']").attr('id'        , 'btnDId'     + chr);
 
@@ -275,7 +275,7 @@ $(document).ready(function () {
                 newNum   = num + 1,
 
                 // Create the new element via clone(), and change it's id
-                newElem  = $('#' + targetID).clone().attr('id', targetID + newNum).fadeIn('slow');
+                newElem  = $('#' + targetID).clone().attr('id', targetCD + newNum).fadeIn('slow');
 
             // Reset input values
             newElem.find("[name='jobcontent']").val('');
