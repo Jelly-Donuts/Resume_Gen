@@ -1,5 +1,7 @@
 node_modules/
 
+count.txt
+
 .DS_STORE
 
 .DS_Store

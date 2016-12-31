@@ -234,7 +234,8 @@ $(function (){
 	    	};
 	    	schema.segments.push(skillObj);
 	    }
-	    console.log(schema);
+	    
+	    console.log(JSON.stringify(schema,null,2));
 
 	    $.ajax({
             url: '/pdfgen',
