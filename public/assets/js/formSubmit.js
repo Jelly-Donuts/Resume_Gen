@@ -165,7 +165,7 @@ $(function (){
         for(let i = 1; i < $("[data-clone='activity']").length; i++){
             if (i === 1) {
                 const segmentExtracur = {};
-                segmentExtracur.title = 'PROFESSIONAL EXPERIENCE';
+                segmentExtracur.title = 'LEADERSHIP AND EXTRACURRICULAR';
                 segmentExtracur.items = [];
                 schema.segments.push(segmentExtracur);
             }
@@ -454,6 +454,8 @@ $(function (){
         });
     });
 });
+
+
 
 
 
