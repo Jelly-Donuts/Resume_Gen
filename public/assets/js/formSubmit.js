@@ -208,7 +208,7 @@ $(function (){
 	    		console.log($('.clonedInput_5').length);
 	    		let desc = '#clone2Id' + String.fromCharCode(97 + i);
 	    		console.log(desc);
-	    		activityObj.items[0].lines.push({bullet: true, content: $(desc).find("[name='activitycontent']").val()});
+	    		activityObj.items[0].lines.push({bullet: true, content: $(desc).find("[name='activityContent']").val()});
 	    	}
 	    	schema.segments.push(activityObj);
 	    }
