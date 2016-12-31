@@ -300,7 +300,7 @@ const add_one_to_count = function() {
 module.exports = {
 	handler: function schema_to_pdf(schema) {
 
-		console.log('Generating a PDF',JSON.stringify(JSONobj));
+		console.log('Generating a PDF',JSON.stringify(schema));
 
 		//Find font-size for body of PDF
 		const size = make_size(schema);
