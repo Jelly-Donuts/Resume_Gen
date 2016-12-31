@@ -1,6 +1,6 @@
 
 $.get('https://buildaresume.herokuapp.com/backend/count.txt', function(data){;
-    document.getElementById('pdfcount').innerHTML = 1;
+    document.getElementById('pdfcount').innerHTML = data;
     console.log(document.getElementById('pdfcount').innerHTML);
 });
 $('.count').each(function () {
