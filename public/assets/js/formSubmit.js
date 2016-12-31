@@ -9,27 +9,16 @@ $(function (){
 	            $('#contact').find('phone').val() || ''
 	        ]
 		};
-		let segmentEducation = {
-	        title: '',
-	        items: []
-	    };
-	    let segmentProfExp = {
-	        title: '',
-	        items: []
-	    };
-	    let segmentExtracur = {
-	        title: '',
-	        items: []
-	    };
-	    let segmentSkills = {
-	        title: '',
-	        items: []
-	    };
+		let segmentEducation = {};
+	    let segmentProfExp = {};
+	    let segmentExtracur = {};
+	    let segmentSkills = {};
 
 		// Create the University part of schema
 	    for(let i = 1; i < $("[data-clone='university']").length; i++){
 	    	if (i === 1) {
 	    		segmentEducation.title = 'EDUCATION';
+                segmentEducation.items = [];
 	    	}
 	    	let university = '#univerisity' + i;
 	    	let universityObj = {
@@ -87,6 +76,7 @@ $(function (){
 	    for(let i = 1; i < $("[data-clone='highschool']").length; i++){
 	    	if ((i === 1) && (segmentEducation.title === '')) {
 	    		segmentEducation.title = 'EDUCATION';
+                segmentEducation.items = [];
 	    	}
 	    	let highschool = '#highschool' + i;
 	    	let highschoolObj = {
@@ -127,6 +117,7 @@ $(function (){
 	    for(let i = 1; i < $("[data-clone='employer']").length; i++){
 	    	if (i === 1) {
 	    		segmentProfExp.title = 'PROFESSIONAL EXPERIENCE';
+                segmentProfExp.items = [];
 	    	}
 	    	let employer = '#employer' + i;
 	    	let employerObj = {
@@ -160,6 +151,7 @@ $(function (){
         for(let i = 1; i < $("[data-clone='activity']").length; i++){
             if (i === 1) {
                 segmentExtracur.title = 'PROFESSIONAL EXPERIENCE';
+                segmentProfExp.items = [];
             }
             let activity = '#activity' + i;
             let activityObj = {
@@ -193,7 +185,7 @@ $(function (){
         for(let i = 1; i < $("[data-clone='skill']").length; i++){
             if (i === 1) {
                 segmentSkills.title = 'SKILLS';
-                segmentSkills.items.push({lines: []});
+                segmentSkills.items = [{lines: []}];
             }
             let skill = '#skill' + i;
             let skillObj = {
@@ -454,6 +446,10 @@ $(function (){
         });
     });
 });
+
+
+
+
 
 
 
