@@ -99,7 +99,7 @@
 					<h3 style="padding-top: 2rem">Education</h3>
 
 					<!-- University -->
-					<div class="row uniform 50%" id="university0">
+					<div class="row uniform 50% hidden" id="university0" data-clone="university">
 						<div class="6u 12u$(xsmall)">
 							<input type="text" class="name" placeholder="University">
 						</div>
@@ -156,38 +156,49 @@
             </div>
 
 						<div class="2u$ 12u$(xsmall)">
-							<input type="text" class="gpa" placeholder="GPA (if >3)">
+							<input type="text" class="gpa" placeholder="GPA (if >3)" />
 						</div>
 
 						<div class="12u$ 12u$(xsmall) hidden" id="university0award0" data-clone="university0award" data-field="award">
-							<input type="text" class="award" placeholder="Honor or Award">
+							<input type="text" class="award" placeholder="Honor or Award" />
 						</div>
 
 						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="margin-bottom: 0; height:2.9rem;">
 							<li style="width: 100%;">
-                <input type="button" class="special fit small btnAdd" id="university0btnAdd0" for="university0award0" data-btn-del="university0btnDel0" value="Add Award">
+                <input type="button" class="special fit small btnAdd" id="university0btnAdd0" for="university0award0" data-btn-del="university0btnDel0" data-field="Add Award" value="Add Award" />
               </li>
 						</ul>
 						<ul class="actions 3u$ 12u$(xsmall) 6u$(small)" style="margin-bottom: 0; height:2.9rem;">
 							<li style="width: 100%;">
-                <input type="button" class="fit small btnDel" id="university0btnDel0" for="university0award0" disabled="" data-btn-add="university0btnAdd0" value="Remove Award">
+                <input type="button" class="fit small btnDel" id="university0btnDel0" for="university0award0" disabled="" data-btn-add="university0btnAdd0" value="Remove Award" />
               </li>
 						</ul>
 
-						<div class="12u$ 12u$(xsmall)" id="course1" data-clone="course">
-							<input type="text" name="universityCourse" class="courseInput" value="" placeholder="Relevant Coursework" />
+						<div class="12u$ 12u$(xsmall) hidden" id="university0course0" data-clone="university0course" data-field="course">
+							<input type="text" class="course" placeholder="Relevant Coursework" />
 						</div>
 
 						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="margin-bottom: 0; height:2.9rem;">
 							<li style="width: 100%;">
-                <input type="button" class="special fit small btnAdd" id="btnAdd_2" value="Add Course" for="course1" data-btn-del="btnDel_2" />
+                <input type="button" class="special fit small btnAdd" id="university0btnAdd1" value="Add Course" for="university0course0" data-btn-del="university0btnDel1" data-field="Add Course" />
               </li>
 						</ul>
 						<ul class="actions 3u$ 12u$(xsmall) 6u$(small)" style="margin-bottom: 0; height:2.9rem;">
-							<li style="width: 100%;"><input type="button" class="fit small btnDel" id="btnDel_2" for="course1" disabled="disabled" value="Remove Course" data-btn-add="btnAdd_2"></li>
+							<li style="width: 100%;">
+                <input type="button" class="fit small btnDel" id="university0btnDel1" for="university0course0" disabled="" value="Remove Course" data-btn-add="university0btnAdd1" />
+              </li>
 						</ul>
+          </div>
+
+          <div class="12u$" style="margin-top: ;">
+            <input type="button" id="btnAdd_University" for="university0" data-btn-del="btnDel_University" class="button fit alt btnAdd_Segment" data-field="Add University [+]" style="width: 100%;" value="Add University [+]">
+          </div>
+          <div class="12u$">
+            <input id="btnDel_University" type="button" name="btnDel" for="university0" data-field="Remove University [-]" data-btn-add="btnAdd_University" class="button fit btnDel_Segment" style="width: 100%;" value="Remove University [-]" disabled="">           
+          </div>
 
 					<!-- High School -->
+          <div class="row uniform 50%">
 						<div class="12u$" style="height:3rem;"></div>
 						<div class="6u 12u$(xsmall)">
 							<input type="text" name="highschool" id="highschool" value="" placeholder="High School">
