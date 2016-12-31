@@ -23,7 +23,7 @@ $(function (){
 		}
 
 		var hsAwardStr = '';
-		for (let i = 1; i < $('.clonedInput_3').length + 1; i++){
+		for (let i = 1; i < $("[data-clone='hsaward']").length + 1; i++){
 			if ($("#hsaward" + i).find('.hsAwardInput').val() !== ''){
 				if (i > 1){
 					hsAwardStr += ', ';
