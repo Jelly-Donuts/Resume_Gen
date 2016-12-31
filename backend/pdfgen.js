@@ -294,15 +294,15 @@ const make_size = function(schema) {
 
 const add_one_to_count = function() {
   let file = fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8');
-  console.log(file);
+  console.log('file', file);
   fs.writeFileSync(path.join(__dirname + '/count.txt'), parseInt(file) + 1, 'utf-8');
-  console.log(fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8'));
+  console.log('second log', fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8'));
 } 
 
 module.exports = {
 	handler: function schema_to_pdf(schema) {
 
-		console.log('Generating a PDF',JSON.stringify(schema));
+		console.log('Generating a PDF',JSON.stringify(schema, null, 2));
 
 		//Find font-size for body of PDF
 		const size = make_size(schema);
