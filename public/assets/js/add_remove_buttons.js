@@ -251,7 +251,7 @@ $(document).ready(function () {
         // Add/Remove Content buttons
         newElem.find('.clonedInput_4' ).attr('id'        , 'cloneId'    + newNum + chr);
         newElem.find('.clonedInput_4' ).attr('data-clone', 'cloneClass' + chr);
-        newElem.find('.btnClass'      ).attr('for'       , 'cloneId'    + chr);
+        newElem.find('.btnClass'      ).attr('for'       , 'cloneId'    + newNum + chr);
         newElem.find("[name='btnAdd']").attr('id'        , 'btnAId'     + chr);
         newElem.find("[name='btnDel']").attr('id'        , 'btnDId'     + chr);
 
