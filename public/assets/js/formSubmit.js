@@ -24,11 +24,11 @@ $(function (){
 
 		var hsAwardStr = '';
 		for (let i = 1; i < $("[data-clone='hsaward']").length + 1; i++){
-			if ($("#hsaward" + i).find('.hsAwardInput').val() !== ''){
+			if ($("#hsaward" + i).find('.hsawardInput').val() !== ''){
 				if (i > 1){
 					hsAwardStr += ', ';
 				}
-				hsAwardStr += $("#hsaward" + i).find('.hsAwardInput').val();
+				hsAwardStr += $("#hsaward" + i).find('.hsawardInput').val();
 			}
 		}
 
