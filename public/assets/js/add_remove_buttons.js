@@ -51,7 +51,7 @@ const addClone = function(){
 
     // Insert the new element after the last cloned input field
     $('#' + targetAttr + num).after(newElem);
-    $('input:first').focus();
+    newElem.find('input:first').focus();
 
     // Enable the delete button
     $(btnDelPair).attr('disabled', false);
