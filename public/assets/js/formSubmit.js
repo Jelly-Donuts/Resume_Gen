@@ -157,7 +157,7 @@ $(function (){
 	                        {
 	                            bullet : false,
 	                            italics: true,
-	                            content: $(employer).find('employerTitle').val()
+	                            content: $(employer).find('.employerTitle').val()
 	                        }
 	                    ]
 	                }
