@@ -71,11 +71,11 @@ $(function (){
 	    	for (let k = 1; k < $(university).find('.course').length; k++) {
 	    		universityObj.lines[4].title = "Relevant Coursework:";
 	    		let courseID = university + 'course' + k;
-	    		if ($(university).find(courseID).val()) {
+	    		if ($(university).find(courseID).find('.course').val()) {
 	    			if (k !== 1) {
 	    				universityObj.lines[4].content += ', ';
 	    			}
-	    			universityObj.lines[4].content += $(courseID).val();
+	    			universityObj.lines[4].content += $(courseID).find('.course').val();
 		    	}
 	    	}
 
@@ -114,11 +114,11 @@ $(function (){
 	    	for (let j = 1; j < $(highschool).find('.award').length ; j++) {
 	    		highschoolObj.lines[2].title = "Honors/Awards:";
 	    		let awardID = highschool + 'award' + j;
-	    		if ($(highschool).find(awardID).val()) {
+	    		if ($(highschool).find(awardID).find('.award').val()) {
 	    			if (j !== 1) {
 	    				highschoolObj.lines[2].content += ', ';
 	    			}
-	    			highschoolObj.lines[2].content += $(awardID).val();
+	    			highschoolObj.lines[2].content += $(awardID).find('.award').val();
 		    	}
 	    	}
 	    	schema.segments[schema.segments.length - 1].items.push(highschoolObj);
@@ -153,8 +153,8 @@ $(function (){
 	   		// Job description
 	    	for (let j = 0; j < $(employer).find('.content').length ; j++) {
 	    		let contentID = employer + 'description' + j;
-	    		if ($(employer).find(contentID).val()) {
-	    			employerObj.lines.push({bullet: true, content: $(contentID).val()});
+	    		if ($(employer).find(contentID).find('.content').val()) {
+	    			employerObj.lines.push({bullet: true, content: $(contentID).find('.content').val()});
 		    	}
 	    	}
 	    	schema.segments[schema.segments.length - 1].items.push(employerObj);
@@ -189,8 +189,8 @@ $(function (){
             // Activity description
             for (let j = 0; j < $(activity).find('.content').length ; j++) {
                 let contentID = activity + 'description' + j;
-                if ($(activity).find(contentID).val()) {
-                    activityObj.lines.push({bullet: true, content: $(contentID).val()});
+                if ($(activity).find(contentID).find('.content').val()) {
+                    activityObj.lines.push({bullet: true, content: $(contentID).find('.content').val()});
                 }
             }
             schema.segments[schema.segments.length - 1].items.push(activityObj);
@@ -454,6 +454,8 @@ $(function (){
         });
     });
 });
+
+
 
 
 
