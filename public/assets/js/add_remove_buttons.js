@@ -272,11 +272,11 @@ $(document).ready(function () {
 
                 // Checks to see how many cloned input fields we currently have
                 num      = $("[data-clone='" + targetCD + "']").length,
-                newNum   = num + 1,
+                newNum   = num + 1;
 
                 // Create the new element via clone(), and change it's id
                 console.log('#' + targetCD + String.num);
-                newElem  = $('#' + targetCD + String.num).clone().attr('id', targetCD + newNum).fadeIn('slow');
+            let newElem  = $('#' + targetCD + String.num).clone().attr('id', targetCD + newNum).fadeIn('slow');
 
             // Reset input values
             newElem.find("[name='jobcontent']").val('');
