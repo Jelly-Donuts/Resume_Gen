@@ -316,6 +316,6 @@ module.exports = {
 
 		console.log('PDF Generated with name: ' + path.join(__dirname + '/pdfs/' + schema.docname));
 
-		return path.join(__dirname + '/pdfs/' + schema.docname);
+		return path.join('/backend/pdfs/' + schema.docname);
 	}
 };
