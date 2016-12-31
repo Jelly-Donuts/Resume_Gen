@@ -119,10 +119,3 @@ $(document).ready(function () {
     // Disable delete buttons
     $('.btnDel').attr('disabled', true);
 });
-
-
-
-
-
-
-
