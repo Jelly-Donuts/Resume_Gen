@@ -296,6 +296,7 @@ const add_one_to_count = function() {
   let file = fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8');
   console.log(file);
   fs.writeFileSync(path.join(__dirname + '/count.txt'), file + 1, 'utf-8');
+  console.log(fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8'));
 } 
 
 module.exports = {

@@ -204,7 +204,7 @@ $(function (){
 	            ]
 	    	};
 	    	//Get activity desription items
-	    	for (let j = 1; j < $('.clonedInput_5').length; j++) {
+	    	for (let j = 1; j 5; j++) {
 	    		console.log($('.clonedInput_5').length);
 	    		let desc = '#clone2Id' + String.fromCharCode(97 + i);
 	    		console.log(desc);
