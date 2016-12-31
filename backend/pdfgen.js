@@ -3,254 +3,13 @@
 const PDFDocument = require('pdfkit');
 const fs = require('fs');
 const uuid = require('uuid/v4');
+const path = require('path');
 
 const headingFontSize = 24;
 const contactFontSize = 12;
 const contentFontSize = 10.5;
 
 const dot = ' • ';
-
-//This will be the autofill for the website
-// const schema = {
-//     contact: {
-//         name: 'John Doe',
-//         address: '1234 Main Street, Anytown, STATE 56789',
-//         reach: [
-//             'email@address.com',
-//             '(999) 999-9999',
-//             ''
-//         ]
-//     },
-//     segments: [
-//         {
-//             title: 'EDUCATION',
-//             items: [
-//                 {
-//                     city: 'City', 
-//                     state: 'ST',
-//                     start_date: 'month-year',
-//                     end_date: 'month-year',
-//                     lines: [
-//                         {
-//                             bullet: false,
-//                             title: 'University',
-//                             content: ''
-//                         },
-//                         {
-//                             bullet: false,
-//                             content: 'Degree (Candidate) in Major'
-//                         },
-//                         {
-//                             bullet: false,
-//                             content: 'Certificate (if you have one)'
-//                         },
-//                         {
-//                             bullet: false,
-//                             content: 'GPA X.XX (include if >3)'
-//                         },
-//                         {
-//                             bullet: false,
-//                             title: 'Honors/Awards',
-//                             content: 'Honor, Award, Honor, Award'
-//                         },
-//                         {
-//                             bullet: false,
-//                             title: 'Relevant Coursework',
-//                             content: 'Course, Work, Course, Work'
-//                         }
-//                     ]
-//                 },
-//                 {
-//                     city: 'City',
-//                     state: 'ST',
-//                     start_date: 'month-year',
-//                     end_date: 'month-year',
-//                     lines: [
-//                         {
-//                             title: 'High School',
-//                             bullet: false,
-//                             content: ''
-//                         },
-//                         {
-//                             bullet: false,
-//                             content: 'High School Diploma/GED'
-//                         },
-//                         {
-//                             bullet: false,
-//                             content: 'GPA: XX.X (unweighted/weighted)'
-//                         },
-//                         {
-//                             bullet: false,
-//                             title: 'Honors/Awards',
-//                             content: 'Honor, Award, Honor, Award'
-//                         }
-//                     ]
-//                 }
-//             ]
-//         },
-
-//         {
-//             title: 'PROFESSIONAL EXPERIENCE',
-//             items: [
-//                 {
-//                     city: 'City',
-//                     state: 'ST',
-//                     start_date: 'month-year',
-//                     end_date: 'month-year',
-//                     lines: [
-//                         {
-//                             title: 'Employer',
-//                             content: '',
-//                             bullet: false
-//                         },
-//                         {
-//                             bullet: false,
-//                             italics: true,
-//                             content: 'Title/Position'
-//                         },
-//                         {
-//                             bullet: true,
-//                             content: 'Action verb + Project + Result'
-//                         },
-//                         {
-//                             bullet: true,
-//                             content: 'Accomplishments Achieved'
-//                         },
-//                         {
-//                             bullet: true,
-//                             content: 'Quantify number of people/items/data you worked with'
-//                         }
-//                     ]
-//                 },
-//                 {
-//                     city: 'City',
-//                     state: 'ST',
-//                     start_date: 'month-year',
-//                     end_date: 'month-year',
-//                     lines: [
-//                         {
-//                             title: 'Employer',
-//                             bullet: false,
-//                             content: ''
-//                         },
-//                         {
-//                             bullet: false,
-//                             italics: true,
-//                             content: 'Title/Position'
-//                         },
-//                         {
-//                             bullet: true,
-//                             content: 'Action verb + Project + Result'
-//                         },
-//                         {
-//                             bullet: true,
-//                             content: 'Accomplishments Achieved'
-//                         },
-//                         {
-//                             bullet: true,
-//                             content: 'Quantify number of people/items/data you worked with'
-//                         }
-//                     ]
-//                 }
-//             ]
-//         },
-
-//         {
-//             title: 'LEADERSHIP AND SERVICE',
-//             items: [
-//                 {
-//                     city: 'City',
-//                     state: 'ST',
-//                     start_date: 'month-year',
-//                     end_date: 'month-year',
-//                     lines: [
-//                         {
-//                             title: 'Organization',
-//                             content: '',
-//                             bullet: false
-//                         },
-//                         {
-//                             bullet: false,
-//                             italics: true,
-//                             content: 'Title/Position'
-//                         },
-//                         {
-//                             bullet: true,
-//                             content: 'Action verb + Project + Result'
-//                         },
-//                         {
-//                             bullet: true,
-//                             content: 'Accomplishments Achieved'
-//                         },
-//                         {
-//                             bullet: true,
-//                             content: 'Quantify number of people/items/data you worked with'
-//                         }
-//                     ]
-//                 },
-//                 {
-//                     city: 'City',
-//                     state: 'ST',
-//                     start_date: 'month-year',
-//                     end_date: 'month-year',
-//                     lines: [
-//                         {
-//                             title: 'Organization',
-//                             content: '',
-//                             bullet: false
-//                         },
-//                         {
-//                             bullet: false,
-//                             italics: true,
-//                             content: 'Title/Position'
-//                         },
-//                         {
-//                             bullet: true,
-//                             content: 'Action verb + Project + Result'
-//                         },
-//                         {
-//                             bullet: true,
-//                             content: 'Accomplishments Achieved'
-//                         },
-//                         {
-//                             bullet: true,
-//                             content: 'Quantify number of people/items/data you worked with'
-//                         }
-//                     ]
-//                 },
-//             ]
-//         },
-
-//         {
-//             title: 'SKILLS',
-//             items: [
-//                 {
-//                     city: '',
-//                     state: '',
-//                     start_date: '',
-//                     end_date: '',
-//                     lines: [
-//                         {
-//                             bullet: false,
-//                             title: 'Skill',
-//                             content: 'Skill, skill, skill, skill'
-//                         },
-//                         {
-//                             bullet: false,
-//                             title: 'Skill',
-//                             content: 'Skill, skill, skill, skill'
-//                         },  
-//                         {
-//                             bullet: false,
-//                             title: 'Skill',
-//                             content: 'Skill, skill, skill, skill'
-//                         }
-//                     ]
-//                 }
-//             ]
-//         }
-//     ]
-// }
 
 const has_city_and_state = function(schema, i, j) {
 	return has_city(schema, i, j) && has_state(schema, i, j);
@@ -297,20 +56,26 @@ const set_up_doc = function(schema) {
 
 	if (!schema.docname) {
 		schema.docname = uuid() + '.pdf';
+	};
+
+	if (!fs.existsSync(path.join(__dirname + '/pdfs/'))){
+    	fs.mkdirSync(path.join(__dirname + '/pdfs/'));
 	}
-	doc.pipe(fs.createWriteStream('./pdfs/' + schema.docname));
+
+	doc.pipe(fs.createWriteStream(path.join(__dirname +'/pdfs/' + schema.docname)));
 
 	//Template 1
 	//Template 1:Fonts
-	doc.registerFont('Heading Name', './fonts/Didot.ttf');
-	doc.registerFont('Contact Info', './fonts/OpenSans-Light.ttf');
-	doc.registerFont('Title', './fonts/NunitoSans-Bold.ttf');
-	doc.registerFont('Content Regular', './fonts/NunitoSans-Regular.ttf');
-	doc.registerFont('Content Italics', './fonts/NunitoSans-LightItalic.ttf');
-	doc.registerFont('Content Bold2', './fonts/NunitoSans-SemiBold.ttf');
+	doc.registerFont('Heading Name', path.join(__dirname + '/fonts/Didot.ttf'));
+	doc.registerFont('Contact Info', path.join(__dirname + '/fonts/OpenSans-Light.ttf'));
+	doc.registerFont('Title', path.join(__dirname + '/fonts/NunitoSans-Bold.ttf'));
+	doc.registerFont('Content Regular', path.join(__dirname + '/fonts/NunitoSans-Regular.ttf'));
+	doc.registerFont('Content Italics', path.join(__dirname +'/fonts/NunitoSans-LightItalic.ttf'));
+	doc.registerFont('Content Bold2', path.join(__dirname + '/fonts/NunitoSans-SemiBold.ttf'));
 
 	//Template 1:Font Sizes
 	doc.lineGap(-1);
+
 
 	return doc;
 }
@@ -330,7 +95,7 @@ const make_header = function(doc, schema) {
 	let reach_text = schema.contact.reach[0];
 	if (schema.contact.reach[1]) {
 		reach_text += dot + schema.contact.reach[1];
-	}
+	};
 	if (schema.contact.reach[2]){
 		reach_text += dot + schema.contact.reach[2];
 	}
@@ -443,8 +208,7 @@ const make_line = function(doc, line, right_align, size) {
 	}
 
 	//print the text
-	doc.font('Content Regular')
-		.fontSize(size)
+	doc.fontSize(size)
 		.text(line.content, {
 			align: 'left',
 			continued: cont
@@ -528,27 +292,32 @@ const make_size = function(schema) {
 }
 
 const add_one_to_count = function() {
-  let file = fs.readFileSync('filelist.txt', 'utf-8');
-  fs.writeFileSync('filelist.txt', file + 1, 'utf-8');
+  let file = fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8');
+  fs.writeFileSync(path.join(__dirname + '/count.txt'), parseInt(file) + 1, 'utf-8');
+  console.log('Resumes generated so far:', fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8'));
 } 
 
 module.exports = {
-	handler: function schema_to_pdf(JSONobj) {
+	handler: function schema_to_pdf(schema) {
 
-		let schema = JSON.parse(JSONobj)
+		console.log('Generating a PDF:\n',JSON.stringify(schema));
 
+		//Find font-size for body of PDF
 		const size = make_size(schema);
-		console.log(size);
+		console.log('PDF Font Size:', size);
 
+		//Create and make the PDF
 		let doc = set_up_doc(schema);
-
-		make_header(doc, schema, size);
+		make_header(doc, schema);
 		make_segments(doc, schema, size);	
-
 		doc.end();
 
+		//Add one to number of PDFs generated
 		add_one_to_count();
 
-		return schema.docname;
+		console.log('PDF Generated with name: ' + path.join('/backend/pdfs/' + schema.docname));
+
+		return path.join('/backend/pdfs/' + schema.docname);
 	}
 };
+
