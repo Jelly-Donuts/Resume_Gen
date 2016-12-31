@@ -3,12 +3,12 @@ $(function (){
 
 		// Cloned variables
 		var uniAwardStr = '';
-		for (let i = 1; i < $("[data-clone='uniaward']").length + 1; i++){
-			if ($("#uniaward" + i).find('.uniawardInput').val() !== ''){
+		for (let i = 1; i < $("[data-clone='award']").length + 1; i++){
+			if ($("#award" + i).find('.awardInput').val() !== ''){
 				if (i > 1){
 					uniAwardStr += ', ';
 				}
-				uniAwardStr += $("#uniaward" + i).find('.uniawardInput').val();
+				uniAwardStr += $("#award" + i).find('.awardInput').val();
 			}
 		}
 
