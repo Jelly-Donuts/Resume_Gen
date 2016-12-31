@@ -275,6 +275,7 @@ $(document).ready(function () {
                 newNum   = num + 1,
 
                 // Create the new element via clone(), and change it's id
+                console.log('#' + targetCD + String.num);
                 newElem  = $('#' + targetCD + String.num).clone().attr('id', targetCD + newNum).fadeIn('slow');
 
             // Reset input values
@@ -282,8 +283,10 @@ $(document).ready(function () {
 
             // Insert the new element after the last "duplicatable" input field
             if (num === 1){
+                console.log('in here');
                 $('#' + targetID).after(newElem);
             } else {
+                console.log('no, in here');
                 $('#' + targetID + num).after(newElem);
             }
 
