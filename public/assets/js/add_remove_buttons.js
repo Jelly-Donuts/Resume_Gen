@@ -23,6 +23,10 @@ function addClone(item){
     // Heading
     newElem.find('.' + targetAttr + '_heading').text(targetAttr + '#' + newNum);
 
+    // Insert the new element after the last cloned input field
+    $('#' + targetAttr + num).after(newElem);
+    newElem.find('input:first').focus();
+
     // Add/Remove Content buttons
     for (let i = 0; i < newElem.find('.btnAdd').length; i++) {
 
@@ -52,13 +56,8 @@ function addClone(item){
 
         // Bind delClone function to delete button
         $('#' + newBtnDelID).on("click", function(){delClone(this)});
-        console.log($('#' + newBtnAddID) ,$('#' + newBtnDelID));
 
     };
-
-    // Insert the new element after the last cloned input field
-    $('#' + targetAttr + num).after(newElem);
-    newElem.find('input:first').focus();
 
     // Enable the delete button
     $(btnDelPair).attr('disabled', false);
