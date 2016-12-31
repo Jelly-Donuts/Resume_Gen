@@ -26,8 +26,6 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
 router.post('/pdfgen', function(req, res) {
-    console.log('here');
-    console.log(req.body);
     const response = pdfGen.handler(req.body);
 
     res.send(response);
