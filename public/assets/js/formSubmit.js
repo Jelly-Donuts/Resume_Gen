@@ -134,7 +134,7 @@ $(function (){
 			]
 		};
 		let segmentProfExp = {
-			title:,
+			title:"",
 			items: [],
 		};
 
