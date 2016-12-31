@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 app.set('port', (process.env.PORT || 5000));
 
 app.use('/static', express.static(path.join(__dirname + '/public')));
+app.use('/backend', express.static(path.join(__dirname + '/backend')));
 app.use('/backend/pdfs', express.static(path.join(__dirname + '/backend/pdfs')));
 
 router.get('/', function(req, res, next){
