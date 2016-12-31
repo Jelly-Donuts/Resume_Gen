@@ -237,7 +237,7 @@ $(function (){
             contentType: 'application/json',
             data: JSON.stringify(schema),
             dataType: 'text',
-            success: function(data) {window.open()}
+            success: function(data) {console.log('POST SUCCESS')}
         });
     });
 });
