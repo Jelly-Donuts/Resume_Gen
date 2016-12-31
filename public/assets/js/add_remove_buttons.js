@@ -433,7 +433,7 @@ $(document).ready(function () {
     function delClone() {
 
         // Confirmation dialog box
-        if (confirm("Are you sure you wish to remove this field? This cannot be undone.")){
+        if (confirm("Are you sure you wish to remove this field? This cannot be undone." + this)){
 
         let targetID   = '#' + $(this).attr('for'),
             targetAttr = $(targetID).attr('data-clone'),
