@@ -133,44 +133,46 @@ $(function (){
 				segmentEducation,
 			]
 		};
+		let segmentProfExp = {
+			title:,
+			items: [],
+		};
 
 		//create the employer part of schema
 	    for(let i = 1; i < $('.employer').length; i++){
+	    	if (i === 1) {
+	    		segmentProfExp.title = 'PROFESSIONAL EXPERIENCE';
+	    	}
 	    	let employer = '#employer' + String(i);
 	    	let start    = dateChanger($(employer).find('.employerMonthStart').val());
 	    	let end      = dateChanger($(employer).find('.employerMonthEnd').val());
 
 	    	let employee = {
-	    		title: 'PROFESSIONAL EXPERIENCE',
-				items: [
-	                {
-	                    city      : $(employer).find('.employerCity').val(),
-	                    state     : $(employer).find('.employerState').val(),
-	                    start_date: start,
-	                    end_date  : end,
-	                    lines: [
-	                        {
-	                            title  : $(employer).find('.employerInput').val(),
-	                            content: '',
-	                            bullet : false
-	                        },
-	                        {
-	                            bullet : false,
-	                            italics: true,
-	                            content: $(employer).find('.employerTitle').val()
-	                        }
-	                    ]
-	                }
-	            ]
+                city      : $(employer).find('.employerCity').val(),
+                state     : $(employer).find('.employerState').val(),
+                start_date: start,
+                end_date  : end,
+                lines: [
+                    {
+                        title  : $(employer).find('.employerInput').val(),
+                        content: '',
+                        bullet : false
+                    },
+                    {
+                        bullet : false,
+                        italics: true,
+                        content: $(employer).find('.employerTitle').val()
+                    }
+                ]
 	    	};
 
 	   		//Get job desription items
 	    	for (let j = 1; j < $('.clonedInput_4').length; j++) {
 	    		let desc = '#cloneId' + String.fromCharCode(97 + i) + String(j);
-	    		employee.items[0].lines.push({bullet: true, content: $(desc).find("[name='jobcontent']").val()});
+	    		employee.lines.push({bullet: true, content: $(desc).find("[name='jobcontent']").val()});
 
 	    	}
-	    	schema.segments.push(employee);
+	    	segmentProfExp.items.push(employee);
 	    }
 
 
@@ -234,7 +236,7 @@ $(function (){
 	    	};
 	    	schema.segments.push(skillObj);
 	    }
-	    
+
 	    console.log(JSON.stringify(schema,null,2));
 
 	    $.ajax({
