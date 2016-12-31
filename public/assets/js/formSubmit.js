@@ -1,6 +1,11 @@
 $(function (){
 	$("form").submit(function( ) {
 
+        const schema = {
+            contact : "",
+            segments: []
+        };
+
 		let segmentContact = {
 	        name   : $('#contact').find('.firstname').val() + " "  + $('#contact').find('.lastname').val(),
 	        address: ($('#contact').find('.address').val() || '') + ", " + ($('#contact').find('.city').val() || '') + ", " + ($('#contact').find('.state').val() || '') + " " + ($('#contact').find('.zipcode').val() || ''),
@@ -9,16 +14,21 @@ $(function (){
 	            $('#contact').find('phone').val() || ''
 	        ]
 		};
-		let segmentEducation = {};
-	    let segmentProfExp = {};
-	    let segmentExtracur = {};
-	    let segmentSkills = {};
+
+        schema.contact = segmentContact;
+
+	 //    let segmentEducation = {};
+	 //    let segmentProfExp = {};
+	 //    let segmentExtracur = {};
+	 //    let segmentSkills = {};
 
 		// Create the University part of schema
 	    for(let i = 1; i < $("[data-clone='university']").length; i++){
 	    	if (i === 1) {
+                const segmentEducation = {};
 	    		segmentEducation.title = 'EDUCATION';
                 segmentEducation.items = [];
+                schema.segments.push(segmentEducation);
 	    	}
 	    	let university = '#univerisity' + i;
 	    	let universityObj = {
@@ -69,14 +79,16 @@ $(function (){
 		    	}
 	    	}
 
-	    	segmentEducation.items.push(universityObj);
+	    	schema.segments[schema.segments.length - 1].items.push(universityObj);
 	    }
 
 		// Create the High School part of schema
 	    for(let i = 1; i < $("[data-clone='highschool']").length; i++){
-	    	if ((i === 1) && (segmentEducation.title === '')) {
+	    	if ((i === 1) && (schema.segments.length === 0)) {
+                const segmentEducation = {};
 	    		segmentEducation.title = 'EDUCATION';
                 segmentEducation.items = [];
+                schema.segments.push(segmentEducation);
 	    	}
 	    	let highschool = '#highschool' + i;
 	    	let highschoolObj = {
@@ -109,15 +121,17 @@ $(function (){
 	    			highschoolObj.lines[2].content += $(awardID).val();
 		    	}
 	    	}
-	    	segmentEducation.items.push(highschoolObj);
+	    	schema.segments[schema.segments.length - 1].items.push(highschoolObj);
 	    }
 
 
 		// Build the Professional Experience part of schema
 	    for(let i = 1; i < $("[data-clone='employer']").length; i++){
 	    	if (i === 1) {
+                const segmentProfExp = {};
 	    		segmentProfExp.title = 'PROFESSIONAL EXPERIENCE';
                 segmentProfExp.items = [];
+                schema.segments.push(segmentProfExp);
 	    	}
 	    	let employer = '#employer' + i;
 	    	let employerObj = {
@@ -143,15 +157,17 @@ $(function (){
 	    			employerObj.lines.push({bullet: true, content: $(contentID).val()});
 		    	}
 	    	}
-	    	segmentProfExp.items.push(employerObj);
+	    	schema.segments[schema.segments.length - 1].items.push(employerObj);
 	    }
 
 
         // Build the Leadership and Extracurricular part of schema
         for(let i = 1; i < $("[data-clone='activity']").length; i++){
             if (i === 1) {
+                const segmentExtracur = {};
                 segmentExtracur.title = 'PROFESSIONAL EXPERIENCE';
-                segmentProfExp.items = [];
+                segmentExtracur.items = [];
+                schema.segments.push(segmentExtracur);
             }
             let activity = '#activity' + i;
             let activityObj = {
@@ -177,33 +193,25 @@ $(function (){
                     activityObj.lines.push({bullet: true, content: $(contentID).val()});
                 }
             }
-            segmentExtracur.items.push(activityObj);
+            schema.segments[schema.segments.length - 1].items.push(activityObj);
         }
 
 
         // Build the Skills part of schema
         for(let i = 1; i < $("[data-clone='skill']").length; i++){
             if (i === 1) {
+                const segmentSkills = {};
                 segmentSkills.title = 'SKILLS';
                 segmentSkills.items = [{lines: []}];
+                schema.segments.push(segmentSkills);
             }
             let skill = '#skill' + i;
             let skillObj = {
                 title  : $(skill).find('.category').val() + ':',
                 content: $(skill).find('.content').val(),
             };
-            segmentSkills.items[0].lines.push(skillObj);
+            schema.segments[schema.segments.length - 1].items[0].lines.push(skillObj);
         }
-
-        const schema = {
-            contact : segmentContact,
-            segments: [
-                segmentEducation,
-                segmentProfExp,
-                segmentExtracur,
-                segmentSkills
-            ]
-        };
 
 		// // Cloned variables
 		// var uniAwardStr = '';
@@ -446,6 +454,10 @@ $(function (){
         });
     });
 });
+
+
+
+
 
 
 
