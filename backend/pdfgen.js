@@ -58,20 +58,20 @@ const set_up_doc = function(schema) {
 		schema.docname = uuid() + '.pdf';
 	};
 
-	if (!fs.existsSync(path.join(__dirname, '/pdfs/'))){
-    	fs.mkdirSync(path.join(__dirname, '/pdfs/'));
+	if (!fs.existsSync(path.join(__dirname + '/pdfs/'))){
+    	fs.mkdirSync(path.join(__dirname + '/pdfs/'));
 	}
 
-	doc.pipe(fs.createWriteStream(path.join(__dirname,'/pdfs/' + schema.docname)));
+	doc.pipe(fs.createWriteStream(path.join(__dirname +'/pdfs/' + schema.docname)));
 
 	//Template 1
 	//Template 1:Fonts
-	doc.registerFont('Heading Name', path.join(__dirname, '/fonts/Didot.ttf'));
-	doc.registerFont('Contact Info', path.join(__dirname, '/fonts/OpenSans-Light.ttf'));
-	doc.registerFont('Title', path.join(__dirname, '/fonts/NunitoSans-Bold.ttf'));
-	doc.registerFont('Content Regular', path.join(__dirname, '/fonts/NunitoSans-Regular.ttf'));
-	doc.registerFont('Content Italics', path.join(__dirname,'/fonts/NunitoSans-LightItalic.ttf'));
-	doc.registerFont('Content Bold2', path.join(__dirname,'/fonts/NunitoSans-SemiBold.ttf'));
+	doc.registerFont('Heading Name', path.join(__dirname + '/fonts/Didot.ttf'));
+	doc.registerFont('Contact Info', path.join(__dirname + '/fonts/OpenSans-Light.ttf'));
+	doc.registerFont('Title', path.join(__dirname + '/fonts/NunitoSans-Bold.ttf'));
+	doc.registerFont('Content Regular', path.join(__dirname + '/fonts/NunitoSans-Regular.ttf'));
+	doc.registerFont('Content Italics', path.join(__dirname +'/fonts/NunitoSans-LightItalic.ttf'));
+	doc.registerFont('Content Bold2', path.join(__dirname + '/fonts/NunitoSans-SemiBold.ttf'));
 
 	//Template 1:Font Sizes
 	doc.lineGap(-1);
@@ -293,8 +293,8 @@ const make_size = function(schema) {
 }
 
 const add_one_to_count = function() {
-  let file = fs.readFileSync(path.join(__dirname, 'count.txt'), 'utf-8');
-  fs.writeFileSync(path.join(__dirname, 'count.txt'), file + 1, 'utf-8');
+  let file = fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8');
+  fs.writeFileSync(path.join(__dirname + '/count.txt'), file + 1, 'utf-8');
 } 
 
 module.exports = {
