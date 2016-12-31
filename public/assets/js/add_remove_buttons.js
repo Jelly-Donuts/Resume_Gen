@@ -276,7 +276,7 @@ $(document).ready(function () {
 
                 // Create the new element via clone(), and change it's id
                 console.log('#' + targetCD + num);
-            let newElem  = $('#' + targetCD + String.num).clone().attr('id', targetCD + newNum).fadeIn('slow');
+            let newElem  = $('#' + targetCD + num).clone().attr('id', targetCD + newNum).fadeIn('slow');
 
             // Reset input values
             newElem.find("[name='jobcontent']").val('');
@@ -284,10 +284,10 @@ $(document).ready(function () {
             // Insert the new element after the last "duplicatable" input field
             if (num === 1){
                 console.log('in here');
-                $('#' + targetID).after(newElem);
+                $('#' + targetCD + num).after(newElem);
             } else {
                 console.log('no, in here');
-                $('#' + targetID + num).after(newElem);
+                $('#' + targetCD + num).after(newElem);
             }
 
             // Enable the "remove" button. This only shows once you have a cloned section.
