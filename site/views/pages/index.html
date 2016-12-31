@@ -97,6 +97,10 @@
 
 					<!-- University -->
 					<div class="row uniform 50% hidden" id="university0" data-clone="university">
+            <div class="12u$">
+                <h5 class="align-left university_heading">
+                </h5>
+            </div>
 						<div class="6u 12u$(xsmall)">
 							<input type="text" class="name" placeholder="University">
 						</div>
@@ -158,8 +162,8 @@
             <div class="6u$ 12u$(xsmall) align-left">
               <p>Honors/Awards:</p>
             </div>
-						<div class="12u$ 12u$(xsmall) hidden" id="university0award0" data-clone="university0award" data-field="award">
-							<input type="text" class="award" placeholder="Honor or Award" />
+						<div class="12u$ 12u$(xsmall) hidden award" id="university0award0" data-clone="university0award" data-field="award">
+							<input type="text" placeholder="Honor or Award" />
 						</div>
 						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="margin-bottom: 0; height:2.9rem;">
 							<li style="width: 100%;">
@@ -174,8 +178,8 @@
             <div class="6u$ 12u$(xsmall) align-left">
               <p>Relevant Coursework:</p>
             </div>
-						<div class="12u$ 12u$(xsmall) hidden" id="university0course0" data-clone="university0course" data-field="course">
-							<input type="text" class="course" placeholder="Relevant Coursework" />
+						<div class="12u$ 12u$(xsmall) hidden course" id="university0course0" data-clone="university0course" data-field="course">
+							<input type="text" placeholder="Relevant Coursework" />
 						</div>
 
 						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="height:2.9rem;">
@@ -191,14 +195,18 @@
           </div>
 
           <div class="12u$">
-            <input type="button" id="btnAdd_University" for="university0" data-btn-del="btnDel_University" class="button fit alt btnAdd_Segment" data-field="Add University [+]" style="width: 100%;" value="Add University [+]">
+            <input type="button" id="btnAdd_University" for="university0" data-btn-del="btnDel_University" class="button fit alt btnAdd" data-field="Add University [+]" style="width: 100%;" value="Add University [+]">
           </div>
           <div class="12u$">
-            <input id="btnDel_University" type="button" name="btnDel" for="university0" data-field="Remove University [-]" data-btn-add="btnAdd_University" class="button fit btnDel_Segment" style="width: 100%;" value="Remove University [-]" disabled="">           
+            <input id="btnDel_University" type="button" name="btnDel" for="university0" data-field="Remove University [-]" data-btn-add="btnAdd_University" class="button fit btnDel" style="width: 100%;" value="Remove University [-]" disabled="">           
           </div>
 
 					<!-- High School -->
           <div class="row uniform 50% hidden" id="highschool0" data-clone="highschool">
+            <div class="12u$">
+                <h5 class="align-left highschool_heading">
+                </h5>
+            </div>
 						<div class="12u$" style="height:3rem;"></div>
 						<div class="6u 12u$(xsmall)">
 							<input type="text" class="name" placeholder="High School">
@@ -245,8 +253,8 @@
             <div class="6u$ 12u$(xsmall) align-left">
               <p>Honors/Awards:</p>
             </div>
-						<div class="12u$ 12u$(xsmall) hidden" id="highschool0award0" data-clone="highschool0award" data-field="award">
-							<input type="text" class="award" placeholder="Honor or Award">
+						<div class="12u$ 12u$(xsmall) hidden award" id="highschool0award0" data-clone="highschool0award" data-field="award">
+							<input type="text" placeholder="Honor or Award">
 						</div>
 
 						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="height:2.9rem;">
@@ -262,10 +270,10 @@
 					</div>
 
           <div class="12u$">
-            <input type="button" id="btnAdd_Highschool" for="highschool0" data-btn-del="btnDel_Highschool" class="button fit alt btnAdd_Segment" data-field="Add Highschool [+]" style="width: 100%;" value="Add Highschool [+]" />
+            <input type="button" id="btnAdd_Highschool" for="highschool0" data-btn-del="btnDel_Highschool" class="button fit alt btnAdd" data-field="Add Highschool [+]" style="width: 100%;" value="Add Highschool [+]" />
           </div>
           <div class="12u$">
-            <input id="btnDel_Highschool" type="button" name="btnDel" for="highschool0" data-field="Remove Highschool [-]" data-btn-add="btnAdd_Highschool" class="button fit btnDel_Segment" style="width: 100%;" value="Remove Highschool [-]" disabled="" />           
+            <input id="btnDel_Highschool" type="button" for="highschool0" data-btn-add="btnAdd_Highschool" class="button fit btnDel" style="width: 100%;" value="Remove Highschool [-]" disabled="" />           
           </div>
 
 					<hr/>
@@ -273,38 +281,78 @@
 					<h3 style="padding-top: 2rem">Professional Experience</h3>
 					<div class="row uniform 50% hidden" id="employer0" data-clone="employer">
             <div class="12u$">
-                <h5 class="align-left employer_heading">
-                    Employer 1
-                </h5>
+              <h5 class="align-left employer_heading">
+              </h5>
             </div>
 
 
             <div class="6u 12u$(xsmall)">
-                <input type="text" class="employerInput" name="employer" data-form-field="Employer" placeholder="Employer">
+              <input type="text" class="name" placeholder="Employer">
             </div>
 
             <div class="4u 12u$(xsmall)">
-                    <input type="text" class="employerCity" name="City" data-form-field="City" placeholder="City">
+              <input type="text" class="city" placeholder="City">
             </div>
 
             <div class="2u 12u$(xsmall)">
   						<div class="select-wrapper">
-  							<select name="state" class="employerState">
+  							<select class="state">
   								<option value="" disabled="" selected="">State</option>
   								<option value="CA">CA</option>
   							</select>
   						</div>
             </div>
 
-            <div class="6u 12u$(xsmall)">
-                <input type="text" class="employerTitle" name="title" data-form-field="Title" placeholder="Title/Position" />
+            <div class="4u 12u$(xsmall)">
+                <input type="text" class="position" placeholder="Title/Position" />
             </div>
 
-            <div class="3u 12u$(xsmall)">
-              <input type="month" name="employerMonthStart" class="employerMonthStart" id="employerMonthStart" value="" />
+            <div class="2u 12u$(xsmall)">
+              <div class="select-wrapper">
+                <select class="month">
+                  <option value="" disabled="" selected="">Month</option>
+                  <option value="January">Jan</option>
+                  <option value="Febuary">Feb</option>
+                  <option value="March">Mar</option>
+                  <option value="April">Apr</option>
+                  <option value="May">May</option>
+                  <option value="June">Jun</option>
+                  <option value="July">Jul</option>
+                  <option value="August">Aug</option>
+                  <option value="September">Sep</option>
+                  <option value="October">Oct</option>
+                  <option value="November">Nov</option>
+                  <option value="December">Dec</option>
+                </select>
+              </div>
             </div>
-            <div class="3u$ 12u$(xsmall)">
-              <input type="month" name="employerMonthEnd" class="employerMonthEnd" id="employerMonthEnd" value="">
+
+            <div class="2u 12u$(xsmall)">
+              <input type="text" class="year" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
+            </div>
+
+            <div class="2u 12u$(xsmall)">
+              <div class="select-wrapper">
+                <select class="month">
+                  <option value="" disabled="" selected="">Month</option>
+                  <option value="January">Jan</option>
+                  <option value="Febuary">Feb</option>
+                  <option value="March">Mar</option>
+                  <option value="April">Apr</option>
+                  <option value="May">May</option>
+                  <option value="June">Jun</option>
+                  <option value="July">Jul</option>
+                  <option value="August">Aug</option>
+                  <option value="September">Sep</option>
+                  <option value="October">Oct</option>
+                  <option value="November">Nov</option>
+                  <option value="December">Dec</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="2u$ 12u$(xsmall)">
+              <input type="text" class="year" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
             </div>
 
 						<div class="12u$" id="employer0description0" data-clone="employer0description" data-field="description">
