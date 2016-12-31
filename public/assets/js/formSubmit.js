@@ -5,8 +5,8 @@ $(function (){
 	        name   : $('#contact').find('.firstname').val() + " "  + $('#contact').find('.lastname').val(),
 	        address: ($('#contact').find('.address').val() || '') + ", " + ($('#contact').find('.city').val() || '') + ", " + ($('#contact').find('state').val() || '') + " " + ($('#contact').find('zipcode').val() || ''),
 	        reach  : [
-	            $('#contact')find('email').val() || '',
-	            $('#contact')find('phone').val() || '',
+	            $('#contact').find('email').val() || '',
+	            $('#contact').find('phone').val() || '',
 	            ''
 	        ]
 		}
@@ -316,6 +316,8 @@ $(function (){
         });
     });
 });
+
+
 
 
 
