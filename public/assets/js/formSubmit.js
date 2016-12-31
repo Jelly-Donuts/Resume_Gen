@@ -23,7 +23,11 @@ $(function (){
 	    };
 	    let segmentSkills = {
 	        title: '',
-	        items: []
+	        items: [
+                {
+                    lines: []
+                }
+            ]
 	    };
 
 		// Create the University part of schema
@@ -454,6 +458,8 @@ $(function (){
         });
     });
 });
+
+
 
 
 
