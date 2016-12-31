@@ -82,8 +82,9 @@ function delClone(item) {
             $(item).attr('disabled', true);
         }
 
-    // Enable the "add" button. IMPORTANT: only for forms using input type="button" (see older demo). DELETE if using button element.
-    $(btnAddPair).attr('disabled', false).val("Add " + targetAttr + " [+]");
+    // Enable the "add" button.
+    let text = $(btnAddPair).attr('data-field');
+    $(btnAddPair).attr('disabled', false).val("Add " + text + " [+]");
     }
     return false;
 }
