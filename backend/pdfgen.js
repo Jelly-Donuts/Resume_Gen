@@ -58,11 +58,11 @@ const set_up_doc = function(schema) {
 		schema.docname = uuid() + '.pdf';
 	};
 
-	if (!fs.existsSync(path.join(__dirname, './pdfs/'))){
-    	fs.mkdirSync(path.join(__dirname, './pdfs/'));
+	if (!fs.existsSync(path.join(__dirname, '/pdfs/'))){
+    	fs.mkdirSync(path.join(__dirname, '/pdfs/'));
 	}
 
-	doc.pipe(fs.createWriteStream(path.join(__dirname,'./pdfs/' + schema.docname)));
+	doc.pipe(fs.createWriteStream(path.join(__dirname,'/pdfs/' + schema.docname)));
 
 	//Template 1
 	//Template 1:Fonts
