@@ -61,9 +61,6 @@ const set_up_doc = function(schema) {
 	if (!fs.existsSync(path.join(__dirname, '/pdfs/'))){
     	fs.mkdirSync(path.join(__dirname, '/pdfs/'));
 	}
-	if (!fs.existsSync(path.join(__dirname, '/fonts/'))){
-    	fs.mkdirSync(path.join(__dirname, '/fonts/'));
-	}
 
 	doc.pipe(fs.createWriteStream(path.join(__dirname,'/pdfs/' + schema.docname)));
 
