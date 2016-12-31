@@ -311,7 +311,7 @@ $(document).ready(function () {
                     // How many "duplicatable" input fields we currently have
                     num      = $("[data-clone='" + targetCD + "']").length;
 
-                $('#' + targetID + num).slideUp('slow', function () {
+                $('#' + targetCD + num).slideUp('slow', function () {
                     $(this).remove();
 
                     // If only one element remains, disable the "remove" button
