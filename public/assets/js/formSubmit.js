@@ -61,11 +61,11 @@ $(function (){
 	    	for (let j = 1; j < $(university).find('.award').length ; j++) {
 	    		universityObj.lines[3].title = "Honors/Awards:";
 	    		let awardID = university + 'award' + j;
-	    		if ($(university).find(awardID).val()) {
+	    		if ($(university).find(awardID).find('.award').val()) {
 	    			if (j !== 1) {
 	    				universityObj.lines[3].content += ', ';
 	    			}
-	    			universityObj.lines[3].content += $(awardID).val();
+	    			universityObj.lines[3].content += $(awardID).find('.award').val();
 		    	}
 	    	}
 	    	for (let k = 1; k < $(university).find('.course').length; k++) {
@@ -454,6 +454,8 @@ $(function (){
         });
     });
 });
+
+
 
 
 
