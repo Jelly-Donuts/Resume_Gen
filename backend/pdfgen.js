@@ -315,8 +315,9 @@ module.exports = {
 		//Add one to number of PDFs generated
 		add_one_to_count();
 
-		console.log('PDF Generated with name: ' + path.join(__dirname + '/pdfs/' + schema.docname));
+		console.log('PDF Generated with name: ' + path.join('/backend/pdfs/' + schema.docname));
 
 		return path.join('/backend/pdfs/' + schema.docname);
 	}
 };
+
