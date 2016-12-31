@@ -275,7 +275,7 @@ $(document).ready(function () {
                 newNum   = num + 1,
 
                 // Create the new element via clone(), and change it's id
-                newElem  = $('#' + targetCD + num).clone().attr('id', targetCD + newNum).fadeIn('slow');
+                newElem  = $('#' + targetCD + (num - 1)).clone().attr('id', targetCD + newNum).fadeIn('slow');
 
             // Reset input values
             newElem.find("[name='jobcontent']").val('');
