@@ -275,7 +275,7 @@ $(document).ready(function () {
                 newNum   = num + 1;
 
                 // Create the new element via clone(), and change it's id
-                console.log('#' + targetCD + String.num);
+                console.log('#' + targetCD + num);
             let newElem  = $('#' + targetCD + String.num).clone().attr('id', targetCD + newNum).fadeIn('slow');
 
             // Reset input values
