@@ -51,7 +51,7 @@ function addClone(item){
         $('#' + newBtnAddID).on("click", function(){addClone(this)});
 
         // Bind delClone function to delete button
-        $('#' + newBtnDelID).on("click", (function(){delClone(this)});
+        $('#' + newBtnDelID).on("click", function(){delClone(this)});
         console.log($('#' + newBtnAddID) ,$('#' + newBtnDelID));
 
     };
