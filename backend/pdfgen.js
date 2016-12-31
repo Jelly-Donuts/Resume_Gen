@@ -304,6 +304,7 @@ module.exports = {
 
 		//Find font-size for body of PDF
 		const size = make_size(schema);
+		console.log('PDF Font Size:', size);
 
 		//Create and make the PDF
 		let doc = set_up_doc(schema);

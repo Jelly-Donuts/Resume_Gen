@@ -161,8 +161,10 @@ $(function (){
 
 	   		//Get job desription items
 	    	for (let j = 1; j < 6; j++) {
-	    		let desc = '#cloneId' + String.fromCharCode(97 + i) + String(j);
-	    		employee.lines.push({bullet: true, content: $(desc).find("[name='jobcontent']").val()});
+	    		if ($(desc).find("[name='jobcontent']").val()) {
+		    		let desc = '#cloneId' + String.fromCharCode(97 + i) + String(j);
+		    		employee.lines.push({bullet: true, content: $(desc).find("[name='jobcontent']").val()});
+		    	}
 
 	    	}
 	    	segmentProfExp.items.push(employee);
