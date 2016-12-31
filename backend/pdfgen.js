@@ -84,7 +84,6 @@ const set_up_doc = function(schema) {
 const make_header = function(doc, schema) {
 	//Header
 	//Header:Name
-	console.log('01');
 	doc.moveUp(3.5)
 		.font('Heading Name')
 		.fontSize(headingFontSize)
@@ -92,20 +91,14 @@ const make_header = function(doc, schema) {
 	    	align: 'center'
 		});
 
-	console.log('02');
 	//Header:Contact Info
 	let reach_text = schema.contact.reach[0];
-	console.log('03');
 	if (schema.contact.reach[1]) {
-		console.log('04');
 		reach_text += dot + schema.contact.reach[1];
 	};
-	console.log('05');
 	if (schema.contact.reach[2]){
-		console.log('06');
 		reach_text += dot + schema.contact.reach[2];
 	}
-	console.log('07');
 
 
 	doc.font('Contact Info')
@@ -305,37 +298,23 @@ const add_one_to_count = function() {
 } 
 
 module.exports = {
-	handler: function schema_to_pdf(JSONobj) {
+	handler: function schema_to_pdf(schema) {
 
-		console.log('Generating a PDF');
+		console.log('Generating a PDF',JSON.stringify(JSONobj));
 
-		console.log(JSONobj);
-
-		let schema = JSONobj;
-
-		console.log(1);
-
+		//Find font-size for body of PDF
 		const size = make_size(schema);
 
-		console.log(2);
-
+		//Create and make the PDF
 		let doc = set_up_doc(schema);
-
-		console.log(3);
-
 		make_header(doc, schema);
-
-		console.log(4);
-
 		make_segments(doc, schema, size);	
-
-		console.log(5);
-
 		doc.end();
 
+		//Add one to number of PDFs generated
 		add_one_to_count();
 
-		console.log('PDF Generated with name: ' + schema.docname);
+		console.log('PDF Generated with name: ' + path.join(__dirname, + '/pdfs/' + schema.docname));
 
 		return schema.docname;
 	}
