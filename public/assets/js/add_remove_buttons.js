@@ -1,10 +1,10 @@
-function addClone(this){
+function addClone(item){
 
-    let targetID   = '#' + $(this).attr('for');
-    console.log(this);
+    let targetID   = '#' + $(item).attr('for');
+    console.log(item);
     let targetAttr = $(targetID).attr('data-clone');
     console.log(targetAttr);
-    let btnDelPair = '#' + $(this).attr('data-btn-del');
+    let btnDelPair = '#' + $(item).attr('data-btn-del');
     console.log(btnDelPair);
 
         // How many cloned input fields we currently have
@@ -64,28 +64,28 @@ function addClone(this){
 
     // Limit maximum amount of cloned fields
     if (newNum === 5){
-        $(this).attr('disabled', true).prop('value', "Max Reached");
+        $(item).attr('disabled', true).prop('value', "Max Reached");
     }
 }
 
-function delClone(this) {
+function delClone(item) {
 
     // Confirmation dialog box
-    if (confirm("Are you sure you wish to remove this field? This cannot be undone." + this)){
+    if (confirm("Are you sure you wish to remove this field? This cannot be undone." + item)){
 
-    let targetID   = '#' + $(this).attr('for'),
+    let targetID   = '#' + $(item).attr('for'),
         targetAttr = $(targetID).attr('data-clone'),
-        btnAddPair = '#' + $(this).attr('data-btn-add')
+        btnAddPair = '#' + $(item).attr('data-btn-add')
 
         // How many cloned input fields we currently have
         num        = $("[data-clone='" + targetAttr + "']").length - 1,
         $('#' + targetAttr + num).slideUp(function () {
-            $(this).remove();
+            $(item).remove();
         });
 
         // If only one element remains, disable the "remove" button
         if (num === 1){
-            $(this).attr('disabled', true);
+            $(item).attr('disabled', true);
         }
 
     // Enable the "add" button. IMPORTANT: only for forms using input type="button" (see older demo). DELETE if using button element.
