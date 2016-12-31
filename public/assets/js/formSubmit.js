@@ -161,7 +161,7 @@ $(function (){
 	    	};
 
 	   		//Get job desription items
-	    	for (let j = 1; j < $('.clonedInput_4').length; j++) {
+	    	for (let j = 1; j < 6; j++) {
 	    		let desc = '#cloneId' + String.fromCharCode(97 + i) + String(j);
 	    		employee.lines.push({bullet: true, content: $(desc).find("[name='jobcontent']").val()});
 
