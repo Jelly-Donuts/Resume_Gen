@@ -1,421 +1,590 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <!--
 	Resume Generator by Daniel Andrews and Jeremy Barenholtz
 -->
 <html>
 	<head>
 		<title>Resume Builder</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	 	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="https://mighty-plains-64736.herokuapp.com/static/assets/css/main.css" />
+		<link rel="stylesheet" href="https://buildaresume.herokuapp.com/static/assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body class="landing">
 
-		<!-- Header -->
-			<header id="header" class="alt">
-				<h1 id="logo"><a href="index.html">RESUME BUILDER</a></h1>
-				<nav id="nav">
-					<ul>
-						<li><a href="index.html">Home</a></li>
-					</ul>
-				</nav>
-			</header>
-
-		<!-- Banner -->
-			<section id="banner">
-				<h2>
-					A beautiful and simple<br />
-					Resume Builder
-				</h2>
-				<p>
-					Just put your information into our easy to use resume builder<br />
-					and enjoy a professionally formatted resume on us!
-				</p>
-				<ul class="counters">
-					<li class="style3">
-						<strong class="count" id="pdfcount">0</strong>
-						<p>PDFs Generated</p>
-					</li>
+	<!-- Header -->
+		<header id="header" class="alt">
+			<h1 id="logo"><a href="index.html">RESUME BUILDER</a></h1>
+			<nav id="nav">
+				<ul>
+					<li><a href="index.html">Home</a></li>
 				</ul>
-			</section>
+			</nav>
+		</header>
 
-		<!-- Resume Builder -->
-			<section id="one" class="wrapper style1 special">
-				<div class="container big box bordered">
-				<!-- Heading -->
-					<header class="major">
-						<h2>Resume Builder</h2>
-						<p>Consequat sed ultricies rutrum. Sed adipiscing eu amet utem accusantium<br />
-						interdum lorem blandit vis ac commodo aliquet vulputate.</p>
-					</header>
-				<!-- Form -->
-					<form method="post" action="#">
-					<!-- Contact Information -->
-						<h3>Contact Information</h3>
-						<div class="row uniform 50%">
-							<div class="6u 12u$(xsmall)">
-								<input type="text" name="firstName" id="firstName" value="" placeholder="First Name">
-							</div>
-							<div class="6u$ 12u$(xsmall)">
-								<input type="text" name="lastName" id="lastName" value="" placeholder="Last Name">
-							</div>
+	<!-- Banner -->
+		<section id="banner">
+			<h2>
+				A beautiful and simple<br />
+				Resume Builder
+			</h2>
+			<p>
+				Just put your information into our easy to use resume builder<br />
+				and enjoy a professionally formatted resume on us!
+			</p>
+			<ul class="counters">
+				<li class="style3">
+					<strong class="count" id="pdfcount"></strong>
+					<p>PDFs Generated</p>
+				</li>
+			</ul>
+		</section>
 
+	<!-- Resume Builder -->
+		<section id="one" class="wrapper style1 special">
+			<div class="container big box bordered">
+			<!-- Heading -->
+				<header class="major">
+					<h2>Resume Builder</h2>
+					<p>Consequat sed ultricies rutrum. Sed adipiscing eu amet utem accusantium<br />
+					interdum lorem blandit vis ac commodo aliquet vulputate.</p>
+				</header>
+			<!-- Form -->
+				<form>
 
-							<div class="6u 12u$(xsmall)">
-								<input type="email" name="email" id="email" value="" placeholder="Email">
-							</div>
-							<div class="6u$ 12u$(xsmall)">
-								<input type="tel" name="phone" id="phone" value="" placeholder="Phone Number">
-							</div>
+				<!-- Contact Information -->
+					<h3>Contact Information</h3>
+					<div class="row uniform 50%" id="contact">
+						<div class="6u 12u$(xsmall)">
+							<input type="text" class="firstname" placeholder="First Name">
+						</div>
+						<div class="6u$ 12u$(xsmall)">
+							<input type="text" class="lastname" placeholder="Last Name">
+						</div>
+						<div class="6u 12u$(xsmall)">
+							<input type="email" class="email" placeholder="Email Address">
+						</div>
+						<div class="6u$ 12u$(xsmall)">
+							<input type="tel" class="phone" placeholder="Phone Number">
+						</div>
 
-							<div class="12u$ 12u$(xsmall)">
-								<input type="text" name="address" id="address" value="" placeholder="Address">
-							</div>
+						<div class="12u$ 12u$(xsmall)">
+							<input type="text" class="address" placeholder="Address">
+						</div>
 
-							<div class="6u 12u$(xsmall)">
-								<input type="text" name="addressCity" id="addressCity" value="" placeholder="City">
-							</div>
+						<div class="6u 12u$(xsmall)">
+							<input type="text" class="city" placeholder="City">
+						</div>
 
-							<div class="2u 12u$(xsmall)">
-								<div class="select-wrapper">
-									<select name="addressState" id="addressState">
-										<option value="" disabled="" selected="">State</option>
-										<option value="CA">CA</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="4u 12u$(xsmall)">
-								<input type="number" name="zipcode" id="zipcode" value="" placeholder="Zipcode">
+						<div class="2u 12u$(xsmall)">
+							<div class="select-wrapper">
+								<select class="state">
+									<option disabled="" selected="">State</option>
+									<option value="CA">CA</option>
+								</select>
 							</div>
 						</div>
 
-						<hr/>
-					<!-- Education -->
-						<h3 style="padding-top: 2rem">Education</h3>
-						<!-- University -->
-						<div class="row uniform 50%">
-							<div class="6u 12u$(xsmall)">
-								<input type="text" name="university" id="university" value="" placeholder="University">
-							</div>
-							<div class="4u 12u$(xsmall)">
-								<input type="text" name="universityCity" id="universityCity" value="" placeholder="City">
-							</div>
-							<div class="2u$ 12u$(xsmall)">
-								<div class="select-wrapper">
-									<select name="universityState" id="universityState">
-										<option value="" disabled="" selected="">State</option>
-										<option value="CA">CA</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="2u 12u$(xsmall)">
-								<div class="select-wrapper">
-									<select name="degree" id="degree">
-										<option value="" disabled="" selected="">Degree</option>
-										<option value="AB">AB</option>
-										<option value="BA">BA</option>
-										<option value="BS">BS</option>
-										<option value="BSE">BSE</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="4u 12u$(xsmall)">
-								<input type="text" name="universityMajor" id="universityMajor" value="" placeholder="Major">
-							</div>
-
-							<div class="4u 12u$(xsmall)">
-								<input type="month" name="degreeMonth" id="degreeMonth" value="">
-							</div>
-
-							<div class="2u$ 12u$(xsmall)">
-								<input type="text" name="universityGpa" id="universityGpa" value="" placeholder="GPA (if >3)">
-							</div>
-
-							<div class="12u$ 12u$(xsmall)" id="award1" data-clone="award">
-								<input type="text" name="universityAward" class="awardInput" value="" placeholder="Honor or Award">
-							</div>
-
-							<ul class="actions 3u 12u$(xsmall) 6u(small)" style="margin-bottom: 0; height:2.9rem;">
-								<li style="width: 100%;"><input type="button" class="special fit small btnAdd" id="btnAdd_1" for="award1" data-btn-del="btnDel_1"value="Add Award"></li>
-							</ul>
-							<ul class="actions 3u$ 12u$(xsmall) 6u$(small)" style="margin-bottom: 0; height:2.9rem;">
-								<li style="width: 100%;"><input type="button" class="fit small btnDel" id="btnDel_1" for="award1" disabled="disabled" value="Remove Award" data-btn-add="btnAdd_1"></li>
-							</ul>
-
-							<div class="12u$ 12u$(xsmall)" id="course1" data-clone="course">
-								<input type="text" name="universityCourse" class="courseInput" value="" placeholder="Relevant Coursework">
-							</div>
-
-							<ul class="actions 3u 12u$(xsmall) 6u(small)" style="margin-bottom: 0; height:2.9rem;">
-								<li style="width: 100%;"><input type="button" class="special fit small btnAdd" id="btnAdd_2" value="Add Course" for="course1" data-btn-del="btnDel_2"></li>
-							</ul>
-							<ul class="actions 3u$ 12u$(xsmall) 6u$(small)" style="margin-bottom: 0; height:2.9rem;">
-								<li style="width: 100%;"><input type="button" class="fit small btnDel" id="btnDel_2" for="course1" disabled="disabled" value="Remove Course" data-btn-add="btnAdd_2"></li>
-							</ul>
-						<!-- High School -->
-							<div class="12u$" style="height:3rem;"></div>
-							<div class="6u 12u$(xsmall)">
-								<input type="text" name="highschool" id="highschool" value="" placeholder="High School">
-							</div>
-							<div class="4u 12u$(xsmall)">
-								<input type="text" name="highschoolCity" id="highschoolCity" value="" placeholder="City">
-							</div>
-							<div class="2u$ 12u$(xsmall)">
-								<div class="select-wrapper">
-									<select name="highschoolState" id="highschoolState">
-										<option value="" disabled="" selected="">State</option>
-										<option value="CA">CA</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="6u 12u$(xsmall)">
-								<input type="month" name="highschoolMonth" id="highschoolMonth" value="">
-							</div>
-
-							<div class="6u$ 12u$(xsmall)">
-								<input type="text" name="highschoolGpa" id="highschoolGpa" value="" placeholder="GPA (if >3)">
-							</div>
-
-							<div class="12u$ 12u$(xsmall)" id="hsaward1" data-clone="hsaward">
-								<input type="text" name="hsaward" class="hsawardInput" value="" placeholder="Honor or Award">
-							</div>
-
-							<ul class="actions 3u 12u$(xsmall) 6u(small)" style="margin-bottom: 0; height:2.9rem;">
-								<li style="width: 100%;"><input type="button" class="special fit small btnAdd" id="btnAdd_3" for="hsaward1" value="Add Award" data-btn-del="btnDel_3"></li>
-							</ul>
-							<ul class="actions 3u$ 12u$(xsmall) 6u$(small)" style="margin-bottom: 0; height:2.9rem;">
-								<li style="width: 100%;"><input type="button" class="fit small btnDel" id="btnDel_3" disabled="disabled" value="Remove Award" for="hsaward1" data-btn-add="btnAdd_3"></li>
-							</ul>
-
+						<div class="4u 12u$(xsmall)">
+							<input type="text" class="zipcode" pattern="[0-9]{5,10}" title="Zipcode must be at least 5 digits long." placeholder="Zipcode" />
 						</div>
-						<hr/>
-					<!-- Professional Experience -->
-						<h3 style="padding-top: 2rem">Professional Experience</h3>
-						<div class="row uniform 50% hidden employer" id="employer0" style="width: 100%">
-                            <div class="12u$">
-                                <h5 class="align-left employer_heading">
-                                    Employer 1
-                                </h5>
-                            </div>
+					</div>
 
+					<hr/>
+				<!-- Education -->
+					<h3 style="padding-top: 2rem">Education</h3>
 
-                            <div class="6u 12u$(xsmall)">
-                                <input type="text" class="employerInput" name="employer" data-form-field="Employer" placeholder="Employer">
-                            </div>
-
-                            <div class="4u 12u$(xsmall)">
-                                    <input type="text" class="employerCity" name="City" data-form-field="City" placeholder="City">
-                            </div>
-
-                            <div class="2u 12u$(xsmall)">
-								<div class="select-wrapper">
-									<select name="state" class="employerState">
-										<option value="" disabled="" selected="">State</option>
-										<option value="CA">CA</option>
-									</select>
-								</div>
-                            </div>
-
-                            <div class="6u 12u$(xsmall)">
-                                <input type="text" class="employerTitle" name="title" data-form-field="Title" placeholder="Title/Position">
-                            </div>
-
-                            <div class="3u 12u$(xsmall)">
-								<input type="month" name="employerMonthStart" class="employerMonthStart" id="employerMonthStart" value="">
-                            </div>
-                            <div class="3u$ 12u$(xsmall)">
-								<input type="month" name="employerMonthEnd" class="employerMonthEnd" id="employerMonthEnd" value="">
-                            </div>
-
-							<div class="12u$ clonedInput_4" id="cloneId" data-clone="cloneClass">
-								<input type="text" class="" name="jobcontent" data-form-field="Job Content" placeholder="Job description/accomplishment bullet point">
-							</div>
-                            <ul class="actions 3u 12u$(xsmall) 6u(small)" style="height:2.9rem; margin-bottom: 0;">
-                                <li style="width: 100%;"><input type="button" name="btnAdd" class="special fit small btnClass" for="cloneId" value="Add Content"></li>
-                            </ul>
-                            <ul class="actions 3u$ 4u$(medium) 12u$(xsmall) 6u$(small)" style="height:2.9rem;">
-                                <li style="width: 100%;"><input type="button" id="btnDel_4" name="btnDel" class="button fit small btnClass" disabled="disabled" value="Remove Content"></li>
-                            </ul>
-	                    </div>
-	                    
-                        <div class="12u$" style="margin-top: ">
-                            <input id="btnAdd_Employer" type="button" name="btnAdd" class="button fit alt" style="width: 100%;" value="Add Employer [+]">
-                        </div>
-                        <div class="12u$">
-                            <input id="btnDel_Employer" type="button" name="btnDel" class="button fit" style="width: 100%;" value="Remove Employer [-]" disabled="">
-                        </div>
-                        <hr/>
-
-                        <!-- Leadership and Extracurricular -->
-                        <h3 style="padding-top: 2rem">Leadership and Extracurricular</h3>
-						<div class="row uniform 50% hidden leadAndExtra" id="activity0" style="width: 100%">
-                            <div class="12u$">
-                                <h5 class="align-left activity_heading">
-                                    Activity 1
-                                </h5>
-                            </div>
-
-
-                            <div class="6u 12u$(xsmall)">
-                                <input type="text" name="Organization" placeholder="Organization/Event/Project">
-                            </div>
-
-                            <div class="4u 12u$(xsmall)">
-                                    <input type="text" name="City" placeholder="City">
-                            </div>
-
-                            <div class="2u 12u$(xsmall)">
-								<div class="select-wrapper">
-									<select name="State">
-										<option value="" disabled="" selected="">State</option>
-										<option value="CA">CA</option>
-									</select>
-								</div>
-                            </div>
-
-                            <div class="6u 12u$(xsmall)">
-                                <input type="text" class="" name="position" data-form-field="Position/Role" placeholder="Position/Role">
-                            </div>
-
-                            <div class="3u 12u$(xsmall)">
-								<input type="month" name="activityDateStart" value="">
-                            </div>
-                             <div class="3u$ 12u$(xsmall)">
-								<input type="month" name="activityDateEnd" value="">
-                            </div>
-
-							<div class="12u$ clonedInput_5" id="clone2Id" data-clone="clone2Class">
-								<input type="text" class="" name="activityContent" data-form-field="Activity Content" placeholder="Description/accomplishment bullet point">
-							</div>
-                            <ul class="actions 3u 12u$(xsmall) 6u(small)" style="height:2.9rem; margin-bottom: 0;">
-                                <li style="width: 100%;"><input type="button" name="btnAdd" class="special fit small btnClass" for="clone2Id" value="Add Content"></li>
-                            </ul>
-                            <ul class="actions 3u$ 4u$(medium) 12u$(xsmall) 6u$(small)" style="height:2.9rem;">
-                                <li style="width: 100%;"><input type="button" id="btnDel_5" name="btnDel" class="button fit small btnClass" disabled="disabled" value="Remove Content"></li>
-                            </ul>
-	                    </div>
-	                    
-                        <div class="12u$" style="margin-top: ">
-                            <input id="btnAdd_Activity" type="button" name="btnAdd" class="button fit alt" style="width: 100%;" value="Add Activity [+]">
-                        </div>
-                        <div class="12u$">
-                            <input id="btnDel_Activity" type="button" name="btnDel" class="button fit" style="width: 100%;" value="Remove Activity [-]" disabled="">						
+					<!-- University -->
+					<div class="row uniform 50% hidden" style="width:100%; margin-right:0;" id="university0" data-clone="university">
+            <div class="12u$">
+                <h5 class="align-left university_heading">
+                </h5>
+            </div>
+						<div class="6u 12u$(xsmall)">
+							<input type="text" class="name" placeholder="University">
 						</div>
-						<hr/>
-
-					<!-- Skills -->
-						<h3 style="padding-top: 2rem">Skills</h3>
-						<div class="row uniform 50% hidden skillClass" id="skill0" style="width: 100%">
-							<div class="4u 12u$(xsmall)">
-								<div class="select-wrapper">
-									<select name="skillCat">
-										<option value="" disabled="" selected="">Category</option>
-										<option value="Accounting">Accounting</option>
-										<option value="Administration">Administration</option>
-										<option value="Advertising">Advertising</option>
-										<option value="Applications">Applications</option>
-										<option value="Architecture">Architecture</option>
-										<option value="Artistic">Artistic</option>
-										<option value="Bookkeeping">Bookkeeping</option>
-										<option value="Career Development">Career Development</option>
-										<option value="Communications">Communications</option>
-										<option value="Community Affairs">Community Affairs</option>
-										<option value="Community Relations">Community Relations</option>
-										<option value="Counseling">Counseling</option>
-										<option value="Customer Relations">Customer Relations</option>
-										<option value="Customer Service">Customer Service</option>
-										<option value="Data Processing">Data Processing</option>
-										<option value="Data Collection">Data Collection</option>
-										<option value="Design">Design</option>
-										<option value="Drafting">Drafting</option>
-										<option value="Editing">Editing</option>
-										<option value="Education">Education</option>
-										<option value="Finance">Finance</option>
-										<option value="Fund Raising">Fund Raising</option>
-										<option value="Graphic Design">Graphic Design</option>
-										<option value="Group Work">Group Work</option>
-										<option value="Human Services">Human Services</option>
-										<option value="Inspecting">Inspecting</option>
-										<option value="Instructing">Instructing</option>
-										<option value="Interviewing">Interviewing</option>
-										<option value="Investigation">Investigation</option>
-										<option value="Investment">Investment</option>
-										<option value="Layout">Layout</option>
-										<option value="Leadership">Leadership</option>
-										<option value="Management">Management</option>
-										<option value="Market Research">Market Research</option>
-										<option value="Materials Handling">Materials Handling</option>
-										<option value="Media Productions">Media Productions</option>
-										<option value="Medical Service">Medical Service</option>
-										<option value="Office/Clerical">Office/Clerical</option>
-										<option value="Organization">Organization</option>
-										<option value="Personnel">Personnel</option>
-										<option value="Planning">Planning</option>
-										<option value="Political">Political</option>
-										<option value="Public Action">Public Action</option>
-										<option value="Presentation">Presentation</option>
-										<option value="Printing">Printing</option>
-										<option value="Production">Production</option>
-										<option value="Product Development">Product Development</option>
-										<option value="Program Development">Program Development</option>
-										<option value="Program Evaluation">Program Evaluation</option>
-										<option value="Program Planning">Program Planning</option>
-										<option value="Program Promotion">Program Promotion</option>
-										<option value="Programming Languages">Programming Languages</option>
-										<option value="Promotion">Promotion</option>
-										<option value="Publicity">Publicity</option>
-										<option value="Public Relations">Public Relations</option>
-										<option value="Public Speaking">Public Speaking</option>
-										<option value="Purchasing">Purchasing</option>
-										<option value="Research">Research</option>
-										<option value="Resource Development">Resource Development</option>
-										<option value="Retailing">Retailing</option>
-										<option value="Sales">Sales</option>
-										<option value="Scheduling">Scheduling</option>
-										<option value="Social Work">Social Work</option>
-										<option value="Software">Software</option>
-										<option value="Software Engineering">Software Engineering</option>
-										<option value="Supervision">Supervision</option>
-										<option value="Systems and Procedures">Systems and Procedures</option>
-										<option value="Teaching">Teaching</option>
-										<option value="Testing">Testing</option>
-										<option value="Tools and Frameworks">Tools and Frameworks</option>
-										<option value="Training">Training</option>
-										<option value="Volunteer Managment">Volunteer Management</option>
-										<option value="Writing">Writing</option>
-										<option value="Youth Counseling">Youth Counseling</option>
-
-
-									</select>
-								</div>
-							</div>
-							<div class="8u$ 12u$(xsmall)" style="margin-bottom: 2em;">
-								<textarea name="skillContent" id="skillContent0" value="" placeholder="Enter your skills here, separated by commas" rows="3"></textarea>
+						<div class="4u 12u$(xsmall)">
+							<input type="text" class="city" placeholder="City">
+						</div>
+						<div class="2u$ 12u$(xsmall)">
+							<div class="select-wrapper">
+								<select class="state">
+									<option value="" disabled="" selected="">State</option>
+									<option value="CA">CA</option>
+								</select>
 							</div>
 						</div>
-						<div class="12u$" style="margin-top: ">
-                            <input id="btnAdd_Skill" type="button" name="btnAdd" class="button fit alt" style="width: 100%;" value="Add Skill Category [+]">
-                        </div>
-                        <div class="12u$">
-                            <input id="btnDel_Skill" type="button" name="btnDel" class="button fit" style="width: 100%;" value="Remove Skill [-]" disabled="">						
+
+						<div class="2u 12u$(xsmall)">
+							<div class="select-wrapper">
+								<select class="degree">
+									<option value="" disabled="" selected="">Degree</option>
+									<option value="AB">AB</option>
+									<option value="BA">BA</option>
+									<option value="BS">BS</option>
+									<option value="BSE">BSE</option>
+								</select>
+							</div>
 						</div>
 
-						<div class="12u$" style="margin-top: 3em;">
-							<ul class="actions">
-								<li><input href="#" type="submit" id="btnSubmit" value="Generate PDF" class="special"/></li>
-								<li><input type="reset" value="Reset" /></li>
-							</ul>
+						<div class="4u 12u$(xsmall)">
+							<input type="text" class="major" placeholder="Major">
 						</div>
 
-					</form>
-				</div>
-			</section>
+            <div class="2u 12u$(xsmall)">
+              <div class="select-wrapper">
+                <select class="month">
+                  <option value="" disabled="" selected="">Month</option>
+                  <option value="January">Jan</option>
+                  <option value="Febuary">Feb</option>
+                  <option value="March">Mar</option>
+                  <option value="April">Apr</option>
+                  <option value="May">May</option>
+                  <option value="June">Jun</option>
+                  <option value="July">Jul</option>
+                  <option value="August">Aug</option>
+                  <option value="September">Sep</option>
+                  <option value="October">Oct</option>
+                  <option value="November">Nov</option>
+                  <option value="December">Dec</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="2u 12u$(xsmall)">
+              <input type="text" class="year" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
+            </div>
+
+						<div class="2u$ 12u$(xsmall)">
+							<input type="text" class="gpa" placeholder="GPA (if >3)" />
+						</div>
+            <div class="12u$ 12u$(xsmall) align-left">
+              <p>Honors/Awards:</p>
+            </div>
+						<div class="12u$ 12u$(xsmall) hidden" id="university0award0" data-clone="university0award" data-field="award">
+							<input type="text" class="award" placeholder="Honor or Award" />
+						</div>
+						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="margin-bottom: 0; height:2.9rem;">
+							<li style="width: 100%;">
+                <input type="button" class="special fit small btnAdd" id="university0btnAdd0" for="university0award0" data-btn-del="university0btnDel0" data-field="Add Award" value="Add Award" />
+              </li>
+						</ul>
+						<ul class="actions 3u$ 12u$(xsmall) 6u$(small)" style="margin-bottom: 0; height:2.9rem;">
+							<li style="width: 100%;">
+                <input type="button" class="fit small btnDel" id="university0btnDel0" for="university0award0" disabled="" data-btn-add="university0btnAdd0" value="Remove Award" />
+              </li>
+						</ul>
+            <div class="12u$ 12u$(xsmall) align-left">
+              <p>Relevant Coursework:</p>
+            </div>
+						<div class="12u$ 12u$(xsmall) hidden" id="university0course0" data-clone="university0course" data-field="course">
+							<input type="text" class="course" placeholder="Relevant Coursework" />
+						</div>
+
+						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="height:2.9rem;">
+							<li style="width: 100%;">
+                <input type="button" class="special fit small btnAdd" id="university0btnAdd1" value="Add Course" for="university0course0" data-btn-del="university0btnDel1" data-field="Add Course" />
+              </li>
+						</ul>
+						<ul class="actions 3u$ 12u$(xsmall) 6u$(small)" style="height:2.9rem;">
+							<li style="width: 100%;">
+                <input type="button" class="fit small btnDel" id="university0btnDel1" for="university0course0" disabled="" value="Remove Course" data-btn-add="university0btnAdd1" />
+              </li>
+						</ul>
+          </div>
+
+          <div class="12u$">
+            <input type="button" id="btnAdd_University" for="university0" data-btn-del="btnDel_University" class="button fit alt btnAdd" data-field="Add University [+]" style="width: 100%;" value="Add University [+]">
+          </div>
+          <div class="12u$">
+            <input id="btnDel_University" type="button" name="btnDel" for="university0" data-field="Remove University [-]" data-btn-add="btnAdd_University" class="button fit btnDel" style="width: 100%; margin-bottom: 2em;" value="Remove University [-]" disabled="">           
+          </div>
+
+					<!-- High School -->
+          <div class="row uniform 50% hidden" style="width:100%" id="highschool0" data-clone="highschool">
+            <div class="12u$">
+                <h5 class="align-left highschool_heading">
+                </h5>
+            </div>
+						<div class="6u 12u$(xsmall)">
+							<input type="text" class="name" placeholder="High School">
+						</div>
+						<div class="4u 12u$(xsmall)">
+							<input type="text" class="city" placeholder="City">
+						</div>
+						<div class="2u$ 12u$(xsmall)">
+							<div class="select-wrapper">
+								<select class="state">
+									<option value="" disabled="" selected="">State</option>
+									<option value="CA">CA</option>
+								</select>
+							</div>
+						</div>
+
+            <div class="3u 12u$(xsmall)">
+              <div class="select-wrapper">
+                <select class="month">
+                  <option value="" disabled="" selected="">Month</option>
+                  <option value="January">Jan</option>
+                  <option value="Febuary">Feb</option>
+                  <option value="March">Mar</option>
+                  <option value="April">Apr</option>
+                  <option value="May">May</option>
+                  <option value="June">Jun</option>
+                  <option value="July">Jul</option>
+                  <option value="August">Aug</option>
+                  <option value="September">Sep</option>
+                  <option value="October">Oct</option>
+                  <option value="November">Nov</option>
+                  <option value="December">Dec</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="3u 12u$(xsmall)">
+              <input type="text" class="year" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
+            </div>
+
+						<div class="6u$ 12u$(xsmall)">
+							<input type="text" class="gpa" placeholder="GPA (if >3)">
+						</div>
+            <div class="12u$ 12u$(xsmall) align-left">
+              <p>Honors/Awards:</p>
+            </div>
+						<div class="12u$ 12u$(xsmall) hidden" id="highschool0award0" data-clone="highschool0award" data-field="award">
+							<input type="text" class="award" placeholder="Honor or Award">
+						</div>
+
+						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="height:2.9rem;">
+							<li style="width: 100%;">
+                <input type="button" class="special fit small btnAdd" id="highschool0btnAdd0" for="highschool0award0" value="Add Award" data-btn-del="highschool0btnDel0" data-field="Add Award" />
+              </li>
+						</ul>
+						<ul class="actions 3u$ 12u$(xsmall) 6u$(small)" style="height:2.9rem;">
+							<li style="width: 100%;">
+                <input type="button" class="fit small btnDel" id="highschool0btnDel0" disabled="" value="Remove Award" for="highschool0award0" data-btn-add="highschool0btnAdd0" />
+              </li>
+						</ul>
+					</div>
+
+          <div class="12u$">
+            <input type="button" id="btnAdd_Highschool" for="highschool0" data-btn-del="btnDel_Highschool" class="button fit alt btnAdd" data-field="Add Highschool [+]" style="width: 100%;" value="Add Highschool [+]" />
+          </div>
+          <div class="12u$">
+            <input id="btnDel_Highschool" type="button" for="highschool0" data-btn-add="btnAdd_Highschool" class="button fit btnDel" style="width: 100%;" value="Remove Highschool [-]" disabled="" />           
+          </div>
+
+					<hr/>
+				<!-- Professional Experience -->
+					<h3 style="padding-top: 2rem">Professional Experience</h3>
+					<div class="row uniform 50% hidden" style="width:100%" id="employer0" data-clone="employer">
+            <div class="12u$">
+              <h5 class="align-left employer_heading">
+              </h5>
+            </div>
+
+
+            <div class="6u 12u$(xsmall)">
+              <input type="text" class="name" placeholder="Employer">
+            </div>
+
+            <div class="4u 12u$(xsmall)">
+              <input type="text" class="city" placeholder="City">
+            </div>
+
+            <div class="2u 12u$(xsmall)">
+  						<div class="select-wrapper">
+  							<select class="state">
+  								<option value="" disabled="" selected="">State</option>
+  								<option value="CA">CA</option>
+  							</select>
+  						</div>
+            </div>
+
+            <div class="4u 12u$(xsmall)">
+                <input type="text" class="position" placeholder="Title/Position" />
+            </div>
+
+            <div class="2u 12u$(xsmall)">
+              <div class="select-wrapper">
+                <select class="monthStart">
+                  <option value="" disabled="" selected="">Month</option>
+                  <option value="January">Jan</option>
+                  <option value="Febuary">Feb</option>
+                  <option value="March">Mar</option>
+                  <option value="April">Apr</option>
+                  <option value="May">May</option>
+                  <option value="June">Jun</option>
+                  <option value="July">Jul</option>
+                  <option value="August">Aug</option>
+                  <option value="September">Sep</option>
+                  <option value="October">Oct</option>
+                  <option value="November">Nov</option>
+                  <option value="December">Dec</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="2u 12u$(xsmall)">
+              <input type="text" class="yearStart" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
+            </div>
+
+            <div class="2u 12u$(xsmall)">
+              <div class="select-wrapper">
+                <select class="monthEnd">
+                  <option value="" disabled="" selected="">Month</option>
+                  <option value="January">Jan</option>
+                  <option value="Febuary">Feb</option>
+                  <option value="March">Mar</option>
+                  <option value="April">Apr</option>
+                  <option value="May">May</option>
+                  <option value="June">Jun</option>
+                  <option value="July">Jul</option>
+                  <option value="August">Aug</option>
+                  <option value="September">Sep</option>
+                  <option value="October">Oct</option>
+                  <option value="November">Nov</option>
+                  <option value="December">Dec</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="2u$ 12u$(xsmall)">
+              <input type="text" class="yearEnd" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
+            </div>
+
+						<div class="12u$" id="employer0description0" data-clone="employer0description" data-field="description">
+							<input type="text" class="content" placeholder="Job description/accomplishment">
+						</div>
+            <ul class="actions 3u 12u$(xsmall) 6u(small)" style="height:2.9rem; margin-bottom: 0;">
+                <li style="width: 100%;">
+                  <input type="button" class="special fit small btnAdd" for="employer0description0" id="employer0btnAdd0" data-btn-del="employer0btnDel0" data-field="Add Content" value="Add Content" />
+                </li>
+            </ul>
+            <ul class="actions 3u$ 4u$(medium) 12u$(xsmall) 6u$(small)" style="height:2.9rem;">
+                <li style="width: 100%;">
+                  <input type="button" id="employer0btnDel0" name="btnDel" class="button fit small btnDel" for="employer0description0" data-btn-add="employer0btnAdd0" disabled="" value="Remove Content" />
+                </li>
+            </ul>
+          </div>
+                    
+          <div class="12u$" style="margin-top: ">
+              <input id="btnAdd_Employer" type="button" class="button fit alt btnAdd" for="employer0" style="width: 100%;" data-field="Add Employer [+]" data-btn-del="btnDel_Employer" value="Add Employer [+]">
+          </div>
+          <div class="12u$">
+              <input id="btnDel_Employer" data-btn-add="btnAdd_Employer" type="button" name="btnDel" for="employer0" class="button fit btnDel" style="width: 100%;" value="Remove Employer [-]" disabled="">
+          </div>
+          <hr/>
+
+        <!-- Leadership and Extracurricular -->
+          <h3 style="padding-top: 2rem">Leadership and Extracurricular</h3>
+	    	  <div class="row uniform 50% hidden" style="width:100%" id="activity0" data-clone="activity">
+            <div class="12u$">
+                <h5 class="align-left activity_heading"></h5>
+            </div>
+
+            <div class="6u 12u$(xsmall)">
+              <input type="text" class="name" placeholder="Organization/Event/Project" />
+            </div>
+
+            <div class="4u 12u$(xsmall)">
+              <input type="text" class="city" placeholder="City" />
+            </div>
+
+            <div class="2u 12u$(xsmall)">
+    					<div class="select-wrapper">
+    						<select class="state">
+    							<option value="" disabled="" selected="">State</option>
+    							<option value="CA">CA</option>
+    						</select>
+    					</div>
+            </div>
+
+            <div class="4u 12u$(xsmall)">
+                <input type="text" class="position" placeholder="Position/Role" />
+            </div>
+
+            <div class="2u 12u$(xsmall)">
+              <div class="select-wrapper">
+                <select class="monthStart">
+                  <option value="" disabled="" selected="">Month</option>
+                  <option value="January">Jan</option>
+                  <option value="Febuary">Feb</option>
+                  <option value="March">Mar</option>
+                  <option value="April">Apr</option>
+                  <option value="May">May</option>
+                  <option value="June">Jun</option>
+                  <option value="July">Jul</option>
+                  <option value="August">Aug</option>
+                  <option value="September">Sep</option>
+                  <option value="October">Oct</option>
+                  <option value="November">Nov</option>
+                  <option value="December">Dec</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="2u 12u$(xsmall)">
+              <input type="text" class="yearStart" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
+            </div>
+
+            <div class="2u 12u$(xsmall)">
+              <div class="select-wrapper">
+                <select class="monthEnd">
+                  <option value="" disabled="" selected="">Month</option>
+                  <option value="January">Jan</option>
+                  <option value="Febuary">Feb</option>
+                  <option value="March">Mar</option>
+                  <option value="April">Apr</option>
+                  <option value="May">May</option>
+                  <option value="June">Jun</option>
+                  <option value="July">Jul</option>
+                  <option value="August">Aug</option>
+                  <option value="September">Sep</option>
+                  <option value="October">Oct</option>
+                  <option value="November">Nov</option>
+                  <option value="December">Dec</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="2u$ 12u$(xsmall)">
+              <input type="text" class="yearEnd" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
+            </div>
+
+						<div class="12u$" id="activity0description0" data-clone="activity0description" data-field="description">
+							<input type="text" class="content" placeholder="Activity description/accomplishment" />
+						</div>
+            <ul class="actions 3u 12u$(xsmall) 6u(small)" style="height:2.9rem; margin-bottom: 0;">
+                <li style="width: 100%;">
+                  <input type="button" class="special fit small btnAdd" for="activity0description0" id="activity0btnAdd0" data-field="Add Content" data-btn-del="activity0btnDel0" value="Add Content" />
+                </li>
+            </ul>
+            <ul class="actions 3u$ 4u$(medium) 12u$(xsmall) 6u$(small)" style="height:2.9rem;">
+                <li style="width: 100%;">
+                  <input type="button" id="activity0btnDel0" for="activity0description0" data-field="Remove Content" data-btn-add="activity0btnAdd0" class="button fit small btnDel" disabled="disabled" value="Remove Content" />
+                </li>
+            </ul>
+          </div>
+                    
+          <div class="12u$" style="margin-top: ">
+            <input id="btnAdd_Activity" type="button" for="activity0" data-btn-del="btnDel_Activity" class="button fit alt btnAdd" data-field="Add Activity [+]" style="width: 100%;" value="Add Activity [+]">
+          </div>
+          <div class="12u$">
+            <input id="btnDel_Activity" type="button" for="activity0" data-field="Remove Activity [-]" data-btn-add="btnAdd_Activity" class="button fit btnDel" style="width: 100%;" value="Remove Activity [-]" disabled="">						
+					</div>
+					<hr/>
+
+				<!-- Skills -->
+					<h3 style="padding-top: 2rem">Skills</h3>
+					<div class="row uniform 50% hidden" style="width:100%" id="skill0" data-clone="skill">
+            <div class="12u$">
+                <h5 class="align-left skill_heading"></h5>
+            </div>
+						<div class="4u 12u$(xsmall)">
+							<div class="select-wrapper">
+								<select class="category">
+									<option value="" disabled="" selected="">Category</option>
+									<option value="Accounting">Accounting</option>
+									<option value="Administration">Administration</option>
+									<option value="Advertising">Advertising</option>
+									<option value="Applications">Applications</option>
+									<option value="Architecture">Architecture</option>
+									<option value="Artistic">Artistic</option>
+									<option value="Bookkeeping">Bookkeeping</option>
+									<option value="Career Development">Career Development</option>
+									<option value="Communications">Communications</option>
+									<option value="Community Affairs">Community Affairs</option>
+									<option value="Community Relations">Community Relations</option>
+									<option value="Counseling">Counseling</option>
+									<option value="Customer Relations">Customer Relations</option>
+									<option value="Customer Service">Customer Service</option>
+									<option value="Data Processing">Data Processing</option>
+									<option value="Data Collection">Data Collection</option>
+									<option value="Design">Design</option>
+									<option value="Drafting">Drafting</option>
+									<option value="Editing">Editing</option>
+									<option value="Education">Education</option>
+									<option value="Finance">Finance</option>
+									<option value="Fund Raising">Fund Raising</option>
+									<option value="Graphic Design">Graphic Design</option>
+									<option value="Group Work">Group Work</option>
+									<option value="Human Services">Human Services</option>
+									<option value="Inspecting">Inspecting</option>
+									<option value="Instructing">Instructing</option>
+									<option value="Interviewing">Interviewing</option>
+									<option value="Investigation">Investigation</option>
+									<option value="Investment">Investment</option>
+									<option value="Layout">Layout</option>
+									<option value="Leadership">Leadership</option>
+									<option value="Management">Management</option>
+									<option value="Market Research">Market Research</option>
+									<option value="Materials Handling">Materials Handling</option>
+									<option value="Media Productions">Media Productions</option>
+									<option value="Medical Service">Medical Service</option>
+									<option value="Office/Clerical">Office/Clerical</option>
+									<option value="Organization">Organization</option>
+									<option value="Personnel">Personnel</option>
+									<option value="Planning">Planning</option>
+									<option value="Political">Political</option>
+									<option value="Public Action">Public Action</option>
+									<option value="Presentation">Presentation</option>
+									<option value="Printing">Printing</option>
+									<option value="Production">Production</option>
+									<option value="Product Development">Product Development</option>
+									<option value="Program Development">Program Development</option>
+									<option value="Program Evaluation">Program Evaluation</option>
+									<option value="Program Planning">Program Planning</option>
+									<option value="Program Promotion">Program Promotion</option>
+									<option value="Programming Languages">Programming Languages</option>
+									<option value="Promotion">Promotion</option>
+									<option value="Publicity">Publicity</option>
+									<option value="Public Relations">Public Relations</option>
+									<option value="Public Speaking">Public Speaking</option>
+									<option value="Purchasing">Purchasing</option>
+									<option value="Research">Research</option>
+									<option value="Resource Development">Resource Development</option>
+									<option value="Retailing">Retailing</option>
+									<option value="Sales">Sales</option>
+									<option value="Scheduling">Scheduling</option>
+									<option value="Social Work">Social Work</option>
+									<option value="Software">Software</option>
+									<option value="Software Engineering">Software Engineering</option>
+									<option value="Supervision">Supervision</option>
+									<option value="Systems and Procedures">Systems and Procedures</option>
+									<option value="Teaching">Teaching</option>
+									<option value="Testing">Testing</option>
+									<option value="Tools and Frameworks">Tools and Frameworks</option>
+									<option value="Training">Training</option>
+									<option value="Volunteer Managment">Volunteer Management</option>
+									<option value="Writing">Writing</option>
+									<option value="Youth Counseling">Youth Counseling</option>
+								</select>
+							</div>
+						</div>
+						<div class="8u$ 12u$(xsmall)" style="margin-bottom: 2em;">
+							<textarea class="content" placeholder="Enter your skills here, separated by commas" rows="2"></textarea>
+						</div>
+					</div>
+
+					<div class="12u$" style="margin-top: ">
+            <input id="btnAdd_Skill" type="button" class="button fit alt btnAdd" for="skill0" data-btn-del="btnDel_Skill" data-field="Add Skill Category [+]" style="width: 100%;" value="Add Skill Category [+]" />
+          </div>
+          <div class="12u$">
+            <input id="btnDel_Skill" type="button" class="button fit btnDel" for="skill0" data-btn-add="btnAdd_Skill" style="width: 100%;" value="Remove Skill [-]" disabled="" />
+					</div>
+
+					<div class="12u$" style="margin-top: 3em;">
+						<ul class="actions">
+							<li><input type="button" id="btnSubmit" value="Generate PDF" class="special"/></li>
+							<li><input type="reset" value="Reset" /></li>
+						</ul>
+					</div>
+
+				</form>
+			</div>
+		</section>
 		<!-- Four -->
 			<section id="four" class="wrapper style3 special">
 				<div class="container">
@@ -433,23 +602,23 @@
 			<div id="footer" style="padding-top:1em;">
 				<div class="copyright">
 					Made by Jelly Donuts <br/>
-					<a href="https://github.com/Jelly-Donuts/Resume_Gen)"> (github.com/Jelly-Donuts/Resume_Gen)</a>
+					<a href="https://github.com/Jelly-Donuts/Resume_Gen"> (github.com/Jelly-Donuts/Resume_Gen)</a>
 				</div>
 			</div>
 
 		<!-- Scripts -->
-			<script src="https://mighty-plains-64736.herokuapp.com/static/assets/js/jquery.min.js"></script>
-			<script src="https://mighty-plains-64736.herokuapp.com/static/assets/js/jquery.dropotron.min.js"></script>
-			<script src="https://mighty-plains-64736.herokuapp.com/static/assets/js/jquery.scrolly.min.js"></script>
-			<script src="https://mighty-plains-64736.herokuapp.com/static/assets/js/jquery.scrollgress.min.js"></script>
-			<script src="https://mighty-plains-64736.herokuapp.com/static/assets/js/skel.min.js"></script>
-			<script src="https://mighty-plains-64736.herokuapp.com/static/assets/js/util.js"></script>
-			<script src="https://mighty-plains-64736.herokuapp.com/static/assets/js/pdfCount.js"></script>
-			<script src="https://mighty-plains-64736.herokuapp.com/static/assets/js/add_remove_buttons.js"></script>
-			<script src="https://mighty-plains-64736.herokuapp.com/static/assets/js/formInputManagement.js"></script>
-			<script src="https://mighty-plains-64736.herokuapp.com/static/assets/js/formSubmit.js"></script>
+      <script src="https://buildaresume.herokuapp.com/static/assets/js/jquery.min.js"></script>
+      <script src="https://buildaresume.herokuapp.com/static/assets/js/pdfCount.js"></script>
+			<script src="https://buildaresume.herokuapp.com/static/assets/js/jquery.dropotron.min.js"></script>
+			<script src="https://buildaresume.herokuapp.com/static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="https://buildaresume.herokuapp.com/static/assets/js/jquery.scrollgress.min.js"></script>
+			<script src="https://buildaresume.herokuapp.com/static/assets/js/skel.min.js"></script>
+			<script src="https://buildaresume.herokuapp.com/static/assets/js/util.js"></script>
+			<script src="https://buildaresume.herokuapp.com/static/assets/js/add_remove_buttons.js"></script>
+			<script src="https://buildaresume.herokuapp.com/static/assets/js/formInputManagement.js"></script>
+			<script src="https://buildaresume.herokuapp.com/static/assets/js/formSubmit.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="https://mighty-plains-64736.herokuapp.com/static/assets/js/main.js"></script>
+			<script src="https://buildaresume.herokuapp.com/static/assets/js/main.js"></script>
 
 	</body>
 </html>
