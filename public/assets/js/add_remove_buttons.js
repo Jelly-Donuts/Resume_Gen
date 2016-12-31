@@ -58,7 +58,7 @@ function addClone(item){
 
     // Limit maximum amount of cloned fields
     if (newNum === 5){
-        $(item).attr('disabled', true).prop('value', "Max Reached");
+        $(item).attr('disabled', true).val("Max Reached");
     }
 }
 
