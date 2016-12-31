@@ -249,9 +249,9 @@ $(document).ready(function () {
         newElem.find('.employer_heading').attr('id', 'ID' + newNum + '_heading').attr('name', 'ID' + newNum + '_heading').text('Employer #' + newNum);
 
         // Add/Remove Content buttons
-        newElem.find('.clonedInput_4' ).attr('id'        , 'cloneId'    + chr + newNum);
+        newElem.find('.clonedInput_4' ).attr('id'        , 'cloneId'    + chr + 1);
         newElem.find('.clonedInput_4' ).attr('data-clone', 'cloneId'    + chr);
-        newElem.find('.btnClass'      ).attr('for'       , 'cloneId'    + chr + newNum);
+        newElem.find('.btnClass'      ).attr('for'       , 'cloneId'    + chr + 1);
         newElem.find("[name='btnAdd']").attr('id'        , 'btnAId'     + chr);
         newElem.find("[name='btnDel']").attr('id'        , 'btnDId'     + chr);
 
