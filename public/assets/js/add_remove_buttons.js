@@ -232,163 +232,241 @@ $(document).ready(function () {
     $('#btnDel_Skill').attr('disabled', true);
 
 
-    // Professional Experience - Employer add button (**NEEDS UPDATE**)
-    $('#btnAdd_Employer').click(function () {
+    // // Professional Experience - Employer add button (**NEEDS UPDATE**)
+    // $('#btnAdd_Employer').click(function () {
 
-        // How many cloned input fields we currently have
-        let num     = $('.employerClone').length,
-            newNum  = num + 1,
-            chr     = String.fromCharCode(97 + newNum),
+    //     // How many cloned input fields we currently have
+    //     let num     = $('.employerClone').length,
+    //         newNum  = num + 1,
+    //         chr     = String.fromCharCode(97 + newNum),
+
+    //         // Create the new element via clone(), and change it's id
+    //         newElem = $('#employer0').clone().attr('id', 'employer' + newNum).fadeIn('slow');
+    //     newElem.addClass("employerClone");
+    //     newElem.removeClass("hidden");
+
+    //     // Employer Heading
+    //     newElem.find('.employer_heading').attr('id', 'ID' + newNum + '_heading').attr('name', 'ID' + newNum + '_heading').text('Employer #' + newNum);
+
+    //     // Add/Remove Content buttons
+    //     newElem.find('.clonedInput_4' ).attr('id'        , 'cloneId'    + chr + 1);
+    //     newElem.find('.clonedInput_4' ).attr('data-clone', 'cloneId'    + chr);
+    //     newElem.find('.btnClass'      ).attr('for'       , 'cloneId'    + chr + 1);
+    //     newElem.find("[name='btnAdd']").attr('id'        , 'btnAId'     + chr);
+    //     newElem.find("[name='btnDel']").attr('id'        , 'btnDId'     + chr);
+
+
+    //     // Insert the new element after the last cloned input field
+    //     $('#employer' + num).after(newElem);
+    //     $('#ID' + newNum + '_heading').focus();
+    //     $('#btnDel_Employer').attr('disabled', false);
+    //     if (newNum === 3){
+    //         $('#btnAdd_Employer').attr('disabled', true).prop('value', "You've reached the limit");
+    //     }
+
+    //     // Job description add button
+    //     $('#btnAId' + chr).click(function () {
+    //         let thisID   = this.getAttribute('id'),
+    //             targetID = this.getAttribute('for'),
+    //             targetCD = document.getElementById(targetID).getAttribute('data-clone'),
+
+    //             // Checks to see how many cloned input fields we currently have
+    //             num      = $("[data-clone='" + targetCD + "']").length,
+    //             newNum   = num + 1;
+
+    //             // Create the new element via clone(), and change it's id
+    //             console.log('#' + targetCD + num);
+    //         let newElem  = $('#' + targetCD + num).clone().attr('id', targetCD + newNum).fadeIn('slow');
+
+    //         // Reset input values
+    //         newElem.find("[name='jobcontent']").val('');
+
+    //         // Insert the new element after the last "duplicatable" input field
+    //         if (num === 1){
+    //             console.log('in here');
+    //             $('#' + targetCD + num).after(newElem);
+    //         } else {
+    //             console.log('no, in here');
+    //             $('#' + targetCD + num).after(newElem);
+    //         }
+
+    //         // Enable the "remove" button. This only shows once you have a cloned section.
+    //         $('#btnDId' + chr).attr('disabled', false);
+
+    //         // Limit the max amount of fields
+    //         if (newNum === 5){
+    //             $('#' + thisID).attr('disabled', true).prop('value', "You've reached the limit"); // value here updates the text in the 'add' button when the limit is reached
+    //         }
+    //     });
+
+
+    //     // Job description delete button (**NEEDS UPDATE**)
+    //     $('#btnDId' + chr).click(function () {
+    //     // Confirmation dialog box
+    //         if (confirm("Are you sure you wish to remove this field? This cannot be undone.")){
+    //             let thisID   = this.getAttribute('id'),
+    //                 targetID = this.getAttribute('for'),
+    //                 targetCD = document.getElementById(targetID).getAttribute('data-clone'),
+
+    //                 // How many "duplicatable" input fields we currently have
+    //                 num      = $("[data-clone='" + targetCD + "']").length;
+
+    //             $('#' + targetCD + num).slideUp('slow', function () {
+    //                 $(this).remove();
+
+    //                 // If only one element remains, disable the "remove" button
+    //                 if (num -1 === 1){
+    //                     $('#' + thisID).attr('disabled', true);
+    //                 }
+
+    //                 // Enable the "add" button
+    //                 $('#btnAId' + chr).attr('disabled', false).prop('value', "Add Content");
+
+    //             });
+    //         }
+    //         return false;
+    //     });
+
+    //     // Enable the "add" button
+    //     $('#btnAId' + chr).attr('disabled', false);
+
+    //     // Disable the "remove" button
+    //     $('#btnDId' + chr).attr('disabled', true);
+
+    // });
+
+    // // Professional Experience - Employer delete button (**NEEDS UPDATE**)
+    // $('#btnDel_Employer').click(function () {
+
+    // // Confirmation dialog box
+    //     if (confirm("Are you sure you wish to remove this field? This cannot be undone.")){
+
+    //         // How many "duplicatable" input fields we currently have
+    //         let num = $('.employerClone').length;
+    //         $('#employer' + num).slideUp('slow', function () {
+    //             $(this).remove();
+
+    //             // If only one element remains, disable the "remove" button
+    //             if (num -1 === 0){
+    //                 $('#btnDel_Employer').attr('disabled', true);
+    //             }
+
+    //             // Enable the "add" button. IMPORTANT: only for forms using input type="button" (see older demo). DELETE if using button element.
+    //             $('#btnAdd_Employer').attr('disabled', false).prop('value', "Add Employer [+]");
+    //         });
+    //     }
+    //     return false;
+    // });
+
+    // // Enable the "add" button
+    // $('#btnAdd_Employer').attr('disabled', false);
+    
+    // // Disable the "remove" button
+    // $('#btnDel_Employer').attr('disabled', true);
+
+
+
+    function addClone(){
+
+        let targetID   = '#' + $(this).attr('for'),
+            targetAttr = $(targetID).attr('data-clone'),
+            btnDelPair = '#' + $(this).attr('data-btn-del')
+
+            // How many cloned input fields we currently have
+            num        = $("[data-clone='" + targetAttr + "']").length - 1,
+            newNum     = num + 1,
+            newID = targetAttr + newNum,
 
             // Create the new element via clone(), and change it's id
-            newElem = $('#employer0').clone().attr('id', 'employer' + newNum).fadeIn('slow');
-        newElem.addClass("employerClone");
+            newElem = $(targetID).clone().attr('id', newID).fadeIn();
+
         newElem.removeClass("hidden");
 
-        // Employer Heading
-        newElem.find('.employer_heading').attr('id', 'ID' + newNum + '_heading').attr('name', 'ID' + newNum + '_heading').text('Employer #' + newNum);
+        // Heading
+        newElem.find('.' + targetAttr + '_heading').text(targetAttr + '#' + newNum);
 
         // Add/Remove Content buttons
-        newElem.find('.clonedInput_4' ).attr('id'        , 'cloneId'    + chr + 1);
-        newElem.find('.clonedInput_4' ).attr('data-clone', 'cloneId'    + chr);
-        newElem.find('.btnClass'      ).attr('for'       , 'cloneId'    + chr + 1);
-        newElem.find("[name='btnAdd']").attr('id'        , 'btnAId'     + chr);
-        newElem.find("[name='btnDel']").attr('id'        , 'btnDId'     + chr);
+        for (let i = 0; i < newElem.find('.btnAdd').length; i++) {
 
+            let btnAddID = targetID + 'btnAdd' + i,
+                newBtnAddID = newID + 'btnAdd' + i,
+                btnDelID = '#' + newElem.find(btnAddID).attr('data-btn-del'),
+                newBtnDelID = newID + 'btnDel' + i,
+                inputID = '#' + newElem.find(btnAddID).attr('for'),
+                inputType = newElem.find(inputID).attr('data-field'),
+                newInputID = newID + inputType + 0;
+
+            newElem.find(inputID).attr('data-clone', newID + inputType);
+            newElem.find(inputID).attr('id', newInputID);
+
+            newElem.find(btnDelID).attr('for', newInputID);
+            newElem.find(btnDelID).attr('data-btn-add', newBtnAddID);
+            newElem.find(btnDelID).attr('disabled', true);
+            newElem.find(btnDelID).attr('id', newBtnDelID);
+
+            newElem.find(btnAddID).attr('for', newInputID);
+            newElem.find(btnAddID).attr('data-btn-del', newBtnDelID);
+            newElem.find(btnAddID).attr('disabled', false);
+            newElem.find(btnAddID).attr('id', newBtnAddID);
+
+            // Bind addClone function to add button
+            newElem.find(newBtnAddID).click(addClone());
+
+            // Bind delClone function to delete button
+            newElem.find(newBtnDelID).click(delClone());
+
+        };
 
         // Insert the new element after the last cloned input field
-        $('#employer' + num).after(newElem);
-        $('#ID' + newNum + '_heading').focus();
-        $('#btnDel_Employer').attr('disabled', false);
-        if (newNum === 3){
-            $('#btnAdd_Employer').attr('disabled', true).prop('value', "You've reached the limit");
+        $('#' + targetAttr + num).after(newElem);
+        $('input:first').focus();
+
+        // Enable the delete button
+        $(btnDelPair).attr('disabled', false);
+
+        // Limit maximum amount of cloned fields
+        if (newNum === 5){
+            $(this).attr('disabled', true).prop('value', "Max Reached");
         }
+    }
 
-        // Job description add button
-        $('#btnAId' + chr).click(function () {
-            let thisID   = this.getAttribute('id'),
-                targetID = this.getAttribute('for'),
-                targetCD = document.getElementById(targetID).getAttribute('data-clone'),
+    function delClone() {
 
-                // Checks to see how many cloned input fields we currently have
-                num      = $("[data-clone='" + targetCD + "']").length,
-                newNum   = num + 1;
-
-                // Create the new element via clone(), and change it's id
-                console.log('#' + targetCD + num);
-            let newElem  = $('#' + targetCD + num).clone().attr('id', targetCD + newNum).fadeIn('slow');
-
-            // Reset input values
-            newElem.find("[name='jobcontent']").val('');
-
-            // Insert the new element after the last "duplicatable" input field
-            if (num === 1){
-                console.log('in here');
-                $('#' + targetCD + num).after(newElem);
-            } else {
-                console.log('no, in here');
-                $('#' + targetCD + num).after(newElem);
-            }
-
-            // Enable the "remove" button. This only shows once you have a cloned section.
-            $('#btnDId' + chr).attr('disabled', false);
-
-            // Limit the max amount of fields
-            if (newNum === 5){
-                $('#' + thisID).attr('disabled', true).prop('value', "You've reached the limit"); // value here updates the text in the 'add' button when the limit is reached
-            }
-        });
-
-
-        // Job description delete button (**NEEDS UPDATE**)
-        $('#btnDId' + chr).click(function () {
         // Confirmation dialog box
-            if (confirm("Are you sure you wish to remove this field? This cannot be undone.")){
-                let thisID   = this.getAttribute('id'),
-                    targetID = this.getAttribute('for'),
-                    targetCD = document.getElementById(targetID).getAttribute('data-clone'),
-
-                    // How many "duplicatable" input fields we currently have
-                    num      = $("[data-clone='" + targetCD + "']").length;
-
-                $('#' + targetCD + num).slideUp('slow', function () {
-                    $(this).remove();
-
-                    // If only one element remains, disable the "remove" button
-                    if (num -1 === 1){
-                        $('#' + thisID).attr('disabled', true);
-                    }
-
-                    // Enable the "add" button
-                    $('#btnAId' + chr).attr('disabled', false).prop('value', "Add Content");
-
-                });
-            }
-            return false;
-        });
-
-        // Enable the "add" button
-        $('#btnAId' + chr).attr('disabled', false);
-
-        // Disable the "remove" button
-        $('#btnDId' + chr).attr('disabled', true);
-
-    });
-
-    // Professional Experience - Employer delete button (**NEEDS UPDATE**)
-    $('#btnDel_Employer').click(function () {
-
-    // Confirmation dialog box
         if (confirm("Are you sure you wish to remove this field? This cannot be undone.")){
 
-            // How many "duplicatable" input fields we currently have
-            let num = $('.employerClone').length;
-            $('#employer' + num).slideUp('slow', function () {
+        let targetID   = '#' + $(this).attr('for'),
+            targetAttr = $(targetID).attr('data-clone'),
+            btnAddPair = '#' + $(this).attr('data-btn-add')
+
+            // How many cloned input fields we currently have
+            num        = $("[data-clone='" + targetAttr + "']").length - 1,
+            $('#' + targetAttr + num).slideUp(function () {
                 $(this).remove();
-
-                // If only one element remains, disable the "remove" button
-                if (num -1 === 0){
-                    $('#btnDel_Employer').attr('disabled', true);
-                }
-
-                // Enable the "add" button. IMPORTANT: only for forms using input type="button" (see older demo). DELETE if using button element.
-                $('#btnAdd_Employer').attr('disabled', false).prop('value', "Add Employer [+]");
             });
+
+            // If only one element remains, disable the "remove" button
+            if (num === 1){
+                $(this).attr('disabled', true);
+            }
+
+        // Enable the "add" button. IMPORTANT: only for forms using input type="button" (see older demo). DELETE if using button element.
+        $(btnAddPair).attr('disabled', false).val("Add Employer [+]");
         }
         return false;
-    });
+    }
+    // Professional Experience - Employer add button (**NEEDS UPDATE**)
+    $('.btnAdd_Segment').click(addClone());
+
+    // Professional Experience - Employer delete button (**NEEDS UPDATE**)
+    $('.btnDel_Segment').click(delClone());
 
     // Enable the "add" button
-    $('#btnAdd_Employer').attr('disabled', false);
+    $('.btnAdd_Segment').attr('disabled', false);
     
     // Disable the "remove" button
-    $('#btnDel_Employer').attr('disabled', true);
+    $('.btnDel_Segment').attr('disabled', true);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
