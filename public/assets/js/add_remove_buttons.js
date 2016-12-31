@@ -52,6 +52,9 @@ function addClone(item) {
     // Change the heading text
     newElem.find('.' + targetAttr + '_heading').text(targetAttr + ' #' + newNum);
 
+    // Reset value of first input (for buttons that clone a non-hidden field)
+    newElem.find('input:first').val('');
+
     // Insert the new element after the last cloned input field
     $('#' + targetAttr + num).after(newElem);
     newElem.find('input:first').focus();
@@ -116,6 +119,8 @@ $(document).ready(function () {
     // Disable delete buttons
     $('.btnDel').attr('disabled', true);
 });
+
+
 
 
 
