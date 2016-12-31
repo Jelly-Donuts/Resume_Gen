@@ -237,7 +237,7 @@ $(function (){
             contentType: 'application/json',
             data: JSON.stringify(schema),
             dataType: 'text',
-            success: function(data) {console.log(data)},
+            success: function(data) {window.open(data)},
             error: function (xhr, ajaxOptions, thrownError) {console.log(xhr.responseText, thrownError)}
         });
     });
