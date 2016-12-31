@@ -292,6 +292,7 @@ const make_size = function(schema) {
 	}
 }
 
+console.log('HERE: ' + __dirname);
 const add_one_to_count = function() {
   let file = fs.readFileSync(path.join(__dirname, 'count.txt'), 'utf-8');
   fs.writeFileSync(path.join(__dirname, 'count.txt'), file + 1, 'utf-8');
