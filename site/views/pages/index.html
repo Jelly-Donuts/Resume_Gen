@@ -151,26 +151,26 @@
               </div>
             </div>
 
-            <div class="2u$ 12u$(xsmall)">
-              <input type="number" min="1900" max="2099" step="1" value="2016" />
+            <div class="2u 12u$(xsmall)">
+              <input type="text" class="year" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
             </div>
 
 						<div class="2u$ 12u$(xsmall)">
-							<input type="text" class="universityGpa" id="universityGpa" value="" placeholder="GPA (if >3)">
+							<input type="text" class="gpa" placeholder="GPA (if >3)">
 						</div>
 
-						<div class="12u$ 12u$(xsmall)" id="award1" data-clone="award">
-							<input type="text" class="universityAward" class="awardInput" value="" placeholder="Honor or Award">
+						<div class="12u$ 12u$(xsmall) hidden" id="university0award0" data-clone="university0award" data-field="award">
+							<input type="text" class="award" placeholder="Honor or Award">
 						</div>
 
 						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="margin-bottom: 0; height:2.9rem;">
 							<li style="width: 100%;">
-                <input type="button" class="special fit small btnAdd" id="btnAdd_1" for="award1" data-btn-del="btnDel_1"value="Add Award">
+                <input type="button" class="special fit small btnAdd" id="university0btnAdd0" for="university0award0" data-btn-del="university0btnDel0" value="Add Award">
               </li>
 						</ul>
 						<ul class="actions 3u$ 12u$(xsmall) 6u$(small)" style="margin-bottom: 0; height:2.9rem;">
 							<li style="width: 100%;">
-                <input type="button" class="fit small btnDel" id="btnDel_1" for="award1" disabled="disabled" value="Remove Award" data-btn-add="btnAdd_1">
+                <input type="button" class="fit small btnDel" id="university0btnDel0" for="university0award0" disabled="" data-btn-add="university0btnAdd0" value="Remove Award">
               </li>
 						</ul>
 
