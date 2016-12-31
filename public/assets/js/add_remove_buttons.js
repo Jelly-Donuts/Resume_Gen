@@ -2,7 +2,7 @@ const addClone = function(){
 
     let targetID   = '#' + $(this).attr('for'),
         targetAttr = $(targetID).attr('data-clone'),
-        btnDelPair = '#' + $(this).attr('data-btn-del')
+        btnDelPair = '#' + $(this).attr('data-btn-del'),
 
         // How many cloned input fields we currently have
         num        = $("[data-clone='" + targetAttr + "']").length - 1,
