@@ -60,29 +60,29 @@
 					<h3>Contact Information</h3>
 					<div class="row uniform 50%" id="contact">
 						<div class="6u 12u$(xsmall)">
-							<input type="text" name="firstname" placeholder="First Name">
+							<input type="text" class="firstname" placeholder="First Name">
 						</div>
 						<div class="6u$ 12u$(xsmall)">
-							<input type="text" name="lastname" placeholder="Last Name">
+							<input type="text" class="lastname" placeholder="Last Name">
 						</div>
 						<div class="6u 12u$(xsmall)">
-							<input type="email" name="email" placeholder="Email Address">
+							<input type="email" class="email" placeholder="Email Address">
 						</div>
 						<div class="6u$ 12u$(xsmall)">
-							<input type="tel" name="phone" placeholder="Phone Number">
+							<input type="tel" class="phone" placeholder="Phone Number">
 						</div>
 
 						<div class="12u$ 12u$(xsmall)">
-							<input type="text" name="address" placeholder="Address">
+							<input type="text" class="address" placeholder="Address">
 						</div>
 
 						<div class="6u 12u$(xsmall)">
-							<input type="text" name="city" placeholder="City">
+							<input type="text" class="city" placeholder="City">
 						</div>
 
 						<div class="2u 12u$(xsmall)">
 							<div class="select-wrapper">
-								<select name="state">
+								<select class="state">
 									<option disabled="" selected="">State</option>
 									<option value="CA">CA</option>
 								</select>
@@ -90,7 +90,7 @@
 						</div>
 
 						<div class="4u 12u$(xsmall)">
-							<input type="text" name="zipcode" required="" pattern="[0-9]{5,10}" title="A part number is a digit followed by three uppercase letters." placeholder="Zipcode" />
+							<input type="text" class="zipcode" required="" pattern="[0-9]{5,10}" title="Zipcode must be at least 5 digits long." placeholder="Zipcode" />
 						</div>
 					</div>
 
@@ -99,16 +99,16 @@
 					<h3 style="padding-top: 2rem">Education</h3>
 
 					<!-- University -->
-					<div class="row uniform 50%">
+					<div class="row uniform 50%" id="university0">
 						<div class="6u 12u$(xsmall)">
-							<input type="text" name="university" id="university" value="" placeholder="University">
+							<input type="text" class="name" placeholder="University">
 						</div>
 						<div class="4u 12u$(xsmall)">
-							<input type="text" name="universityCity" id="universityCity" value="" placeholder="City">
+							<input type="text" class="city" placeholder="City">
 						</div>
 						<div class="2u$ 12u$(xsmall)">
 							<div class="select-wrapper">
-								<select name="universityState" id="universityState">
+								<select class="state">
 									<option value="" disabled="" selected="">State</option>
 									<option value="CA">CA</option>
 								</select>
@@ -117,7 +117,7 @@
 
 						<div class="2u 12u$(xsmall)">
 							<div class="select-wrapper">
-								<select name="degree" id="degree">
+								<select class="degree">
 									<option value="" disabled="" selected="">Degree</option>
 									<option value="AB">AB</option>
 									<option value="BA">BA</option>
@@ -128,19 +128,19 @@
 						</div>
 
 						<div class="4u 12u$(xsmall)">
-							<input type="text" name="universityMajor" id="universityMajor" value="" placeholder="Major">
+							<input type="text" class="major" placeholder="Major">
 						</div>
 
 						<div class="4u 12u$(xsmall)">
-							<input type="month" name="degreeMonth" id="degreeMonth" value="">
+							<input type="month" class="month" placeholder="Month, Year">
 						</div>
 
 						<div class="2u$ 12u$(xsmall)">
-							<input type="text" name="universityGpa" id="universityGpa" value="" placeholder="GPA (if >3)">
+							<input type="text" class="universityGpa" id="universityGpa" value="" placeholder="GPA (if >3)">
 						</div>
 
 						<div class="12u$ 12u$(xsmall)" id="award1" data-clone="award">
-							<input type="text" name="universityAward" class="awardInput" value="" placeholder="Honor or Award">
+							<input type="text" class="universityAward" class="awardInput" value="" placeholder="Honor or Award">
 						</div>
 
 						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="margin-bottom: 0; height:2.9rem;">
