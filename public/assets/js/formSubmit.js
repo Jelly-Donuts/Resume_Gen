@@ -207,9 +207,7 @@ $(function (){
 	    	};
 	    	//Get activity desription items
 	    	for (let j = 1; j < 6; j++) {
-	    		console.log($('.clonedInput_5').length);
 	    		let desc = '#clone2Id' + String.fromCharCode(97 + i);
-	    		console.log(desc);
 	    		activityObj.items[0].lines.push({bullet: true, content: $(desc).find("[name='activityContent']").val()});
 	    	}
 	    	schema.segments.push(activityObj);
