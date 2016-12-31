@@ -48,10 +48,10 @@ function addClone(item){
         newElem.find(btnAddID).attr('id', newBtnAddID);
 
         // Bind addClone function to add button
-        $('#' + newBtnAddID).click(function(){addClone(this)});
+        $('#' + newBtnAddID).on("click", function(){addClone(this)});
 
         // Bind delClone function to delete button
-        $('#' + newBtnDelID).click(function(){delClone(this)});
+        $('#' + newBtnDelID).on("click", (function(){delClone(this)});
         console.log($('#' + newBtnAddID) ,$('#' + newBtnDelID));
 
     };
