@@ -292,7 +292,6 @@ const make_size = function(schema) {
 	}
 }
 
-console.log('HERE: ' + __dirname);
 const add_one_to_count = function() {
   let file = fs.readFileSync(path.join(__dirname, 'count.txt'), 'utf-8');
   fs.writeFileSync(path.join(__dirname, 'count.txt'), file + 1, 'utf-8');
@@ -315,7 +314,7 @@ module.exports = {
 		//Add one to number of PDFs generated
 		add_one_to_count();
 
-		console.log('PDF Generated with name: ' + path.join(__dirname, + '/pdfs/' + schema.docname));
+		console.log('PDF Generated with name: ' + path.join(__dirname + '/pdfs/' + schema.docname));
 
 		return schema.docname;
 	}
