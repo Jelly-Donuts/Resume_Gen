@@ -49,10 +49,10 @@ function addClone(item){
 
         // Bind addClone function to add button
         newElem.find(newBtnAddID).click(function(){addClone()});
-        console.log(newElem.find(newBtnAddID));
+        console.log(newElem.find(btnAddID));
         // Bind delClone function to delete button
         newElem.find(newBtnDelID).click(function(){delClone()});
-        console.log(newElem.find(newBtnDelID));
+        console.log(newElem.find(btnDelID));
 
     };
 
