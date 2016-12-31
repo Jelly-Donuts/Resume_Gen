@@ -307,7 +307,7 @@
               <input type="month" name="employerMonthEnd" class="employerMonthEnd" id="employerMonthEnd" value="">
             </div>
 
-						<div class="12u$ hidden" id="employer0description0" data-clone="employer0description" data-field="description">
+						<div class="12u$" id="employer0description0" data-clone="employer0description" data-field="description">
 							<input type="text" class="" name="jobcontent" placeholder="Job description/accomplishment bullet point">
 						</div>
             <ul class="actions 3u 12u$(xsmall) 6u(small)" style="height:2.9rem; margin-bottom: 0;">
@@ -385,7 +385,7 @@
 
 				<!-- Skills -->
 					<h3 style="padding-top: 2rem">Skills</h3>
-					<div class="row uniform 50% hidden skillClass" id="skill0" style="width: 100%">
+					<div class="row uniform 50% hidden" id="skill0" data-clone="skill" style="width: 100%">
 						<div class="4u 12u$(xsmall)">
 							<div class="select-wrapper">
 								<select name="skillCat">
@@ -464,20 +464,19 @@
 									<option value="Volunteer Managment">Volunteer Management</option>
 									<option value="Writing">Writing</option>
 									<option value="Youth Counseling">Youth Counseling</option>
-
-
 								</select>
 							</div>
 						</div>
 						<div class="8u$ 12u$(xsmall)" style="margin-bottom: 2em;">
-							<textarea name="skillContent" id="skillContent0" value="" placeholder="Enter your skills here, separated by commas" rows="3"></textarea>
+							<textarea name="content" placeholder="Enter your skills here, separated by commas" rows="3"></textarea>
 						</div>
 					</div>
+
 					<div class="12u$" style="margin-top: ">
-            <input id="btnAdd_Skill" type="button" name="btnAdd" class="button fit alt" style="width: 100%;" value="Add Skill Category [+]">
+            <input id="btnAdd_Skill" type="button" class="button fit alt btnAdd_Segment" for="skill0" data-btn-del="btnDel_Skill" data-field="Add Skill Category [+]" style="width: 100%;" value="Add Skill Category [+]">
           </div>
           <div class="12u$">
-            <input id="btnDel_Skill" type="button" name="btnDel" class="button fit" style="width: 100%;" value="Remove Skill [-]" disabled="">						
+            <input id="btnDel_Skill" type="button" class="button fit btnDel_Segment" for="skill0" data-btn-add="btnAdd_Skill" style="width: 100%;" value="Remove Skill [-]" disabled="" />
 					</div>
 
 					<div class="12u$" style="margin-top: 3em;">
