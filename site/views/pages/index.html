@@ -215,7 +215,7 @@
 							</div>
 						</div>
 
-            <div class="2u 12u$(xsmall)">
+            <div class="3u 12u$(xsmall)">
               <div class="select-wrapper">
                 <select class="month">
                   <option value="" disabled="" selected="">Month</option>
@@ -235,24 +235,26 @@
               </div>
             </div>
 
-            <div class="2u 12u$(xsmall)">
+            <div class="3u 12u$(xsmall)">
               <input type="text" class="year" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
             </div>
 
 						<div class="6u$ 12u$(xsmall)">
 							<input type="text" class="gpa" placeholder="GPA (if >3)">
 						</div>
-
+            <div class="6u$ 12u$(xsmall) align-left">
+              <p>Honors/Awards:</p>
+            </div>
 						<div class="12u$ 12u$(xsmall) hidden" id="highschool0award0" data-clone="highschool0award" data-field="award">
 							<input type="text" class="award" placeholder="Honor or Award">
 						</div>
 
-						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="margin-bottom: 0; height:2.9rem;">
+						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="height:2.9rem;">
 							<li style="width: 100%;">
                 <input type="button" class="special fit small btnAdd" id="highschool0btnAdd0" for="highschool0award0" value="Add Award" data-btn-del="highschool0btnDel0" data-field="Add Award" />
               </li>
 						</ul>
-						<ul class="actions 3u$ 12u$(xsmall) 6u$(small)" style="margin-bottom: 0; height:2.9rem;">
+						<ul class="actions 3u$ 12u$(xsmall) 6u$(small)" style="height:2.9rem;">
 							<li style="width: 100%;">
                 <input type="button" class="fit small btnDel" id="highschool0btnDel0" disabled="" value="Remove Award" for="highschool0award0" data-btn-add="highschool0btnAdd0" />
               </li>
@@ -260,10 +262,10 @@
 					</div>
 
           <div class="12u$">
-            <input type="button" id="btnAdd_Highschool" for="highschool0" data-btn-del="btnDel_Highschool" class="button fit alt btnAdd_Segment" data-field="Add Highschool [+]" style="width: 100%;" value="Add Highschool [+]">
+            <input type="button" id="btnAdd_Highschool" for="highschool0" data-btn-del="btnDel_Highschool" class="button fit alt btnAdd_Segment" data-field="Add Highschool [+]" style="width: 100%;" value="Add Highschool [+]" />
           </div>
           <div class="12u$">
-            <input id="btnDel_Highschool" type="button" name="btnDel" for="highschool0" data-field="Remove Highschool [-]" data-btn-add="btnAdd_Highschool" class="button fit btnDel_Segment" style="width: 100%;" value="Remove Highschool [-]" disabled="">           
+            <input id="btnDel_Highschool" type="button" name="btnDel" for="highschool0" data-field="Remove Highschool [-]" data-btn-add="btnAdd_Highschool" class="button fit btnDel_Segment" style="width: 100%;" value="Remove Highschool [-]" disabled="" />           
           </div>
 
 					<hr/>
