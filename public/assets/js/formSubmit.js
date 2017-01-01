@@ -222,7 +222,7 @@ $(function (){
             data: JSON.stringify(schema),
             dataType: 'text',
             success: function(data) {console.log("HERE: !!!" + data); window.open(data);},
-            error: function (xhr, ajaxOptions, thrownError) {console.log('ERROR', xhr.responseText, thrownError);}
+            error: function (xhr, ajaxOptions, thrownError) {alert('ERROR', xhr.responseText, thrownError);}
         });
     });
 });
