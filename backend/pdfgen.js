@@ -182,7 +182,7 @@ const make_line = function(doc, line, right_align, size) {
 	//if there is a title, print it, and let the text continue
 	if (line.title) {
 
-		doc.font('Title')
+		doc.font('Content Bold2')
 		.fontSize(size)
 		.text(line.title + ' ', {
 			align: 'left',
