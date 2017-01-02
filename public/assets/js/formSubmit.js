@@ -1,5 +1,5 @@
-$(function (e){
-	$("form").submit(function( ) {
+$(function (){
+	$("form").submit(function(e) {
 
         const schema = {
             contact : "",
