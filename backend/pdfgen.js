@@ -293,12 +293,6 @@ const make_size = function(schema) {
 
 //Adds one to count of PDFs generated
 const add_one_to_count = function() {
-<<<<<<< HEAD
-  let file = fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8');
-  fs.writeFileSync(path.join(__dirname + '/count.txt'), parseInt(file) + 1, 'utf-8');
-  console.log('Resumes generated so far:', fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8'));
-};
-=======
 	const filepath = path.join(__dirname + '/count.txt');
 
 	//make file if not exist, aka first time
@@ -314,8 +308,7 @@ const add_one_to_count = function() {
 	fs.writeFileSync(filepath, parseInt(file) + 1, 'utf-8');
 
 	console.log('Resumes generated so far:', fs.readFileSync(filepath, 'utf-8'));
-} 
->>>>>>> 3f520cfd556ee4619e93508e03b9518104112f19
+}
 
 module.exports = {
 	handler: function schema_to_pdf(schema) {
