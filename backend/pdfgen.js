@@ -1,47 +1,44 @@
 'use strict';
 
-const PDFDocument = require('pdfkit');
-const fs = require('fs');
-const uuid = require('uuid/v4');
-const path = require('path');
+const PDFDocument = require('pdfkit'),
+	  fs          = require('fs'),
+      uuid        = require('uuid/v4'),
+      path        = require('path'),
 
-const headingFontSize = 24;
-const contactFontSize = 12;
-const contentFontSize = 10.5;
+      headingFontSize = 24,
+      contactFontSize = 12,
 
-const dot = ' • ';
+      dot = ' • ';
 
-const has_city_and_state = function(schema, i, j) {
-	return has_city(schema, i, j) && has_state(schema, i, j);
-}
 const has_city = function(schema, i, j){
 	return schema.segments[i].items[j].city !== '';
-}
+};
 const has_state = function(schema, i, j) {
 	return schema.segments[i].items[j].state !== '';
-}
-
+};
+const has_city_and_state = function(schema, i, j) {
+	return has_city(schema, i, j) && has_state(schema, i, j);
+};
 const has_start_date = function(schema, i, j){
 	return schema.segments[i].items[j].start_date !== '';
-}
+};
 const has_end_date = function(schema, i, j){
 	return schema.segments[i].items[j].end_date !== '';
-}
-
+};
 const make_start_date = function(schema, i, j){
 	let item = schema.segments[i].items[j];
 	if (has_start_date(schema, i, j)){
 		return item.start_date;
 	}
 	return '';
-}
+};
 const make_end_date = function(schema, i, j){
 	let item = schema.segments[i].items[j];
 	if (has_end_date(schema, i, j)) {
 		return item.end_date;
 	}
 	return '';
-}
+};
 
 //Creates the doc with all the sizes and fonts
 const set_up_doc = function(schema) {
@@ -56,7 +53,7 @@ const set_up_doc = function(schema) {
 
 	if (!schema.docname) {
 		schema.docname = uuid() + '.pdf';
-	};
+	}
 
 	if (!fs.existsSync(path.join(__dirname + '/pdfs/'))){
     	fs.mkdirSync(path.join(__dirname + '/pdfs/'));
@@ -66,19 +63,19 @@ const set_up_doc = function(schema) {
 
 	//Template 1
 	//Template 1:Fonts
-	doc.registerFont('Heading Name', path.join(__dirname + '/fonts/Didot.ttf'));
-	doc.registerFont('Contact Info', path.join(__dirname + '/fonts/OpenSans-Light.ttf'));
-	doc.registerFont('Title', path.join(__dirname + '/fonts/NunitoSans-Bold.ttf'));
+	doc.registerFont('Heading Name'   , path.join(__dirname + '/fonts/Didot.ttf'));
+	doc.registerFont('Contact Info'   , path.join(__dirname + '/fonts/OpenSans-Light.ttf'));
+	doc.registerFont('Title'          , path.join(__dirname + '/fonts/NunitoSans-Bold.ttf'));
 	doc.registerFont('Content Regular', path.join(__dirname + '/fonts/NunitoSans-Regular.ttf'));
 	doc.registerFont('Content Italics', path.join(__dirname +'/fonts/NunitoSans-LightItalic.ttf'));
-	doc.registerFont('Content Bold2', path.join(__dirname + '/fonts/NunitoSans-SemiBold.ttf'));
+	doc.registerFont('Content Bold2'  , path.join(__dirname + '/fonts/NunitoSans-SemiBold.ttf'));
 
 	//Template 1:Font Sizes
 	doc.lineGap(-1);
 
 
 	return doc;
-}
+};
 
 //Creates the header portion of the PDF that uses schema.contact
 const make_header = function(doc, schema) {
@@ -95,29 +92,29 @@ const make_header = function(doc, schema) {
 	let reach_text = schema.contact.reach[0];
 	if (schema.contact.reach[1]) {
 		reach_text += dot + schema.contact.reach[1];
-	};
+	}
 	if (schema.contact.reach[2]){
 		reach_text += dot + schema.contact.reach[2];
 	}
 
 
 	doc.font('Contact Info')
-		.fontSize(contactFontSize)
-		.text(schema.contact.address, {
+	   .fontSize(contactFontSize)
+       .text(schema.contact.address, {
 	    	align: 'center'
-		})
-		.text(reach_text, {
+	   })
+	   .text(reach_text, {
 			align: 'center'
-		});
-}
+	   });
+};
 
 //Draws the horizontal lines at ycoord
 const draw_line = function(doc, y) {
 	doc.lineWidth(1)
-   		.moveTo(36, y)
-   		.lineTo(576, y)
-   		.stroke();
-}
+   	   .moveTo(36, y)
+   	   .lineTo(576, y)
+   	   .stroke();
+};
 
 //makes the text for the city and state
 const make_city_state = function(schema, i, j) {
@@ -134,7 +131,7 @@ const make_city_state = function(schema, i, j) {
 	else {
 		return '';
 	}
-}
+};
 
 //makes the text for the date
 const make_date = function(schema, i, j) {
@@ -147,7 +144,7 @@ const make_date = function(schema, i, j) {
 	else { //one or both of these will be an empty string
 		return start + end;
 	}
-}
+};
 
 
 // !!!TODO!!! figure out how to draw line at correct position
@@ -161,8 +158,7 @@ const make_segment_title = function(doc, content) {
 		});
 
 	draw_line(doc, doc.y);
-}
-
+};
 
 //Makes each item
 const make_line = function(doc, line, right_align, size) {
@@ -222,7 +218,7 @@ const make_line = function(doc, line, right_align, size) {
 				align: 'right'
 			});
 	}
-}
+};
 
 
 //Goes through each of the segments and creates another section
@@ -243,14 +239,14 @@ const make_segments = function(doc, schema, size) {
 				const line = schema.segments[i].items[j].lines[k];
 
 				let right_align = '';
-				if (k == 0 && location_text) {
+				if (k === 0 && location_text) {
 					right_align = location_text;
 				}
-				else if (k == 0 && date_text) {
+				else if (k === 0 && date_text) {
 					used_date = true;
 					right_align = date_text;
 				}
-				else if (k == 1 && !used_date) {
+				else if (k === 1 && !used_date) {
 					used_date = true;
 					right_align = date_text;
 				}
@@ -263,7 +259,7 @@ const make_segments = function(doc, schema, size) {
 
 		doc.fontSize(size).moveDown(-1);
 	}
-}
+};
 
 const make_size = function(schema) {
 
@@ -289,13 +285,13 @@ const make_size = function(schema) {
 	} else {
 		return size;
 	}
-}
+};
 
 const add_one_to_count = function() {
   let file = fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8');
   fs.writeFileSync(path.join(__dirname + '/count.txt'), parseInt(file) + 1, 'utf-8');
   console.log('Resumes generated so far:', fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8'));
-} 
+};
 
 module.exports = {
 	handler: function schema_to_pdf(schema) {
@@ -320,4 +316,22 @@ module.exports = {
 		return path.join('/backend/pdfs/' + schema.docname);
 	}
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

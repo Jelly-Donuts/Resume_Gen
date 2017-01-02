@@ -17,11 +17,6 @@ $(function (){
 
         schema.contact = segmentContact;
 
-	 //    let segmentEducation = {};
-	 //    let segmentProfExp = {};
-	 //    let segmentExtracur = {};
-	 //    let segmentSkills = {};
-
 		// Create the University part of schema
 	    for(let i = 1; i < $("[data-clone='university']").length; i++){
 	    	if (i === 1) {
@@ -226,6 +221,10 @@ $(function (){
         });
     });
 });
+
+
+
+
 
 
 
