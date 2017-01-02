@@ -1,0 +1,33 @@
+{
+  "name": "resume-gen",
+  "version": "0.2.5",
+  "description": "A resume builder",
+  "engines": {
+    "node": "5.9.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "ejs": "2.4.1",
+    "express": "4.13.3",
+    "pdfkit": "^0.8.0",
+    "uuid": "^3.0.1",
+    "mysql": "^2.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "devDependencies": {},
+  "author": "Daniel Andrews and Jeremy Barenholtz"
+}
