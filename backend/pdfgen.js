@@ -297,9 +297,18 @@ const make_size = function(schema) {
 
 //Adds one to count of PDFs generated
 const add_one_to_count = function() {
-  let file = fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8');
-  fs.writeFileSync(path.join(__dirname + '/count.txt'), parseInt(file) + 1, 'utf-8');
-  console.log('Resumes generated so far:', fs.readFileSync(path.join(__dirname + '/count.txt'), 'utf-8'));
+	const filepath = path.join(__dirname + '/count.txt');
+
+	if (!fs.existsSync(filepath)){
+	    fs.writeFile(filepath, '0', function (err) {
+	    	console.log('Error: ' + err);
+	    });
+	}
+
+	const file = fs.readFileSync(filepath, 'utf-8');
+	fs.writeFileSync(filepath, parseInt(file) + 1, 'utf-8');
+	
+	console.log('Resumes generated so far:', fs.readFileSync(filepath, 'utf-8'));
 } 
 
 module.exports = {
