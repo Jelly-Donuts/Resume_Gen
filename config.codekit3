@@ -9,18 +9,6 @@
 	],
 "creatorBuild": "25479",
 "files": {
-	"\/.gitignore": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/.gitignore",
-		"oF": 0
-		},
-	"\/backend\/count.txt": {
-		"ft": 8192,
-		"oA": 2,
-		"oAP": "\/backend\/count.txt",
-		"oF": 0
-		},
 	"\/backend\/fonts\/AvenirNext-DemiBold.ttf": {
 		"ft": 8192,
 		"oA": 2,
@@ -104,24 +92,6 @@
 		"oA": 2,
 		"oAP": "\/backend\/fonts\/OpenSans-Light.ttf",
 		"oF": 0
-		},
-	"\/backend\/pdfgen.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "\/backend\/pdfgen.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
-		},
-	"\/index.js": {
-		"ft": 64,
-		"mi": 0,
-		"oA": 0,
-		"oAP": "\/index.js",
-		"oF": 0,
-		"sC": 1,
-		"tS": 0
 		},
 	"\/package.json": {
 		"ft": 524288,
