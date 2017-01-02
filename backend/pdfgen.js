@@ -1,14 +1,14 @@
 'use strict';
 
-const PDFDocument = require('pdfkit'),
-	  fs          = require('fs'),
-      uuid        = require('uuid/v4'),
-      path        = require('path'),
+const PDFDocument = require('pdfkit');
+const fs          = require('fs');
+const uuid        = require('uuid/v4');
+const path        = require('path');
 
-      headingFontSize = 24,
-      contactFontSize = 12,
+const headingFontSize = 24,
+const contactFontSize = 12,
 
-      dot = ' • ';
+const dot = ' • ';
 
 const has_city = function(schema, i, j){
 	return schema.segments[i].items[j].city !== '';
@@ -312,6 +312,7 @@ const add_one_to_count = function() {
 
 	console.log('Resumes generated so far:', fs.readFileSync(filepath, 'utf-8'));
 }
+
 
 module.exports = {
 	handler: function schema_to_pdf(schema) {
