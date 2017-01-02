@@ -304,7 +304,7 @@ const add_one_to_count = function() {
 
 	connection.query('UPDATE Nums SET n = n + 1;', function(err, rows, fields) {
 		if (err) console.log('MYSQL update value fail');
-		console.log(rows[0].n + ' PDFs generated');
+		console.log(JSON.stringify(rows));
 	});
 
 	connection.end();
