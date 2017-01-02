@@ -1,4 +1,4 @@
-$(function (){
+$(function (e){
 	$("form").submit(function( ) {
 
         const schema = {
@@ -209,6 +209,7 @@ $(function (){
         }
 
 	    console.log(JSON.stringify(schema,null,2));
+        e.preventDefault();
 
 	    $.ajax({
             url: '/pdfgen',
