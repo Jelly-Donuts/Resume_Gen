@@ -326,7 +326,7 @@ const add_one_to_count = function() {
 		fs.openSync(filepath, 'w');
 
 		console.log('Creating new file at ' + filepath);
-	    fs.writeFile(filepath, , function (err) {
+	    fs.writeFile(filepath, 'basic af', function (err) {
 	    	console.log('count.txt file creation error: ' + err);
 	    });
 	}
