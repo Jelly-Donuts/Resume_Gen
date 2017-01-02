@@ -299,18 +299,18 @@ const add_one_to_count = function() {
 	const connection = mysql.createConnection(process.env.JAWSDB_URL);
 	connection.connect();
 
-	connection.query('CREATE TABLE IF NOT EXISTS Nums (n int DEFAULT 1);', function(err, rows, fields) {
+	connection.query('CREATE TABLE IF NOT EXISTS `Nums` (`n` int DEFAULT 1);', function(err, rows, fields) {
 		if (err) console.log('MYSQL create table fail');
 	});
 
-	connection.query('SELECT n FROM Nums', function(err, rows, fields) {
+	connection.query('SELECT `n` FROM `Nums`', function(err, rows, fields) {
 		if (err) console.log('MYSQL select value fail');
-		console.log(JSON.stringify(rows));
+		console.log('Select Results: ' + JSON.stringify(rows));
 	});
 
-	connection.query('UPDATE Nums SET n = n + 1;', function(err, rows, fields) {
+	connection.query('UPDATE `Nums` SET `n` = `n` + 1;', function(err, rows, fields) {
 		if (err) console.log('MYSQL update value fail');
-		console.log(JSON.stringify(rows));
+		console.log('Update results: ' + JSON.stringify(rows));
 	});
 
 	connection.end();
@@ -322,10 +322,9 @@ const add_one_to_count = function() {
 	//make file if not exist, aka first time
 	console.log('File exists?: '+ fs.existsSync(filepath));
 	if (!fs.existsSync(filepath)){
-		console.log('Creating new file');
+		console.log('Creating count.txt file');
 		fs.openSync(filepath, 'w');
 
-		console.log('Creating new file at ' + filepath);
 	    fs.writeFile(filepath, 'basic af', function (err) {
 	    	console.log('count.txt file creation error: ' + err);
 	    });
