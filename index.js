@@ -1,5 +1,19 @@
 var pdfGen = require('./backend/pdfgen');
 var path = require('path');
+var mysql = require('mysql');
+
+// DANIEL DO SOME WORK
+var connection = mysql.createConnection(process.env.JAWSDB_URL);
+
+connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
+  if (err) throw err;
+
+  console.log('The solution is: ', rows[0].solution);
+});
+
+connection.end();
 var express = require('express');
 var app = express();
 var router = express.Router();

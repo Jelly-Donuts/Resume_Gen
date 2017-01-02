@@ -1,5 +1,5 @@
 $(function (){
-	$("#btnSubmit").click(function( ) {
+	$("form").submit(function(e) {
 
         const schema = {
             contact : "",
@@ -209,6 +209,7 @@ $(function (){
         }
 
 	    console.log(JSON.stringify(schema,null,2));
+        e.preventDefault();
 
 	    $.ajax({
             url: '/pdfgen',
@@ -216,99 +217,15 @@ $(function (){
             contentType: 'application/json',
             data: JSON.stringify(schema),
             dataType: 'text',
-            success: function(data) {console.log("HERE: !!!" + data); window.open(data);},
+            success: function(data) {
+                $.get('/backend/count.txt', function(data){
+                    document.getElementById('pdfcount').innerHTML = data;
+                });
+                window.open(data);},
             error: function (xhr, ajaxOptions, thrownError) {alert('ERROR', xhr.responseText, thrownError);}
         });
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

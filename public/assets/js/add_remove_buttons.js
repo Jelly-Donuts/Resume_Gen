@@ -54,6 +54,9 @@ function addClone(item) {
 
     // Reset value of first input (for buttons that clone a non-hidden field)
     newElem.find('input:first').val('');
+    newElem.find('.required').each(function(){
+        $(this).prop('required', true);
+    })
 
     // Insert the new element after the last cloned input field
     $('#' + targetAttr + num).after(newElem);
