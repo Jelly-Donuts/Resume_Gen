@@ -298,8 +298,12 @@ const add_one_to_count = function() {
 	//make file if not exist, aka first time
 	console.log('File exists?: '+ fs.existsSync(filepath));
 	if (!fs.existsSync(filepath)){
+<<<<<<< HEAD
 		console.log('Creating new file');
 		fs.openSync(filepath, 'w');
+=======
+		console.log('Creating new file at ' + filepath);
+>>>>>>> 087b2b40671d3477c56a34682664b52e2770a220
 	    fs.writeFile(filepath, '0', function (err) {
 	    	console.log('count.txt file creation error: ' + err);
 	    });
