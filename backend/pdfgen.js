@@ -66,11 +66,11 @@ const set_up_doc = function(schema) {
 	//Template 1
 	//Template 1:Fonts
 	doc.registerFont('Heading Name'   , path.join(__dirname + '/fonts/Didot.ttf'));
-	doc.registerFont('Contact Info'   , path.join(__dirname + '/fonts/OpenSans-Light.ttf'));
-	doc.registerFont('Title'          , path.join(__dirname + '/fonts/NunitoSans-Bold.ttf'));
-	doc.registerFont('Content Regular', path.join(__dirname + '/fonts/NunitoSans-Regular.ttf'));
-	doc.registerFont('Content Italics', path.join(__dirname +'/fonts/NunitoSans-LightItalic.ttf'));
-	doc.registerFont('Content Bold2'  , path.join(__dirname + '/fonts/NunitoSans-SemiBold.ttf'));
+	doc.registerFont('Contact Info'   , path.join(__dirname + '/fonts/AvenirNext-UltraLight.ttf'));
+	doc.registerFont('Title'          , path.join(__dirname + '/fonts/AvenirNext-DemiBold.ttf'));
+	doc.registerFont('Content Regular', path.join(__dirname + '/fonts/AvenirNext-Regular.ttf'));
+	doc.registerFont('Content Italics', path.join(__dirname + '/fonts/AvenirNext-Italic.ttf'));
+	doc.registerFont('Content Bold2'  , path.join(__dirname + '/fonts/AvenirNext-Medium.ttf'));
 
 	//Template 1:Font Sizes
 	doc.lineGap(-1);
