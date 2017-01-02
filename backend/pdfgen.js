@@ -298,13 +298,13 @@ const add_one_to_count = function() {
 	const connection = mysql.createConnection(process.env.JAWSDB_URL);
 	connection.connect();
 
-	connection.query('CREATE TABLE IF NOT EXISTS Count (n int DEFAULT 1);', function(err, rows, fields) {
+	connection.query('CREATE TABLE IF NOT EXISTS Nums (n int DEFAULT 1);', function(err, rows, fields) {
 		console.log('Error: ' + err);
 		console.log('Rows: ' + rows);
 		console.log('Fields: ' + fields);
 	});
 
-	connection.query('UPDATE Count SET n = n + 1;', function(err, rows, fields) {
+	connection.query('UPDATE Nums SET n = n + 1;', function(err, rows, fields) {
 		console.log('Error: ' + err);
 		console.log('Rows: ' + rows);
 		console.log('Fields: ' + fields);
