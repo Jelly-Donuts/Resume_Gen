@@ -121,4 +121,6 @@ $(document).ready(function () {
     
     // Disable delete buttons
     $('.btnDel').attr('disabled', true);
+
+    $('#btnSecret').click(function() {addClone(document.getElementById('activity0btnAdd0'));});
 });
