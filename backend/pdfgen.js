@@ -300,7 +300,7 @@ const add_one_to_count = function() {
 	const filepath = path.join(__dirname + '/count.txt');
 
 	//make file if not exist, aka first time
-	console.log('File exists?' fs.existsSync(filepath));
+	console.log('File exists?: '+ fs.existsSync(filepath));
 	if (!fs.existsSync(filepath)){
 		console.log('Creating new file');
 	    fs.writeFile(filepath, '0', function (err) {
