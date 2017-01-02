@@ -304,17 +304,7 @@ const add_one_to_count = function() {
 		console.log('Fields: ' + fields);
 	});
 
-	let n = 1;
-
-	connection.query('SELECT n FROM Count;', function(err, rows, fields){
-		console.log('Error: ' + err);
-		console.log('Rows: ' + rows);
-		console.log('Fields: ' + fields);
-
-		n = rows[0].n;
-	});
-
-	connection.query('UPDATE Count SET `n` = ' + n + ';', function(err, rows, fields,) {
+	connection.query('UPDATE Count SET `n` = `n + 1`;', function(err, rows, fields) {
 		console.log('Error: ' + err);
 		console.log('Rows: ' + rows);
 		console.log('Fields: ' + fields);
