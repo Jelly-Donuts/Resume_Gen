@@ -67,7 +67,7 @@ const set_up_doc = function(schema) {
 	//Template 1:Fonts
 	doc.registerFont('Heading Name'   , path.join(__dirname + '/fonts/Didot.ttf'));
 	doc.registerFont('Contact Info'   , path.join(__dirname + '/fonts/OpenSans-Light.ttf'));
-	doc.registerFont('Title'          , path.join(__dirname + '/fonts/AvenirNext-DemiBold.ttf'));
+	doc.registerFont('Title'          , path.join(__dirname + '/fonts/Georgia Bold.ttf'));
 	doc.registerFont('Content Regular', path.join(__dirname + '/fonts/AvenirNext-Regular.ttf'));
 	doc.registerFont('Content Italics', path.join(__dirname + '/fonts/AvenirNext-Italic.ttf'));
 	doc.registerFont('Content Bold2'  , path.join(__dirname + '/fonts/AvenirNext-Medium.ttf'));
