@@ -299,15 +299,12 @@ const add_one_to_count = function() {
 	connection.connect();
 
 	connection.query('CREATE TABLE IF NOT EXISTS Nums (n int DEFAULT 1);', function(err, rows, fields) {
-		console.log('Error: ' + err);
-		console.log('Rows: ' + rows);
-		console.log('Fields: ' + fields);
+		if (err) console.log('MYSQL create table fail');
 	});
 
 	connection.query('UPDATE Nums SET n = n + 1;', function(err, rows, fields) {
-		console.log('Error: ' + err);
-		console.log('Rows: ' + rows);
-		console.log('Fields: ' + fields);
+		if (err) console.log('MYSQL update value fail');
+		console.log(rows[0].n ' PDFs generated');
 	});
 
 	connection.end();
