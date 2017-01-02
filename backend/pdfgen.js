@@ -54,10 +54,12 @@ const set_up_doc = function(schema) {
 		}
 	});
 
+	//docname should be random
 	if (!schema.docname) {
 		schema.docname = uuid() + '.pdf';
 	};
 
+	//create directory if not exists
 	if (!fs.existsSync(path.join(__dirname + '/pdfs/'))){
     	fs.mkdirSync(path.join(__dirname + '/pdfs/'));
 	}
