@@ -295,29 +295,54 @@ const make_size = function(schema) {
 //Adds one to count of PDFs generated
 const add_one_to_count = function() {
 
+	//Update MYSQL database
 	const connection = mysql.createConnection(process.env.JAWSDB_URL);
 	connection.connect();
 
-	connection.query('CREATE TABLE IF NOT EXISTS Nums (n int DEFAULT 1);', function(err, rows, fields) {
-		console.log('Error: ' + err);
-		console.log('Rows: ' + rows);
-		console.log('Fields: ' + fields);
+	connection.query('CREATE TABLE IF NOT EXISTS `Nums` (`n` int DEFAULT 1);', function(err, rows, fields) {
+		if (err) console.log('MYSQL create table fail');
 	});
 
-	connection.query('UPDATE Nums SET n = n + 1;', function(err, rows, fields) {
-		console.log('Error: ' + err);
-		console.log('Rows: ' + rows);
-		console.log('Fields: ' + fields);
+	connection.query('SELECT `n` FROM `Nums`', function(err, rows, fields) {
+		if (err) console.log('MYSQL select value fail');
+		console.log('Select row results: ' + JSON.stringify(rows));
+		console.log('Select field results: ' + JSON.stringify(fields));
+	});
+
+	connection.query('UPDATE `Nums` SET `n` = `n` + 1;', function(err, rows, fields) {
+		if (err) console.log('MYSQL update value fail');
+		console.log('Update row results: ' + JSON.stringify(rows));
+		console.log('Update fields results: ' + JSON.stringify(fields));
 	});
 
 	connection.end();
+
+
+	//Route so frontend can touch it
+	const filepath = path.join(__dirname + '/count.txt');
+
+	//make file if not exist, aka first time
+	console.log('File exists?: '+ fs.existsSync(filepath));
+	if (!fs.existsSync(filepath)){
+		console.log('Creating count.txt file');
+		fs.openSync(filepath, 'w');
+
+	    fs.writeFile(filepath, 'basic af', function (err) {
+	    	console.log('count.txt file creation error: ' + err);
+	    });
+	}
+
+	const file = fs.readFileSync(filepath, 'utf-8');
+	fs.writeFileSync(filepath, parseInt(file) + 1, 'utf-8');
+
+	console.log('Resumes generated so far:', fs.readFileSync(filepath, 'utf-8'));
 }
 
 
 module.exports = {
 	handler: function schema_to_pdf(schema) {
 
-		console.log('Generating a PDF:\n',JSON.stringify(schema));
+		console.log('Generating a PDF:\n' + JSON.stringify(schema));
 
 		//Find font-size for body of PDF
 		const size = make_size(schema);
@@ -332,7 +357,7 @@ module.exports = {
 		//Add one to number of PDFs generated
 		add_one_to_count();
 
-		console.log('PDF Generated with name: ' + path.join('/backend/pdfs/' + schema.docname));
+		console.log('PDF Generated with name: ' + schema.docname);
 
 		return path.join('/backend/pdfs/' + schema.docname);
 	}
