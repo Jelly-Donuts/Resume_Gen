@@ -305,12 +305,14 @@ const add_one_to_count = function() {
 
 	connection.query('SELECT `n` FROM `Nums`', function(err, rows, fields) {
 		if (err) console.log('MYSQL select value fail');
-		console.log('Select Results: ' + JSON.stringify(rows));
+		console.log('Select row results: ' + JSON.stringify(rows));
+		console.log('Select field results: ' + JSON.stringify(fields));
 	});
 
 	connection.query('UPDATE `Nums` SET `n` = `n` + 1;', function(err, rows, fields) {
 		if (err) console.log('MYSQL update value fail');
-		console.log('Update results: ' + JSON.stringify(rows));
+		console.log('Update row results: ' + JSON.stringify(rows));
+		console.log('Update fields results: ' + JSON.stringify(fields));
 	});
 
 	connection.end();
