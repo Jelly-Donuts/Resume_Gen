@@ -5,8 +5,8 @@ const fs          = require('fs');
 const uuid        = require('uuid/v4');
 const path        = require('path');
 
-const headingFontSize = 24,
-const contactFontSize = 12,
+const headingFontSize = 24;
+const contactFontSize = 12;
 
 const dot = ' • ';
 
