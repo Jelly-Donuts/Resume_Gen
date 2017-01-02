@@ -303,8 +303,8 @@ const add_one_to_count = function() {
 		if (err) console.log('MYSQL create table fail');
 	});
 
-	connection.query('SELECT n FROM Numbs', function(err, rows, fields) {
-		if (err) console.log('MYSQL update value fail');
+	connection.query('SELECT n FROM Nums', function(err, rows, fields) {
+		if (err) console.log('MYSQL select value fail');
 		console.log(JSON.stringify(rows));
 	});
 
@@ -341,7 +341,7 @@ const add_one_to_count = function() {
 module.exports = {
 	handler: function schema_to_pdf(schema) {
 
-		console.log('Generating a PDF:\n',JSON.stringify(schema));
+		console.log('Generating a PDF:\n' + JSON.stringify(schema));
 
 		//Find font-size for body of PDF
 		const size = make_size(schema);
@@ -356,7 +356,7 @@ module.exports = {
 		//Add one to number of PDFs generated
 		add_one_to_count();
 
-		console.log('PDF Generated with name: ' + path.join('/backend/pdfs/' + schema.docname));
+		console.log('PDF Generated with name: ' + schema.docname);
 
 		return path.join('/backend/pdfs/' + schema.docname);
 	}
