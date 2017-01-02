@@ -4,6 +4,7 @@ const PDFDocument = require('pdfkit');
 const fs          = require('fs');
 const uuid        = require('uuid/v4');
 const path        = require('path');
+const mysql = require('mysql');
 
 const headingFontSize = 27;
 const contactFontSize = 12;
@@ -293,24 +294,33 @@ const make_size = function(schema) {
 
 //Adds one to count of PDFs generated
 const add_one_to_count = function() {
-	const filepath = path.join(__dirname + '/count.txt');
 
-	//make file if not exist, aka first time
-	console.log('File exists?: '+ fs.existsSync(filepath));
-	if (!fs.existsSync(filepath)){
-		console.log('Creating new file');
-		fs.openSync(filepath, 'w');
+	const connection = mysql.createConnection(process.env.JAWSDB_URL);
+	connection.connect();
 
-		console.log('Creating new file at ' + filepath);
-	    fs.writeFile(filepath, '0', function (err) {
-	    	console.log('count.txt file creation error: ' + err);
-	    });
-	}
+	connection.query('CREATE TABLE IF NOT EXISTS Count (`n` int DEFAULT 1);', function(err, rows, fields) {
+		console.log('Error: ' + err);
+		console.log('Rows: ' + rows);
+		console.log('Fields: ' + fields);
+	});
 
-	const file = fs.readFileSync(filepath, 'utf-8');
-	fs.writeFileSync(filepath, parseInt(file) + 1, 'utf-8');
+	let n = 1;
 
-	console.log('Resumes generated so far:', fs.readFileSync(filepath, 'utf-8'));
+	connection.query('SELECT n FROM Count;', function(err, rows, fields){
+		console.log('Error: ' + err);
+		console.log('Rows: ' + rows);
+		console.log('Fields: ' + fields);
+
+		n = rows[0].n;
+	});
+
+	connection.query('UPDATE Count SET `n` = ' + n + ';', function(err, rows, fields,) {
+		console.log('Error: ' + err);
+		console.log('Rows: ' + rows);
+		console.log('Fields: ' + fields);
+	});
+
+	connection.end();
 }
 
 
