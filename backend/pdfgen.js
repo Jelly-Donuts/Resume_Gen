@@ -267,6 +267,8 @@ const make_segments = function(doc, schema, size) {
 	}
 }
 
+//Make font size based on lines of text in the PDF
+//TODO count multiple lines of text
 const make_size = function(schema) {
 
 	//count number of lines
