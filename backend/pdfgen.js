@@ -308,6 +308,7 @@ const add_one_to_count = function() {
 	let result = [];
 	connection.query('SELECT `n` FROM `Nums`', function(err, rows, fields) {
 		if (err) console.log('MYSQL select value fail');
+		console.log('rows:', rows);
 		result = rows;
 	});
 
