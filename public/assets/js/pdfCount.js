@@ -1,5 +1,6 @@
 $.get('/backend/count.txt', function(data){
     document.getElementById('pdfcount').innerHTML = data;
+    this.countAnimation(data);
 });
 
 var countAnimation = function(){
