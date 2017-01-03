@@ -314,7 +314,7 @@ const add_one_to_count = function() {
 	});
 
 	//If there is no value yet (new table) set it to 1
-	if (~~!result) {
+	if (!~~!result) {
 		connection.query('INSERT INTO `Nums` VALUES (1)', function(err, rows, fields){
 			if (err) console.log('MYSQL insert value fail');
 			console.log('Insert row: ' + JSON.stringify(rows));
