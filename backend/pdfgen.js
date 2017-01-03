@@ -318,7 +318,9 @@ const add_one_to_count = function() {
 		});
 	}
 
-	console.log(result);
+	console.log('look at this: ', result);
+
+	const count = 3;
 
 	//Increment value by 1
 	connection.query('UPDATE `Nums` SET `n` = `n` + 1;', function(err, rows, fields) {
@@ -372,22 +374,3 @@ module.exports = {
 		return path.join('/backend/pdfs/' + schema.docname);
 	}
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
