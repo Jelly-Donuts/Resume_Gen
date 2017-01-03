@@ -311,7 +311,7 @@ const add_one_to_count = function() {
 	connection.query('SELECT `n` FROM `abc`', function(err, rows, fields) {
 		if (err) console.log('MYSQL select value fail');
 		console.log('rows:', rows);
-		count = rows[0].n;
+		
 		result = rows;
 	});
 
