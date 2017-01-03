@@ -295,38 +295,36 @@ const make_size = function(schema) {
 //Adds one to count of PDFs generated
 const add_one_to_count = function() {
 
+	let count = 1;
+
 	//Update MYSQL database
 	const connection = mysql.createConnection(process.env.JAWSDB_URL);
 	connection.connect();
 
 	//Create new table if none
-	connection.query('CREATE TABLE IF NOT EXISTS `Nums` (`n` int DEFAULT 1);', function(err, rows, fields) {
+	connection.query('CREATE TABLE IF NOT EXISTS `abc` (`n` int DEFAULT 1);', function(err, rows, fields) {
 		if (err) console.log('MYSQL create table fail');
 	});
 
 	//Get the value of the current count
 	let result = [];
-	connection.query('SELECT `n` FROM `Nums`', function(err, rows, fields) {
+	connection.query('SELECT `n` FROM `abc`', function(err, rows, fields) {
 		if (err) console.log('MYSQL select value fail');
-		console.log('Select row: ' + JSON.stringify(rows));
+		console.log('rows:', rows);
+		
 		result = rows;
-		console.log('Select field: ' + JSON.stringify(fields));
 	});
 
 	//If there is no value yet (new table) set it to 1
-	if (~~!result) {
-		connection.query('INSERT INTO `Nums` VALUES (1)', function(err, rows, fields){
+	if (result.length === 0) {
+		connection.query('INSERT INTO `abc` VALUES (1)', function(err, rows, fields){
 			if (err) console.log('MYSQL insert value fail');
-			console.log('Insert row: ' + JSON.stringify(rows));
-			console.log('Insert field: ' + JSON.stringify(fields));
 		});
 	}
 
 	//Increment value by 1
-	connection.query('UPDATE `Nums` SET `n` = `n` + 1;', function(err, rows, fields) {
+	connection.query('UPDATE `abc` SET `n` = `n` + 1;', function(err, rows, fields) {
 		if (err) console.log('MYSQL update value fail');
-		console.log('Update row: ' + JSON.stringify(rows));
-		console.log('Update fields: ' + JSON.stringify(fields));
 	});
 
 	connection.end();
@@ -341,15 +339,15 @@ const add_one_to_count = function() {
 		console.log('Creating count.txt file');
 		fs.openSync(filepath, 'w');
 
-	    fs.writeFile(filepath, 'basic af', function (err) {
+	    fs.writeFile(filepath, count, function (err) {
 	    	console.log('count.txt file creation error: ' + err);
 	    });
 	}
 
 	const file = fs.readFileSync(filepath, 'utf-8');
-	fs.writeFileSync(filepath, parseInt(file) + 1, 'utf-8');
+	fs.writeFileSync(filepath, count, 'utf-8');
 
-	console.log('Resumes generated so far:', fs.readFileSync(filepath, 'utf-8'));
+	console.log('Resumes generated so far:', count);
 }
 
 
@@ -376,22 +374,3 @@ module.exports = {
 		return path.join('/backend/pdfs/' + schema.docname);
 	}
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
