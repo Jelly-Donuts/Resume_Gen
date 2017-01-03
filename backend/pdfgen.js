@@ -307,12 +307,11 @@ const add_one_to_count = function() {
 	});
 
 	//Get the value of the current count
-	let result = [];
 	connection.query('SELECT `n` FROM `abc`', function(err, rows, fields) {
 		if (err) console.log('MYSQL select value fail');
 		console.log('rows:', rows);
 		count = rows[0].n;
-		result = rows;
+		write_to_file(count + 1)
 	});
 
 	//If there is no value yet (new table) set it to 1
@@ -329,12 +328,13 @@ const add_one_to_count = function() {
 
 	connection.end();
 
+}
 
-	//Route so frontend can touch it
+const write_to_file(count){
 	const filepath = path.join(__dirname + '/count.txt');
 
 	//make file if not exist, aka first time
-	console.log('File exists?: '+ fs.existsSync(filepath));
+	console.log('count.txt exists?: '+ fs.existsSync(filepath));
 	if (!fs.existsSync(filepath)){
 		console.log('Creating count.txt file');
 		fs.openSync(filepath, 'w');
@@ -347,7 +347,7 @@ const add_one_to_count = function() {
 	const file = fs.readFileSync(filepath, 'utf-8');
 	fs.writeFileSync(filepath, count, 'utf-8');
 
-	console.log('Resumes generated so far:', count);
+	console.log('Total Resumes Generated: ' + count);
 }
 
 
