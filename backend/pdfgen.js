@@ -295,6 +295,8 @@ const make_size = function(schema) {
 //Adds one to count of PDFs generated
 const add_one_to_count = function() {
 
+	let count = 1;
+
 	//Update MYSQL database
 	const connection = mysql.createConnection(process.env.JAWSDB_URL);
 	connection.connect();
@@ -309,6 +311,7 @@ const add_one_to_count = function() {
 	connection.query('SELECT `n` FROM `stuff`', function(err, rows, fields) {
 		if (err) console.log('MYSQL select value fail');
 		console.log('rows:', rows);
+		count = rows[0].n;
 		result = rows;
 	});
 
@@ -318,10 +321,6 @@ const add_one_to_count = function() {
 			if (err) console.log('MYSQL insert value fail');
 		});
 	}
-
-	console.log('look at this: ', result);
-
-	const count = 3;
 
 	//Increment value by 1
 	connection.query('UPDATE `stuff` SET `n` = `n` + 1;', function(err, rows, fields) {
