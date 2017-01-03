@@ -308,25 +308,25 @@ const add_one_to_count = function() {
 	let result = [];
 	connection.query('SELECT `n` FROM `Nums`', function(err, rows, fields) {
 		if (err) console.log('MYSQL select value fail');
-		console.log('Select row results: ' + JSON.stringify(rows));
+		console.log('Select row: ' + JSON.stringify(rows));
 		result = rows;
-		console.log('Select field results: ' + JSON.stringify(fields));
+		console.log('Select field: ' + JSON.stringify(fields));
 	});
 
 	//If there is no value yet (new table) set it to 1
-	if (!result) {
+	if (~~!result) {
 		connection.query('INSERT INTO `Nums` VALUES (1)', function(err, rows, fields){
 			if (err) console.log('MYSQL insert value fail');
-			console.log(JSON.stringify(rows));
-			console.log(JSON.stringify(fields));
+			console.log('Insert row: ' + JSON.stringify(rows));
+			console.log('Insert field: ' + JSON.stringify(fields));
 		});
 	}
 
 	//Increment value by 1
 	connection.query('UPDATE `Nums` SET `n` = `n` + 1;', function(err, rows, fields) {
 		if (err) console.log('MYSQL update value fail');
-		console.log('Update row results: ' + JSON.stringify(rows));
-		console.log('Update fields results: ' + JSON.stringify(fields));
+		console.log('Update row: ' + JSON.stringify(rows));
+		console.log('Update fields: ' + JSON.stringify(fields));
 	});
 
 	connection.end();
