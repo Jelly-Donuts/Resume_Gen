@@ -330,6 +330,7 @@ const add_one_to_count = function() {
 
 }
 
+//Write to file accesible by frontend
 const write_to_file = function(count){
 	const filepath = path.join(__dirname + '/count.txt');
 
