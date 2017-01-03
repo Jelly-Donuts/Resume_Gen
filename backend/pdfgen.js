@@ -311,16 +311,16 @@ const add_one_to_count = function() {
 	connection.query('SELECT `n` FROM `abc`', function(err, rows, fields) {
 		if (err) console.log('MYSQL select value fail');
 		console.log('rows:', rows);
-		
+		count = rows[0].n;
 		result = rows;
 	});
 
 	//If there is no value yet (new table) set it to 1
-	if (result.length === 0) {
-		connection.query('INSERT INTO `abc` VALUES (1)', function(err, rows, fields){
-			if (err) console.log('MYSQL insert value fail');
-		});
-	}
+	// if (result.length === 0) {
+	// 	connection.query('INSERT INTO `abc` VALUES (1)', function(err, rows, fields){
+	// 		if (err) console.log('MYSQL insert value fail');
+	// 	});
+	// }
 
 	//Increment value by 1
 	connection.query('UPDATE `abc` SET `n` = `n` + 1;', function(err, rows, fields) {
