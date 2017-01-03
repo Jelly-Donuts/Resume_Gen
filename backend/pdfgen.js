@@ -299,16 +299,30 @@ const add_one_to_count = function() {
 	const connection = mysql.createConnection(process.env.JAWSDB_URL);
 	connection.connect();
 
+	//Create new table if none
 	connection.query('CREATE TABLE IF NOT EXISTS `Nums` (`n` int DEFAULT 1);', function(err, rows, fields) {
 		if (err) console.log('MYSQL create table fail');
 	});
 
+	//Get the value of the current count
+	let result = [];
 	connection.query('SELECT `n` FROM `Nums`', function(err, rows, fields) {
 		if (err) console.log('MYSQL select value fail');
 		console.log('Select row results: ' + JSON.stringify(rows));
+		result = rows;
 		console.log('Select field results: ' + JSON.stringify(fields));
 	});
 
+	//If there is no value yet (new table) set it to 1
+	if (!result) {
+		connection.query('INSERT INTO `Nums` VALUES (1)', function(err, rows, fields){
+			if (err) console.log('MYSQL insert value fail');
+			console.log(JSON.stringify(rows));
+			console.log(JSON.stringify(fields));
+		});
+	}
+
+	//Increment value by 1
 	connection.query('UPDATE `Nums` SET `n` = `n` + 1;', function(err, rows, fields) {
 		if (err) console.log('MYSQL update value fail');
 		console.log('Update row results: ' + JSON.stringify(rows));
