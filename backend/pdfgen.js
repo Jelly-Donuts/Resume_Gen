@@ -300,21 +300,21 @@ const add_one_to_count = function() {
 	connection.connect();
 
 	//Create new table if none
-	connection.query('CREATE TABLE IF NOT EXISTS `Nums` (`n` int DEFAULT 1);', function(err, rows, fields) {
+	connection.query('CREATE TABLE IF NOT EXISTS `stuff` (`n` int DEFAULT 1);', function(err, rows, fields) {
 		if (err) console.log('MYSQL create table fail');
 	});
 
 	//Get the value of the current count
 	let result = [];
-	connection.query('SELECT `n` FROM `Nums`', function(err, rows, fields) {
+	connection.query('SELECT `n` FROM `stuff`', function(err, rows, fields) {
 		if (err) console.log('MYSQL select value fail');
 		console.log('rows:', rows);
 		result = rows;
 	});
 
 	//If there is no value yet (new table) set it to 1
-	if (!~~!result) {
-		connection.query('INSERT INTO `Nums` VALUES (1)', function(err, rows, fields){
+	if (result.length === 0) {
+		connection.query('INSERT INTO `stuff` VALUES (1)', function(err, rows, fields){
 			if (err) console.log('MYSQL insert value fail');
 		});
 	}
@@ -324,7 +324,7 @@ const add_one_to_count = function() {
 	const count = 3;
 
 	//Increment value by 1
-	connection.query('UPDATE `Nums` SET `n` = `n` + 1;', function(err, rows, fields) {
+	connection.query('UPDATE `stuff` SET `n` = `n` + 1;', function(err, rows, fields) {
 		if (err) console.log('MYSQL update value fail');
 	});
 
