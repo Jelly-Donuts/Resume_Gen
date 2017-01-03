@@ -330,7 +330,7 @@ const add_one_to_count = function() {
 
 }
 
-const write_to_file(count){
+const write_to_file = function(count){
 	const filepath = path.join(__dirname + '/count.txt');
 
 	//make file if not exist, aka first time
