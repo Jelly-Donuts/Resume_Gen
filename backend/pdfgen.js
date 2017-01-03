@@ -318,7 +318,7 @@ const add_one_to_count = function() {
 		});
 	}
 
-	const count = result[0].n + 1;
+	const count = result[0]['n'] + 1;
 
 	//Increment value by 1
 	connection.query('UPDATE `Nums` SET `n` = `n` + 1;', function(err, rows, fields) {
