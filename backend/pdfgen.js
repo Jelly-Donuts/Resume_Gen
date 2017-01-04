@@ -339,14 +339,11 @@ const write_to_file = function(count){
 	const filepath = path.join(__dirname + '/count.txt');
 
 	//make file if not exist, aka first time
-	console.log('count.txt exists?: '+ fs.existsSync(filepath));
 	if (!fs.existsSync(filepath)){
 		console.log('Creating count.txt file');
 		fs.openSync(filepath, 'w');
 
-	    fs.writeFile(filepath, count, function (err) {
-	    	console.log('count.txt file creation error: ' + err);
-	    });
+	    fs.writeFile(filepath, count, function (err) {});
 	}
 
 	const file = fs.readFileSync(filepath, 'utf-8');
