@@ -44,7 +44,7 @@ app.get('/pdfcount', function(request, response){
 	// res.sendFile(path.join(__dirname, '/backend/pdfs', docName));
 // });
 
-//If no other express route captures path
+//If no other express route captures path, return a 404 page
 app.use(function (req, res, next) {
   res.status(404).send("Sorry can't find that!")
 })

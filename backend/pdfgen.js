@@ -293,14 +293,19 @@ const make_size = function(schema) {
 	}
 };
 
+const make_mysql_connection = function() {
+	const connection = mysql.createConnection(process.env.JAWSDB_URL);
+	connection.connect();
+
+	return connection;
+}
+
 //Adds one to count of PDFs generated
 const add_one_to_count = function() {
 
 	let count = 1;
 
-	//Update MYSQL database
-	const connection = mysql.createConnection(process.env.JAWSDB_URL);
-	connection.connect();
+	const connection = make_mysql_connection();
 
 	//Create new table if none
 	connection.query('CREATE TABLE IF NOT EXISTS `abc` (`n` int DEFAULT 1);', function(err, rows, fields) {
@@ -327,7 +332,16 @@ const add_one_to_count = function() {
 	});
 
 	connection.end();
+}
 
+const get_count = function() {
+	const connection = make_mysql_connection();
+	//Get the value of the current count
+	connection.query('SELECT `n` FROM `abc`', function(err, rows, fields) {
+		if (err) console.log('MYSQL select value fail');
+		count = rows[0].n;
+		write_to_file(count)
+	});
 }
 
 //Write to file accesible by frontend
