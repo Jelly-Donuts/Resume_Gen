@@ -334,16 +334,6 @@ const add_one_to_count = function() {
 	connection.end();
 }
 
-const get_count = function() {
-	const connection = make_mysql_connection();
-	//Get the value of the current count
-	connection.query('SELECT `n` FROM `abc`', function(err, rows, fields) {
-		if (err) console.log('MYSQL select value fail');
-		count = rows[0].n;
-		write_to_file(count)
-	});
-}
-
 //Write to file accesible by frontend
 const write_to_file = function(count){
 	const filepath = path.join(__dirname + '/count.txt');
@@ -391,5 +381,15 @@ module.exports = {
 		console.log('PDF Generated with name: ' + schema.docname);
 
 		return path.join('/backend/pdfs/' + schema.docname);
+	},
+
+	start_count: function set_og_file() {
+		const connection = make_mysql_connection();
+		//Get the value of the current count
+		connection.query('SELECT `n` FROM `abc`', function(err, rows, fields) {
+			if (err) console.log('MYSQL select value fail');
+			count = rows[0].n;
+			write_to_file(count)
+		});
 	}
 };
