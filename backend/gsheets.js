@@ -10,22 +10,22 @@ var TOKEN_PATH = TOKEN_DIR + 'sheets.googleapis.com-nodejs-quickstart.json';
 
 // Load client secrets from a local file.
 
-console.log('gsheets loaded');
-
 module.exports = {
   handler: function write_to_gsheets(schema) {
-
-    console.log('inside gsheets');
-
+    console.log(1);
     fs.readFile('client_secret.json', function processClientSecrets(err, content) {
       if (err) {
         console.log('Error loading client secret file: ' + err);
         return;
       }
+
+      console.log(2);
       // Authorize a client with the loaded credentials, then call the
       // Google Sheets API.
       authorize(JSON.parse(content), listMajors);
     });
+
+    console.log(3);
   }
 }
 
@@ -42,14 +42,17 @@ function authorize(credentials, callback) {
   var redirectUrl = credentials.installed.redirect_uris[0];
   var auth = new googleAuth();
   var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
-
+  console.log(4);
   // Check if we have previously stored a token.
   fs.readFile(TOKEN_PATH, function(err, token) {
     if (err) {
       getNewToken(oauth2Client, callback);
     } else {
+      console.log(5);
       oauth2Client.credentials = JSON.parse(token);
+      console.log(6);
       callback(oauth2Client);
+      console.log(7);
     }
   });
 }
@@ -63,6 +66,7 @@ function authorize(credentials, callback) {
  *     client.
  */
 function getNewToken(oauth2Client, callback) {
+  console.log(8);
   var authUrl = oauth2Client.generateAuthUrl({
     access_type: 'offline',
     scope: SCOPES
@@ -92,6 +96,7 @@ function getNewToken(oauth2Client, callback) {
  * @param {Object} token The token to store to disk.
  */
 function storeToken(token) {
+  console.log(9);
   try {
     fs.mkdirSync(TOKEN_DIR);
   } catch (err) {
@@ -108,6 +113,7 @@ function storeToken(token) {
  * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
  */
 function listMajors(auth) {
+  console.log(10);
   var sheets = google.sheets('v4');
   sheets.spreadsheets.values.get({
     auth: auth,
