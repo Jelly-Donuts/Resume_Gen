@@ -13,10 +13,10 @@ const contactFontSize = 12;
 const dot = ' • ';
 
 const has_city = function(schema, i, j){
-	return schema.segments[i].items[j].city !== '';
+	return !!schema.segments[i].items[j].city;
 };
 const has_state = function(schema, i, j) {
-	return schema.segments[i].items[j].state !== '';
+	return !!schema.segments[i].items[j].state;
 };
 const has_city_and_state = function(schema, i, j) {
 	return has_city(schema, i, j) && has_state(schema, i, j);
