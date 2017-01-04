@@ -355,9 +355,9 @@ const write_to_file = function(count){
 module.exports = {
 	handler: function schema_to_pdf(schema) {
 
-		console.log('Calling gsheets: ');
-		gsheets.handler(schema);
-		console.log('End call to ghsheets');
+		// console.log('Calling gsheets: ');
+		// gsheets.handler(schema);
+		// console.log('End call to ghsheets');
 
 		console.log('Generating a PDF:\n' + JSON.stringify(schema));
 
