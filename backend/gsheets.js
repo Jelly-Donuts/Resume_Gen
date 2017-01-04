@@ -10,8 +10,13 @@ var TOKEN_PATH = TOKEN_DIR + 'sheets.googleapis.com-nodejs-quickstart.json';
 
 // Load client secrets from a local file.
 
+console.log('gsheets loaded');
+
 module.exports = {
   handler: function write_to_gsheets(schema) {
+
+    console.log('inside gsheets');
+
     fs.readFile('client_secret.json', function processClientSecrets(err, content) {
       if (err) {
         console.log('Error loading client secret file: ' + err);
