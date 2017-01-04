@@ -152,7 +152,7 @@ const make_segment_title = function(doc, content) {
 };
 
 //Makes each item
-const make_line = function(doc, line, right_align, size) {
+const make_line = function(doc, line, right_align, RA_italics, size) {
 	doc.fontSize(size);
 
 	let text = line.content;
@@ -203,8 +203,13 @@ const make_line = function(doc, line, right_align, size) {
 
 	//if there is stuff on right align, print it
 	if(cont) {
-		doc.font('Content Regular')
-			.fontSize(size)
+		if(RA_italics) {
+			doc.font('Content Italics');
+		} else {
+			doc.font('Content Regular');
+		}
+
+		doc.fontSize(size)
 			.text(right_align, {
 				align: 'right'
 			});
@@ -230,19 +235,23 @@ const make_segments = function(doc, schema, size) {
 				const line = schema.segments[i].items[j].lines[k];
 
 				let right_align = '';
+				let RA_italics = false;
 				if (k === 0 && location_text) {
 					right_align = location_text;
+					RA_italics = false;
 				}
 				else if (k === 0 && date_text) {
 					used_date = true;
+					RA_italics = true;
 					right_align = date_text;
 				}
 				else if (k === 1 && !used_date) {
 					used_date = true;
+					RA_italics = true;
 					right_align = date_text;
 				}
 
-				make_line(doc, line, right_align, size);
+				make_line(doc, line, right_align, RA_italics, size);
 			}
 
 			doc.fontSize(size).moveDown(0.6);
