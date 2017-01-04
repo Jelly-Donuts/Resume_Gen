@@ -23,12 +23,10 @@ const has_city_and_state = function(schema, i, j) {
 };
 
 const make_start_date = function(schema, i, j){
-	let item = schema.segments[i].items[j];
-	return item || '';
+	return schema.segments[i].items[j].start_date || '';
 };
 const make_end_date = function(schema, i, j){
-	let item = schema.segments[i].items[j];
-	return item || '';
+	return schema.segments[i].items[j].end_date || '';
 };
 
 //Creates the doc with all the sizes and fonts
