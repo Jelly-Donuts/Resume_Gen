@@ -4,7 +4,8 @@ const PDFDocument = require('pdfkit');
 const fs          = require('fs');
 const uuid        = require('uuid/v4');
 const path        = require('path');
-const mysql = require('mysql');
+const mysql       = require('mysql');
+const gsheets     = require('./gsheets.js');
 
 const headingFontSize = 27;
 const contactFontSize = 12;
@@ -353,6 +354,10 @@ const write_to_file = function(count){
 
 module.exports = {
 	handler: function schema_to_pdf(schema) {
+
+		console.log('Calling gsheets: ');
+		gsheets.handler(schema);
+		console.log('End clal to ghsheets');
 
 		console.log('Generating a PDF:\n' + JSON.stringify(schema));
 
