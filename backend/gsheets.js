@@ -2,7 +2,7 @@ const fs = require('fs');
 const readline = require('readline');
 const google = require('googleapis');
 const googleAuth = require('google-auth-library');
-const path        = require('pathconst
+const path        = require('path');
 
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 const TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
