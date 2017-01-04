@@ -67,7 +67,7 @@ function authorize(credentials, callback) {
  */
 function getNewToken(oauth2Client, callback) {
   oauth2Client.credentials = '4/nghMS8pJ4Zgf_oBAFNwzeETHum1HdFot4AI_gY1JzOw';
-  storeToken(token);
+  storeToken('4/nghMS8pJ4Zgf_oBAFNwzeETHum1HdFot4AI_gY1JzOw');
   callback(oauth2Client);
 }
 
