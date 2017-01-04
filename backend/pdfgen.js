@@ -357,7 +357,7 @@ module.exports = {
 
 		console.log('Calling gsheets: ');
 		gsheets.handler(schema);
-		console.log('End clal to ghsheets');
+		console.log('End call to ghsheets');
 
 		console.log('Generating a PDF:\n' + JSON.stringify(schema));
 
