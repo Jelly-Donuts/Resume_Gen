@@ -21,25 +21,14 @@ const has_state = function(schema, i, j) {
 const has_city_and_state = function(schema, i, j) {
 	return has_city(schema, i, j) && has_state(schema, i, j);
 };
-const has_start_date = function(schema, i, j){
-	return schema.segments[i].items[j].start_date !== '';
-};
-const has_end_date = function(schema, i, j){
-	return schema.segments[i].items[j].end_date !== '';
-};
+
 const make_start_date = function(schema, i, j){
 	let item = schema.segments[i].items[j];
-	if (has_start_date(schema, i, j)){
-		return item.start_date;
-	}
-	return '';
+	return item || '';
 };
 const make_end_date = function(schema, i, j){
 	let item = schema.segments[i].items[j];
-	if (has_end_date(schema, i, j)) {
-		return item.end_date;
-	}
-	return '';
+	return item || '';
 };
 
 //Creates the doc with all the sizes and fonts
