@@ -388,8 +388,7 @@ module.exports = {
 		//Get the value of the current count
 		connection.query('SELECT `n` FROM `abc`', function(err, rows, fields) {
 			if (err) console.log('MYSQL select value fail');
-			count = rows[0].n;
-			write_to_file(count)
+			write_to_file(rows[0].n);
 		});
 	}
 };
