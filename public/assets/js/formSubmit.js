@@ -42,7 +42,7 @@ $(function (){
 	    	};
 
             //Add degree line
-            const degree = $(university).find('.degree').val() }} || '';
+            const degree = $(university).find('.degree').val() || '';
             const major = $(university).find('.major').val() || '';
             let candidateText = '';
 
