@@ -60,8 +60,8 @@ $(function (){
             }
 
 	   		// Honors and Awards
+            let awardsObj = {};
 	    	for (let j = 1; j < $(university).find('.award').length ; j++) {
-                let awardsObj = {};
 	    		awardsObj.title = "Honors/Awards:";
                 awardsObj.content = '';
 	    		let awardID = university + 'award' + j;
@@ -77,8 +77,8 @@ $(function (){
                 universityObj.lines.push(awardsObj);
             }
 
+            let courseObj = {};
 	    	for (let k = 1; k < $(university).find('.course').length; k++) {
-                let courseObj = {};
 	    		courseObj.title = "Relevant Coursework:";
                 courseObj.content = '';
 	    		let courseID = university + 'course' + k;
