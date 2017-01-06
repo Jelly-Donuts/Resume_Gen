@@ -29,10 +29,15 @@ $(function (){
 	    	}
 	    	const university = '#university' + i;
 
+            let start_date = '';
+            if ($(university).find('.month').val() && $(university).find('.year').val()) {
+                start_date = $(university).find('.month').val() + " " + $(university).find('.year').val();
+            }
+
 	    	let universityObj = {
                 city      : $(university).find('.city').val(),
                 state     : $(university).find('.state').val(),
-                start_date: $(university).find('.month').val() + " " + $(university).find('.year').val(),
+                start_date: start_date,
                 end_date  : '',
                 lines: [
                     {
