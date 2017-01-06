@@ -27,7 +27,8 @@ $(function (){
                 segmentEducation.items = [];
                 schema.segments.push(segmentEducation);
 	    	}
-	    	let university = '#university' + i;
+	    	const university = '#university' + i;
+
 	    	let universityObj = {
                 city      : $(university).find('.city').val(),
                 state     : $(university).find('.state').val(),
@@ -36,45 +37,62 @@ $(function (){
                 lines: [
                     {
                         title  : $(university).find('.name').val(),
-                    },
-                    {
-                        content: $(university).find('.degree').val() + " in " + $(university).find('.major').val()
-                    },
-                    {
-                        content: "GPA " + $(university).find('.gpa').val()
-                    },
-                    {
-                    	title: '',
-                    	content: '',
-                    },
-                    {
-                    	title: '',
-                    	content: '',
-                    },
+                    }
                 ]
 	    	};
 
+            //Add degree line
+            const degree = $(university).find('.degree').val() }} || '';
+            const major = $(university).find('.major').val() || '';
+            let candidateText = '';
+
+            if (degree && major) {
+                candidateText = degree + major;
+                universityObj.lines.push({content: candidateText});
+            }
+
+            //add Gpa line
+            const GPA = $(university).find('.gpa').val() || '';
+            let GPAText = '';
+            if (GPA) {
+                GPAText = "GPA " + GPA;
+                universityObj.lines.push({content: GPAText});
+            }
+
 	   		// Honors and Awards
 	    	for (let j = 1; j < $(university).find('.award').length ; j++) {
-	    		universityObj.lines[3].title = "Honors/Awards:";
+                let awardsObj = {};
+	    		awardsObj.title = "Honors/Awards:";
+                awardsObj.content = '';
 	    		let awardID = university + 'award' + j;
 	    		if ($(university).find(awardID).find('.award').val()) {
 	    			if (j !== 1) {
-	    				universityObj.lines[3].content += ', ';
+	    				awardsObj.content += ', ';
 	    			}
-	    			universityObj.lines[3].content += $(awardID).find('.award').val();
+	    			awardsObj.content += $(awardID).find('.award').val();
 		    	}
 	    	}
+
+            if (awardsObj.content){
+                universityObj.lines.push(awardsObj);
+            }
+
 	    	for (let k = 1; k < $(university).find('.course').length; k++) {
-	    		universityObj.lines[4].title = "Relevant Coursework:";
+                let courseObj = {};
+	    		courseObj.title = "Relevant Coursework:";
+                courseObj.content = '';
 	    		let courseID = university + 'course' + k;
 	    		if ($(university).find(courseID).find('.course').val()) {
 	    			if (k !== 1) {
-	    				universityObj.lines[4].content += ', ';
+	    				courseObj.content += ', ';
 	    			}
-	    			universityObj.lines[4].content += $(courseID).find('.course').val();
+	    			courseObj.content += $(courseID).find('.course').val();
 		    	}
 	    	}
+
+            if (courseObj.content) {
+                universityObj.lines.push(courseObj);
+            }
 
 	    	schema.segments[schema.segments.length - 1].items.push(universityObj);
 	    }
