@@ -35,8 +35,8 @@ $(function (){
             }
 
 	    	let universityObj = {
-                city      : $(university).find('.city').val(),
-                state     : $(university).find('.state').val(),
+                city      : $(university).find('.city').val() || '',
+                state     : $(university).find('.state').val() || '',
                 start_date: start_date,
                 end_date  : '',
                 lines: [
