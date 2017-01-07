@@ -1,5 +1,5 @@
 $(function (){
-	$("#btnSubmit").click(function( ) {
+	$("form").submit(function(e) {
 
         const schema = {
             contact : "",
@@ -8,7 +8,9 @@ $(function (){
 
 		let segmentContact = {
 	        name   : $('#contact').find('.firstname').val() + " "  + $('#contact').find('.lastname').val(),
-	        address: ($('#contact').find('.address').val() || '') + ", " + ($('#contact').find('.city').val() || '') + ", " + ($('#contact').find('.state').val() || '') + " " + ($('#contact').find('.zipcode').val() || ''),
+	        address: ($('#contact').find('.address').val() || '') + ", " + 
+                    ($('#contact').find('.city').val() || '') + ", " + ($('#contact').find('.state').val() || '') + 
+                    " " + ($('#contact').find('.zipcode').val() || ''),
 	        reach  : [
 	            $('#contact').find('.email').val() || '',
 	            $('#contact').find('.phone').val() || ''
@@ -16,11 +18,6 @@ $(function (){
 		};
 
         schema.contact = segmentContact;
-
-	 //    let segmentEducation = {};
-	 //    let segmentProfExp = {};
-	 //    let segmentExtracur = {};
-	 //    let segmentSkills = {};
 
 		// Create the University part of schema
 	    for(let i = 1; i < $("[data-clone='university']").length; i++){
@@ -30,54 +27,79 @@ $(function (){
                 segmentEducation.items = [];
                 schema.segments.push(segmentEducation);
 	    	}
-	    	let university = '#university' + i;
+	    	const university = '#university' + i;
+
+            let start_date = '';
+            if ($(university).find('.month').val() && $(university).find('.year').val()) {
+                start_date = $(university).find('.month').val() + " " + $(university).find('.year').val();
+            }
+
 	    	let universityObj = {
                 city      : $(university).find('.city').val(),
                 state     : $(university).find('.state').val(),
-                start_date: $(university).find('.month').val() + " " + $(university).find('.year').val(),
+                start_date: start_date,
                 end_date  : '',
                 lines: [
                     {
                         title  : $(university).find('.name').val(),
-                    },
-                    {
-                        content: $(university).find('.degree').val() + " in " + $(university).find('.major').val()
-                    },
-                    {
-                        content: "GPA " + $(university).find('.gpa').val()
-                    },
-                    {
-                    	title: '',
-                    	content: '',
-                    },
-                    {
-                    	title: '',
-                    	content: '',
-                    },
+                    }
                 ]
 	    	};
 
+            //Add degree line
+            const degree = $(university).find('.degree').val() || '';
+            const major = $(university).find('.major').val() || '';
+            let candidateText = '';
+
+            if (degree && major) {
+                candidateText = degree + " in " + major;
+                universityObj.lines.push({content: candidateText});
+            }
+
+            //add Gpa line
+            const GPA = $(university).find('.gpa').val() || '';
+            let GPAText = '';
+            if (GPA) {
+                GPAText = "GPA " + GPA;
+                universityObj.lines.push({content: GPAText});
+            }
+
 	   		// Honors and Awards
+            let awardsObj = {};
 	    	for (let j = 1; j < $(university).find('.award').length ; j++) {
-	    		universityObj.lines[3].title = "Honors/Awards:";
+	    		awardsObj.title = "Honors/Awards:";
+                awardsObj.content = '';
 	    		let awardID = university + 'award' + j;
 	    		if ($(university).find(awardID).find('.award').val()) {
 	    			if (j !== 1) {
-	    				universityObj.lines[3].content += ', ';
+	    				awardsObj.content += ', ';
 	    			}
-	    			universityObj.lines[3].content += $(awardID).find('.award').val();
+	    			awardsObj.content += $(awardID).find('.award').val();
 		    	}
 	    	}
+
+            if (awardsObj.content){
+                universityObj.lines.push(awardsObj);
+            }
+
+            let courseObj = {};
 	    	for (let k = 1; k < $(university).find('.course').length; k++) {
-	    		universityObj.lines[4].title = "Relevant Coursework:";
+                if (k === 1){
+    	    		courseObj.title = "Relevant Coursework:";
+                    courseObj.content = '';
+                }
 	    		let courseID = university + 'course' + k;
 	    		if ($(university).find(courseID).find('.course').val()) {
 	    			if (k !== 1) {
-	    				universityObj.lines[4].content += ', ';
+	    				courseObj.content += ', ';
 	    			}
-	    			universityObj.lines[4].content += $(courseID).find('.course').val();
+	    			courseObj.content += $(courseID).find('.course').val();
 		    	}
 	    	}
+
+            if (courseObj.content) {
+                universityObj.lines.push(courseObj);
+            }
 
 	    	schema.segments[schema.segments.length - 1].items.push(universityObj);
 	    }
@@ -214,102 +236,26 @@ $(function (){
         }
 
 	    console.log(JSON.stringify(schema,null,2));
+        e.preventDefault();
 
 	    $.ajax({
             url: '/pdfgen',
+            async: false,
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(schema),
             dataType: 'text',
-            success: function(data) {console.log("HERE: !!!" + data); window.open(data);},
-            error: function (xhr, ajaxOptions, thrownError) {console.log('ERROR', xhr.responseText, thrownError);}
+            success: function(data) {
+                $.get('/backend/count.txt', function(data){
+                    document.getElementById('pdfcount').innerHTML = data;
+                });
+                window.open(data);
+            },
+
+            error: function (xhr, ajaxOptions, thrownError) {alert('ERROR', xhr.responseText, thrownError);}
         });
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
