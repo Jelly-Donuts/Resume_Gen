@@ -245,11 +245,12 @@ $(function (){
             data: JSON.stringify(schema),
             dataType: 'text',
             success: function(data) {
+                window.open(data);
                 $.get('/backend/count.txt', function(data){
                     alert('SUCCESS', data);
                     document.getElementById('pdfcount').innerHTML = data;
-                });
-                window.open("https://google.com");},
+                })},
+
             error: function (xhr, ajaxOptions, thrownError) {alert('ERROR', xhr.responseText, thrownError);}
         });
     });
