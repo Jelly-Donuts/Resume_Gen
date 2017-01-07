@@ -52,7 +52,7 @@ $(function (){
             let candidateText = '';
 
             if (degree && major) {
-                candidateText = degree + major;
+                candidateText = degree + " in " + major;
                 universityObj.lines.push({content: candidateText});
             }
 
@@ -84,8 +84,10 @@ $(function (){
 
             let courseObj = {};
 	    	for (let k = 1; k < $(university).find('.course').length; k++) {
-	    		courseObj.title = "Relevant Coursework:";
-                courseObj.content = '';
+                if (k === 1){
+    	    		courseObj.title = "Relevant Coursework:";
+                    courseObj.content = '';
+                }
 	    		let courseID = university + 'course' + k;
 	    		if ($(university).find(courseID).find('.course').val()) {
 	    			if (k !== 1) {
@@ -238,6 +240,7 @@ $(function (){
 
 	    $.ajax({
             url: '/pdfgen',
+            async: false,
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(schema),
@@ -246,7 +249,9 @@ $(function (){
                 $.get('/backend/count.txt', function(data){
                     document.getElementById('pdfcount').innerHTML = data;
                 });
-                window.open(data);},
+                window.open(data);
+            },
+
             error: function (xhr, ajaxOptions, thrownError) {alert('ERROR', xhr.responseText, thrownError);}
         });
     });
