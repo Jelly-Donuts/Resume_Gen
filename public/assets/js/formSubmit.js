@@ -240,6 +240,7 @@ $(function (){
 
 	    $.ajax({
             url: '/pdfgen',
+            async: false,
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(schema),
