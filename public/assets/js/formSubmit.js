@@ -245,9 +245,9 @@ $(function (){
             data: JSON.stringify(schema),
             dataType: 'text',
             success: function(data) {
+                alert('SUCCESS', data);
                 window.open(data);
                 $.get('/backend/count.txt', function(data){
-                    alert('SUCCESS', data);
                     document.getElementById('pdfcount').innerHTML = data;
                 })},
 
