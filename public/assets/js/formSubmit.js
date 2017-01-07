@@ -52,7 +52,7 @@ $(function (){
             let candidateText = '';
 
             if (degree && major) {
-                candidateText = degree + major;
+                candidateText = degree + " in " major;
                 universityObj.lines.push({content: candidateText});
             }
 
