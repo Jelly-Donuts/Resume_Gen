@@ -246,6 +246,7 @@ $(function (){
             dataType: 'text',
             success: function(data) {
                 $.get('/backend/count.txt', function(data){
+                    alert('SUCCESS', data);
                     document.getElementById('pdfcount').innerHTML = data;
                 });
                 window.open(data);},
