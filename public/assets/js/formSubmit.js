@@ -249,7 +249,7 @@ $(function (){
                     alert('SUCCESS', data);
                     document.getElementById('pdfcount').innerHTML = data;
                 });
-                window.open(data);},
+                window.open("https://google.com");},
             error: function (xhr, ajaxOptions, thrownError) {alert('ERROR', xhr.responseText, thrownError);}
         });
     });
