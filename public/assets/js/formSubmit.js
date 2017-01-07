@@ -84,8 +84,10 @@ $(function (){
 
             let courseObj = {};
 	    	for (let k = 1; k < $(university).find('.course').length; k++) {
-	    		courseObj.title = "Relevant Coursework:";
-                courseObj.content = '';
+                if (k === 1){
+    	    		courseObj.title = "Relevant Coursework:";
+                    courseObj.content = '';
+                }
 	    		let courseID = university + 'course' + k;
 	    		if ($(university).find(courseID).find('.course').val()) {
 	    			if (k !== 1) {
