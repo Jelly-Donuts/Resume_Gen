@@ -361,7 +361,6 @@ module.exports = {
 		let doc = set_up_doc(schema);
 		make_header(doc, schema);
 		make_segments(doc, schema, size);
-		console.log(doc);
 		doc.end();
 
 		//Add one to number of PDFs generated
