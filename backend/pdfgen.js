@@ -5,6 +5,7 @@ const fs          = require('fs');
 const uuid        = require('uuid/v4');
 const path        = require('path');
 const mysql       = require('mysql');
+const fontinfo    = require('./fontinfo.json');
 
 const headingFontSize = 27;
 const contactFontSize = 12;
@@ -157,17 +158,14 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 	let text = line.content;
 	let cont = right_align !== '';
 
-	//print the bullet first, if there is one
-	if (line.bullet){
-		doc.font('Content Regular')
+	//if there is a title, print it, and let the text continue
+	doc.font('Content Regular')
 			.fontSize(size)
-			.text(' ' + dot + ' ', {
+			.list('', {
 				align: 'left',
 				continued: true
 			});
-	}
 
-	//if there is a title, print it, and let the text continue
 	if (line.title) {
 
 		doc.font('Content Bold2')
@@ -258,26 +256,86 @@ const make_segments = function(doc, schema, size) {
 
 		doc.fontSize(size).moveDown(-1);
 	}
-};
+}
 
-//Make font size based on lines of text in the PDF
-//TODO count multiple lines of text
-const make_size = function(schema) {
+const getLines == function(line, size, docWidth) {
+	const defaultWidth = fontinfo[3]['W'];
 
-	//count number of lines
-	let total = 0;
-	for (let i = 0; i < schema.segments.length; i++){
-		total += 1;
-		for (let j = 0; j < schema.segments[i].items.length; j++) {
-			total += 0.6;
-			for (let k = 0; k < schema.segments[i].items[j].lines.length; k++) {
-				total += 1;
+	//Length of the title of the line
+	let width = 0;
+	if (line.title) {
+		for (let i = 0; i < line.title.length; i++) {
+			width += (fontinfo[5][i] || defaultWidth) * size;
+		}
+	}
+
+	//Length of the content of the line
+	if (line.content) {
+		for (let i = 0; i < line.content.length) {
+			width += (fontinfo[3][i] || defaultWidth) * size;
+		}
+	}
+
+	//If using bullet points make sure to space according to indent
+	if (doc.bullet) {
+		let bulletWidth = 0;
+		for (let i = 0; i < dot.length; i++) {
+			bulletWidth += (fontinfo[3][dot.substring(i, i+1)] || defaultWidth) * size;
+		}
+		const docBulletWidth = docWidth - bulletWidth;
+
+		return Math.ceil(width / docBulletWidth);
+	}
+
+	//number of lines being used
+	return Math.ceil(width / docWidth);
+}
+
+const sizeFits = function(schema, size) {
+	//base width: 612
+	//base height: 792
+
+	const contactHeight = (headingFontSize * fontinfo[0].ysize) + (contactFontSize * fontinfo[1].ysize * 2);
+
+	const docWidth = 612 - doc.page.margins.left - doc.page.margins.right;
+	const docHeight = 792 - doc.page.margins.top - doc.page.marings.bottom - contactHeight;
+
+	let segments = 0;
+	let items = 0;
+	let lines = 0;
+
+	//Cycle through segments
+	for (let i = 0; i < schema.segments.length; i++) {
+		segments++;
+
+		//Cycle through items
+		for (let j = 0; j < segments[i].items.length; j++) {
+			items++;
+
+			//Cycle through lines
+			for (let k = 0; k < segments[i].items[j].lines.length; k++) {
+
+				lines += getLines(segments[i].items[j].lines[k], size, docWidth);
+
 			}
 		}
 	}
 
-	//Woring space / (#lines * font-multiplier)
-	const size = 670 / (total * 1.364);
+	const k = 1;
+	const c = 0.6;
+	return docWidth <= size * (lines + (segments * k) + (items * c));
+}
+
+//Make font size based on lines of text in the PDF
+//TODO count multiple lines of text
+const make_size = function(schema) {
+	let start = (new Date()).getTime();
+	let size = 12;
+	while !sizeFits(schema, size) {
+		size -= 0.1;
+	}
+
+	console.log('Time to make size:', ((new Date()).getTime() - start));
 	
 	if (size > 12) {
 		return 12;
@@ -286,7 +344,7 @@ const make_size = function(schema) {
 	} else {
 		return size;
 	}
-};
+}
 
 const make_mysql_connection = function() {
 	const connection = mysql.createConnection(process.env.JAWSDB_URL);

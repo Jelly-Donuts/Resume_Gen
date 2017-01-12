@@ -32,7 +32,7 @@ const makeSize = function(doc, fonts, index) {
 
     let dict = {};
 
-    const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,./?!@#$%^&*()1234567890<>:"{}[]; '
+    const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ,./?!@#$%^&*()1234567890<>:"{}[];• '
 
     //find y coord stuff
     const start = doc.y;
@@ -45,7 +45,6 @@ const makeSize = function(doc, fonts, index) {
     for (let i = 0; i < letters.length; i++){
         doc.text(letters.substring(i, i+1), {continued: true});
         dict[letters.substring(i,i+1)] = doc._textOptions.textWidth;
-        console.log(letters.substring(i,i+1) + ':' + doc._textOptions.textWidth);
     }
 
     return dict;
@@ -58,10 +57,12 @@ module.exports = {
 
         let sizes = [];
 
-        for (let i = 0; i < fonts.length; fonts ++){
+        for (let i = 0; i < fonts.length; i++){
             sizes.push(makeSize(doc, fonts, i));
         }
 
         doc.end();
+
+        fs.writeFile(path.join(__dirname + '/fontinfo.json'), JSON.stringify(sizes));
     }
 }
