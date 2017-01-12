@@ -258,7 +258,7 @@ const make_segments = function(doc, schema, size) {
 	}
 }
 
-const getLines == function(line, size, docWidth) {
+const getLines = function(line, size, docWidth) {
 	const defaultWidth = fontinfo[3]['W'];
 
 	//Length of the title of the line
@@ -271,7 +271,7 @@ const getLines == function(line, size, docWidth) {
 
 	//Length of the content of the line
 	if (line.content) {
-		for (let i = 0; i < line.content.length) {
+		for (let i = 0; i < line.content.length; i++) {
 			width += (fontinfo[3][i] || defaultWidth) * size;
 		}
 	}
@@ -331,7 +331,7 @@ const sizeFits = function(schema, size) {
 const make_size = function(schema) {
 	let start = (new Date()).getTime();
 	let size = 12;
-	while !sizeFits(schema, size) {
+	while (!sizeFits(schema, size)) {
 		size -= 0.1;
 	}
 
