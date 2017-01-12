@@ -323,7 +323,7 @@ const sizeFits = function(doc, schema, size) {
 
 	const k = 1;
 	const c = 0.6;
-	return docWidth <= size * (lines + (segments * k) + (items * c));
+	return docHeight >= size * (lines + (segments * k) + (items * c));
 }
 
 //Make font size based on lines of text in the PDF
