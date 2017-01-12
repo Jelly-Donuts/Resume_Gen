@@ -162,56 +162,56 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 	if (line.bullet){
 		doc.font('Content Regular')
 			.fontSize(size)
-			.list([' '], {
+			.list([line.content], {
 				align: 'left',
 				continued: true
 			});
-	}
+	} else {
+		if (line.title) {
 
-	if (line.title) {
+			doc.font('Content Bold2')
+			.fontSize(size)
+			.text(line.title + ' ', {
+				align: 'left',
+				continued: true
+			});
+		}
 
-		doc.font('Content Bold2')
-		.fontSize(size)
-		.text(line.title + ' ', {
-			align: 'left',
-			continued: true
-		});
-	}
-
-	//set up text font / styling
-	if (line.bold) {
-		doc.font('Content Bold2');
-	} 
-	else if (line.italics) {
-		doc.font('Content Italics');
-	}
-	else {
-		doc.font('Content Regular');
-	}
-
-	if (!line.content) {
-		line.content = '';
-	}
-
-	//print the text
-	doc.fontSize(size)
-		.text(line.content, {
-			align: 'left',
-			continued: cont
-		});
-
-	//if there is stuff on right align, print it
-	if(cont) {
-		if(RA_italics) {
+		//set up text font / styling
+		if (line.bold) {
+			doc.font('Content Bold2');
+		} 
+		else if (line.italics) {
 			doc.font('Content Italics');
-		} else {
+		}
+		else {
 			doc.font('Content Regular');
 		}
 
+		if (!line.content) {
+			line.content = '';
+		}
+
+		//print the text
 		doc.fontSize(size)
-			.text(right_align, {
-				align: 'right'
+			.text(line.content, {
+				align: 'left',
+				continued: cont
 			});
+
+		//if there is stuff on right align, print it
+		if(cont) {
+			if(RA_italics) {
+				doc.font('Content Italics');
+			} else {
+				doc.font('Content Regular');
+			}
+
+			doc.fontSize(size)
+				.text(right_align, {
+					align: 'right'
+				});
+		}
 	}
 };
 
