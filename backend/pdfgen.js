@@ -298,7 +298,7 @@ const sizeFits = function(doc, schema, size) {
 	const contactHeight = (headingFontSize * fontinfo[0].ysize) + (contactFontSize * fontinfo[1].ysize * 2);
 
 	const docWidth = 612 - doc.page.margins.left - doc.page.margins.right;
-	const docHeight = 792 - doc.page.margins.top - doc.page.marings.bottom - contactHeight;
+	const docHeight = 792 - doc.page.margins.top - doc.page.margins.bottom - contactHeight;
 
 	let segments = 0;
 	let items = 0;
