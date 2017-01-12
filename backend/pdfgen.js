@@ -162,7 +162,7 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 	if (line.bullet){
 		doc.font('Content Regular')
 			.fontSize(size)
-			.list([''], {
+			.list([line.bold + line.content], {
 				align: 'left',
 				continued: true
 			});
