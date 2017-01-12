@@ -164,7 +164,7 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 			.fontSize(size)
 			.list([line.content], {
 				align: 'left',
-				continued: true
+				bulletRadius: size
 			});
 	} else {
 		if (line.title) {
