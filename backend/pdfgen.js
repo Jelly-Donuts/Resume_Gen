@@ -277,7 +277,7 @@ const getLines = function(line, size, docWidth) {
 	}
 
 	//If using bullet points make sure to space according to indent
-	if (doc.bullet) {
+	if (line.bullet) {
 		let bulletWidth = 0;
 		for (let i = 0; i < dot.length; i++) {
 			bulletWidth += (fontinfo[3][dot.substring(i, i+1)] || defaultWidth) * size;
