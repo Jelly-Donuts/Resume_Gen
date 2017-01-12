@@ -308,6 +308,8 @@ const sizeFits = function(doc, schema, size) {
 	for (let i = 0; i < schema.segments.length; i++) {
 		segments++;
 
+		console.log('segment:',schema.segments[i]);
+
 		//Cycle through items
 		for (let j = 0; j < segments[i].items.length; j++) {
 			items++;
