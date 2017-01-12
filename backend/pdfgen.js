@@ -159,12 +159,14 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 	let cont = right_align !== '';
 
 	//if there is a title, print it, and let the text continue
-	doc.font('Content Regular')
+	if (line.bullet){
+		doc.font('Content Regular')
 			.fontSize(size)
-			.list('', {
+			.list([''], {
 				align: 'left',
 				continued: true
 			});
+	}
 
 	if (line.title) {
 
@@ -307,8 +309,6 @@ const sizeFits = function(doc, schema, size) {
 	//Cycle through segments
 	for (let i = 0; i < schema.segments.length; i++) {
 		segments++;
-
-		console.log('segment:',schema.segments[i]);
 
 		//Cycle through items
 		for (let j = 0; j < schema.segments[i].items.length; j++) {
