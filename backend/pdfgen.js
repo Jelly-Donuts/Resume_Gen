@@ -412,11 +412,13 @@ module.exports = {
 		console.log('Generating a PDF:\n' + JSON.stringify(schema));
 
 		//Find font-size for body of PDF
-		const size = make_size(doc, schema);
-		console.log('PDF Font Size:', size);
 
 		//Create and make the PDF
 		let doc = set_up_doc(schema);
+
+		const size = make_size(doc, schema);
+		console.log('PDF Font Size:', size);
+		
 		make_header(doc, schema);
 		make_segments(doc, schema, size);
 		doc.end();
