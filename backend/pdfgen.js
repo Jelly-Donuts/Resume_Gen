@@ -315,9 +315,9 @@ const sizeFits = function(doc, schema, size) {
 			items++;
 
 			//Cycle through lines
-			for (let k = 0; k < segments[i].items[j].lines.length; k++) {
+			for (let k = 0; k < schema.segments[i].items[j].lines.length; k++) {
 
-				lines += getLines(segments[i].items[j].lines[k], size, docWidth);
+				lines += getLines(schema.segments[i].items[j].lines[k], size, docWidth);
 
 			}
 		}
