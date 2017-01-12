@@ -328,7 +328,7 @@ const sizeFits = function(doc, schema, size) {
 
 //Make font size based on lines of text in the PDF
 //TODO count multiple lines of text
-const make_size = function(doc, chema) {
+const make_size = function(doc, schema) {
 	let start = (new Date()).getTime();
 	let size = 12;
 	while (!sizeFits(doc, schema, size)) {
