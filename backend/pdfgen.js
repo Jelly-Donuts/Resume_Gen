@@ -291,7 +291,7 @@ const getLines = function(line, size, docWidth) {
 	return Math.ceil(width / docWidth);
 }
 
-const sizeFits = function(schema, size) {
+const sizeFits = function(doc, schema, size) {
 	//base width: 612
 	//base height: 792
 
@@ -328,10 +328,10 @@ const sizeFits = function(schema, size) {
 
 //Make font size based on lines of text in the PDF
 //TODO count multiple lines of text
-const make_size = function(schema) {
+const make_size = function(doc, chema) {
 	let start = (new Date()).getTime();
 	let size = 12;
-	while (!sizeFits(schema, size)) {
+	while (!sizeFits(doc, schema, size)) {
 		size -= 0.1;
 	}
 
@@ -412,7 +412,7 @@ module.exports = {
 		console.log('Generating a PDF:\n' + JSON.stringify(schema));
 
 		//Find font-size for body of PDF
-		const size = make_size(schema);
+		const size = make_size(doc, schema);
 		console.log('PDF Font Size:', size);
 
 		//Create and make the PDF
