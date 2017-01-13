@@ -20,7 +20,7 @@ $('.btnAdd').click(function(){
 				$(this).parent().parent().parent().find('.yearEnd').attr('disabled', false);
 			}
 		});
-	}, 500); 
+	}, 0); 
 });
 
 
