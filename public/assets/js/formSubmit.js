@@ -263,7 +263,6 @@ $(function (){
             schema.segments[schema.segments.length - 1].items[0].lines.push(skillObj);
         }
 
-	    console.log(JSON.stringify(schema,null,2));
         e.preventDefault();
 
 	    $.ajax({
