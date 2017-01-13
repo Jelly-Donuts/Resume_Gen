@@ -15,12 +15,12 @@ $('.btnAdd').click(function(){
 	setTimeout(function(){
 		$('.monthEnd').change(function (){
 			if ($(this).val() === 'Present'){
-				$(this).parent().find('.yearEnd').attr('disabled', true);
+				$(this).parent().parent().parent().find('.yearEnd').attr('disabled', true);
 			} else {
-				$(this).parent().find('.yearEnd').attr('disabled', false);
+				$(this).parent().parent().parent().find('.yearEnd').attr('disabled', false);
 			}
 		});
-	}, 2500); 
+	}, 5000); 
 });
 
 
