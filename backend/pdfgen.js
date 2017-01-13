@@ -224,18 +224,18 @@ const make_segments = function(doc, schema, size) {
 	for(let i = 0; i < schema.segments.length; i++) {
 		make_segment_title(doc, schema.segments[i].title, size);
 		doc.moveDown(0.3);
-
+		console.log('1');
 		//loop though each item
 		for(let j = 0; j < schema.segments[i].items.length; j++){
 			const location_text = make_city_state(schema, i, j);
 			const date_text = make_date(schema, i, j);
-
+			console.log('2');
 			let used_date = false;
 
 			//loop through each line
 			for (let k = 0; k < schema.segments[i].items[j].lines.length; k++) {
 				const line = schema.segments[i].items[j].lines[k];
-
+				console.log('3');
 				let right_align = '';
 				let RA_italics = false;
 				if (k === 0 && location_text) {
@@ -254,6 +254,7 @@ const make_segments = function(doc, schema, size) {
 				}
 
 				make_line(doc, line, right_align, RA_italics, size);
+				console.log('4');
 			}
 
 			doc.fontSize(size).moveDown(.3);
