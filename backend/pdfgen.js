@@ -425,11 +425,12 @@ module.exports = {
 		console.log('PDF Font Size:', size);
 		
 		make_header(doc, schema);
+		console.log('!!!! Header made !!!!')
 		make_segments(doc, schema, size);
 		doc.end();
 
 		//Add one to number of PDFs generated
-		// add_one_to_count();
+		add_one_to_count();
 
 		console.log('PDF Generated with name: ' + schema.docname);
 
