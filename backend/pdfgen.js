@@ -252,7 +252,7 @@ const make_segments = function(doc, schema, size) {
 					RA_italics = true;
 					right_align = date_text;
 				}
-
+				console.log('Before make_line() !!!!')
 				make_line(doc, line, right_align, RA_italics, size);
 				console.log('4');
 			}
