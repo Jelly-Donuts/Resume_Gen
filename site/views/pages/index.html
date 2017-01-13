@@ -8,17 +8,17 @@
 	 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="https://buildaresume.herokuapp.com/static/assets/css/main.css" />
+		<link rel="stylesheet" href="/static/assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	</head>
 	<body class="landing">
 
 	<!-- Header -->
 		<header id="header" class="alt">
-			<h1 id="logo"><a href="index.html">RESUME BUILDER</a></h1>
+			<h1 id="logo"><a href="/">RESUME BUILDER</a></h1>
 			<nav id="nav">
 				<ul>
-					<li><a href="index.html">Home</a></li>
+					<li><a href="/">Home</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -36,7 +36,7 @@
 			<ul class="counters">
 				<li class="style3">
 					<strong class="count" id="pdfcount"></strong>
-					<p>PDFs Generated</p>
+					<p>Resumes Generated</p>
 				</li>
 			</ul>
 		</section>
@@ -47,8 +47,7 @@
 			<!-- Heading -->
 				<header class="major">
 					<h2>Resume Builder</h2>
-					<p>Consequat sed ultricies rutrum. Sed adipiscing eu amet utem accusantium<br />
-					interdum lorem blandit vis ac commodo aliquet vulputate.</p>
+					<p>Fill out the form below and press "Generate" to see your resume!  Our resume builder adjusts font size to try and keep your resume on one page, but if it goes over, come back and edit your inputs—your information will still be here after you submit.</p>
 				</header>
 			<!-- Form -->
 				<form>
@@ -57,31 +56,86 @@
 					<h3>Contact Information</h3>
 					<div class="row uniform 50%" id="contact">
 						<div class="6u 12u$(xsmall)">
-							<input type="text" class="firstname" placeholder="First Name">
+							<input type="text" class="firstname" placeholder="First Name" required="" />
 						</div>
 						<div class="6u$ 12u$(xsmall)">
-							<input type="text" class="lastname" placeholder="Last Name">
+							<input type="text" class="lastname" placeholder="Last Name" required="" />
 						</div>
-						<div class="6u 12u$(xsmall)">
-							<input type="email" class="email" placeholder="Email Address">
+						<div class="4u 12u$(xsmall)">
+							<input type="email" class="email" placeholder="Email Address" />
 						</div>
-						<div class="6u$ 12u$(xsmall)">
+						<div class="4u 12u$(xsmall)">
 							<input type="tel" class="phone" placeholder="Phone Number">
 						</div>
+            <div class="4u$ 12u$(xsmall)">
+              <input type="text" class="website" placeholder="Wesbite">
+            </div>
 
 						<div class="12u$ 12u$(xsmall)">
 							<input type="text" class="address" placeholder="Address">
 						</div>
 
-						<div class="6u 12u$(xsmall)">
+						<div class="6u 6u(xsmall)">
 							<input type="text" class="city" placeholder="City">
 						</div>
 
-						<div class="2u 12u$(xsmall)">
+						<div class="2u 6u$(xsmall)">
 							<div class="select-wrapper">
 								<select class="state">
 									<option disabled="" selected="">State</option>
-									<option value="CA">CA</option>
+                  <option value="AL">AL</option>
+                  <option value="AK">AK</option>
+                  <option value="AZ">AZ</option>
+                  <option value="AR">AR</option>
+                  <option value="CA">CA</option>
+                  <option value="CO">CO</option>
+                  <option value="CT">CT</option>
+                  <option value="DE">DE</option>
+                  <option value="FL">FL</option>
+                  <option value="GA">GA</option>
+                  <option value="HI">HI</option>
+                  <option value="ID">ID</option>
+                  <option value="IL">IL</option>
+                  <option value="IN">IN</option>
+                  <option value="IA">IA</option>
+                  <option value="KS">KS</option>
+                  <option value="KY">KY</option>
+                  <option value="LA">LA</option>
+                  <option value="ME">ME</option>
+                  <option value="MD">MD</option>
+                  <option value="MA">MA</option>
+                  <option value="MI">MI</option>
+                  <option value="MN">MN</option>
+                  <option value="MS">MS</option>
+                  <option value="MO">MO</option>
+                  <option value="MT">MT</option>
+                  <option value="NE">NE</option>
+                  <option value="NV">NV</option>
+                  <option value="NH">NH</option>
+                  <option value="NJ">NJ</option>
+                  <option value="NM">NM</option>
+                  <option value="NY">NY</option>
+                  <option value="NC">NC</option>
+                  <option value="ND">ND</option>
+                  <option value="OH">OH</option>
+                  <option value="OK">OK</option>
+                  <option value="OR">OR</option>
+                  <option value="PA">PA</option>
+                  <option value="RI">RI</option>
+                  <option value="SC">SC</option>
+                  <option value="SD">SD</option>
+                  <option value="TN">TN</option>
+                  <option value="TX">TX</option>
+                  <option value="UT">UT</option>
+                  <option value="VT">VT</option>
+                  <option value="VA">VA</option>
+                  <option value="WA">WA</option>
+                  <option value="WV">WV</option>
+                  <option value="WI">WI</option>
+                  <option value="WY">WY</option>
+                  <option value="GU">GU</option>
+                  <option value="PR">PR</option>
+                  <option value="VI">VI</option>
 								</select>
 							</div>
 						</div>
@@ -102,16 +156,68 @@
                 </h5>
             </div>
 						<div class="6u 12u$(xsmall)">
-							<input type="text" class="name" placeholder="University">
+							<input type="text" class="name required" placeholder="University" />
 						</div>
-						<div class="4u 12u$(xsmall)">
-							<input type="text" class="city" placeholder="City">
+						<div class="4u 6u(xsmall)">
+							<input type="text" class="city" placeholder="City" />
 						</div>
-						<div class="2u$ 12u$(xsmall)">
+						<div class="2u$ 6u$(xsmall)">
 							<div class="select-wrapper">
 								<select class="state">
 									<option value="" disabled="" selected="">State</option>
-									<option value="CA">CA</option>
+                  <option value="AL">AL</option>
+                  <option value="AK">AK</option>
+                  <option value="AZ">AZ</option>
+                  <option value="AR">AR</option>
+                  <option value="CA">CA</option>
+                  <option value="CO">CO</option>
+                  <option value="CT">CT</option>
+                  <option value="DE">DE</option>
+                  <option value="FL">FL</option>
+                  <option value="GA">GA</option>
+                  <option value="HI">HI</option>
+                  <option value="ID">ID</option>
+                  <option value="IL">IL</option>
+                  <option value="IN">IN</option>
+                  <option value="IA">IA</option>
+                  <option value="KS">KS</option>
+                  <option value="KY">KY</option>
+                  <option value="LA">LA</option>
+                  <option value="ME">ME</option>
+                  <option value="MD">MD</option>
+                  <option value="MA">MA</option>
+                  <option value="MI">MI</option>
+                  <option value="MN">MN</option>
+                  <option value="MS">MS</option>
+                  <option value="MO">MO</option>
+                  <option value="MT">MT</option>
+                  <option value="NE">NE</option>
+                  <option value="NV">NV</option>
+                  <option value="NH">NH</option>
+                  <option value="NJ">NJ</option>
+                  <option value="NM">NM</option>
+                  <option value="NY">NY</option>
+                  <option value="NC">NC</option>
+                  <option value="ND">ND</option>
+                  <option value="OH">OH</option>
+                  <option value="OK">OK</option>
+                  <option value="OR">OR</option>
+                  <option value="PA">PA</option>
+                  <option value="RI">RI</option>
+                  <option value="SC">SC</option>
+                  <option value="SD">SD</option>
+                  <option value="TN">TN</option>
+                  <option value="TX">TX</option>
+                  <option value="UT">UT</option>
+                  <option value="VT">VT</option>
+                  <option value="VA">VA</option>
+                  <option value="WA">WA</option>
+                  <option value="WV">WV</option>
+                  <option value="WI">WI</option>
+                  <option value="WY">WY</option>
+                  <option value="GU">GU</option>
+                  <option value="PR">PR</option>
+                  <option value="VI">VI</option>
 								</select>
 							</div>
 						</div>
@@ -132,7 +238,7 @@
 							<input type="text" class="major" placeholder="Major">
 						</div>
 
-            <div class="2u 12u$(xsmall)">
+            <div class="2u 6u(xsmall)">
               <div class="select-wrapper">
                 <select class="month">
                   <option value="" disabled="" selected="">Month</option>
@@ -152,7 +258,7 @@
               </div>
             </div>
 
-            <div class="2u 12u$(xsmall)">
+            <div class="2u 6u$(xsmall)">
               <input type="text" class="year" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
             </div>
 
@@ -182,7 +288,7 @@
 							<input type="text" class="course" placeholder="Relevant Coursework" />
 						</div>
 
-						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="height:2.9rem;">
+						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="margin-bottom: 0; height:2.9rem;">
 							<li style="width: 100%;">
                 <input type="button" class="special fit small btnAdd" id="university0btnAdd1" value="Add Course" for="university0course0" data-btn-del="university0btnDel1" data-field="Add Course" />
               </li>
@@ -208,21 +314,73 @@
                 </h5>
             </div>
 						<div class="6u 12u$(xsmall)">
-							<input type="text" class="name" placeholder="High School">
+							<input type="text" class="name required" placeholder="High School" />
 						</div>
-						<div class="4u 12u$(xsmall)">
-							<input type="text" class="city" placeholder="City">
+						<div class="4u 6u(xsmall)">
+							<input type="text" class="city" placeholder="City" />
 						</div>
-						<div class="2u$ 12u$(xsmall)">
+						<div class="2u$ 6u$(xsmall)">
 							<div class="select-wrapper">
-								<select class="state">
+								<select class="state" />
 									<option value="" disabled="" selected="">State</option>
+                  <option value="AL">AL</option>
+                  <option value="AK">AK</option>
+                  <option value="AZ">AZ</option>
+                  <option value="AR">AR</option>
 									<option value="CA">CA</option>
+                  <option value="CO">CO</option>
+                  <option value="CT">CT</option>
+                  <option value="DE">DE</option>
+                  <option value="FL">FL</option>
+                  <option value="GA">GA</option>
+                  <option value="HI">HI</option>
+                  <option value="ID">ID</option>
+                  <option value="IL">IL</option>
+                  <option value="IN">IN</option>
+                  <option value="IA">IA</option>
+                  <option value="KS">KS</option>
+                  <option value="KY">KY</option>
+                  <option value="LA">LA</option>
+                  <option value="ME">ME</option>
+                  <option value="MD">MD</option>
+                  <option value="MA">MA</option>
+                  <option value="MI">MI</option>
+                  <option value="MN">MN</option>
+                  <option value="MS">MS</option>
+                  <option value="MO">MO</option>
+                  <option value="MT">MT</option>
+                  <option value="NE">NE</option>
+                  <option value="NV">NV</option>
+                  <option value="NH">NH</option>
+                  <option value="NJ">NJ</option>
+                  <option value="NM">NM</option>
+                  <option value="NY">NY</option>
+                  <option value="NC">NC</option>
+                  <option value="ND">ND</option>
+                  <option value="OH">OH</option>
+                  <option value="OK">OK</option>
+                  <option value="OR">OR</option>
+                  <option value="PA">PA</option>
+                  <option value="RI">RI</option>
+                  <option value="SC">SC</option>
+                  <option value="SD">SD</option>
+                  <option value="TN">TN</option>
+                  <option value="TX">TX</option>
+                  <option value="UT">UT</option>
+                  <option value="VT">VT</option>
+                  <option value="VA">VA</option>
+                  <option value="WA">WA</option>
+                  <option value="WV">WV</option>
+                  <option value="WI">WI</option>
+                  <option value="WY">WY</option>
+                  <option value="GU">GU</option>
+                  <option value="PR">PR</option>
+                  <option value="VI">VI</option>
 								</select>
 							</div>
 						</div>
 
-            <div class="3u 12u$(xsmall)">
+            <div class="3u 6u(xsmall)">
               <div class="select-wrapper">
                 <select class="month">
                   <option value="" disabled="" selected="">Month</option>
@@ -242,7 +400,7 @@
               </div>
             </div>
 
-            <div class="3u 12u$(xsmall)">
+            <div class="3u 6u$(xsmall)">
               <input type="text" class="year" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
             </div>
 
@@ -256,7 +414,7 @@
 							<input type="text" class="award" placeholder="Honor or Award">
 						</div>
 
-						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="height:2.9rem;">
+						<ul class="actions 3u 12u$(xsmall) 6u(small)" style="margin-bottom: 0; height:2.9rem;">
 							<li style="width: 100%;">
                 <input type="button" class="special fit small btnAdd" id="highschool0btnAdd0" for="highschool0award0" value="Add Award" data-btn-del="highschool0btnDel0" data-field="Add Award" />
               </li>
@@ -286,30 +444,82 @@
 
 
             <div class="6u 12u$(xsmall)">
-              <input type="text" class="name" placeholder="Employer">
+              <input type="text" class="name required" placeholder="Employer" />
             </div>
 
-            <div class="4u 12u$(xsmall)">
+            <div class="4u 6u(xsmall)">
               <input type="text" class="city" placeholder="City">
             </div>
 
-            <div class="2u 12u$(xsmall)">
+            <div class="2u 6u$(xsmall)">
   						<div class="select-wrapper">
   							<select class="state">
   								<option value="" disabled="" selected="">State</option>
-  								<option value="CA">CA</option>
+                  <option value="AL">AL</option>
+                  <option value="AK">AK</option>
+                  <option value="AZ">AZ</option>
+                  <option value="AR">AR</option>
+                  <option value="CA">CA</option>
+                  <option value="CO">CO</option>
+                  <option value="CT">CT</option>
+                  <option value="DE">DE</option>
+                  <option value="FL">FL</option>
+                  <option value="GA">GA</option>
+                  <option value="HI">HI</option>
+                  <option value="ID">ID</option>
+                  <option value="IL">IL</option>
+                  <option value="IN">IN</option>
+                  <option value="IA">IA</option>
+                  <option value="KS">KS</option>
+                  <option value="KY">KY</option>
+                  <option value="LA">LA</option>
+                  <option value="ME">ME</option>
+                  <option value="MD">MD</option>
+                  <option value="MA">MA</option>
+                  <option value="MI">MI</option>
+                  <option value="MN">MN</option>
+                  <option value="MS">MS</option>
+                  <option value="MO">MO</option>
+                  <option value="MT">MT</option>
+                  <option value="NE">NE</option>
+                  <option value="NV">NV</option>
+                  <option value="NH">NH</option>
+                  <option value="NJ">NJ</option>
+                  <option value="NM">NM</option>
+                  <option value="NY">NY</option>
+                  <option value="NC">NC</option>
+                  <option value="ND">ND</option>
+                  <option value="OH">OH</option>
+                  <option value="OK">OK</option>
+                  <option value="OR">OR</option>
+                  <option value="PA">PA</option>
+                  <option value="RI">RI</option>
+                  <option value="SC">SC</option>
+                  <option value="SD">SD</option>
+                  <option value="TN">TN</option>
+                  <option value="TX">TX</option>
+                  <option value="UT">UT</option>
+                  <option value="VT">VT</option>
+                  <option value="VA">VA</option>
+                  <option value="WA">WA</option>
+                  <option value="WV">WV</option>
+                  <option value="WI">WI</option>
+                  <option value="WY">WY</option>
+                  <option value="GU">GU</option>
+                  <option value="PR">PR</option>
+                  <option value="VI">VI</option>
   							</select>
   						</div>
             </div>
 
             <div class="4u 12u$(xsmall)">
-                <input type="text" class="position" placeholder="Title/Position" />
+                <input type="text" class="position required" placeholder="Title/Position"  />
             </div>
 
-            <div class="2u 12u$(xsmall)">
+            <div class="2u 6u(xsmall)">
               <div class="select-wrapper">
                 <select class="monthStart">
-                  <option value="" disabled="" selected="">Month</option>
+                  <option value="" disabled="" selected="">Month Start</option>
                   <option value="January">Jan</option>
                   <option value="Febuary">Feb</option>
                   <option value="March">Mar</option>
@@ -326,14 +536,15 @@
               </div>
             </div>
 
-            <div class="2u 12u$(xsmall)">
+            <div class="2u 6u$(xsmall)">
               <input type="text" class="yearStart" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
             </div>
 
-            <div class="2u 12u$(xsmall)">
+            <div class="2u 6u(xsmall)">
               <div class="select-wrapper">
                 <select class="monthEnd">
-                  <option value="" disabled="" selected="">Month</option>
+                  <option value="" disabled="" selected="">Month End</option>
+                  <option value="Present">Present</option>
                   <option value="January">Jan</option>
                   <option value="Febuary">Feb</option>
                   <option value="March">Mar</option>
@@ -350,7 +561,7 @@
               </div>
             </div>
 
-            <div class="2u$ 12u$(xsmall)">
+            <div class="2u$ 6u$(xsmall)">
               <input type="text" class="yearEnd" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
             </div>
 
@@ -385,30 +596,82 @@
             </div>
 
             <div class="6u 12u$(xsmall)">
-              <input type="text" class="name" placeholder="Organization/Event/Project" />
+              <input type="text" class="name required" placeholder="Organization/Event/Project" />
             </div>
 
-            <div class="4u 12u$(xsmall)">
+            <div class="4u 6u(xsmall)">
               <input type="text" class="city" placeholder="City" />
             </div>
 
-            <div class="2u 12u$(xsmall)">
+            <div class="2u 6u$(xsmall)">
     					<div class="select-wrapper">
     						<select class="state">
     							<option value="" disabled="" selected="">State</option>
-    							<option value="CA">CA</option>
+                  <option value="AL">AL</option>
+                  <option value="AK">AK</option>
+                  <option value="AZ">AZ</option>
+                  <option value="AR">AR</option>
+                  <option value="CA">CA</option>
+                  <option value="CO">CO</option>
+                  <option value="CT">CT</option>
+                  <option value="DE">DE</option>
+                  <option value="FL">FL</option>
+                  <option value="GA">GA</option>
+                  <option value="HI">HI</option>
+                  <option value="ID">ID</option>
+                  <option value="IL">IL</option>
+                  <option value="IN">IN</option>
+                  <option value="IA">IA</option>
+                  <option value="KS">KS</option>
+                  <option value="KY">KY</option>
+                  <option value="LA">LA</option>
+                  <option value="ME">ME</option>
+                  <option value="MD">MD</option>
+                  <option value="MA">MA</option>
+                  <option value="MI">MI</option>
+                  <option value="MN">MN</option>
+                  <option value="MS">MS</option>
+                  <option value="MO">MO</option>
+                  <option value="MT">MT</option>
+                  <option value="NE">NE</option>
+                  <option value="NV">NV</option>
+                  <option value="NH">NH</option>
+                  <option value="NJ">NJ</option>
+                  <option value="NM">NM</option>
+                  <option value="NY">NY</option>
+                  <option value="NC">NC</option>
+                  <option value="ND">ND</option>
+                  <option value="OH">OH</option>
+                  <option value="OK">OK</option>
+                  <option value="OR">OR</option>
+                  <option value="PA">PA</option>
+                  <option value="RI">RI</option>
+                  <option value="SC">SC</option>
+                  <option value="SD">SD</option>
+                  <option value="TN">TN</option>
+                  <option value="TX">TX</option>
+                  <option value="UT">UT</option>
+                  <option value="VT">VT</option>
+                  <option value="VA">VA</option>
+                  <option value="WA">WA</option>
+                  <option value="WV">WV</option>
+                  <option value="WI">WI</option>
+                  <option value="WY">WY</option>
+                  <option value="GU">GU</option>
+                  <option value="PR">PR</option>
+                  <option value="VI">VI</option>
     						</select>
     					</div>
             </div>
 
             <div class="4u 12u$(xsmall)">
-                <input type="text" class="position" placeholder="Position/Role" />
+                <input type="text" class="position required" placeholder="Position/Role" />
             </div>
 
-            <div class="2u 12u$(xsmall)">
+            <div class="2u 6u(xsmall)">
               <div class="select-wrapper">
                 <select class="monthStart">
-                  <option value="" disabled="" selected="">Month</option>
+                  <option value="" disabled="" selected="">Month Start</option>
                   <option value="January">Jan</option>
                   <option value="Febuary">Feb</option>
                   <option value="March">Mar</option>
@@ -425,14 +688,15 @@
               </div>
             </div>
 
-            <div class="2u 12u$(xsmall)">
+            <div class="2u 6u$(xsmall)">
               <input type="text" class="yearStart" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
             </div>
 
-            <div class="2u 12u$(xsmall)">
+            <div class="2u 6u(xsmall)">
               <div class="select-wrapper">
                 <select class="monthEnd">
-                  <option value="" disabled="" selected="">Month</option>
+                  <option value="" disabled="" selected="">Month End</option>
+                  <option value="Present">Present</option>
                   <option value="January">Jan</option>
                   <option value="Febuary">Feb</option>
                   <option value="March">Mar</option>
@@ -449,7 +713,7 @@
               </div>
             </div>
 
-            <div class="2u$ 12u$(xsmall)">
+            <div class="2u$ 6u$(xsmall)">
               <input type="text" class="yearEnd" min="1900" max="2099" pattern="[1-2][0-9][0-9][0-9]" placeholder="Year" />
             </div>
 
@@ -484,7 +748,7 @@
             </div>
 						<div class="4u 12u$(xsmall)">
 							<div class="select-wrapper">
-								<select class="category">
+								<select class="category required" />
 									<option value="" disabled="" selected="">Category</option>
 									<option value="Accounting">Accounting</option>
 									<option value="Administration">Administration</option>
@@ -564,7 +828,7 @@
 							</div>
 						</div>
 						<div class="8u$ 12u$(xsmall)" style="margin-bottom: 2em;">
-							<textarea class="content" placeholder="Enter your skills here, separated by commas" rows="2"></textarea>
+							<textarea class="content required" placeholder="Enter your skills here, separated by commas" rows="2"></textarea>
 						</div>
 					</div>
 
@@ -577,7 +841,7 @@
 
 					<div class="12u$" style="margin-top: 3em;">
 						<ul class="actions">
-							<li><input type="button" id="btnSubmit" value="Generate PDF" class="special"/></li>
+							<li><input type="submit" id="btnSubmit" value="Generate PDF" onsubmit="return false;" class="special"/></li>
 							<li><input type="reset" value="Reset" /></li>
 						</ul>
 					</div>
@@ -590,35 +854,44 @@
 				<div class="container">
 					<header class="major">
 						<h2>Support the Developers</h2>
-						<p>If this resume builder helped you get a gig and you want to spread the love, donate here:</p>
+						<p>If this resume builder helped you get a gig, be sure to share it with your friends and colleagues!</p>
 					</header>
-					<ul class="actions uniform">
-						<li><a href="#" class="button special">Donate</a></li>
-					</ul>
+<!-- 					<ul class="actions uniform">
+						<li><a href="#" class="button special" id="btnSecret">Donate</a></li>
+					</ul> -->
 				</div>
 			</section>
 
 		<!-- Footer -->
 			<div id="footer" style="padding-top:1em;">
 				<div class="copyright">
-					Made by Jelly Donuts <br/>
-					<a href="https://github.com/Jelly-Donuts/Resume_Gen"> (github.com/Jelly-Donuts/Resume_Gen)</a>
+					Made by Jelly Donuts ( Jeremy Barenholtz and Daniel Andrews )<br/>
+					<a href="https://github.com/Jelly-Donuts/Resume_Gen"> ( github.com/Jelly-Donuts/Resume_Gen )</a>
 				</div>
 			</div>
 
 		<!-- Scripts -->
-      <script src="https://buildaresume.herokuapp.com/static/assets/js/jquery.min.js"></script>
-      <script src="https://buildaresume.herokuapp.com/static/assets/js/pdfCount.js"></script>
-			<script src="https://buildaresume.herokuapp.com/static/assets/js/jquery.dropotron.min.js"></script>
-			<script src="https://buildaresume.herokuapp.com/static/assets/js/jquery.scrolly.min.js"></script>
-			<script src="https://buildaresume.herokuapp.com/static/assets/js/jquery.scrollgress.min.js"></script>
-			<script src="https://buildaresume.herokuapp.com/static/assets/js/skel.min.js"></script>
-			<script src="https://buildaresume.herokuapp.com/static/assets/js/util.js"></script>
-			<script src="https://buildaresume.herokuapp.com/static/assets/js/add_remove_buttons.js"></script>
-			<script src="https://buildaresume.herokuapp.com/static/assets/js/formInputManagement.js"></script>
-			<script src="https://buildaresume.herokuapp.com/static/assets/js/formSubmit.js"></script>
+      <script src="/static/assets/js/jquery.min.js"></script>
+      <script src="/static/assets/js/pdfCount.js"></script>
+			<script src="/static/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/static/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/static/assets/js/jquery.scrollgress.min.js"></script>
+			<script src="/static/assets/js/skel.min.js"></script>
+			<script src="/static/assets/js/util.js"></script>
+			<script src="/static/assets/js/add_remove_buttons.js"></script>
+			<script src="/static/assets/js/formInputManagement.js"></script>
+			<script src="/static/assets/js/formSubmit.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="https://buildaresume.herokuapp.com/static/assets/js/main.js"></script>
+			<script src="/static/assets/js/main.js"></script>
+      <script type="text/javascript">
 
+        // $('#btnSubmit').click(function(){
+        //   var doc = new jsPDF()
+
+        //   doc.addFont('/backend/fonts/OpenSans-Light.ttf', 'Open Sans', 'Light');
+        //   doc.text('Hello world!', 10, 10);
+        //   doc.output('datauri');
+        // });
+      </script>
 	</body>
 </html>

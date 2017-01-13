@@ -11,7 +11,18 @@ $(document).ready(function () {
     });
 });
 
-
+$('.btnAdd').click(function(){
+	setTimeout(function(){
+		$('.monthEnd').change(function (){
+			if ($(this).val() === 'Present'){
+				$(this).parent().parent().parent().find('.yearEnd').attr('disabled', true);
+				$(this).parent().parent().parent().find('.yearEnd').val('');
+			} else {
+				$(this).parent().parent().parent().find('.yearEnd').attr('disabled', false);
+			}
+		});
+	}, 0); 
+});
 
 
 
