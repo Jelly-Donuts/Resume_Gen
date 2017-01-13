@@ -143,7 +143,7 @@ const make_date = function(schema, i, j) {
 const make_segment_title = function(doc, content) {
 	doc.font('Title')
 		.fontSize(contactFontSize)
-		.moveDown()
+		.moveDown(1.2)
 		.text(content, {
 			align: 'left'
 		});
@@ -223,7 +223,7 @@ const make_segments = function(doc, schema, size) {
 	//loop through each segment
 	for(let i = 0; i < schema.segments.length; i++) {
 		make_segment_title(doc, schema.segments[i].title, size);
-		doc.moveDown(0.2);
+		doc.moveDown(0.3);
 
 		//loop though each item
 		for(let j = 0; j < schema.segments[i].items.length; j++){
@@ -256,7 +256,7 @@ const make_segments = function(doc, schema, size) {
 				make_line(doc, line, right_align, RA_italics, size);
 			}
 
-			doc.fontSize(size).moveDown(0.6);
+			doc.fontSize(size).moveDown(.3);
 		}
 
 		doc.fontSize(size).moveDown(-1);
@@ -326,8 +326,9 @@ const sizeFits = function(doc, schema, size) {
 		}
 	}
 
-	const k = -1;
-	const c = 0.6;
+	const k = 0.2;
+	const c = 0.3;
+	console.log(docHeight, size * (lines + (segments * k) + (items * c)));
 	return docHeight >= size * (lines + (segments * k) + (items * c));
 }
 
@@ -429,7 +430,7 @@ module.exports = {
 		doc.end();
 
 		//Add one to number of PDFs generated
-		add_one_to_count();
+		// add_one_to_count();
 
 		console.log('PDF Generated with name: ' + schema.docname);
 
