@@ -115,8 +115,8 @@ $(function (){
 	    	let highschool = '#highschool' + i;
 
             let start_date = '';
-            if ($(university).find('.month').val() && $(university).find('.year').val()) {
-                start_date = $(university).find('.month').val() + " " + $(university).find('.year').val();
+            if ($(highschool).find('.month').val() && $(highschool).find('.year').val()) {
+                start_date = $(highschool).find('.month').val() + " " + $(highschool).find('.year').val();
             }
 
 	    	let highschoolObj = {
@@ -164,8 +164,8 @@ $(function (){
 	    	let employer = '#employer' + i;
 
             let start_date = '';
-            if ($(university).find('.month').val() && $(university).find('.year').val()) {
-                start_date = $(university).find('.month').val() + " " + $(university).find('.year').val();
+            if ($(employer).find('.month').val() && $(employer).find('.year').val()) {
+                start_date = $(employer).find('.month').val() + " " + $(employer).find('.year').val();
             }
 
             let end_date = '';
@@ -211,13 +211,13 @@ $(function (){
             let activity = '#activity' + i;
 
             let start_date = '';
-            if ($(university).find('.month').val() && $(university).find('.year').val()) {
-                start_date = $(university).find('.month').val() + " " + $(university).find('.year').val();
+            if ($(activity).find('.month').val() && $(activity).find('.year').val()) {
+                start_date = $(activity).find('.month').val() + " " + $(activity).find('.year').val();
             }
 
             let end_date = '';
-            if ($(employer).find('.monthEnd').val() + " " + $(employer).find('.yearEnd').val()) {
-                end_date = $(employer).find('.monthEnd').val() + " " + $(employer).find('.yearEnd').val();
+            if ($(activity).find('.monthEnd').val() + " " + $(activity).find('.yearEnd').val()) {
+                end_date = $(activity).find('.monthEnd').val() + " " + $(activity).find('.yearEnd').val();
             }
 
             let activityObj = {
