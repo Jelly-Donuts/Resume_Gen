@@ -164,8 +164,8 @@ $(function (){
 	    	let employer = '#employer' + i;
 
             let start_date = '';
-            if ($(employer).find('.month').val() && $(employer).find('.year').val()) {
-                start_date = $(employer).find('.month').val() + " " + $(employer).find('.year').val();
+            if ($(employer).find('.monthStart').val() && $(employer).find('.yearStart').val()) {
+                start_date = $(employer).find('.monthStart').val() + " " + $(employer).find('.yearStart').val();
             }
 
             let end_date = '';
@@ -211,8 +211,8 @@ $(function (){
             let activity = '#activity' + i;
 
             let start_date = '';
-            if ($(activity).find('.month').val() && $(activity).find('.year').val()) {
-                start_date = $(activity).find('.month').val() + " " + $(activity).find('.year').val();
+            if ($(activity).find('.monthStart').val() && $(activity).find('.yearStart').val()) {
+                start_date = $(activity).find('.monthStart').val() + " " + $(activity).find('.yearStart').val();
             }
 
             let end_date = '';
