@@ -423,27 +423,30 @@ const write_to_file = function(count){
 module.exports = {
 	handler: function schema_to_pdf(schema) {
 
-		console.log('Generating a PDF:\n' + JSON.stringify(schema));
+		setTimeout(function() {
+			console.log('Generating a PDF:\n' + JSON.stringify(schema));
 
-		//Find font-size for body of PDF
+			//Find font-size for body of PDF
 
-		//Create and make the PDF
-		let doc = set_up_doc(schema);
+			//Create and make the PDF
+			let doc = set_up_doc(schema);
 
-		const size = make_size(doc, schema);
-		console.log('PDF Font Size:', size);
-		
-		make_header(doc, schema);
-		console.log('!!!! Header made !!!!')
-		make_segments(doc, schema, size);
-		doc.end();
+			const size = make_size(doc, schema);
+			console.log('PDF Font Size:', size);
+			
+			make_header(doc, schema);
+			console.log('!!!! Header made !!!!')
+			make_segments(doc, schema, size);
+			doc.end();
 
-		//Add one to number of PDFs generated
-		add_one_to_count();
+			//Add one to number of PDFs generated
+			add_one_to_count();
 
-		console.log('PDF Generated with name: ' + schema.docname);
+			console.log('PDF Generated with name: ' + schema.docname);
 
-		return path.join('/backend/pdfs/' + schema.docname);
+			return path.join('/backend/pdfs/' + schema.docname);
+		},
+    	1000);
 	},
 
 	start_count: function set_og_file() {
