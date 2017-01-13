@@ -157,10 +157,8 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 
 	let text = line.content;
 	let cont = right_align !== '';
-	console.log('a');
 	//if there is a title, print it, and let the text continue
 	if (line.bullet){
-		console.log('b');
 		doc.font('Content Regular')
 			.fontSize(size)
 			.list([[line.content]], {
@@ -169,7 +167,6 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 				textIndent: 20,
 				midLine: 8
 			});
-		console.log('c');
 	} else {
 		if (line.title) {
 
@@ -189,25 +186,19 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 			doc.font('Content Italics');
 		}
 		else {
-			console.log('d');
 			doc.font('Content Regular');
-			console.log('e');
 		}
 
 		if (!line.content) {
-			console.log('f');
 			line.content = '';
-			console.log('g');
 		}
 
 		//print the text
-		console.log('h');
 		doc.fontSize(size)
 			.text(line.content, {
 				align: 'left',
 				continued: cont
 			});
-		console.log('i')
 
 		//if there is stuff on right align, print it
 		if(cont) {
@@ -232,18 +223,15 @@ const make_segments = function(doc, schema, size) {
 	for(let i = 0; i < schema.segments.length; i++) {
 		make_segment_title(doc, schema.segments[i].title, size);
 		doc.moveDown(0.3);
-		console.log('1');
 		//loop though each item
 		for(let j = 0; j < schema.segments[i].items.length; j++){
 			const location_text = make_city_state(schema, i, j);
 			const date_text = make_date(schema, i, j);
-			console.log('2');
 			let used_date = false;
 
 			//loop through each line
 			for (let k = 0; k < schema.segments[i].items[j].lines.length; k++) {
 				const line = schema.segments[i].items[j].lines[k];
-				console.log('3');
 				let right_align = '';
 				let RA_italics = false;
 				if (k === 0 && location_text) {
@@ -260,9 +248,7 @@ const make_segments = function(doc, schema, size) {
 					RA_italics = true;
 					right_align = date_text;
 				}
-				console.log('Before make_line() !!!!')
 				make_line(doc, line, right_align, RA_italics, size);
-				console.log('4');
 			}
 
 			doc.fontSize(size).moveDown(.3);
@@ -295,7 +281,6 @@ const getLines = function(line, size, docWidth) {
 		let bulletWidth = 36;
 		const docBulletWidth = docWidth - bulletWidth;
 
-		console.log('here:', width, docBulletWidth);
 		return Math.ceil(width / docBulletWidth);
 	}
 
@@ -308,7 +293,6 @@ const sizeFits = function(doc, schema, size) {
 	//base height: 792
 
 	const contactHeight = (headingFontSize * fontinfo[0]["ysize"]) + (contactFontSize * fontinfo[1]["ysize"] * 2);
-	console.log('!!!!!!!', contactHeight)
 	const docWidth = 612 - doc.page.margins.left - doc.page.margins.right;
 	const docHeight = 792 - doc.page.margins.top - doc.page.margins.bottom - contactHeight;
 
@@ -336,20 +320,16 @@ const sizeFits = function(doc, schema, size) {
 	const k = 1.137;
 	const c = 0.292;
 	const f = 1.209;
-	console.log(size, lines, items, segments, docHeight, size * ((lines * f) + (segments * k) + (items * c)));
 	return docHeight >= size * ((lines * f) + (segments * k) + (items * c));
 }
 
 //Make font size based on lines of text in the PDF
 //TODO count multiple lines of text
 const make_size = function(doc, schema) {
-	let start = (new Date()).getTime();
 	let size = 12;
 	while (!sizeFits(doc, schema, size)) {
 		size -= 0.1;
 	}
-
-	console.log('Time to make size:', ((new Date()).getTime() - start));
 	
 	if (size > 12) {
 		return 12;
@@ -407,7 +387,6 @@ const write_to_file = function(count){
 
 	//make file if not exist, aka first time
 	if (!fs.existsSync(filepath)){
-		console.log('Creating count.txt file');
 		fs.openSync(filepath, 'w');
 
 	    fs.writeFile(filepath, count, function (err) {});
@@ -432,10 +411,8 @@ module.exports = {
 		let doc = set_up_doc(schema);
 
 		const size = make_size(doc, schema);
-		console.log('PDF Font Size:', size);
 		
 		make_header(doc, schema);
-		console.log('!!!! Header made !!!!')
 		make_segments(doc, schema, size);
 		doc.end();
 
