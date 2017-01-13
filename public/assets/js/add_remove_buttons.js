@@ -1,32 +1,29 @@
 // Remove a field/section that has been added
 function delClone(item) {
 
-    // Confirm that they wish to delete field/section
-    if (confirm("Are you sure you wish to remove this field? This cannot be undone."))
-    {
-        /* Use clicked button's attributes to identify removal target and 
-           corresponding add button */
-        let targetID   = '#' + $(item).attr('for'),
-            targetAttr = $(targetID).attr('data-clone'),
-            btnAddPair = '#' + $(item).attr('data-btn-add'),
+    /* Use clicked button's attributes to identify removal target and 
+       corresponding add button */
+    let targetID   = '#' + $(item).attr('for'),
+        targetAttr = $(targetID).attr('data-clone'),
+        btnAddPair = '#' + $(item).attr('data-btn-add'),
 
-            // How many cloned input fields we currently have
-            num        = $("[data-clone='" + targetAttr + "']").length - 1;
+        // How many cloned input fields we currently have
+        num        = $("[data-clone='" + targetAttr + "']").length - 1;
 
-            // Remove the field/section (after slideUp animation is complete)
-            $('#' + targetAttr + num).slideUp(function () {
-                $(this).remove();
-            });
+        // Remove the field/section (after slideUp animation is complete)
+        $('#' + targetAttr + num).slideUp(function () {
+            $(this).remove();
+        });
 
-            // If only one element remains, disable the "remove" button
-            if (num === 1) {
-                $(item).attr('disabled', true);
-            }
+        // If only one element remains, disable the "remove" button
+        if (num === 1) {
+            $(item).attr('disabled', true);
+        }
 
-        // Enable the add button and change it's text to original value
-        let text = $(btnAddPair).attr('data-field');
-        $(btnAddPair).attr('disabled', false).val(text);
-    }
+    // Enable the add button and change it's text to original value
+    let text = $(btnAddPair).attr('data-field');
+    $(btnAddPair).attr('disabled', false).val(text);
+    
     return false;
 }
 
