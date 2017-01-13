@@ -35,8 +35,8 @@ $(function (){
             }
 
 	    	let universityObj = {
-                city      : $(university).find('.city').val(),
-                state     : $(university).find('.state').val(),
+                city      : $(university).find('.city').val() || '',
+                state     : $(university).find('.state').val() || '',
                 start_date: start_date,
                 end_date  : '',
                 lines: [
@@ -113,10 +113,16 @@ $(function (){
                 schema.segments.push(segmentEducation);
 	    	}
 	    	let highschool = '#highschool' + i;
+
+            let start_date = '';
+            if ($(highschool).find('.month').val() && $(highschool).find('.year').val()) {
+                start_date = $(highschool).find('.month').val() + " " + $(highschool).find('.year').val();
+            }
+
 	    	let highschoolObj = {
-                city      : $(highschool).find('.city').val(),
-                state     : $(highschool).find('.state').val(),
-                start_date: $(highschool).find('.month').val() + " " + $(highschool).find('.year').val(),
+                city      : $(highschool).find('.city').val() || '',
+                state     : $(highschool).find('.state').val() || '',
+                start_date: start_date,
                 end_date  : '',
                 lines: [
                     {
@@ -156,11 +162,22 @@ $(function (){
                 schema.segments.push(segmentProfExp);
 	    	}
 	    	let employer = '#employer' + i;
+
+            let start_date = '';
+            if ($(employer).find('.month').val() && $(employer).find('.year').val()) {
+                start_date = $(employer).find('.month').val() + " " + $(employer).find('.year').val();
+            }
+
+            let end_date = '';
+            if ($(employer).find('.monthEnd').val() + " " + $(employer).find('.yearEnd').val()) {
+                end_date = $(employer).find('.monthEnd').val() + " " + $(employer).find('.yearEnd').val();
+            }
+
 	    	let employerObj = {
-                city      : $(employer).find('.city').val(),
-                state     : $(employer).find('.state').val(),
-                start_date: $(employer).find('.monthStart').val() + " " + $(employer).find('.yearStart').val(),
-                end_date  : $(employer).find('.monthEnd').val() + " " + $(employer).find('.yearEnd').val(),
+                city      : $(employer).find('.city').val() || '',
+                state     : $(employer).find('.state').val() || '',
+                start_date: start_date,
+                end_date  : end_date,
                 lines: [
                     {
                         title  : $(employer).find('.name').val(),
@@ -192,11 +209,22 @@ $(function (){
                 schema.segments.push(segmentExtracur);
             }
             let activity = '#activity' + i;
+
+            let start_date = '';
+            if ($(activity).find('.month').val() && $(activity).find('.year').val()) {
+                start_date = $(activity).find('.month').val() + " " + $(activity).find('.year').val();
+            }
+
+            let end_date = '';
+            if ($(activity).find('.monthEnd').val() + " " + $(activity).find('.yearEnd').val()) {
+                end_date = $(activity).find('.monthEnd').val() + " " + $(activity).find('.yearEnd').val();
+            }
+
             let activityObj = {
                 city      : $(activity).find('.city').val(),
                 state     : $(activity).find('.state').val(),
-                start_date: $(activity).find('.monthStart').val() + " " + $(activity).find('.yearStart').val(),
-                end_date  : $(activity).find('.monthEnd').val() + " " + $(activity).find('.yearEnd').val(),
+                start_date: start_date,
+                end_date  : end_date,
                 lines: [
                     {
                         title  : $(activity).find('.name').val(),
@@ -256,8 +284,3 @@ $(function (){
         });
     });
 });
-
-
-
-
-

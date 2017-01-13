@@ -1,11 +1,11 @@
 'use strict';
 
-const PDFDocument = require('pdfkit');
+const PDFDocument = require('./pdfkit');
 const fs          = require('fs');
 const uuid        = require('uuid/v4');
 const path        = require('path');
 const mysql       = require('mysql');
-const gsheets     = require('./gsheets.js');
+const fontinfo    = require('./fontinfo.json');
 
 const headingFontSize = 27;
 const contactFontSize = 12;
@@ -148,7 +148,7 @@ const make_segment_title = function(doc, content) {
 			align: 'left'
 		});
 
-	draw_line(doc, doc.y);
+	draw_line(doc, doc.y + 1);
 };
 
 //Makes each item
@@ -158,61 +158,62 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 	let text = line.content;
 	let cont = right_align !== '';
 
-	//print the bullet first, if there is one
+	//if there is a title, print it, and let the text continue
 	if (line.bullet){
 		doc.font('Content Regular')
 			.fontSize(size)
-			.text(' ' + dot + ' ', {
+			.list([[line.content]], {
+				bulletRadius: 2,
+				bulletIndent: 15,
+				textIndent: 20,
+				midLine: 8
+			});
+	} else {
+		if (line.title) {
+
+			doc.font('Content Bold2')
+			.fontSize(size)
+			.text(line.title + ' ', {
 				align: 'left',
 				continued: true
 			});
-	}
+		}
 
-	//if there is a title, print it, and let the text continue
-	if (line.title) {
-
-		doc.font('Content Bold2')
-		.fontSize(size)
-		.text(line.title + ' ', {
-			align: 'left',
-			continued: true
-		});
-	}
-
-	//set up text font / styling
-	if (line.bold) {
-		doc.font('Content Bold2');
-	} 
-	else if (line.italics) {
-		doc.font('Content Italics');
-	}
-	else {
-		doc.font('Content Regular');
-	}
-
-	if (!line.content) {
-		line.content = '';
-	}
-
-	//print the text
-	doc.fontSize(size)
-		.text(line.content, {
-			align: 'left',
-			continued: cont
-		});
-
-	//if there is stuff on right align, print it
-	if(cont) {
-		if(RA_italics) {
+		//set up text font / styling
+		if (line.bold) {
+			doc.font('Content Bold2');
+		} 
+		else if (line.italics) {
 			doc.font('Content Italics');
-		} else {
+		}
+		else {
 			doc.font('Content Regular');
 		}
 
+		if (!line.content) {
+			line.content = '';
+		}
+
+		//print the text
 		doc.fontSize(size)
-			.text(right_align, {
-				align: 'right'
+			.text(line.content, {
+				align: 'left',
+				continued: cont
 			});
+
+		//if there is stuff on right align, print it
+		if(cont) {
+			if(RA_italics) {
+				doc.font('Content Italics');
+			} else {
+				doc.font('Content Regular');
+			}
+
+			doc.fontSize(size)
+				.text(right_align, {
+					align: 'right'
+				});
+		}
 	}
 };
 
@@ -222,6 +223,7 @@ const make_segments = function(doc, schema, size) {
 	//loop through each segment
 	for(let i = 0; i < schema.segments.length; i++) {
 		make_segment_title(doc, schema.segments[i].title, size);
+		doc.moveDown(0.2);
 
 		//loop though each item
 		for(let j = 0; j < schema.segments[i].items.length; j++){
@@ -259,26 +261,86 @@ const make_segments = function(doc, schema, size) {
 
 		doc.fontSize(size).moveDown(-1);
 	}
-};
+}
 
-//Make font size based on lines of text in the PDF
-//TODO count multiple lines of text
-const make_size = function(schema) {
+const getLines = function(line, size, docWidth) {
+	const defaultWidth = fontinfo[3]['W'];
 
-	//count number of lines
-	let total = 0;
-	for (let i = 0; i < schema.segments.length; i++){
-		total += 1;
+	//Length of the title of the line
+	let width = 0;
+	if (line.title) {
+		for (let i = 0; i < line.title.length; i++) {
+			width += (fontinfo[5][i] || defaultWidth) * size;
+		}
+	}
+
+	//Length of the content of the line
+	if (line.content) {
+		for (let i = 0; i < line.content.length; i++) {
+			width += (fontinfo[3][i] || defaultWidth) * size;
+		}
+	}
+
+	//If using bullet points make sure to space according to indent
+	if (line.bullet) {
+		let bulletWidth = 0;
+		for (let i = 0; i < dot.length; i++) {
+			bulletWidth += (fontinfo[3][dot.substring(i, i+1)] || defaultWidth) * size;
+		}
+		const docBulletWidth = docWidth - bulletWidth;
+
+		return Math.ceil(width / docBulletWidth);
+	}
+
+	//number of lines being used
+	return Math.ceil(width / docWidth);
+}
+
+const sizeFits = function(doc, schema, size) {
+	//base width: 612
+	//base height: 792
+
+	const contactHeight = (headingFontSize * fontinfo[0].ysize) + (contactFontSize * fontinfo[1].ysize * 2);
+
+	const docWidth = 612 - doc.page.margins.left - doc.page.margins.right;
+	const docHeight = 792 - doc.page.margins.top - contactHeight;
+
+	let segments = 0;
+	let items = 0;
+	let lines = 0;
+
+	//Cycle through segments
+	for (let i = 0; i < schema.segments.length; i++) {
+		segments++;
+
+		//Cycle through items
 		for (let j = 0; j < schema.segments[i].items.length; j++) {
-			total += 0.6;
+			items++;
+
+			//Cycle through lines
 			for (let k = 0; k < schema.segments[i].items[j].lines.length; k++) {
-				total += 1;
+
+				lines += getLines(schema.segments[i].items[j].lines[k], size, docWidth);
+
 			}
 		}
 	}
 
-	//Woring space / (#lines * font-multiplier)
-	const size = 670 / (total * 1.364);
+	const k = -1;
+	const c = 0.6;
+	return docHeight >= size * (lines + (segments * k) + (items * c));
+}
+
+//Make font size based on lines of text in the PDF
+//TODO count multiple lines of text
+const make_size = function(doc, schema) {
+	let start = (new Date()).getTime();
+	let size = 12;
+	while (!sizeFits(doc, schema, size)) {
+		size -= 0.1;
+	}
+
+	console.log('Time to make size:', ((new Date()).getTime() - start));
 	
 	if (size > 12) {
 		return 12;
@@ -287,7 +349,7 @@ const make_size = function(schema) {
 	} else {
 		return size;
 	}
-};
+}
 
 const make_mysql_connection = function() {
 	const connection = mysql.createConnection(process.env.JAWSDB_URL);
@@ -352,20 +414,18 @@ const write_to_file = function(count){
 module.exports = {
 	handler: function schema_to_pdf(schema) {
 
-		// console.log('Calling gsheets: ');
-		// gsheets.handler(schema);
-		// console.log('End call to ghsheets');
-
 		console.log('Generating a PDF:\n' + JSON.stringify(schema));
 
 		//Find font-size for body of PDF
-		const size = make_size(schema);
-		console.log('PDF Font Size:', size);
 
 		//Create and make the PDF
 		let doc = set_up_doc(schema);
+
+		const size = make_size(doc, schema);
+		console.log('PDF Font Size:', size);
+		
 		make_header(doc, schema);
-		make_segments(doc, schema, size);	
+		make_segments(doc, schema, size);
 		doc.end();
 
 		//Add one to number of PDFs generated
