@@ -45,6 +45,7 @@ const makeSize = function(doc, fonts, index) {
     for (let i = 0; i < letters.length; i++){
         doc.text(letters.substring(i, i+1), {continued: true});
         dict[letters.substring(i,i+1)] = doc._textOptions.textWidth;
+        console.log(doc._textOptions.textWidth);
     }
 
     return dict;
