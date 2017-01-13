@@ -286,7 +286,7 @@ const getLines = function(line, size, docWidth) {
 		let bulletWidth = 0;
 		const docBulletWidth = docWidth - bulletWidth;
 
-		console.log('here:', width)
+		console.log('here:', width, docBulletWidth)
 		return Math.ceil(width / docBulletWidth);
 	}
 
