@@ -173,7 +173,7 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 
 			doc.font('Content Bold2')
 			.fontSize(size)
-			.text(line.title + ' ', {
+			.text(line.title, {
 				align: 'left',
 				continued: true
 			});
