@@ -13,7 +13,8 @@ $(function (){
                     " " + ($('#contact').find('.zipcode').val() || ''),
 	        reach  : [
 	            $('#contact').find('.email').val() || '',
-	            $('#contact').find('.phone').val() || ''
+	            $('#contact').find('.phone').val() || '',
+                $('#contact').find('.website').val() || ''
 	        ]
 		};
 
