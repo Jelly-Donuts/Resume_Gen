@@ -223,7 +223,7 @@ const make_segments = function(doc, schema, size) {
 	//loop through each segment
 	for(let i = 0; i < schema.segments.length; i++) {
 		make_segment_title(doc, schema.segments[i].title, size);
-		doc.moveDown(0.1);
+		doc.moveDown(0.2);
 
 		//loop though each item
 		for(let j = 0; j < schema.segments[i].items.length; j++){
