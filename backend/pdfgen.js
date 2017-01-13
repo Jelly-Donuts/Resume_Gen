@@ -164,7 +164,8 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 			.fontSize(size)
 			.list([line.content], {
 				align: 'left',
-				bulletRadius: size
+				bulletRadius : 100,
+				bulletIndent : 10
 			});
 	} else {
 		if (line.title) {
@@ -426,7 +427,7 @@ module.exports = {
 		doc.end();
 
 		//Add one to number of PDFs generated
-		add_one_to_count();
+		// add_one_to_count();
 
 		console.log('PDF Generated with name: ' + schema.docname);
 
