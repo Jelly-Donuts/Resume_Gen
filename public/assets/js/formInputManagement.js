@@ -11,12 +11,14 @@ $(document).ready(function () {
     });
 });
 
-$('.monthEnd').change(function (){
-	if ($(this).val() === 'Present'){
-		$(this).parent().find('.yearEnd').attr('disabled', true);
-	} else {
-		$(this).parent().find('.yearEnd').attr('disabled', false);
-	}
+$('.btnAdd').click(function(){
+	$('.monthEnd').change(function (){
+		if ($(this).val() === 'Present'){
+			$(this).parent().find('.yearEnd').attr('disabled', true);
+		} else {
+			$(this).parent().find('.yearEnd').attr('disabled', false);
+		}
+	});
 });
 
 
