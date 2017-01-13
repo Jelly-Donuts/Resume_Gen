@@ -283,7 +283,7 @@ const getLines = function(line, size, docWidth) {
 
 	//If using bullet points make sure to space according to indent
 	if (line.bullet) {
-		let bulletWidth = 36;
+		let bulletWidth = 0;
 		const docBulletWidth = docWidth - bulletWidth;
 
 		return Math.ceil(width / docBulletWidth);
