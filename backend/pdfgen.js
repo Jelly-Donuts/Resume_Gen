@@ -307,8 +307,8 @@ const sizeFits = function(doc, schema, size) {
 	//base width: 612
 	//base height: 792
 
-	const contactHeight = (headingFontSize * fontinfo[0]['ysize']) + (contactFontSize * fontinfo[1]['ysize'] * 2);
-
+	const contactHeight = (headingFontSize * fontinfo[0]["ysize"]) + (contactFontSize * fontinfo[1]["ysize"] * 2);
+	console.log('!!!!!!!', fontinfo[0]["ysize"], fontinfo[1]["ysize"])
 	const docWidth = 612 - doc.page.margins.left - doc.page.margins.right;
 	const docHeight = 792 - doc.page.margins.top - doc.page.margins.bottom - contactHeight;
 
