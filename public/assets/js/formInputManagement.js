@@ -12,13 +12,15 @@ $(document).ready(function () {
 });
 
 $('.btnAdd').click(function(){
-	$('.monthEnd').change(function (){
-		if ($(this).val() === 'Present'){
-			$(this).parent().find('.yearEnd').attr('disabled', true);
-		} else {
-			$(this).parent().find('.yearEnd').attr('disabled', false);
-		}
-	});
+	setTimeout(function(){
+		$('.monthEnd').change(function (){
+			if ($(this).val() === 'Present'){
+				$(this).parent().find('.yearEnd').attr('disabled', true);
+			} else {
+				$(this).parent().find('.yearEnd').attr('disabled', false);
+			}
+		});
+	}, 2500); 
 });
 
 
