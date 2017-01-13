@@ -157,9 +157,10 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 
 	let text = line.content;
 	let cont = right_align !== '';
-
+	console.log('a');
 	//if there is a title, print it, and let the text continue
 	if (line.bullet){
+		console.log('b');
 		doc.font('Content Regular')
 			.fontSize(size)
 			.list([[line.content]], {
@@ -168,6 +169,7 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 				textIndent: 20,
 				midLine: 8
 			});
+		console.log('c');
 	} else {
 		if (line.title) {
 
@@ -187,19 +189,25 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 			doc.font('Content Italics');
 		}
 		else {
+			console.log('d');
 			doc.font('Content Regular');
+			console.log('e');
 		}
 
 		if (!line.content) {
+			console.log('f');
 			line.content = '';
+			console.log('g');
 		}
 
 		//print the text
+		console.log('h');
 		doc.fontSize(size)
 			.text(line.content, {
 				align: 'left',
 				continued: cont
 			});
+		console.log('i')
 
 		//if there is stuff on right align, print it
 		if(cont) {
