@@ -148,7 +148,7 @@ const make_segment_title = function(doc, content) {
 			align: 'left'
 		});
 
-	draw_line(doc, doc.y);
+	draw_line(doc, doc.y + 1);
 };
 
 //Makes each item
@@ -223,6 +223,7 @@ const make_segments = function(doc, schema, size) {
 	//loop through each segment
 	for(let i = 0; i < schema.segments.length; i++) {
 		make_segment_title(doc, schema.segments[i].title, size);
+		doc.moveDown(0.05);
 
 		//loop though each item
 		for(let j = 0; j < schema.segments[i].items.length; j++){
