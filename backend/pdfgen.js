@@ -446,7 +446,7 @@ module.exports = {
 
 			return path.join('/backend/pdfs/' + schema.docname);
 		},
-    	1000);
+    	10000);
 	},
 
 	start_count: function set_og_file() {
