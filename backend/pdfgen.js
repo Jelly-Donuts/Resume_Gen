@@ -277,7 +277,7 @@ const getLines = function(line, size, docWidth) {
 	//Length of the content of the line
 	if (line.content) {
 		for (let i = 0; i < line.content.length; i++) {
-			width += (fontinfo[3][i] || defaultWidth) * size;
+			width += (fontinfo[3][line.content[i]] || defaultWidth) * size;
 		}
 	}
 
