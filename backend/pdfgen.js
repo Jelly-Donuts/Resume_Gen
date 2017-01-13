@@ -270,7 +270,7 @@ const getLines = function(line, size, docWidth) {
 	let width = 0;
 	if (line.title) {
 		for (let i = 0; i < line.title.length; i++) {
-			width += (fontinfo[5][i] || defaultWidth) * size;
+			width += (fontinfo[5][line.title[i]] || defaultWidth) * size;
 		}
 	}
 
@@ -283,7 +283,7 @@ const getLines = function(line, size, docWidth) {
 
 	//If using bullet points make sure to space according to indent
 	if (line.bullet) {
-		let bulletWidth = 0;
+		let bulletWidth = 36;
 		const docBulletWidth = docWidth - bulletWidth;
 
 		console.log('here:', width, docBulletWidth);
