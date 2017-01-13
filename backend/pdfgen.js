@@ -1,6 +1,6 @@
 'use strict';
 
-const PDFDocument = require('pdfkit');
+const PDFDocument = require('./pdfkit');
 const fs          = require('fs');
 const uuid        = require('uuid/v4');
 const path        = require('path');
@@ -162,10 +162,11 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 	if (line.bullet){
 		doc.font('Content Regular')
 			.fontSize(size)
-			.list([line.content], {
-				align: 'left',
-				bulletRadius : 100,
-				bulletIndent : 10
+			.list([[line.content]], {
+				bulletRadius: 2,
+				bulletIndent: 15,
+				textIndent: 20,
+				midLine: 8
 			});
 	} else {
 		if (line.title) {
@@ -427,7 +428,7 @@ module.exports = {
 		doc.end();
 
 		//Add one to number of PDFs generated
-		// add_one_to_count();
+		add_one_to_count();
 
 		console.log('PDF Generated with name: ' + schema.docname);
 
