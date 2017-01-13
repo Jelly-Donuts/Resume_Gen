@@ -13,7 +13,8 @@ $(function (){
                     " " + ($('#contact').find('.zipcode').val() || ''),
 	        reach  : [
 	            $('#contact').find('.email').val() || '',
-	            $('#contact').find('.phone').val() || ''
+	            $('#contact').find('.phone').val() || '',
+                $('#contact').find('.website').val() || ''
 	        ]
 		};
 
@@ -263,7 +264,6 @@ $(function (){
             schema.segments[schema.segments.length - 1].items[0].lines.push(skillObj);
         }
 
-	    console.log(JSON.stringify(schema,null,2));
         e.preventDefault();
 
 	    $.ajax({

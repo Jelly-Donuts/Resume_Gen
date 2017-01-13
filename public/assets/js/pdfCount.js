@@ -5,7 +5,6 @@ $.get('/backend/count.txt', function(data){
 
 var countAnimation = function(){
     $('.count').each(function () {
-        console.log($(this).text());
         $(this).prop('Counter', 0).animate({
             Counter: $(this).text()
         }, {

@@ -157,7 +157,6 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 
 	let text = line.content;
 	let cont = right_align !== '';
-
 	//if there is a title, print it, and let the text continue
 	if (line.bullet){
 		doc.font('Content Regular')
@@ -224,18 +223,15 @@ const make_segments = function(doc, schema, size) {
 	for(let i = 0; i < schema.segments.length; i++) {
 		make_segment_title(doc, schema.segments[i].title, size);
 		doc.moveDown(0.3);
-
 		//loop though each item
 		for(let j = 0; j < schema.segments[i].items.length; j++){
 			const location_text = make_city_state(schema, i, j);
 			const date_text = make_date(schema, i, j);
-
 			let used_date = false;
 
 			//loop through each line
 			for (let k = 0; k < schema.segments[i].items[j].lines.length; k++) {
 				const line = schema.segments[i].items[j].lines[k];
-
 				let right_align = '';
 				let RA_italics = false;
 				if (k === 0 && location_text) {
@@ -252,7 +248,6 @@ const make_segments = function(doc, schema, size) {
 					RA_italics = true;
 					right_align = date_text;
 				}
-
 				make_line(doc, line, right_align, RA_italics, size);
 			}
 
@@ -270,23 +265,20 @@ const getLines = function(line, size, docWidth) {
 	let width = 0;
 	if (line.title) {
 		for (let i = 0; i < line.title.length; i++) {
-			width += (fontinfo[5][i] || defaultWidth) * size;
+			width += (fontinfo[5][line.title[i]] || defaultWidth) * size;
 		}
 	}
 
 	//Length of the content of the line
 	if (line.content) {
 		for (let i = 0; i < line.content.length; i++) {
-			width += (fontinfo[3][i] || defaultWidth) * size;
+			width += (fontinfo[3][line.content[i]] || defaultWidth) * size;
 		}
 	}
 
 	//If using bullet points make sure to space according to indent
 	if (line.bullet) {
-		let bulletWidth = 0;
-		for (let i = 0; i < dot.length; i++) {
-			bulletWidth += (fontinfo[3][dot.substring(i, i+1)] || defaultWidth) * size;
-		}
+		let bulletWidth = 36;
 		const docBulletWidth = docWidth - bulletWidth;
 
 		return Math.ceil(width / docBulletWidth);
@@ -300,10 +292,9 @@ const sizeFits = function(doc, schema, size) {
 	//base width: 612
 	//base height: 792
 
-	const contactHeight = (headingFontSize * fontinfo[0].ysize) + (contactFontSize * fontinfo[1].ysize * 2);
-
+	const contactHeight = (headingFontSize * fontinfo[0]["ysize"]) + (contactFontSize * fontinfo[1]["ysize"] * 2);
 	const docWidth = 612 - doc.page.margins.left - doc.page.margins.right;
-	const docHeight = 792 - doc.page.margins.top - contactHeight;
+	const docHeight = 792 - doc.page.margins.top - doc.page.margins.bottom - contactHeight;
 
 	let segments = 0;
 	let items = 0;
@@ -326,22 +317,19 @@ const sizeFits = function(doc, schema, size) {
 		}
 	}
 
-	const k = 0.2;
-	const c = 0.3;
-	console.log(docHeight, size * (lines + (segments * k) + (items * c)));
-	return docHeight >= size * (lines + (segments * k) + (items * c));
+	const k = 1.137;
+	const c = 0.292;
+	const f = 1.209;
+	return docHeight >= size * ((lines * f) + (segments * k) + (items * c));
 }
 
 //Make font size based on lines of text in the PDF
 //TODO count multiple lines of text
 const make_size = function(doc, schema) {
-	let start = (new Date()).getTime();
 	let size = 12;
 	while (!sizeFits(doc, schema, size)) {
 		size -= 0.1;
 	}
-
-	console.log('Time to make size:', ((new Date()).getTime() - start));
 	
 	if (size > 12) {
 		return 12;
@@ -399,7 +387,6 @@ const write_to_file = function(count){
 
 	//make file if not exist, aka first time
 	if (!fs.existsSync(filepath)){
-		console.log('Creating count.txt file');
 		fs.openSync(filepath, 'w');
 
 	    fs.writeFile(filepath, count, function (err) {});
@@ -415,6 +402,7 @@ const write_to_file = function(count){
 module.exports = {
 	handler: function schema_to_pdf(schema) {
 
+
 		console.log('Generating a PDF:\n' + JSON.stringify(schema));
 
 		//Find font-size for body of PDF
@@ -423,18 +411,18 @@ module.exports = {
 		let doc = set_up_doc(schema);
 
 		const size = make_size(doc, schema);
-		console.log('PDF Font Size:', size);
 		
 		make_header(doc, schema);
 		make_segments(doc, schema, size);
 		doc.end();
 
 		//Add one to number of PDFs generated
-		// add_one_to_count();
+		add_one_to_count();
 
 		console.log('PDF Generated with name: ' + schema.docname);
 
 		return path.join('/backend/pdfs/' + schema.docname);
+
 	},
 
 	start_count: function set_og_file() {
