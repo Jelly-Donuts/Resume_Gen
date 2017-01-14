@@ -68,7 +68,7 @@ $(function (){
 	   		// Honors and Awards
             let awardsObj = {};
 	    	for (let j = 1; j < $(university).find('.award').length ; j++) {
-                if (j == 1){
+                if (j === 1){
     	    		awardsObj.title = "Honors/Awards:";
                     awardsObj.content = '';
                 }
