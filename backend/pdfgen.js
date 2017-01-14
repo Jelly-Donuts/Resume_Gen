@@ -320,6 +320,8 @@ const sizeFits = function(doc, schema, size) {
 	const k = 1.137;
 	const c = 0.292;
 	const f = 1.209;
+	console.log(docHeight, size * ((lines * f) + (segments * k) + (items * c)));
+	console.log(size, lines, segments, items);
 	return docHeight >= size * ((lines * f) + (segments * k) + (items * c));
 }
 
