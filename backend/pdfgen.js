@@ -423,7 +423,7 @@ module.exports = {
 
 		console.log('PDF Generated with name: ' + schema.docname);
 
-		return path.join('/backend/pdfs/' + schema.docname);
+		return path.join('/pdf:' + schema.docname);
 
 	},
 
