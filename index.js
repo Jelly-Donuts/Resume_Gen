@@ -39,10 +39,6 @@ app.get('/pdfcount', function(request, response){
   response.sendFile(path.join(__dirname, '/backend/count.txt'));
 });
 
-// app.get('/pdfgen/', function(request, response){
-// 	response.render('pages/index')
-	// res.sendFile(path.join(__dirname, '/backend/pdfs', docName));
-// });
 
 //If no other express route captures path, return a 404 page
 app.use(function (req, res, next) {
