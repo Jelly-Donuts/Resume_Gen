@@ -269,10 +269,15 @@ $(function (){
         }
 
         e.preventDefault();
-
+        var win = window.open('');
+        window.oldOpen = window.open;
+        window.open = function(url) { // reassignment function
+            win.location = url;
+            window.open = oldOpen;
+            win.focus();
+        }
 	    $.ajax({
             url: '/pdfgen',
-            async: false,
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(schema),
@@ -281,10 +286,11 @@ $(function (){
                 $.get('/backend/count.txt', function(data){
                     document.getElementById('pdfcount').innerHTML = data;
                 });
-                window.open(data);
+                setTimeout(function(){
+                    window.open(data);
+                }, 0);
             },
-
-            error: function (xhr, ajaxOptions, thrownError) {alert('ERROR', xhr.responseText, thrownError);}
+            error: function(xhr, ajaxOptions, thrownError) {alert('ERROR', xhr.responseText, thrownError);}
         });
     });
 });

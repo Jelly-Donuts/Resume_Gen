@@ -165,7 +165,7 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 				bulletRadius: 2,
 				bulletIndent: 15,
 				textIndent: 20,
-				midLine: 8
+				midLine: 8 * (size/12)
 			});
 	} else {
 		if (line.title) {
@@ -319,7 +319,7 @@ const sizeFits = function(doc, schema, size) {
 
 	const k = 1.14;
 	const c = 0.3;
-	const f = 1.21;
+	const f = 1.28;
 	console.log(docHeight, size * ((lines * f) + (segments * k) + (items * c)));
 	console.log(size, lines, segments, items);
 	return docHeight >= size * ((lines * f) + (segments * k) + (items * c));

@@ -29,6 +29,7 @@ app.set('view engine', 'html');
 router.post('/pdfgen', function(req, res) {
     const response = pdfGen.handler(req.body);
     res.send(response);
+    console.log('response sent')
 });
 
 pdfGen.start_count();
@@ -38,10 +39,6 @@ app.get('/pdfcount', function(request, response){
   response.sendFile(path.join(__dirname, '/backend/count.txt'));
 });
 
-// app.get('/pdfgen/', function(request, response){
-// 	response.render('pages/index')
-	// res.sendFile(path.join(__dirname, '/backend/pdfs', docName));
-// });
 
 //If no other express route captures path, return a 404 page
 app.use(function (req, res, next) {
