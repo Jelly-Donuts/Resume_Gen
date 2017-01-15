@@ -34,7 +34,7 @@ const set_up_doc = function(schema) {
 	const doc = new PDFDocument({
 		margins : {
 			top:72, 
-			bottom:36, 
+			bottom:30, 
 			right:36, 
 			left:36
 		}
@@ -319,7 +319,7 @@ const sizeFits = function(doc, schema, size) {
 
 	const k = 1.14;
 	const c = 0.3;
-	const f = 1.28;
+	const f = 1.3;
 	console.log(docHeight, size * ((lines * f) + (segments * k) + (items * c)));
 	console.log(size, lines, segments, items);
 	return docHeight >= size * ((lines * f) + (segments * k) + (items * c));
