@@ -1,7 +1,11 @@
-pdfs/
-
 node_modules/
 
 .DS_STORE
 
 .DS_Store
+
+backend/count.txt
+
+count.txt
+
+config.json

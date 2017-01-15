@@ -12,7 +12,7 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use('/static', express.static(path.join(__dirname + '/public')));
 app.use('/backend', express.static(path.join(__dirname + '/backend')));
-app.use('/backend/pdfs', express.static(path.join(__dirname + '/backend/pdfs')));
+app.use('/pdf:', express.static(path.join(__dirname + '/backend/pdfs')));
 
 //Home Page Route
 router.get('/', function(req, res, next){

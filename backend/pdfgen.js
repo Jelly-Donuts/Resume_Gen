@@ -317,9 +317,11 @@ const sizeFits = function(doc, schema, size) {
 		}
 	}
 
-	const k = 1.137;
-	const c = 0.292;
-	const f = 1.209;
+	const k = 1.14;
+	const c = 0.3;
+	const f = 1.21;
+	console.log(docHeight, size * ((lines * f) + (segments * k) + (items * c)));
+	console.log(size, lines, segments, items);
 	return docHeight >= size * ((lines * f) + (segments * k) + (items * c));
 }
 
@@ -407,7 +409,7 @@ module.exports = {
 
 		//Find font-size for body of PDF
 
-		//Create and make the PDF
+		//Create and make the PDF.......Jeremy was here
 		let doc = set_up_doc(schema);
 
 		const size = make_size(doc, schema);
@@ -421,7 +423,7 @@ module.exports = {
 
 		console.log('PDF Generated with name: ' + schema.docname);
 
-		return path.join('/backend/pdfs/' + schema.docname);
+		return path.join('/pdf:/' + schema.docname);
 
 	},
 
