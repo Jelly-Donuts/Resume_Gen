@@ -29,6 +29,7 @@ app.set('view engine', 'html');
 router.post('/pdfgen', function(req, res) {
     const response = pdfGen.handler(req.body);
     res.send(response);
+    console.log('response sent')
 });
 
 pdfGen.start_count();
