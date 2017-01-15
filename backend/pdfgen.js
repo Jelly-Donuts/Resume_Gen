@@ -331,8 +331,9 @@ const make_size = function(doc, schema) {
 	let size = 12;
 	while (!sizeFits(doc, schema, size)) {
 		size -= 0.1;
-		if size <= 7.5:
-			break
+		if (size <= 7.5){
+			break;
+		}
 	}
 	
 	if (size > 12) {
