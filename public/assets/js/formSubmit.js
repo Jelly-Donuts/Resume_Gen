@@ -72,8 +72,6 @@ $(function (){
     	    		awardsObj.title = "Honors/Awards:";
                     awardsObj.content = '';
                 }
-	    		awardsObj.title = "Honors/Awards:";
-                awardsObj.content = '';
 	    		let awardID = university + 'award' + j;
 	    		if ($(university).find(awardID).find('.award').val()) {
 	    			if (j !== 1) {

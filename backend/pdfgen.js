@@ -260,6 +260,11 @@ const make_segments = function(doc, schema, size) {
 
 const getLines = function(line, size, docWidth) {
 	const defaultWidth = fontinfo[3]['W'];
+	let pageWidth      = docWidth;
+	if (line.bullet) {
+		let bulletWidth = 35;
+		pageWidth = docWidth - bulletWidth;
+	}
 
 	//Length of the title of the line
 	let width = 0;
@@ -271,21 +276,30 @@ const getLines = function(line, size, docWidth) {
 
 	//Length of the content of the line
 	if (line.content) {
-		for (let i = 0; i < line.content.length; i++) {
-			width += (fontinfo[3][line.content[i]] || defaultWidth) * size;
+		const words = line.content.split(' ');
+		console.log(words);
+		for (let i = 0; i < words.length; i++) {
+			let wordWidth = 0;
+			for (let j = 0; j < words[i].length; j++) {
+				wordWidth += (fontinfo[3][words[i][j]] || defaultWidth) * size;
+			}
+			if (i !== 0 && i < words.length - 1){
+				wordWidth += fontinfo[3][" "] * size;
+			}
+			if (width + wordWidth > Math.ceil((width + 0.001)/pageWidth)*pageWidth) {
+				console.log('Went Over: ', width, wordWidth, Math.ceil(width/pageWidth))
+				width = Math.ceil(width/pageWidth)*pageWidth + wordWidth;
+			}
+			else {
+				console.log('Same Line: ', width, wordWidth)
+				width += wordWidth;
+			}
 		}
 	}
 
-	//If using bullet points make sure to space according to indent
-	if (line.bullet) {
-		let bulletWidth = 36;
-		const docBulletWidth = docWidth - bulletWidth;
-
-		return Math.ceil(width / docBulletWidth);
-	}
-
 	//number of lines being used
-	return Math.ceil(width / docWidth);
+	console.log("!!!!!!!!",width, pageWidth, Math.ceil(width / pageWidth))
+	return Math.ceil(width / pageWidth);
 }
 
 const sizeFits = function(doc, schema, size) {
@@ -317,12 +331,14 @@ const sizeFits = function(doc, schema, size) {
 		}
 	}
 
-	const k = 1.14;
+	const k = 1.4;
+	console.log('ysize k:', k);
 	const c = 0.3;
-	const f = 1.28;
-	console.log(docHeight, size * ((lines * f) + (segments * k) + (items * c)));
-	console.log(size, lines, segments, items);
-	return docHeight >= size * ((lines * f) + (segments * k) + (items * c));
+	const f = 1.21;
+	console.log('ysize f:', f);
+	console.log(size, lines, segments, items, size * ((lines * f) + (12*(segments * k)/size) + (items * c)), docHeight);
+	console.log('Deets: ', size *(lines * f),size *(12*(segments * k)/size),size *(items * c))
+	return docHeight >= size * ((lines * f) + (12*(segments * k)/size) + (items * c));
 }
 
 //Make font size based on lines of text in the PDF
