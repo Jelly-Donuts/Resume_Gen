@@ -277,7 +277,6 @@ const getLines = function(line, size, docWidth) {
 	//Length of the content of the line
 	if (line.content) {
 		const words = line.content.split(' ');
-		console.log(words);
 		for (let i = 0; i < words.length; i++) {
 			let wordWidth = 0;
 			for (let j = 0; j < words[i].length; j++) {
@@ -287,18 +286,15 @@ const getLines = function(line, size, docWidth) {
 				wordWidth += fontinfo[3][" "] * size;
 			}
 			if (width + wordWidth > Math.ceil((width + 0.001)/pageWidth)*pageWidth) {
-				console.log('Went Over: ', width, wordWidth, Math.ceil(width/pageWidth))
 				width = Math.ceil(width/pageWidth)*pageWidth + wordWidth;
 			}
 			else {
-				console.log('Same Line: ', width, wordWidth)
 				width += wordWidth;
 			}
 		}
 	}
 
 	//number of lines being used
-	console.log("!!!!!!!!",width, pageWidth, Math.ceil(width / pageWidth))
 	return Math.ceil(width / pageWidth);
 }
 
@@ -332,12 +328,8 @@ const sizeFits = function(doc, schema, size) {
 	}
 
 	const k = 1.4;
-	console.log('ysize k:', k);
 	const c = 0.3;
 	const f = 1.21;
-	console.log('ysize f:', f);
-	console.log(size, lines, segments, items, size * ((lines * f) + (12*(segments * k)/size) + (items * c)), docHeight);
-	console.log('Deets: ', size *(lines * f),size *(12*(segments * k)/size),size *(items * c))
 	return docHeight >= size * ((lines * f) + (12*(segments * k)/size) + (items * c));
 }
 
