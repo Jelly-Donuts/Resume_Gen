@@ -2,7 +2,8 @@
 
 /* 
 Made with
-['/fonts/Didot.ttf','/fonts/OpenSans-Light.ttf','/fonts/Georgia Bold.ttf','/fonts/AvenirNext-Regular.ttf','/fonts/AvenirNext-Italic.ttf','/fonts/AvenirNext-Medium.ttf']
+['/fonts/Didot.ttf','/fonts/OpenSans-Light.ttf','/fonts/Georgia Bold.ttf',
+'/fonts/AvenirNext-Regular.ttf','/fonts/AvenirNext-Italic.ttf','/fonts/AvenirNext-Medium.ttf']
 as fonts
 */
 

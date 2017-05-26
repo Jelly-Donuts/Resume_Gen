@@ -64,7 +64,6 @@ const set_up_doc = function(schema) {
 	//Template 1:Font Sizes
 	doc.lineGap(-1);
 
-
 	return doc;
 };
 
@@ -210,6 +209,7 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 
 			doc.fontSize(size)
 				.text(right_align, {
+					lineBreak: false,
 					align: 'right'
 				});
 		}
@@ -378,13 +378,6 @@ const add_one_to_count = function() {
 		count = rows[0].n;
 		write_to_file(count + 1)
 	});
-
-	//If there is no value yet (new table) set it to 1
-	// if (result.length === 0) {
-	// 	connection.query('INSERT INTO `abc` VALUES (1)', function(err, rows, fields){
-	// 		if (err) console.log('MYSQL insert value fail');
-	// 	});
-	// }
 
 	//Increment value by 1
 	connection.query('UPDATE `abc` SET `n` = `n` + 1;', function(err, rows, fields) {
