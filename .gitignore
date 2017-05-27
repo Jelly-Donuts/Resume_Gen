@@ -13,3 +13,7 @@ backend/pdfs
 pdfs/
 
 config.json
+
+process.env
+
+*.env

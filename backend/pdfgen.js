@@ -64,7 +64,6 @@ const set_up_doc = function(schema) {
 	//Template 1:Font Sizes
 	doc.lineGap(-1);
 
-
 	return doc;
 };
 
@@ -158,24 +157,31 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 	let text = line.content;
 	let cont = right_align !== '';
 	//if there is a title, print it, and let the text continue
-	if (line.bullet){
+	if (line.bullet) {
 		doc.font('Content Regular')
 			.fontSize(size)
 			.list([[line.content]], {
 				bulletRadius: 2,
 				bulletIndent: 15,
 				textIndent: 20,
-				midLine: 8 * (size/12)
+				lineBreak: true,
+				midLine: 8 * (size/12),
 			});
 	} else {
-		if (line.title) {
-
+		if (line.title && cont) {
 			doc.font('Content Bold2')
-			.fontSize(size)
-			.text(line.title + ' ', {
-				align: 'left',
-				continued: true
-			});
+				.fontSize(size)
+				.text(line.title + ' ', {
+					align: 'left',
+					continued: true
+				});
+		} else if (line.title) {
+			doc.font('Content Bold2')
+				.fontSize(size)
+				.text(line.title + ' ', {
+					align: 'left',
+					continued: true
+				});
 		}
 
 		//set up text font / styling
@@ -193,11 +199,13 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 			line.content = '';
 		}
 
+		const needCont = !line.title && cont;
+
 		//print the text
 		doc.fontSize(size)
 			.text(line.content, {
 				align: 'left',
-				continued: cont
+				continued: needCont
 			});
 
 		//if there is stuff on right align, print it
@@ -210,7 +218,8 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 
 			doc.fontSize(size)
 				.text(right_align, {
-					align: 'right'
+					align: 'right',
+					continued: false
 				});
 		}
 	}
@@ -243,7 +252,7 @@ const make_segments = function(doc, schema, size) {
 					RA_italics = true;
 					right_align = date_text;
 				}
-				else if (k === 1 && !used_date) {
+				else if (k === 1 && !used_date && date_text) {
 					used_date = true;
 					RA_italics = true;
 					right_align = date_text;
@@ -379,13 +388,6 @@ const add_one_to_count = function() {
 		write_to_file(count + 1)
 	});
 
-	//If there is no value yet (new table) set it to 1
-	// if (result.length === 0) {
-	// 	connection.query('INSERT INTO `abc` VALUES (1)', function(err, rows, fields){
-	// 		if (err) console.log('MYSQL insert value fail');
-	// 	});
-	// }
-
 	//Increment value by 1
 	connection.query('UPDATE `abc` SET `n` = `n` + 1;', function(err, rows, fields) {
 		if (err) console.log('MYSQL update value fail');
@@ -415,7 +417,6 @@ const write_to_file = function(count){
 module.exports = {
 	handler: function schema_to_pdf(schema) {
 
-
 		console.log('Generating a PDF:\n' + JSON.stringify(schema));
 
 		//Find font-size for body of PDF
@@ -434,7 +435,7 @@ module.exports = {
 
 		console.log('PDF Generated with name: ' + schema.docname);
 
-		return path.join('/pdf:/' + schema.docname);
+		return path.join('/pdf/' + schema.docname);
 
 	},
 
