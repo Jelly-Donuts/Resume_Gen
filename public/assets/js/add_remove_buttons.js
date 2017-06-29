@@ -24,6 +24,14 @@ function delClone(item) {
     let text = $(btnAddPair).attr('data-field');
     $(btnAddPair).attr('disabled', false).val(text);
     
+    // Scroll section title to top when deleting first item.
+    if ( num === 1 ){
+        let scrollTo = $( '#' + targetAttr ).offset().top - 40,
+            delta    = Math.abs( scrollTo - $(document).scrollTop() );
+
+        $('html,body').animate({ scrollTop: scrollTo }, delta * 1.75);
+    }
+
     return false;
 }
 
@@ -96,12 +104,20 @@ function addClone(item) {
 
     }
 
-    // Enable the delete button after field/section has been added
+    // Enable the delete button after field/section has been added.
     $(btnDelPair).attr('disabled', false);
 
-    // Limit maximum amount of added fields
+    // Limit maximum amount of added fields.
     if (newNum === 5) {
         $(item).attr('disabled', true).val("Max Reached");
+    }
+
+    // Scroll section title to top when adding first item.
+    if ( num === 0 ){
+        let scrollTo = $( '#' + targetAttr ).offset().top - 40,
+            delta    = Math.abs( scrollTo - $(document).scrollTop() );
+
+        $('html,body').animate({ scrollTop: scrollTo }, delta * 1.75);
     }
 }
 

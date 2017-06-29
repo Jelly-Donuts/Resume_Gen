@@ -42,7 +42,7 @@ app.get('/pdfcount', function(request, response){
 
 //If no other express route captures path, return a 404 page
 app.use(function (req, res, next) {
-  res.status(404).send("Sorry can't find that!")
+  res.status(404).render('pages/404', { title: '404 Not Found'});
 })
 
 app.listen(app.get('port'), function() {

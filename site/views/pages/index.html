@@ -18,7 +18,7 @@
 			<h1 id="logo"><a href="/">RESUME BUILDER</a></h1>
 			<nav id="nav">
 				<ul>
-					<li><a href="/">Home</a></li>
+					<li><a href="https://github.com/Jelly-Donuts/Resume_Gen" class="icon fa-2x fa-github"></a></li>
 				</ul>
 			</nav>
 		</header>
@@ -57,27 +57,27 @@
 					<h3>Contact Information</h3>
 					<div class="row uniform 50%" id="contact">
 						<div class="6u 12u$(xsmall)">
-							<input type="text" class="firstname" placeholder="First Name" required="" />
+							<input type="text" class="firstname" name="firstname" placeholder="First Name" required="" />
 						</div>
 						<div class="6u$ 12u$(xsmall)">
-							<input type="text" class="lastname" placeholder="Last Name" required="" />
+							<input type="text" class="lastname" name="lastname" placeholder="Last Name" required="" />
 						</div>
 						<div class="4u 12u$(xsmall)">
-							<input type="email" class="email" placeholder="Email Address" />
+							<input type="email" class="email" name="email" placeholder="Email Address" />
 						</div>
 						<div class="4u 12u$(xsmall)">
-							<input type="tel" class="phone" placeholder="Phone Number">
+							<input type="tel" class="phone" name="phone" placeholder="Phone Number">
 						</div>
             <div class="4u$ 12u$(xsmall)">
-              <input type="text" class="website" placeholder="Wesbite">
+              <input type="text" class="website" name="website" placeholder="Wesbite">
             </div>
 
 						<div class="12u$ 12u$(xsmall)">
-							<input type="text" class="address" placeholder="Address">
+							<input type="text" class="address" name="address" placeholder="Address">
 						</div>
 
 						<div class="6u 6u(xsmall)">
-							<input type="text" class="city" placeholder="City">
+							<input type="text" class="city" name="city" placeholder="City">
 						</div>
 
 						<div class="2u 6u$(xsmall)">
@@ -148,7 +148,7 @@
 
 					<hr/>
 				<!-- Education -->
-					<h3 style="padding-top: 2rem">Education</h3>
+					<h3 id="university" style="padding-top: 2rem">Education</h3>
 
 					<!-- University -->
 					<div class="row uniform 50% hidden" style="width:100%; margin-right:0;" id="university0" data-clone="university">
@@ -436,7 +436,7 @@
 
 					<hr/>
 				<!-- Professional Experience -->
-					<h3 style="padding-top: 2rem">Professional Experience</h3>
+					<h3 id="employer" style="padding-top: 2rem">Professional Experience</h3>
 					<div class="row uniform 50% hidden" style="width:100%" id="employer0" data-clone="employer">
             <div class="12u$">
               <h5 class="align-left employer_heading">
@@ -598,7 +598,7 @@
           <hr/>
 
         <!-- Leadership and Extracurricular -->
-          <h3 style="padding-top: 2rem">Leadership and Extracurricular</h3>
+          <h3 id="activity" style="padding-top: 2rem">Leadership and Extracurricular</h3>
 	    	  <div class="row uniform 50% hidden" style="width:100%" id="activity0" data-clone="activity">
             <div class="12u$">
                 <h5 class="align-left activity_heading"></h5>
@@ -758,7 +758,7 @@
 					<hr/>
 
 				<!-- Skills -->
-					<h3 style="padding-top: 2rem">Skills</h3>
+					<h3 id="skill" style="padding-top: 2rem">Skills</h3>
 					<div class="row uniform 50% hidden" style="width:100%" id="skill0" data-clone="skill">
             <div class="12u$">
                 <h5 class="align-left skill_heading"></h5>
@@ -882,8 +882,7 @@
 		<!-- Footer -->
 			<div id="footer" style="padding-top:1em;">
 				<div class="copyright">
-					Made by Jeremy Barenholtz and Daniel Andrews (Jelly Donuts)<br/>
-					<a href="https://github.com/Jelly-Donuts/Resume_Gen"> (github.com/Jelly-Donuts/Resume_Gen)</a>
+					Made by Jeremy Barenholtz and Daniel Andrews &nbsp;<a class="icon fa-lg fa-github" href="https://github.com/Jelly-Donuts/Resume_Gen"></a>
 				</div>
 			</div>
 

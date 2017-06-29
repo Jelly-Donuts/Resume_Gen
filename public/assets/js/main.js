@@ -56,14 +56,14 @@
 						off:		function() { $header.removeClass('alt'); }
 					});
 
-					skel.on('change', function() {
+					// skel.on('change', function() {
 
-						if (skel.breakpoint('medium').active)
-							$banner.scrollwatchSuspend();
-						else
-							$banner.scrollwatchResume();
+					// 	if (skel.breakpoint('medium').active)
+					// 		$banner.scrollwatchSuspend();
+					// 	else
+					// 		$banner.scrollwatchResume();
 
-					});
+					// });
 
 				});
 
@@ -80,36 +80,35 @@
 			// Title Bar.
 				$(
 					'<div id="titleBar">' +
-						'<a href="#navPanel" class="toggle"></a>' +
 						'<span class="title">' + $('#logo').html() + '</span>' +
 					'</div>'
 				)
 					.appendTo($body);
 
-			// Navigation Panel.
-				$(
-					'<div id="navPanel">' +
-						'<nav>' +
-							$('#nav').navList() +
-						'</nav>' +
-					'</div>'
-				)
-					.appendTo($body)
-					.panel({
-						delay: 500,
-						hideOnClick: true,
-						hideOnSwipe: true,
-						resetScroll: true,
-						resetForms: true,
-						side: 'left',
-						target: $body,
-						visibleClass: 'navPanel-visible'
-					});
+			// // Navigation Panel.
+			// 	$(
+			// 		'<div id="navPanel">' +
+			// 			'<nav>' +
+			// 				$('#nav').navList() +
+			// 			'</nav>' +
+			// 		'</div>'
+			// 	)
+			// 		.appendTo($body)
+			// 		.panel({
+			// 			delay: 500,
+			// 			hideOnClick: true,
+			// 			hideOnSwipe: true,
+			// 			resetScroll: true,
+			// 			resetForms: true,
+			// 			side: 'left',
+			// 			target: $body,
+			// 			visibleClass: 'navPanel-visible'
+			// 		});
 
-			// Fix: Remove transitions on WP<10 (poor/buggy performance).
-				if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
-					$('#navPanel')
-						.css('transition', 'none');
+			// // Fix: Remove transitions on WP<10 (poor/buggy performance).
+			// 	if (skel.vars.os == 'wp' && skel.vars.osVersion < 10)
+			// 		$('#navPanel')
+			// 			.css('transition', 'none');
 
 	});
 
