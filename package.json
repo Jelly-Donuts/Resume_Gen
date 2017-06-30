@@ -3,7 +3,7 @@
   "version": "0.2.5",
   "description": "A resume builder",
   "engines": {
-    "node": "5.9.1"
+    "node": "7.10.0"
   },
   "main": "index.js",
   "scripts": {
