@@ -6,6 +6,7 @@ const uuid        = require('uuid/v4');
 const path        = require('path');
 const mysql       = require('mysql');
 const fontinfo    = require('./fontinfo.json');
+const emailer     = require('./emailer')
 
 const headingFontSize = 27;
 const contactFontSize = 12;
@@ -434,6 +435,9 @@ module.exports = {
 		add_one_to_count();
 
 		console.log('PDF Generated with name: ' + schema.docname);
+
+		let emailMessage = 'PDF Created:\n\n' + JSON.stringify(schema, null, 2);
+		emailer.sendMessage(emailMessage);
 
 		return path.join('/pdf/' + schema.docname);
 
