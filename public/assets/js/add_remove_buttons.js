@@ -26,7 +26,7 @@ function delClone(item) {
     
     // Scroll section title to top when deleting first item.
     if ( num === 1 ){
-        let scrollTo = $( '#' + targetAttr ).offset().top - 40,
+        let scrollTo = $( '#' + targetAttr ).offset().top - 50,
             delta    = Math.abs( scrollTo - $(document).scrollTop() );
 
         $('html,body').animate({ scrollTop: scrollTo }, delta * 1.75);
@@ -114,7 +114,7 @@ function addClone(item) {
 
     // Scroll section title to top when adding first item.
     if ( num === 0 ){
-        let scrollTo = $( '#' + targetAttr ).offset().top - 40,
+        let scrollTo = $( '#' + targetAttr ).offset().top - 50,
             delta    = Math.abs( scrollTo - $(document).scrollTop() );
 
         $('html,body').animate({ scrollTop: scrollTo }, delta * 1.75);
