@@ -196,7 +196,7 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 			doc.font('Content Regular');
 		}
 
-		if (!line.content) {
+		if (!line.content || line.content.indexOf('null') != -1) {
 			line.content = '';
 		}
 
@@ -216,6 +216,10 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 			} else {
 				doc.font('Content Regular');
 			}
+
+			if (!right_align || right_align.indexOf('null') != -1) {
+				right_align = '   ';
+			}				
 
 			doc.fontSize(size)
 				.text(right_align, {
