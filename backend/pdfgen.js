@@ -138,7 +138,6 @@ const make_date = function(schema, i, j) {
 };
 
 
-// !!!TODO!!! figure out how to draw line at correct position
 //Sets up the header for each segment in the doc
 const make_segment_title = function(doc, content) {
 	doc.font('Title')
@@ -229,7 +228,6 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 		}
 	}
 };
-
 
 //Goes through each of the segments and creates another section
 const make_segments = function(doc, schema, size) {
@@ -375,7 +373,7 @@ const make_mysql_connection = function() {
 }
 
 //Adds one to count of PDFs generated
-const add_one_to_count = function() {
+const add_one_to_count = function(callback) {
 
 	let count = 1;
 
@@ -383,19 +381,28 @@ const add_one_to_count = function() {
 
 	//Create new table if none
 	connection.query('CREATE TABLE IF NOT EXISTS `abc` (`n` int DEFAULT 1);', function(err, rows, fields) {
-		if (err) console.log('MYSQL create table fail');
+		if (err) {
+			console.log('MYSQL create table fail');
+			callback(null, error);
+		};
 	});
 
 	//Get the value of the current count
 	connection.query('SELECT `n` FROM `abc`', function(err, rows, fields) {
-		if (err) console.log('MYSQL select value fail');
+		if (err) {
+			console.log('MYSQL select value fail')
+			callback(null, error);
+		};
 		count = rows[0].n;
 		write_to_file(count + 1)
 	});
 
 	//Increment value by 1
 	connection.query('UPDATE `abc` SET `n` = `n` + 1;', function(err, rows, fields) {
-		if (err) console.log('MYSQL update value fail');
+		if (err) {
+			console.log('MYSQL update value fail');
+			callback(null, error);
+		};
 	});
 
 	connection.end();
@@ -412,7 +419,7 @@ const write_to_file = function(count){
 	    fs.writeFile(filepath, count, function (err) {});
 	}
 
-	const file = fs.readFileSync(filepath, 'utf-8');
+	const file = fs.readFileSync(filepath, 'utf8-');
 	fs.writeFileSync(filepath, count, 'utf-8');
 
 	console.log('Total Resumes Generated: ' + count);
@@ -436,7 +443,12 @@ module.exports = {
 		doc.end();
 
 		//Add one to number of PDFs generated
-		add_one_to_count();
+		add_one_to_count(function (res, err) {
+			if (err) {
+				console.log("Error in adding one to count");
+				return;
+			}
+		});
 
 		console.log('PDF Generated with name: ' + schema.docname);
 
