@@ -6,7 +6,7 @@ const uuid        = require('uuid/v4');
 const path        = require('path');
 const mysql       = require('mysql');
 const fontinfo    = require('./fontinfo.json');
-const emailer     = require('./emailer')
+const emailer     = require('./emailer');
 
 const headingFontSize = 27;
 const contactFontSize = 12;
@@ -34,9 +34,9 @@ const make_end_date = function(schema, i, j){
 const set_up_doc = function(schema) {
 	const doc = new PDFDocument({
 		margins : {
-			top:72, 
-			bottom:30, 
-			right:36, 
+			top:72,
+			bottom:30,
+			right:36,
 			left:36
 		}
 	});
@@ -110,7 +110,7 @@ const draw_line = function(doc, y) {
 //makes the text for the city and state
 const make_city_state = function(schema, i, j) {
 	if (has_city_and_state(schema, i, j)) {
-		return schema.segments[i].items[j].city + 
+		return schema.segments[i].items[j].city +
 			', ' + schema.segments[i].items[j].state;
 	}
 	else if(has_city(schema, i, j)) {
@@ -187,7 +187,7 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 		//set up text font / styling
 		if (line.bold) {
 			doc.font('Content Bold2');
-		} 
+		}
 		else if (line.italics) {
 			doc.font('Content Italics');
 		}
@@ -218,7 +218,7 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 
 			if (!right_align || right_align.indexOf('null') != -1) {
 				right_align = '   ';
-			}				
+			}
 
 			doc.fontSize(size)
 				.text(right_align, {
@@ -355,7 +355,7 @@ const make_size = function(doc, schema) {
 			break;
 		}
 	}
-	
+
 	if (size > 12) {
 		return 12;
 	} else if (size < 7.5) {
@@ -419,7 +419,7 @@ const write_to_file = function(count){
 	    fs.writeFile(filepath, count, function (err) {});
 	}
 
-	const file = fs.readFileSync(filepath, 'utf8-');
+	const file = fs.readFileSync(filepath, 'utf-8');
 	fs.writeFileSync(filepath, count, 'utf-8');
 
 	console.log('Total Resumes Generated: ' + count);
@@ -437,7 +437,7 @@ module.exports = {
 		let doc = set_up_doc(schema);
 
 		const size = make_size(doc, schema);
-		
+
 		make_header(doc, schema);
 		make_segments(doc, schema, size);
 		doc.end();
