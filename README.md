@@ -28,5 +28,6 @@ Build your own resume at https://buildaresume.herokuapp.com/
 
 
 ## Sample Resume
-![Sampe Resume]
-(http://imgur.com/a/48VLo)
+![Sample Resume][sampleResume]
+
+[sampleResume]: https://buildaresume.herokuapp.com/static/images/sampleResume.png "Sample Resume"
