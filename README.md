@@ -10,10 +10,10 @@ Build your own resume at https://buildaresume.herokuapp.com/
 
 
 ## Stack
-* HTML / CSS - basic web
+* HTML / CSS - the site
 * JavaScript - front end interactivity
 * MySQL - hosting the current pdf count
-* Express.js - connecting everything
+* Express.js - server routing
 * Node.js - backend
 * PDFKit - generating the actual PDFs
 * NodeMailer - site updates
@@ -22,7 +22,7 @@ Build your own resume at https://buildaresume.herokuapp.com/
 
 ## ToDo
 * Export to different formats
-* Persistant storage of generated resumes
+* Persistent storage of generated resumes
 * Autofill based on previously generated resumes from the site
 * Expanding text boxes
 
