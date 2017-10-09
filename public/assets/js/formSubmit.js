@@ -219,7 +219,7 @@ $(function (){
             }
 
             let end_date = '';
-            if ($(activity).find('.monthEnd').val() + " " + $(activity).find('.yearEnd').val()) {
+            if ($(activity).find('.monthEnd').val() && $(activity).find('.yearEnd').val()) {
                 end_date = $(activity).find('.monthEnd').val() + " " + $(activity).find('.yearEnd').val();
             }
 
