@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "body-parser": "^1.15.2",
-    "ejs": "2.4.1",
+    "ejs": "2.5.5",
     "express": "4.13.3",
     "gmail-send": "^1.2.10",
     "google-auth-library": "^0.10.0",
