@@ -7,11 +7,17 @@ const path        = require('path');
 const mysql       = require('mysql');
 const fontinfo    = require('./fontinfo.json');
 const emailer     = require('./emailer');
+const pdfText     = require('pdf-text');
+const Q           = require('q');
 
 const headingFontSize = 27;
 const contactFontSize = 12;
 
 const dot = ' • ';
+
+//Strings for tiny white text
+const startString = "start:";
+const endString = ":end";
 
 const has_city = function(schema, i, j){
 	return !!schema.segments[i].items[j].city;
@@ -270,6 +276,13 @@ const make_segments = function(doc, schema, size) {
 	}
 }
 
+//Adds the entire schema in tiny white text on bottom of pdf for reupload
+const make_small_text = function(doc, schema) {
+	doc.fontSize(1)
+		.fillColor("#FFFFFF")
+		.text(startString + JSON.stringify(schema) + endString, 0, 0);
+}
+
 const getLines = function(line, size, docWidth) {
 	const defaultWidth = fontinfo[3]['W'];
 	let pageWidth      = docWidth;
@@ -314,7 +327,8 @@ const sizeFits = function(doc, schema, size) {
 	//base width: 612
 	//base height: 792
 
-	const contactHeight = (headingFontSize * fontinfo[0]["ysize"]) + (contactFontSize * fontinfo[1]["ysize"] * 2);
+	const contactHeight = (headingFontSize * fontinfo[0]["ysize"]) + 
+				(contactFontSize * fontinfo[1]["ysize"] * 2);
 	const docWidth = 612 - doc.page.margins.left - doc.page.margins.right;
 	const docHeight = 792 - doc.page.margins.top - doc.page.margins.bottom - contactHeight;
 
@@ -346,7 +360,6 @@ const sizeFits = function(doc, schema, size) {
 }
 
 //Make font size based on lines of text in the PDF
-//TODO count multiple lines of text
 const make_size = function(doc, schema) {
 	let size = 12;
 	while (!sizeFits(doc, schema, size)) {
@@ -380,7 +393,8 @@ const add_one_to_count = function(callback) {
 	const connection = make_mysql_connection();
 
 	//Create new table if none
-	connection.query('CREATE TABLE IF NOT EXISTS `abc` (`n` int DEFAULT 1);', function(err, rows, fields) {
+	const create_query = 'CREATE TABLE IF NOT EXISTS `abc` (`n` int DEFAULT 1);'
+	connection.query(create_query, function(err, rows, fields) {
 		if (err) {
 			console.log('MYSQL create table fail');
 			callback(null, error);
@@ -388,7 +402,8 @@ const add_one_to_count = function(callback) {
 	});
 
 	//Get the value of the current count
-	connection.query('SELECT `n` FROM `abc`', function(err, rows, fields) {
+	const select_query = 'SELECT `n` FROM `abc`'
+	connection.query(select_query, function(err, rows, fields) {
 		if (err) {
 			console.log('MYSQL select value fail')
 			callback(null, error);
@@ -398,7 +413,8 @@ const add_one_to_count = function(callback) {
 	});
 
 	//Increment value by 1
-	connection.query('UPDATE `abc` SET `n` = `n` + 1;', function(err, rows, fields) {
+	const update_query = 'UPDATE `abc` SET `n` = `n` + 1;'
+	connection.query(update_query, function(err, rows, fields) {
 		if (err) {
 			console.log('MYSQL update value fail');
 			callback(null, error);
@@ -431,15 +447,14 @@ module.exports = {
 
 		console.log('Generating a PDF:\n' + JSON.stringify(schema));
 
-		//Find font-size for body of PDF
-
-		//Create and make the PDF.......Jeremy was here
+		//Create and make the PDF
 		let doc = set_up_doc(schema);
 
 		const size = make_size(doc, schema);
 
 		make_header(doc, schema);
 		make_segments(doc, schema, size);
+		make_small_text(doc, schema);
 		doc.end();
 
 		//Add one to number of PDFs generated
@@ -459,10 +474,37 @@ module.exports = {
 
 	},
 
+	upload_resume: function parse_info(pdf) {
+		var deferred = Q.defer();
+
+		var buffer = fs.readFileSync(pdf);
+		console.log(buffer);
+
+		Q.fcall(function() {
+			pdfText(buffer, function(err, chunks) {
+				if (err) {
+					deferred.reject(("ERROR, could not read PDF"));
+					return;
+				}
+				for (var i; i < chunks.length; i++) {
+					if (chunks[i].indexOf(startString) != -1 && chunks[i].indexOf(endString) != -1) {
+						console.log(chunks[i]);
+						deferred.resolve((chunks[i]));
+						return;
+					}
+				}
+				deferred.reject(("ERROR, could not find schema"));
+			});
+		});
+
+		return deferred.promise;
+	},
+
 	start_count: function set_og_file() {
 		const connection = make_mysql_connection();
 		//Get the value of the current count
-		connection.query('SELECT `n` FROM `abc`', function(err, rows, fields) {
+		const select_query = 'SELECT `n` FROM `abc`'
+		connection.query(select_query, function(err, rows, fields) {
 			if (err) console.log('MYSQL select value fail');
 			write_to_file(rows[0].n);
 		});
