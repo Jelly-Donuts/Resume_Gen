@@ -186,7 +186,7 @@ const make_line = function(doc, line, right_align, RA_italics, size) {
 				.fontSize(size)
 				.text(line.title + ' ', {
 					align: 'left',
-					continued: true
+					continued: false
 				});
 		}
 
