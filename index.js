@@ -1,5 +1,8 @@
 var pdfGen = require('./backend/pdfgen');
+var pdfRead = require('./backend/pdfreader');
 var path = require('path');
+var multer = require('multer');
+var multerupload = multer({ dest: 'backend/tmp/' })
 var express = require('express');
 var app = express();
 var router = express.Router();
@@ -31,6 +34,8 @@ router.post('/pdfgen', function(req, res) {
     res.send(response);
     console.log('response sent')
 });
+
+router.post('/pdfread', multerupload.any(), pdfRead.handler);
 
 pdfGen.start_count();
 
