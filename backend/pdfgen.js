@@ -6,7 +6,6 @@ const uuid        = require('uuid/v4');
 const path        = require('path');
 const mysql       = require('mysql');
 const fontinfo    = require('./fontinfo.json');
-const emailer     = require('./emailer');
 const pdfText     = require('pdf-text');
 const Q           = require('q');
 
@@ -466,9 +465,6 @@ module.exports = {
 		});
 
 		console.log('PDF Generated with name: ' + schema.docname);
-
-		let emailMessage = 'PDF Created:\n\n' + JSON.stringify(schema, null, 2);
-		emailer.sendMessage(emailMessage);
 
 		return path.join('/pdf/' + schema.docname);
 
