@@ -37,7 +37,7 @@ router.post('/pdfgen', function(req, res) {
 
 router.post('/pdfread', multerupload.any(), pdfRead.handler);
 
-pdfGen.start_count();
+// pdfGen.start_count();
 
 //Route for calling PDF Count!
 app.get('/pdfcount', function(request, response){
