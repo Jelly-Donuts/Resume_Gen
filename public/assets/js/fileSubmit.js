@@ -10,14 +10,13 @@ $(document).ready(function () {
             processData: false,
             data: fd,
             success: function(data) {
-                console.log(data);
                 fillForm(data);
             },
             error: function(xhr, ajaxOptions, thrownError) {
                 console.log(xhr);
                 console.log(ajaxOptions);
                 console.log(thrownError);
-                alert('ERROR', xhr.responseText, thrownError);
+                console.log('ERROR', xhr.responseText, thrownError);
             }
         });
     });
@@ -35,4 +34,30 @@ function fillForm(data) {
     $('#contact').find('.email').val(data.contact.reach[0]);
     $('#contact').find('.phone').val(data.contact.reach[1]);
     $('#contact').find('.website').val(data.contact.reach[2]);
+
+    for (let segment of data.segments) {
+        console.log(segment);
+        if (segment.title == 'EDUCATION') {
+            let formItem = "[data-clone='university']";
+            var index = 1;
+            for (let item of segment.items) {
+                // add new place to enter info
+                addClone('university');
+                const university = '#university' + index++;
+                
+                // set the city, state
+                $(university).find('.city').val(item.city);
+                $(university).find('.state').val(item.state);
+
+                // TODO: set start / end dates
+                //
+                //
+
+                // set university name
+                $(university).find('.name').val(item.lines[0].title);
+
+                
+            }
+        }
+    }
 }

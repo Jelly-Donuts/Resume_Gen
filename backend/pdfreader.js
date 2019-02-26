@@ -10,18 +10,23 @@ module.exports = {
 		let file = req.files[0];
 
 		// TODO: need to add a promise that returns something to show that pdf did not contain hidden JSON
+		let pdfData = "";
+
 		fs.readFile(file.path, (err, pdfBuffer) => {
 			new PdfReader().parseBuffer(pdfBuffer, function(err, item) {
-				if (item.text && item.text.length >= 6) {
-					if (item.text.substring(0, 6) == "start:" && item.text.substr(-4) == ":end") {
-						console.log(JSON.parse(item.text.slice(6, -4)))
-						res.send(JSON.parse(item.text.slice(6, -4)));
-
-						cmd.run('rm -rf ./tmp/*');
-						return;
-					}
+				if (item.text) {
+					pdfData += item.text;
 				}
 			});
-		});
+		})
+
+		// need to call this stuff once we have all pdfData
+		/*if (item.text.substring(0, 6) == "start:" && item.text.substr(-4) == ":end") {
+			console.log(JSON.parse(item.text.slice(6, -4)))
+			res.send(JSON.parse(item.text.slice(6, -4)));
+
+			cmd.run('rm -rf ./tmp/*');
+			return;
+		}*/
 	}
 }
