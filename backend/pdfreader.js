@@ -16,17 +16,19 @@ module.exports = {
 			new PdfReader().parseBuffer(pdfBuffer, function(err, item) {
 				if (item.text) {
 					pdfData += item.text;
+
+					let startIndex = pdfData.indexOf('start:');
+					let endIndex = pdfData.indexOf(':end');
+					if (startIndex > 0 && endIndex > 0) {
+						let pdfJSON = pdfData.slice(startIndex+6, endIndex);
+						
+						res.send(JSON.parse(pdfJSON));
+
+						cmd.run('rm -rf ./tmp/*');
+						return;
+					}
 				}
 			});
 		})
-
-		// need to call this stuff once we have all pdfData
-		/*if (item.text.substring(0, 6) == "start:" && item.text.substr(-4) == ":end") {
-			console.log(JSON.parse(item.text.slice(6, -4)))
-			res.send(JSON.parse(item.text.slice(6, -4)));
-
-			cmd.run('rm -rf ./tmp/*');
-			return;
-		}*/
 	}
 }
