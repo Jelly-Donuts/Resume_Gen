@@ -38,25 +38,41 @@ function fillForm(data) {
     for (let segment of data.segments) {
         console.log(segment);
         if (segment.title == 'EDUCATION') {
-            let formItem = "[data-clone='university']";
-            var index = 1;
+            let high_index = 1;
+            let uni_index = 1;
+
             for (let item of segment.items) {
-                // add new place to enter info
-                addClone('university');
-                const university = '#university' + index++;
-                
-                // set the city, state
-                $(university).find('.city').val(item.city);
-                $(university).find('.state').val(item.state);
+                let tag = '';
 
-                // TODO: set start / end dates
-                //
-                //
+                if (item.lines[1].content.split('School Diploma').length > 1) {
+                    // High School
+                    addClone($('#btnAdd_Highschool'));
+                    tag = '#highscool' + high_index++;
 
-                // set university name
-                $(university).find('.name').val(item.lines[0].title);
+                    const gpa = item.lines[1].split('GPA ');
 
-                
+                    $(tag).find('.gpa').val(gpa.length > 0 ? gpa[1] : '');
+                } else {
+                    // University
+                    addClone($('#btnAdd_University'));
+                    tag = '#university' + uni_index++;
+
+                    const degree = item.lines[1].content.split(' in ');
+                    
+                    $(tag).find('.degree').val(degree.length == 2 ? degree[0] : '');
+                    $(tag).find('.major').val(degree.length == 2 ? degree[1] : '');
+                    $(tag).find('.gpa').val(item.lines[2].content);
+                }
+
+                if (tag) {
+                    const dates = item.start_date.split(' ');
+
+                    $(tag).find('.name').val(item.lines[0].title);
+                    $(tag).find('.city').val(item.city);
+                    $(tag).find('.state').val(item.state);
+                    $(tag).find('.month').val(dates.length == 2 ? dates[0] : '');
+                    $(tag).find('.year').val(dates.length == 2 ? dates[1] : '');
+                }
             }
         }
     }

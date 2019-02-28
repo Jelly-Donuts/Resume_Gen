@@ -19,7 +19,7 @@ app.use('/pdf', express.static(path.join(__dirname + '/backend/pdfs')));
 
 //Home Page Route
 router.get('/', function(req, res, next){
-	res.render('pages/index', { title: 'Resume Builder'})
+	res.render('pages/index', {title: 'Resume Builder'})
 });
 app.use('/', router);
 
