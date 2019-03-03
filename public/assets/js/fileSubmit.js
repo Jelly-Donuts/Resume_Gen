@@ -38,42 +38,94 @@ function fillForm(data) {
     for (let segment of data.segments) {
         console.log(segment);
         if (segment.title == 'EDUCATION') {
-            let high_index = 1;
-            let uni_index = 1;
+            fillEducation(segment);
+        } else if (segment.title == 'PROFESSIONAL EXPERIENCE') {
+            fillProfessional(segment);
+        }
+    }
+}
 
-            for (let item of segment.items) {
-                let tag = '';
+function fillEducation(segment) {
+    let high_index = 1;
+    let uni_index = 1;
 
-                if (item.lines[1].content.split('School Diploma').length > 1) {
-                    // High School
-                    addClone($('#btnAdd_Highschool'));
-                    tag = '#highscool' + high_index++;
+    for (let item of segment.items) {
+        let tag = '';
+        let awards = null;
 
-                    const gpa = item.lines[1].split('GPA ');
+        if (item.lines[1].content.split('Diploma').length > 1) {
+            // High School
+            $('#btnAdd_Highschool').click();
+            tag = '#highschool' + high_index++;
 
-                    $(tag).find('.gpa').val(gpa.length > 0 ? gpa[1] : '');
-                } else {
-                    // University
-                    addClone($('#btnAdd_University'));
-                    tag = '#university' + uni_index++;
+            const gpa = item.lines[1].content.split('GPA ');
+            awards = item.lines[2].content.split(', ')
 
-                    const degree = item.lines[1].content.split(' in ');
-                    
-                    $(tag).find('.degree').val(degree.length == 2 ? degree[0] : '');
-                    $(tag).find('.major').val(degree.length == 2 ? degree[1] : '');
-                    $(tag).find('.gpa').val(item.lines[2].content);
-                }
+            $(tag).find('.gpa').val(gpa.length > 0 ? gpa[1] : '');
+        } else {
+            // University
+            $('#btnAdd_University').click();
+            tag = '#university' + uni_index++;
 
-                if (tag) {
-                    const dates = item.start_date.split(' ');
+            const degree = item.lines[1].content.split(' in ');
+            awards = item.lines[3].content.split(', ');
+            
+            $(tag).find('.degree').val(degree.length == 2 ? degree[0] : '');
+            $(tag).find('.major').val(degree.length == 2 ? degree[1] : '');
+            $(tag).find('.gpa').val(item.lines[2].content);
 
-                    $(tag).find('.name').val(item.lines[0].title);
-                    $(tag).find('.city').val(item.city);
-                    $(tag).find('.state').val(item.state);
-                    $(tag).find('.month').val(dates.length == 2 ? dates[0] : '');
-                    $(tag).find('.year').val(dates.length == 2 ? dates[1] : '');
-                }
+            const courseAddTag = tag + "btnAdd1";
+            const courses = item.lines[4].content.split(', ')
+            for (let i = 0; i < courses.length; i++) {
+                $(courseAddTag).click();
+                $($(tag).find('.course')[i+1]).val(courses[i]);
             }
+        }
+
+        if (tag) {
+            const dates = item.start_date.split(' ');
+
+            $(tag).find('.name').val(item.lines[0].title);
+            $(tag).find('.city').val(item.city);
+            $(tag).find('.state').val(item.state);
+            $(tag).find('.month').val(dates.length == 2 ? dates[0] : '');
+            $(tag).find('.year').val(dates.length == 2 ? dates[1] : '');
+
+            const awardAddTag = tag + "btnAdd0";
+            for (let i = 0; i < awards.length; i++) {
+                $(awardAddTag).click();
+                $($(tag).find('.award')[i+1]).val(awards[i]);
+            }
+        }
+    }
+}
+
+function fillProfessional(segment) {
+    let index = 1;
+
+    for (let item of segment.items) {
+        $('#btnAdd_Employer').click();
+        const tag = '#employer' + index++;
+
+        const start_dates = item.start_date.split(' ');
+        const end_dates = item.end_date.split(' ');
+
+        $(tag).find('.name').val(item.lines[0].title);
+        $(tag).find('.city').val(item.city);
+        $(tag).find('.state').val(item.state);
+        $(tag).find('.position').val(item.lines[1].content);
+        $(tag).find('.monthStart').val(start_dates.length == 2 ? start_dates[0] : '');
+        $(tag).find('.yearStart').val(start_dates.length == 2 ? start_dates[1] : '');
+        $(tag).find('.monthEnd').val(end_dates.length == 2 ? end_dates[0] : '');
+        $(tag).find('.yearEnd').val(end_dates.length == 2 ? end_dates[1] : '');
+
+        const descAddTag = tag + 'btnAdd0';
+        for (let i = 2; i < item.lines.length; i++) {
+            if (i > 2) {
+                $(descAddTag).click();
+            }
+
+            $($(tag).find('.content')[i-2]).val(item.lines[i].content);
         }
     }
 }
