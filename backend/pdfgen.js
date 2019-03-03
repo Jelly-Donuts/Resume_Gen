@@ -458,12 +458,12 @@ module.exports = {
 		doc.end();
 
 		// Add one to number of PDFs generated
-		// add_one_to_count(function (res, err) {
-		// 	if (err) {
-		// 		console.log("Error in adding one to count");
-		// 		return;
-		// 	}
-		// });
+		add_one_to_count(function (res, err) {
+			if (err) {
+				console.log("Error in adding one to count");
+				return;
+			}
+		});
 
 		console.log('PDF Generated with name: ' + schema.docname);
 

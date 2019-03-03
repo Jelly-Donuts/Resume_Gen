@@ -76,7 +76,7 @@ function fillEducation(segment) {
             
             $(tag).find('.degree').val(degree.length == 2 ? degree[0] : '');
             $(tag).find('.major').val(degree.length == 2 ? degree[1] : '');
-            $(tag).find('.gpa').val(item.lines[2].content);
+            $(tag).find('.gpa').val(item.lines[2].content ? item.lines[2].content.split('GPA ')[1] : '');
 
             const courseAddTag = tag + "btnAdd1";
             const courses = item.lines[4].content.split(', ')
@@ -86,20 +86,12 @@ function fillEducation(segment) {
             }
         }
 
-        if (tag) {
-            const dates = item.start_date.split(' ');
+        addBasics(tag, item);
 
-            $(tag).find('.name').val(item.lines[0].title);
-            $(tag).find('.city').val(item.city);
-            $(tag).find('.state').val(item.state);
-            $(tag).find('.month').val(dates.length == 2 ? dates[0] : '');
-            $(tag).find('.year').val(dates.length == 2 ? dates[1] : '');
-
-            const awardAddTag = tag + "btnAdd0";
-            for (let i = 0; i < awards.length; i++) {
-                $(awardAddTag).click();
-                $($(tag).find('.award')[i+1]).val(awards[i]);
-            }
+        const awardAddTag = tag + "btnAdd0";
+        for (let i = 0; i < awards.length; i++) {
+            $(awardAddTag).click();
+            $($(tag).find('.award')[i+1]).val(awards[i]);
         }
     }
 }
@@ -111,17 +103,7 @@ function fillProfessional(segment) {
         $('#btnAdd_Employer').click();
         const tag = '#employer' + index++;
 
-        const start_dates = item.start_date.split(' ');
-        const end_dates = item.end_date.split(' ');
-
-        $(tag).find('.name').val(item.lines[0].title);
-        $(tag).find('.city').val(item.city);
-        $(tag).find('.state').val(item.state);
-        $(tag).find('.position').val(item.lines[1].content);
-        $(tag).find('.monthStart').val(start_dates.length == 2 ? start_dates[0] : '');
-        $(tag).find('.yearStart').val(start_dates.length == 2 ? start_dates[1] : '');
-        $(tag).find('.monthEnd').val(end_dates.length == 2 ? end_dates[0] : '');
-        $(tag).find('.yearEnd').val(end_dates.length == 2 ? end_dates[1] : '');
+        addBasics(tag, item);
 
         const descAddTag = tag + 'btnAdd0';
         for (let i = 2; i < item.lines.length; i++) {
@@ -141,17 +123,7 @@ function fillLeadership(segment) {
         $('#btnAdd_Activity').click();
         const tag = '#activity' + index++;
 
-        const start_dates = item.start_date.split(' ');
-        const end_dates = item.end_date.split(' ');
-
-        $(tag).find('.name').val(item.lines[0].title);
-        $(tag).find('.city').val(item.city);
-        $(tag).find('.state').val(item.state);
-        $(tag).find('.position').val(item.lines[1].content);
-        $(tag).find('.monthStart').val(start_dates.length == 2 ? start_dates[0] : '');
-        $(tag).find('.yearStart').val(start_dates.length == 2 ? start_dates[1] : '');
-        $(tag).find('.monthEnd').val(end_dates.length == 2 ? end_dates[0] : '');
-        $(tag).find('.yearEnd').val(end_dates.length == 2 ? end_dates[1] : '');
+        addBasics(tag, item);
 
         const descAddTag = tag + 'btnAdd0';
         for (let i = 2; i < item.lines.length; i++) {
@@ -174,4 +146,18 @@ function fillSkills(skills) {
         $(tag).find('.category').val(skill.title.slice(0,-1));
         $(tag).find('textarea').val(skill.content);
     }
+}
+
+function addBasics(tag, item) {
+    const start_dates = item.start_date.split(' ');
+    const end_dates = item.end_date.split(' ');
+
+    $(tag).find('.name').val(item.lines[0].title);
+    $(tag).find('.city').val(item.city);
+    $(tag).find('.state').val(item.state);
+    $(tag).find('.position').val(item.lines[1].content);
+    $(tag).find('.monthStart').val(start_dates.length == 2 ? start_dates[0] : '');
+    $(tag).find('.yearStart').val(start_dates.length == 2 ? start_dates[1] : '');
+    $(tag).find('.monthEnd').val(end_dates.length == 2 ? end_dates[0] : '');
+    $(tag).find('.yearEnd').val(end_dates.length == 2 ? end_dates[1] : '');
 }
