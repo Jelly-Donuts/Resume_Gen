@@ -41,6 +41,10 @@ function fillForm(data) {
             fillEducation(segment);
         } else if (segment.title == 'PROFESSIONAL EXPERIENCE') {
             fillProfessional(segment);
+        } else if (segment.title == 'LEADERSHIP AND EXTRACURRICULAR') {
+            fillLeadership(segment);
+        } else if (segment.title == 'SKILLS') {
+            fillSkills(segment.items[0].lines);
         }
     }
 }
@@ -127,5 +131,47 @@ function fillProfessional(segment) {
 
             $($(tag).find('.content')[i-2]).val(item.lines[i].content);
         }
+    }
+}
+
+function fillLeadership(segment) {
+    let index = 1;
+
+    for (item of segment.items) {
+        $('#btnAdd_Activity').click();
+        const tag = '#activity' + index++;
+
+        const start_dates = item.start_date.split(' ');
+        const end_dates = item.end_date.split(' ');
+
+        $(tag).find('.name').val(item.lines[0].title);
+        $(tag).find('.city').val(item.city);
+        $(tag).find('.state').val(item.state);
+        $(tag).find('.position').val(item.lines[1].content);
+        $(tag).find('.monthStart').val(start_dates.length == 2 ? start_dates[0] : '');
+        $(tag).find('.yearStart').val(start_dates.length == 2 ? start_dates[1] : '');
+        $(tag).find('.monthEnd').val(end_dates.length == 2 ? end_dates[0] : '');
+        $(tag).find('.yearEnd').val(end_dates.length == 2 ? end_dates[1] : '');
+
+        const descAddTag = tag + 'btnAdd0';
+        for (let i = 2; i < item.lines.length; i++) {
+            if (i > 2) {
+                $(descAddTag).click();
+            }
+
+            $($(tag).find('.content')[i-2]).val(item.lines[i].content);
+        }
+    }
+}
+
+function fillSkills(skills) {
+    let index = 1;
+
+    for (let skill of skills) {
+        $('#btnAdd_Skill').click();
+        const tag = '#skill' + index++;
+
+        $(tag).find('.category').val(skill.title.slice(0,-1));
+        $(tag).find('textarea').val(skill.content);
     }
 }
