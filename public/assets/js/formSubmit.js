@@ -31,8 +31,8 @@ $(function (){
 	    	const university = '#university' + i;
 
             let start_date = '';
-            if ($(university).find('.month').val() && $(university).find('.year').val()) {
-                start_date = $(university).find('.month').val() + " " + $(university).find('.year').val();
+            if ($(university).find('.monthStart').val() && $(university).find('.yearStart').val()) {
+                start_date = $(university).find('.monthStart').val() + " " + $(university).find('.yearStart').val();
             }
 
 	    	let universityObj = {
@@ -118,8 +118,8 @@ $(function (){
 	    	let highschool = '#highschool' + i;
 
             let start_date = '';
-            if ($(highschool).find('.month').val() && $(highschool).find('.year').val()) {
-                start_date = $(highschool).find('.month').val() + " " + $(highschool).find('.year').val();
+            if ($(highschool).find('.monthStart').val() && $(highschool).find('.yearStart').val()) {
+                start_date = $(highschool).find('.monthStart').val() + " " + $(highschool).find('.yearStart').val();
             }
 
 	    	let highschoolObj = {

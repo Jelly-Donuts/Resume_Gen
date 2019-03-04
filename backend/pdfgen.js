@@ -456,7 +456,7 @@ module.exports = {
 		make_small_text(doc, schema);
 		doc.end();
 
-		//Add one to number of PDFs generated
+		// Add one to number of PDFs generated
 		add_one_to_count(function (res, err) {
 			if (err) {
 				console.log("Error in adding one to count");

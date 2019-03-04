@@ -11,3 +11,7 @@ config.json
 .env
 
 backend/count.txt
+
+tmp/*
+
+backend/tmp/*

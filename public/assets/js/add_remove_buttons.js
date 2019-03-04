@@ -113,7 +113,7 @@ function addClone(item) {
     }
 
     // Scroll section title to top when adding first item.
-    if ( num === 0 ){
+    if ( num === 0 && $( '#' + targetAttr ).offset() ){
         let scrollTo = $( '#' + targetAttr ).offset().top - 50,
             delta    = Math.abs( scrollTo - $(document).scrollTop() );
 
