@@ -16,7 +16,6 @@ Build your own resume at https://buildaresume.herokuapp.com/
 * Express.js - server routing
 * Node.js - backend
 * PDFKit - generating the actual PDFs
-* NodeMailer - site updates
 * Heroku - free server
 
 
